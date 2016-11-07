@@ -1,0 +1,28 @@
+*~
+# Mac OS X
+*.DS_Store
+.DS_Store
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+ignore.h
+
+# Generated files
+*.o
+*.pyc
+
+#Python modules
+settings.py
+MANIFEST
+dist/
+build/
+
+# Backup files
+*~.nib
+
