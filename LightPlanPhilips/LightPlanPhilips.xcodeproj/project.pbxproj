@@ -13,6 +13,11 @@
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
 		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
 		03BB03261DD0C89800AD5069 /* A1.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03251DD0C89800AD5069 /* A1.0.png */; };
+		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
+		9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A41DD3814400DE07EA /* RoomScene.swift */; };
+		9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9C4884A61DD3816800DE07EA /* RoomScene.sks */; };
+		9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A81DD3829100DE07EA /* RoomViewController.swift */; };
+		9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C981AFE1DD4897C00D3DDAF /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03BB03251DD0C89800AD5069 /* A1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.0.png; sourceTree = "<group>"; };
+		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
+		9C4884A41DD3814400DE07EA /* RoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
+		9C4884A61DD3816800DE07EA /* RoomScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomScene.sks; sourceTree = "<group>"; };
+		9C4884A81DD3829100DE07EA /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		9C981AFE1DD4897C00D3DDAF /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,11 @@
 				03BB03241DD0C84600AD5069 /* 161031_Concept flows.pdf */,
 				03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */,
 				03BB031E1DD0C75B00AD5069 /* Info.plist */,
+				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
+				9C4884A41DD3814400DE07EA /* RoomScene.swift */,
+				9C4884A61DD3816800DE07EA /* RoomScene.sks */,
+				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
+				9C981AFE1DD4897C00D3DDAF /* DataSource.swift */,
 			);
 			path = LightPlanPhilips;
 			sourceTree = "<group>";
@@ -138,6 +153,7 @@
 				03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */,
 				03BB03261DD0C89800AD5069 /* A1.0.png in Resources */,
 				03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */,
+				9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */,
 				03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,7 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */,
+				9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */,
+				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
 				03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */,
+				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +334,7 @@
 				03BB03231DD0C75B00AD5069 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
