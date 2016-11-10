@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784D1DD3ADB7003812A7 /* LightType.swift */; };
+		030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784F1DD3AE32003812A7 /* DataLightPlan.swift */; };
+		030878551DD3B402003812A7 /* Dining.png in Resources */ = {isa = PBXBuildFile; fileRef = 030878521DD3B402003812A7 /* Dining.png */; };
+		030878561DD3B402003812A7 /* Floorstand.png in Resources */ = {isa = PBXBuildFile; fileRef = 030878531DD3B402003812A7 /* Floorstand.png */; };
+		030878571DD3B402003812A7 /* Pendant.png in Resources */ = {isa = PBXBuildFile; fileRef = 030878541DD3B402003812A7 /* Pendant.png */; };
+		030878771DD48AE5003812A7 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878761DD48AE5003812A7 /* Lamp.swift */; };
+		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
+		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
+		0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4991DD1E3BD00CB13BE /* A1.1.png */; };
+		0321F4A11DD1E3DC00CB13BE /* A1.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49B1DD1E3DC00CB13BE /* A1.0.png */; };
+		0321F4A21DD1E3DC00CB13BE /* A1.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49C1DD1E3DC00CB13BE /* A1.2.png */; };
+		0321F4A31DD1E3DC00CB13BE /* A1.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49D1DD1E3DC00CB13BE /* A1.3.png */; };
+		0321F4A41DD1E3DC00CB13BE /* A1.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49E1DD1E3DC00CB13BE /* A1.4.png */; };
+		0321F4A51DD1E3DC00CB13BE /* A1.5a.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49F1DD1E3DC00CB13BE /* A1.5a.png */; };
+		0321F4A61DD1E3DC00CB13BE /* A1.5b.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4A01DD1E3DC00CB13BE /* A1.5b.png */; };
+		0321F4B51DD1E40200CB13BE /* B1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4A71DD1E40100CB13BE /* B1.1.png */; };
+		0321F4B61DD1E40200CB13BE /* B1.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4A81DD1E40100CB13BE /* B1.2.png */; };
+		0321F4B71DD1E40200CB13BE /* C1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4A91DD1E40100CB13BE /* C1.1.png */; };
+		0321F4B81DD1E40200CB13BE /* C1.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4AA1DD1E40100CB13BE /* C1.2.png */; };
+		0321F4B91DD1E40200CB13BE /* C1.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4AB1DD1E40100CB13BE /* C1.3.png */; };
+		0321F4BA1DD1E40200CB13BE /* D1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4AC1DD1E40100CB13BE /* D1.1.png */; };
+		0321F4BB1DD1E40200CB13BE /* D1.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4AD1DD1E40100CB13BE /* D1.2.png */; };
+		0321F4BC1DD1E40200CB13BE /* D1.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4AE1DD1E40100CB13BE /* D1.3.png */; };
+		0321F4BD1DD1E40200CB13BE /* D1.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4AF1DD1E40100CB13BE /* D1.4.png */; };
+		0321F4BE1DD1E40200CB13BE /* D1.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4B01DD1E40100CB13BE /* D1.5.png */; };
+		0321F4BF1DD1E40200CB13BE /* D1.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4B11DD1E40100CB13BE /* D1.6.png */; };
+		0321F4C01DD1E40200CB13BE /* E0a.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4B21DD1E40200CB13BE /* E0a.png */; };
+		0321F4C11DD1E40200CB13BE /* E1.4a.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4B31DD1E40200CB13BE /* E1.4a.png */; };
+		0321F4C21DD1E40200CB13BE /* E1.4b.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4B41DD1E40200CB13BE /* E1.4b.png */; };
 		03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03121DD0C75B00AD5069 /* AppDelegate.swift */; };
 		03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03141DD0C75B00AD5069 /* ViewController.swift */; };
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
@@ -21,6 +50,35 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0308784D1DD3ADB7003812A7 /* LightType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightType.swift; sourceTree = "<group>"; };
+		0308784F1DD3AE32003812A7 /* DataLightPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLightPlan.swift; sourceTree = "<group>"; };
+		030878521DD3B402003812A7 /* Dining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dining.png; sourceTree = "<group>"; };
+		030878531DD3B402003812A7 /* Floorstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Floorstand.png; sourceTree = "<group>"; };
+		030878541DD3B402003812A7 /* Pendant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pendant.png; sourceTree = "<group>"; };
+		030878761DD48AE5003812A7 /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
+		030878781DD48B88003812A7 /* NameLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLight.swift; sourceTree = "<group>"; };
+		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
+		0321F4991DD1E3BD00CB13BE /* A1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.1.png; sourceTree = "<group>"; };
+		0321F49B1DD1E3DC00CB13BE /* A1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.0.png; sourceTree = "<group>"; };
+		0321F49C1DD1E3DC00CB13BE /* A1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.2.png; sourceTree = "<group>"; };
+		0321F49D1DD1E3DC00CB13BE /* A1.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.3.png; sourceTree = "<group>"; };
+		0321F49E1DD1E3DC00CB13BE /* A1.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.4.png; sourceTree = "<group>"; };
+		0321F49F1DD1E3DC00CB13BE /* A1.5a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.5a.png; sourceTree = "<group>"; };
+		0321F4A01DD1E3DC00CB13BE /* A1.5b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.5b.png; sourceTree = "<group>"; };
+		0321F4A71DD1E40100CB13BE /* B1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = B1.1.png; sourceTree = "<group>"; };
+		0321F4A81DD1E40100CB13BE /* B1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = B1.2.png; sourceTree = "<group>"; };
+		0321F4A91DD1E40100CB13BE /* C1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = C1.1.png; sourceTree = "<group>"; };
+		0321F4AA1DD1E40100CB13BE /* C1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = C1.2.png; sourceTree = "<group>"; };
+		0321F4AB1DD1E40100CB13BE /* C1.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = C1.3.png; sourceTree = "<group>"; };
+		0321F4AC1DD1E40100CB13BE /* D1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D1.1.png; sourceTree = "<group>"; };
+		0321F4AD1DD1E40100CB13BE /* D1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D1.2.png; sourceTree = "<group>"; };
+		0321F4AE1DD1E40100CB13BE /* D1.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D1.3.png; sourceTree = "<group>"; };
+		0321F4AF1DD1E40100CB13BE /* D1.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D1.4.png; sourceTree = "<group>"; };
+		0321F4B01DD1E40100CB13BE /* D1.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D1.5.png; sourceTree = "<group>"; };
+		0321F4B11DD1E40100CB13BE /* D1.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D1.6.png; sourceTree = "<group>"; };
+		0321F4B21DD1E40200CB13BE /* E0a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = E0a.png; sourceTree = "<group>"; };
+		0321F4B31DD1E40200CB13BE /* E1.4a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = E1.4a.png; sourceTree = "<group>"; };
+		0321F4B41DD1E40200CB13BE /* E1.4b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = E1.4b.png; sourceTree = "<group>"; };
 		03BB030F1DD0C75B00AD5069 /* LightPlanPhilips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightPlanPhilips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BB03121DD0C75B00AD5069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BB03141DD0C75B00AD5069 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +105,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030878511DD3B392003812A7 /* Philips Light Plan LightType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Philips Light Plan LightType";
+			sourceTree = "<group>";
+		};
+		031CEBD11DD3801800E40BCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
+				0308784F1DD3AE32003812A7 /* DataLightPlan.swift */,
+				030878761DD48AE5003812A7 /* Lamp.swift */,
+				030878781DD48B88003812A7 /* NameLight.swift */,
+				0308784D1DD3ADB7003812A7 /* LightType.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		031CEBD21DD3802000E40BCF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				03BB03141DD0C75B00AD5069 /* ViewController.swift */,
+				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		031CEBD31DD3803400E40BCF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		031CEBD41DD3807500E40BCF /* Additional Files */ = {
+			isa = PBXGroup;
+			children = (
+				03BB03191DD0C75B00AD5069 /* Assets.xcassets */,
+				030878521DD3B402003812A7 /* Dining.png */,
+				030878531DD3B402003812A7 /* Floorstand.png */,
+				030878541DD3B402003812A7 /* Pendant.png */,
+				03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */,
+				03BB031E1DD0C75B00AD5069 /* Info.plist */,
+				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
+				9C4884A41DD3814400DE07EA /* RoomScene.swift */,
+				9C4884A61DD3816800DE07EA /* RoomScene.sks */,
+				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
+				9C981AFE1DD4897C00D3DDAF /* DataSource.swift */,
+			);
+			name = "Additional Files";
+			sourceTree = "<group>";
+		};
+		0321F4C31DD1E41200CB13BE /* Philips Light Plan PDF */ = {
+			isa = PBXGroup;
+			children = (
+				0321F49B1DD1E3DC00CB13BE /* A1.0.png */,
+				0321F4991DD1E3BD00CB13BE /* A1.1.png */,
+				0321F49C1DD1E3DC00CB13BE /* A1.2.png */,
+				0321F49D1DD1E3DC00CB13BE /* A1.3.png */,
+				0321F49E1DD1E3DC00CB13BE /* A1.4.png */,
+				0321F49F1DD1E3DC00CB13BE /* A1.5a.png */,
+				0321F4A01DD1E3DC00CB13BE /* A1.5b.png */,
+				0321F4A71DD1E40100CB13BE /* B1.1.png */,
+				0321F4A81DD1E40100CB13BE /* B1.2.png */,
+				0321F4A91DD1E40100CB13BE /* C1.1.png */,
+				0321F4AA1DD1E40100CB13BE /* C1.2.png */,
+				0321F4AB1DD1E40100CB13BE /* C1.3.png */,
+				0321F4AC1DD1E40100CB13BE /* D1.1.png */,
+				0321F4AD1DD1E40100CB13BE /* D1.2.png */,
+				0321F4AE1DD1E40100CB13BE /* D1.3.png */,
+				0321F4AF1DD1E40100CB13BE /* D1.4.png */,
+				0321F4B01DD1E40100CB13BE /* D1.5.png */,
+				0321F4B11DD1E40100CB13BE /* D1.6.png */,
+				0321F4B21DD1E40200CB13BE /* E0a.png */,
+				0321F4B31DD1E40200CB13BE /* E1.4a.png */,
+				0321F4B41DD1E40200CB13BE /* E1.4b.png */,
+			);
+			name = "Philips Light Plan PDF";
+			sourceTree = "<group>";
+		};
 		03BB03061DD0C75B00AD5069 = {
 			isa = PBXGroup;
 			children = (
@@ -66,28 +206,14 @@
 		03BB03111DD0C75B00AD5069 /* LightPlanPhilips */ = {
 			isa = PBXGroup;
 			children = (
-				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
-				03BB03141DD0C75B00AD5069 /* ViewController.swift */,
-				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
-				03BB03191DD0C75B00AD5069 /* Assets.xcassets */,
-				03BB03241DD0C84600AD5069 /* 161031_Concept flows.pdf */,
-				03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */,
-				03BB031E1DD0C75B00AD5069 /* Info.plist */,
-				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
-				9C4884A41DD3814400DE07EA /* RoomScene.swift */,
-				9C4884A61DD3816800DE07EA /* RoomScene.sks */,
-				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
-				9C981AFE1DD4897C00D3DDAF /* DataSource.swift */,
+				030878511DD3B392003812A7 /* Philips Light Plan LightType */,
+				031CEBD21DD3802000E40BCF /* Controller */,
+				031CEBD11DD3801800E40BCF /* Model */,
+				031CEBD31DD3803400E40BCF /* View */,
+				031CEBD41DD3807500E40BCF /* Additional Files */,
+				0321F4C31DD1E41200CB13BE /* Philips Light Plan PDF */,
 			);
 			path = LightPlanPhilips;
-			sourceTree = "<group>";
-		};
-		03BB03241DD0C84600AD5069 /* 161031_Concept flows.pdf */ = {
-			isa = PBXGroup;
-			children = (
-				03BB03251DD0C89800AD5069 /* A1.0.png */,
-			);
-			name = "161031_Concept flows.pdf";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +276,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */,
+				030878551DD3B402003812A7 /* Dining.png in Resources */,
 				03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */,
-				03BB03261DD0C89800AD5069 /* A1.0.png in Resources */,
+				0321F4A11DD1E3DC00CB13BE /* A1.0.png in Resources */,
+				0321F4BB1DD1E40200CB13BE /* D1.2.png in Resources */,
+				0321F4B51DD1E40200CB13BE /* B1.1.png in Resources */,
+				0321F4B71DD1E40200CB13BE /* C1.1.png in Resources */,
+				0321F4A21DD1E3DC00CB13BE /* A1.2.png in Resources */,
+				0321F4BE1DD1E40200CB13BE /* D1.5.png in Resources */,
+				0321F4C01DD1E40200CB13BE /* E0a.png in Resources */,
+				0321F4A31DD1E3DC00CB13BE /* A1.3.png in Resources */,
+				0321F4B61DD1E40200CB13BE /* B1.2.png in Resources */,
+				0321F4BC1DD1E40200CB13BE /* D1.3.png in Resources */,
+				0321F4BD1DD1E40200CB13BE /* D1.4.png in Resources */,
+				0321F4A61DD1E3DC00CB13BE /* A1.5b.png in Resources */,
+				0321F4C21DD1E40200CB13BE /* E1.4b.png in Resources */,
+				0321F4A51DD1E3DC00CB13BE /* A1.5a.png in Resources */,
 				03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */,
 				9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */,
 				03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */,
+				030878571DD3B402003812A7 /* Pendant.png in Resources */,
+				0321F4B91DD1E40200CB13BE /* C1.3.png in Resources */,
+				0321F4A41DD1E3DC00CB13BE /* A1.4.png in Resources */,
+				0321F4BF1DD1E40200CB13BE /* D1.6.png in Resources */,
+				0321F4B81DD1E40200CB13BE /* C1.2.png in Resources */,
+				030878561DD3B402003812A7 /* Floorstand.png in Resources */,
+				0321F4BA1DD1E40200CB13BE /* D1.1.png in Resources */,
+				0321F4C11DD1E40200CB13BE /* E1.4a.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,12 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
+				03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */,
+				030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */,
+				031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */,
+				030878791DD48B88003812A7 /* NameLight.swift in Sources */,
 				9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */,
 				9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */,
 				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
-				03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
+				030878771DD48AE5003812A7 /* Lamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "NameLightSegue") {
+            let nameLightViewController = (segue.destination) as! NameLightViewController
+            nameLightViewController.delegateLampRow = 0
+        }
+    }
 }
 
