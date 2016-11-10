@@ -23,11 +23,11 @@ class DataSource: NSObject {
         let bulb2 = Bulb(name: "bulb2")
         bulb2.positionX = 100
         bulb2.positionY = 100
+        bulbCollection.append(bulb2)
         let bulb3 = Bulb(name: "bulb3")
         bulb3.positionX = -100
         bulb3.positionY = -100
-        
-        
+        bulbCollection.append(bulb3)
         return bulbCollection
     }
 }
