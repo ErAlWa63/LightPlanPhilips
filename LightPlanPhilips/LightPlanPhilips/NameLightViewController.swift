@@ -24,7 +24,9 @@
 import UIKit
 
 class NameLightViewController : UIViewController {
-//    var selectedRow 
+    let d = D() // debugger functionality
+
+//    var selectedRow
     @IBOutlet weak var dropLightType: UIPickerView!
     @IBOutlet weak var nameLightType: UITextField!
     
@@ -52,11 +54,15 @@ class NameLightViewController : UIViewController {
         dropLightType.layer.borderWidth  = 0.5
         dropLightType.layer.cornerRadius = 5
         
-//        if DataLightPlan.sharedInstance.listLamp[delegateLampRow].nameLight == nil {
-//            nameLightType.text = ""
-//        } else {
-//            nameLightType.text = DataLightPlan.sharedInstance.listLamp[delegateLampRow].nameLight?.name
-//        }
+//        delegateLampRow = 0
+        d.c(s: "NameLightViewController - viewDidLoad - start")
+        d.c(s: "NameLightViewController - viewDidLoad - delegateLampRow = \(delegateLampRow)")
+
+        if DataLightPlan.sharedInstance.listLamp[delegateLampRow].nameLight == nil {
+            nameLightType.text = "!\(DataLightPlan.sharedInstance.listLamp[delegateLampRow].name!)"
+        } else {
+            nameLightType.text = DataLightPlan.sharedInstance.listLamp[delegateLampRow].nameLight?.name
+        }
     }
 }
 
