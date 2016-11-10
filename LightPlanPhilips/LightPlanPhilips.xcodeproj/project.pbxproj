@@ -41,6 +41,12 @@
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
 		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
+		03BB03261DD0C89800AD5069 /* A1.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03251DD0C89800AD5069 /* A1.0.png */; };
+		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
+		9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A41DD3814400DE07EA /* RoomScene.swift */; };
+		9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9C4884A61DD3816800DE07EA /* RoomScene.sks */; };
+		9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A81DD3829100DE07EA /* RoomViewController.swift */; };
+		9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C981AFE1DD4897C00D3DDAF /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +86,12 @@
 		03BB03191DD0C75B00AD5069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BB03251DD0C89800AD5069 /* A1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.0.png; sourceTree = "<group>"; };
+		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
+		9C4884A41DD3814400DE07EA /* RoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
+		9C4884A61DD3816800DE07EA /* RoomScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomScene.sks; sourceTree = "<group>"; };
+		9C4884A81DD3829100DE07EA /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		9C981AFE1DD4897C00D3DDAF /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +150,11 @@
 				030878541DD3B402003812A7 /* Pendant.png */,
 				03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */,
 				03BB031E1DD0C75B00AD5069 /* Info.plist */,
+				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
+				9C4884A41DD3814400DE07EA /* RoomScene.swift */,
+				9C4884A61DD3816800DE07EA /* RoomScene.sks */,
+				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
+				9C981AFE1DD4897C00D3DDAF /* DataSource.swift */,
 			);
 			name = "Additional Files";
 			sourceTree = "<group>";
@@ -277,6 +294,7 @@
 				0321F4C21DD1E40200CB13BE /* E1.4b.png in Resources */,
 				0321F4A51DD1E3DC00CB13BE /* A1.5a.png in Resources */,
 				03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */,
+				9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */,
 				03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */,
 				030878571DD3B402003812A7 /* Pendant.png in Resources */,
 				0321F4B91DD1E40200CB13BE /* C1.3.png in Resources */,
@@ -301,6 +319,10 @@
 				030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */,
 				031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */,
 				030878791DD48B88003812A7 /* NameLight.swift in Sources */,
+				9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */,
+				9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */,
+				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
+				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				030878771DD48AE5003812A7 /* Lamp.swift in Sources */,
 			);
