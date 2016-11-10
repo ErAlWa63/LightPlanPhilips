@@ -118,7 +118,7 @@
                                                 <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
-                                                    <segue destination="K8e-CZ-ddP" kind="popoverPresentation" popoverAnchorView="RBc-78-h00" id="UVr-7B-Ap7">
+                                                    <segue destination="K8e-CZ-ddP" kind="popoverPresentation" identifier="NameLightSegue" popoverAnchorView="RBc-78-h00" id="UVr-7B-Ap7">
                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                     </segue>
                                                 </connections>
@@ -170,6 +170,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="test1Button" destination="RBc-78-h00" id="XTE-rs-o93"/>
+                        <outlet property="test2Button" destination="a0k-kI-KZP" id="npC-3W-r6l"/>
+                        <outlet property="test3Button" destination="aD3-nn-JQ2" id="THG-gh-kg9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gah-gw-gLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,7 +260,7 @@
                                     <constraint firstAttribute="height" constant="52" id="VSo-jK-fah"/>
                                 </constraints>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur">
                                 <rect key="frame" x="57" y="253" width="261" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="xSR-IW-8be"/>

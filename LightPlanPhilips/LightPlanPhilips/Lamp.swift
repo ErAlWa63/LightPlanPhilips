@@ -9,16 +9,16 @@
 import UIKit
 
 class Lamp: NSObject {
-    var name      : String?
+    var name      : String
     var nameLight : NameLight?
     
     init(name: String) {
-        self.name = name
+        self.name      = name
         self.nameLight = nil
     }
     
     init(name: String, nameLight: NameLight) {
-        self.name = name
+        self.name      = name
         self.nameLight = nameLight
     }
 }

@@ -9,11 +9,11 @@
 import UIKit
 
 class NameLight: NSObject {
-    var name      : String
-    var lightType : LightType
+    var name           : String
+    var lightTypeIndex : Int
     
-    init(name: String, lightType: LightType) {
-        self.name = name
-        self.lightType = lightType
+    init(name: String, lightTypeIndex: Int) {
+        self.name           = name
+        self.lightTypeIndex = lightTypeIndex
     }
 }
