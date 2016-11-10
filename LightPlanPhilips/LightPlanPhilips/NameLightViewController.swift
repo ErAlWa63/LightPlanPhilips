@@ -72,6 +72,15 @@ class NameLightViewController : UIViewController {
                 dropLightType.selectRow((temporaryNameLight.lightTypeIndex), inComponent: 0, animated: true)
             }
         }
+        nameLightType.keyboardType = UIKeyboardType.alphabet
+        nameLightType.delegate     = self
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 }
 
@@ -87,9 +96,9 @@ extension NameLightViewController: UIPickerViewDataSource {
 
 extension NameLightViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            if let temporaryNameLight = temporaryNameLight {
-                temporaryNameLight.lightTypeIndex = row
-            }
+        if let temporaryNameLight = temporaryNameLight {
+            temporaryNameLight.lightTypeIndex = row
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -115,48 +124,17 @@ extension NameLightViewController: UIPickerViewDelegate {
     }
 }
 
-extension NameLightViewController: UITextViewDelegate {
-    //    public protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
-    //
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textViewShouldEndEditing(_ textView: UITextView) -> Bool
-    //
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textViewDidBeginEditing(_ textView: UITextView)
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textViewDidEndEditing(_ textView: UITextView)
-    //
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textViewDidChange(_ textView: UITextView)
-    //
-    //
-    //        @available(iOS 2.0, *)
-    //        optional public func textViewDidChangeSelection(_ textView: UITextView)
-    //
-    //
-    //        @available(iOS 10.0, *)
-    //        optional public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool
-    //
-    //        @available(iOS 10.0, *)
-    //        optional public func textView(_ textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool
-    //
-    //
-    //        @available(iOS, introduced: 7.0, deprecated: 10.0, message: "Use textView:shouldInteractWithURL:inRange:forInteractionType: instead")
-    //        optional public func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool
-    //
-    //        @available(iOS, introduced: 7.0, deprecated: 10.0, message: "Use textView:shouldInteractWithTextAttachment:inRange:forInteractionType: instead")
-    //        optional public func textView(_ textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
-    //    }
-    
-    
+extension NameLightViewController: UITextFieldDelegate {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        temporaryNameLight.name = nameLightType.text!
+    }
+
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameLightType.resignFirstResponder()
+        return true
+    }
 }
