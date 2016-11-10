@@ -18,38 +18,42 @@ import SpriteKit
 
 class RoomScene: SKScene {
     
-    let bulbSprite1 = SKSpriteNode(imageNamed: "Bulb")
-    let bulbSprite2 = SKSpriteNode(imageNamed: "Bulb")
-    let bulbSprite3 = SKSpriteNode(imageNamed: "Bulb")
+
+
     
     let dataSource = DataSource.sharedInstance
     
     var bulbCollection = [Bulb]()
     
     
-    
+    var bulbSprite = SKSpriteNode(imageNamed: "Bulb")
     
     override func didMove(to view: SKView) {
     
         bulbCollection = dataSource.GetBulbs()
         
+        
+        
         for bulb in bulbCollection {
+            bulbSprite.position = CGPoint(x: bulb.positionX!, y: bulb.positionY!)
+            bulbSprite.name = bulb.name
             
+            self.addChild(bulbSprite)
+            print("created")
         }
         
-        print("\(size.width)---\(size.height)")
+
         //bulbSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
-        bulbSprite1.position = CGPoint(x: 100, y:100)
-        bulbSprite1.name = "lamp 1"
-        bulbSprite2.position = CGPoint(x: 0, y:0)
-        bulbSprite2.name = "lamp 2"
-        bulbSprite3.position = CGPoint(x: 0, y:100)
-        bulbSprite3.name = "lamp 3"
-       // bulbSprite3.scale(to: CGSize)
+//        bulbSprite1.position = CGPoint(x: 100, y:100)
+//        bulbSprite1.name = "lamp 1"
+//        bulbSprite2.position = CGPoint(x: 0, y:0)
+//        bulbSprite2.name = "lamp 2"
+//        bulbSprite3.position = CGPoint(x: 0, y:100)
+//        bulbSprite3.name = "lamp 3"
+
         
-        addChild(bulbSprite1)
-        addChild(bulbSprite2)
-        addChild(bulbSprite3)
+
+
         
 
         
