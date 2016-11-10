@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 
         if(segue.identifier == "NameLightSegue") {
             let nameLightViewController = (segue.destination) as! NameLightViewController
-            nameLightViewController.delegateLampRow = 0
+            nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
         }
     }
 }
