@@ -18,53 +18,36 @@ import SpriteKit
 
 class RoomScene: SKScene {
     
-
-
+    
+    
     
     let dataSource = DataSource.sharedInstance
     
     var bulbCollection = [Bulb]()
     
     
-    var bulbSprite = SKSpriteNode(imageNamed: "Bulb")
+    let bulbSprite = SKSpriteNode(imageNamed: "Bulb")
+    var selectedNode = SKSpriteNode()
     
     override func didMove(to view: SKView) {
-    
+        
         bulbCollection = dataSource.GetBulbs()
         
-        
-        
         for bulb in bulbCollection {
-            bulbSprite.position = CGPoint(x: bulb.positionX!, y: bulb.positionY!)
-            bulbSprite.name = bulb.name
+            let sprite = bulbSprite.copy() as! SKSpriteNode
+            sprite.position = CGPoint(x: bulb.positionX!, y: bulb.positionY!)
+            sprite.name = bulb.name
             
-            self.addChild(bulbSprite)
-            print("created")
+            self.addChild(sprite)
         }
-        
-
-        //bulbSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
-//        bulbSprite1.position = CGPoint(x: 100, y:100)
-//        bulbSprite1.name = "lamp 1"
-//        bulbSprite2.position = CGPoint(x: 0, y:0)
-//        bulbSprite2.name = "lamp 2"
-//        bulbSprite3.position = CGPoint(x: 0, y:100)
-//        bulbSprite3.name = "lamp 3"
-
-        
-
-
-        
-
-        
     }
     
-
     
     
     
     
-
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let positionInScene = touch.location(in: self)
@@ -72,39 +55,47 @@ class RoomScene: SKScene {
             selectNodeForTouch(touchLocation: positionInScene)
         }
         
-      
+        
     }
     
-    func degToRad(degree: Double) -> CGFloat {
-        return CGFloat(Double(degree) / 180.0 * M_PI)
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for touch in touches {
+            
+            let positionInScene = touch.location(in: self)
+            let previousPosition = touch.previousLocation(in: self)
+            let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
+            
+            panForTranslation(translation: translation)
+            
+        }
+    }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+       //selectedNode = nil
     }
     
     func selectNodeForTouch(touchLocation: CGPoint) {
-        // 1
-
         
         let touchedNodes = self.nodes(at: touchLocation)
         
-
         for node in touchedNodes {
             if node is SKSpriteNode {
-                print("hoera  \(node)")
+                if !selectedNode.isEqual(node) {
+                    selectedNode = node as! SKSpriteNode
+                }
             }
         }
+    }
+    
+    func panForTranslation(translation: CGPoint) {
+        let position = selectedNode.position
         
-                   //            // 2
-//            if !selectedNode.isEqual(touchedNode) {
-//                selectedNode.removeAllActions()
-//                selectedNode.runAction(SKAction.rotateToAngle(0.0, duration: 0.1))
-//                
-//                selectedNode = touchedNode as! SKSpriteNode
-//                
-//                // 3
-//                if touchedNode.name! == kAnimalNodeName {
-//
-//                }
-//            }
-       //}
+        
+        selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
+        
     }
     
 }
