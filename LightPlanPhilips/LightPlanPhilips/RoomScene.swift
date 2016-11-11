@@ -36,6 +36,7 @@ class RoomScene: SKScene {
         for bulb in bulbCollection {
             let sprite = bulbSprite.copy() as! SKSpriteNode
             sprite.position = CGPoint(x: bulb.positionX!, y: bulb.positionY!)
+            sprite.setScale(1.5)
             sprite.name = bulb.name
             
             self.addChild(sprite)
@@ -45,57 +46,77 @@ class RoomScene: SKScene {
     
     
     
-    
+    var movableNode : SKNode?
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let positionInScene = touch.location(in: self)
+        if let touch = touches.first {
+            let location = touch.location(in: self)
             
-            selectNodeForTouch(touchLocation: positionInScene)
-        }
-        
-        
-    }
-    
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        for touch in touches {
+            let touchedNodes = self.nodes(at: location)
             
-            let positionInScene = touch.location(in: self)
-            let previousPosition = touch.previousLocation(in: self)
-            let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
-            
-            panForTranslation(translation: translation)
-            
-        }
-    }
-    
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-       //selectedNode = nil
-    }
-    
-    func selectNodeForTouch(touchLocation: CGPoint) {
-        
-        let touchedNodes = self.nodes(at: touchLocation)
-        
-        for node in touchedNodes {
-            if node is SKSpriteNode {
-                if !selectedNode.isEqual(node) {
-                    selectedNode = node as! SKSpriteNode
+            for node in touchedNodes {
+                if node is SKSpriteNode {
+                    movableNode = node
+                    movableNode!.position = location
                 }
             }
         }
     }
     
-    func panForTranslation(translation: CGPoint) {
-        let position = selectedNode.position
-        
-        
-        selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
-        
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, movableNode != nil {
+            let location = touch.location(in: self)
+            
+            let touchedNodes = self.nodes(at: location)
+            
+            for node in touchedNodes {
+                if node is SKShapeNode {
+                    movableNode!.position = location
+                }
+            }
+        }
     }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, movableNode != nil {
+            //movableNode!.position = touch.location(in: self)
+            //mova
+            
+            
+            
+            movableNode = nil
+        }
+    }
+    
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            movableNode = nil
+        }
+    }
+    
+    //    func selectNodeForTouch(touchLocation: CGPoint) {
+    //
+    //        let touchedNodes = self.nodes(at: touchLocation)
+    //
+    //        for node in touchedNodes {
+    //            if node is SKSpriteNode {
+    //                if !selectedNode.isEqual(node) {
+    //                    selectedNode = node as! SKSpriteNode
+    //                }
+    //            }
+    //        }
+    //    }
+    //
+    //    func panForTranslation(translation: CGPoint) {
+    //        let position = selectedNode.position
+    //
+    //
+    //        selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
+    //        
+    //    }
     
 }
