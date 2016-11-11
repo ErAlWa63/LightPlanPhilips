@@ -126,7 +126,13 @@ extension NameLightViewController: UIPickerViewDelegate {
 
 extension NameLightViewController: UITextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        temporaryNameLight.name = nameLightType.text!
+      if let nameLightType = nameLightType {
+        if let text = nameLightType.text {
+          temporaryNameLight.name = text
+        } else {
+          temporaryNameLight.name = ""
+        }
+      }
     }
 
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

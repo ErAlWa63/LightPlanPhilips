@@ -133,6 +133,7 @@
 			children = (
 				03BB03141DD0C75B00AD5069 /* ViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
+				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -154,7 +155,6 @@
 				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
 				9C4884A41DD3814400DE07EA /* RoomScene.swift */,
 				9C4884A61DD3816800DE07EA /* RoomScene.sks */,
-				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
 				9C981AFE1DD4897C00D3DDAF /* DataSource.swift */,
 			);
 			name = "Additional Files";
@@ -214,8 +214,10 @@
 				031CEBD41DD3807500E40BCF /* Additional Files */,
 				0321F4C31DD1E41200CB13BE /* Philips Light Plan PDF */,
 			);
+			indentWidth = 2;
 			path = LightPlanPhilips;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 /* End PBXGroup section */
 
