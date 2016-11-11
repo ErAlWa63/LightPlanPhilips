@@ -71,6 +71,9 @@
                                             <constraint firstAttribute="height" constant="100" id="m43-P5-Uzf"/>
                                         </constraints>
                                         <state key="normal" title="T2"/>
+                                        <connections>
+                                            <segue destination="zCF-zE-MNz" kind="showDetail" identifier="LightTypeSegue" id="yM6-VD-5C9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amT-hY-E5B" userLabel="Test 3 Button (temporary)">
                                         <rect key="frame" x="0.0" y="200" width="30" height="100"/>
@@ -105,6 +108,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="17" y="-546"/>
+        </scene>
+        <!--Light Type Collection View Controller-->
+        <scene sceneID="6jL-XT-O14">
+            <objects>
+                <collectionViewController id="zCF-zE-MNz" customClass="LightTypeCollectionViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YNG-lg-tDA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jpk-Rj-5XC">
+                            <size key="itemSize" width="240" height="70"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="lightTypeCell" id="3lU-uh-XLs">
+                                <rect key="frame" x="40" y="0.0" width="240" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29q-gx-p8d">
+                                            <rect key="frame" x="67" y="8" width="97" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="zCF-zE-MNz" id="xL0-W1-c0p"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="zCF-zE-MNz" id="vvc-UY-hgK"/>
+                            <outlet property="delegate" destination="zCF-zE-MNz" id="ZdV-Cw-YCu"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Gvt-mQ-3dH"/>
+                        <barButtonItem title="Item" id="U2Y-Wx-jqN"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="F9Y-pq-F59"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NzX-8F-Xoz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1275" y="225"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -186,7 +242,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keA-G7-1B2">
                                 <rect key="frame" x="88" y="337" width="144" height="47"/>
-                                <color key="backgroundColor" red="0.82497203350067139" green="0.11219505220651627" blue="0.053198225796222687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.82352941176470584" green="0.11372549019607843" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="pq4-z7-41d"/>
                                 </constraints>
@@ -198,7 +254,7 @@
                                     <action selector="removeButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="5zM-UR-UX2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrM-vs-9mf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrM-vs-9mf" userLabel="Save Button">
                                 <rect key="frame" x="88" y="401" width="144" height="47"/>
                                 <color key="backgroundColor" red="0.9216577410697937" green="0.51538312435150146" blue="0.0048895068466663361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -212,11 +268,8 @@
                                     <action selector="saveButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="Pak-tR-j0h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gby-ig-AcZ">
-                                <rect key="frame" x="274" y="20" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="NGK-pc-nsf"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gby-ig-AcZ" userLabel="Cancel Button">
+                                <rect key="frame" x="274" y="65" width="30" height="30"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -227,6 +280,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OAp-Jk-7rT" firstAttribute="top" secondItem="gby-ig-AcZ" secondAttribute="bottom" constant="19" id="0JC-aU-PVD"/>
                             <constraint firstItem="67i-co-Cx5" firstAttribute="leading" secondItem="BAo-0a-Jc9" secondAttribute="leading" id="28G-Ws-aex"/>
                             <constraint firstItem="keA-G7-1B2" firstAttribute="leading" secondItem="r4T-f1-biG" secondAttribute="leadingMargin" constant="72" id="4Yr-HN-Z4U"/>
                             <constraint firstItem="MrM-vs-9mf" firstAttribute="trailing" secondItem="keA-G7-1B2" secondAttribute="trailing" id="7vc-xq-ksA"/>
@@ -236,8 +290,6 @@
                             <constraint firstItem="keA-G7-1B2" firstAttribute="top" secondItem="pHx-lo-nur" secondAttribute="bottom" constant="39" id="I20-7N-ZrB"/>
                             <constraint firstItem="pHx-lo-nur" firstAttribute="top" secondItem="r4T-f1-biG" secondAttribute="top" constant="253" id="RGl-f6-LR5"/>
                             <constraint firstItem="keA-G7-1B2" firstAttribute="centerX" secondItem="pHx-lo-nur" secondAttribute="centerX" id="VQf-gh-vwT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gby-ig-AcZ" secondAttribute="trailing" id="YNp-rs-c9B"/>
-                            <constraint firstItem="gby-ig-AcZ" firstAttribute="top" secondItem="rdG-pk-UR5" secondAttribute="bottom" id="fkD-Cm-QTt"/>
                             <constraint firstItem="pHx-lo-nur" firstAttribute="centerX" secondItem="r4T-f1-biG" secondAttribute="centerX" id="gaG-aR-x0E"/>
                             <constraint firstItem="MrM-vs-9mf" firstAttribute="leading" secondItem="keA-G7-1B2" secondAttribute="leading" id="haY-tN-OZq"/>
                             <constraint firstItem="BAo-0a-Jc9" firstAttribute="top" secondItem="r4T-f1-biG" secondAttribute="top" constant="164" id="mIM-7v-kzs"/>
@@ -247,6 +299,7 @@
                             <constraint firstItem="pHx-lo-nur" firstAttribute="leading" secondItem="r4T-f1-biG" secondAttribute="leadingMargin" constant="41" id="u6u-vT-Qmn"/>
                             <constraint firstItem="OAp-Jk-7rT" firstAttribute="leading" secondItem="r4T-f1-biG" secondAttribute="leadingMargin" id="vte-eA-GNz"/>
                             <constraint firstItem="MrM-vs-9mf" firstAttribute="top" secondItem="keA-G7-1B2" secondAttribute="bottom" constant="17" id="yJh-N0-1s9"/>
+                            <constraint firstItem="gby-ig-AcZ" firstAttribute="trailing" secondItem="OAp-Jk-7rT" secondAttribute="trailing" id="zM0-z4-B1o"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -254,6 +307,8 @@
                     <connections>
                         <outlet property="dropLightType" destination="67i-co-Cx5" id="zhR-Vn-3Y6"/>
                         <outlet property="nameLightType" destination="pHx-lo-nur" id="054-te-Khf"/>
+                        <outlet property="removeButton" destination="keA-G7-1B2" id="TWz-h4-ztK"/>
+                        <outlet property="saveButton" destination="MrM-vs-9mf" id="Gjg-7K-BF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GU-sn-o4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
