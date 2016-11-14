@@ -5,17 +5,23 @@
 //  Created by Erik Waterham on 11/11/2016.
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
+// https://www.raywenderlich.com/136159/uicollectionview-tutorial-getting-started
+//
+// https://www.appcoda.com/ios-collection-view-tutorial/
 
 import UIKit
 
-private let reuseIdentifier = "lightTypeCell"
-private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+final class LightTypeCollectionViewController: UICollectionViewController {
+  let d = D() // debugger functionality
 
-class LightTypeCollectionViewController: UICollectionViewController {
+  fileprivate let reuseIdentifier = "lightTypeCell"
+  fileprivate let sectionInsets = UIEdgeInsets(top: 18.0, left: 10.0, bottom: 18.0, right: 10.0)
+  fileprivate let itemsPerRow: CGFloat = 3
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+   
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
     
@@ -23,11 +29,6 @@ class LightTypeCollectionViewController: UICollectionViewController {
     self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     
     // Do any additional setup after loading the view.
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   /*
@@ -42,24 +43,26 @@ class LightTypeCollectionViewController: UICollectionViewController {
   
   // MARK: UICollectionViewDataSource
   
-  override func numberOfSections(in collectionView: UICollectionView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
-    return 1
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    let myImageView   = UIImageView(frame: CGRect(x: (cell.frame.width / 2) - 10, y: 5, width: 20, height: 20))
+    myImageView.image = DataLightPlan.sharedInstance.listLightType[indexPath.item].pictogram
+    let rowString     = DataLightPlan.sharedInstance.listLightType[indexPath.item].name
+    let myLabel       = UILabel(frame: CGRect(x: 5, y: 30, width: cell.frame.width - 10, height: 25))
+    myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
+    myLabel.text      = rowString
+    cell.addSubview(myLabel)
+    cell.addSubview(myImageView)
+    cell.backgroundColor = UIColor.green
+    return cell
   }
   
-  
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of items
     return  DataLightPlan.sharedInstance.listLightType.count
   }
   
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    cell.backgroundColor = UIColor.black
-    
-    // Configure the cell
-    
-    return cell
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
   }
   
   // MARK: UICollectionViewDelegate
@@ -87,12 +90,61 @@ class LightTypeCollectionViewController: UICollectionViewController {
    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
    return false
    }
-   
-   override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-   
-   }
    */
   
+  override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+//    dismiss(animated: true, completion: nil)
+  }
 }
 
-//extension LightTypeCollectionViewController:
+//extension LightTypeCollectionViewController: UICollectionViewDataSource {
+//
+//}
+
+
+extension LightTypeCollectionViewController: UICollectionViewDelegateFlowLayout {
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return sectionInsets
+  }
+  
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return sectionInsets.left
+  }
+  
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let widthPerItem = (view.frame.width - sectionInsets.left * (itemsPerRow + 1)) / itemsPerRow
+    return CGSize(width: widthPerItem, height: widthPerItem)
+  }
+  
+  //  @available(iOS 6.0, *)
+  //  optional public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+  //
+  //  @available(iOS 6.0, *)
+  //  optional public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+  //
+  //  @available(iOS 6.0, *)
+  //  optional public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize
+  //
+}
+
+// MARK: - UICollectionViewDelegate
+extension LightTypeCollectionViewController {
+  
+  override func collectionView(_ collectionView: UICollectionView,
+                               shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    
+    return true
+  }
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //    addToList.append(objectsArray[indexPath.row])
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+    let cell = collectionView.cellForItem(at: indexPath as IndexPath)
+    cell?.layer.borderWidth = 2.0
+    cell?.layer.borderColor = UIColor.gray.cgColor
+    dismiss(animated: true, completion: nil)
+    d.c(m: "stop", f: #file, fu: #function, l: #line)
+
+  }
+  
+
+}

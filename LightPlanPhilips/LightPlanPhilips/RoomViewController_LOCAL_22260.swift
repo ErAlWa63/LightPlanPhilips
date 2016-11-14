@@ -28,9 +28,6 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     d.c(s: "\(#file) - prepare - start")
     d.c(s: "\(#file) - prepare - segue.identifier - \(segue.identifier)")
-    d.c(m: "start", f: #file, fu: #function, l: #line)
-//    d.c(s: "\(#file) - prepare - start")
-//    d.c(s: "\(#file) - prepare - segue.identifier - \(segue.identifier)")
     
     if(segue.identifier == "NameLightSegue") {
       let nameLightViewController = (segue.destination) as! NameLightViewController
@@ -61,7 +58,6 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
       view.showsFPS = true
       view.showsNodeCount = true
     }
-<<<<<<< HEAD
     
     
     
@@ -75,18 +71,6 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
     test3Button.layer.borderWidth  = 0.5
     test3Button.layer.cornerRadius = 5
     
-=======
-//    test1Button.layer.borderColor  = UIColor.darkGray.cgColor
-//    test1Button.layer.borderWidth  = 0.5
-//    test1Button.layer.cornerRadius = 5
-//    test2Button.layer.borderColor  = UIColor.darkGray.cgColor
-//    test2Button.layer.borderWidth  = 0.5
-//    test2Button.layer.cornerRadius = 5
-//    test3Button.layer.borderColor  = UIColor.darkGray.cgColor
-//    test3Button.layer.borderWidth  = 0.5
-//    test3Button.layer.cornerRadius = 5
-
->>>>>>> 39ffdbee066a904aa7a0274a5183a39b051b0cad
     
   }
   

@@ -36,8 +36,8 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        d.c(s: "ViewController - prepare - start")
-        d.c(s: "ViewController - prepare - segue.identifier - \(segue.identifier)")
+//        d.c(s: "ViewController - prepare - start")
+//        d.c(s: "ViewController - prepare - segue.identifier - \(segue.identifier)")
 
         if(segue.identifier == "NameLightSegue") {
             let nameLightViewController = (segue.destination) as! NameLightViewController
