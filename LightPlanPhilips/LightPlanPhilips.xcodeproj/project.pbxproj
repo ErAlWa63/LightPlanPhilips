@@ -39,6 +39,9 @@
 		0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB0E1DD4ABAB002165CD /* Debug.swift */; };
 		0374EB321DD5E8F3002165CD /* LightTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */; };
 		0374EB341DD60DBC002165CD /* PLPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB331DD60DBC002165CD /* PLPButton.swift */; };
+		0374EB361DD67330002165CD /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB351DD67330002165CD /* TestButton.swift */; };
+		0374EB381DD67A9D002165CD /* PLPRedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB371DD67A9D002165CD /* PLPRedButton.swift */; };
+		0374EB3A1DD67D88002165CD /* PLPOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB391DD67D88002165CD /* PLPOrangeButton.swift */; };
 		03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03121DD0C75B00AD5069 /* AppDelegate.swift */; };
 		03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03141DD0C75B00AD5069 /* ViewController.swift */; };
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
@@ -84,6 +87,9 @@
 		0374EB0E1DD4ABAB002165CD /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		0374EB331DD60DBC002165CD /* PLPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPButton.swift; sourceTree = "<group>"; };
+		0374EB351DD67330002165CD /* TestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
+		0374EB371DD67A9D002165CD /* PLPRedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPRedButton.swift; sourceTree = "<group>"; };
+		0374EB391DD67D88002165CD /* PLPOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPOrangeButton.swift; sourceTree = "<group>"; };
 		03BB030F1DD0C75B00AD5069 /* LightPlanPhilips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightPlanPhilips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BB03121DD0C75B00AD5069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BB03141DD0C75B00AD5069 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +154,9 @@
 			children = (
 				0374EB331DD60DBC002165CD /* PLPButton.swift */,
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
+				0374EB351DD67330002165CD /* TestButton.swift */,
+				0374EB371DD67A9D002165CD /* PLPRedButton.swift */,
+				0374EB391DD67D88002165CD /* PLPOrangeButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -323,11 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0374EB381DD67A9D002165CD /* PLPRedButton.swift in Sources */,
+				0374EB3A1DD67D88002165CD /* PLPOrangeButton.swift in Sources */,
 				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
 				0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */,
 				03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */,
 				030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */,
 				031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */,
+				0374EB361DD67330002165CD /* TestButton.swift in Sources */,
 				030878791DD48B88003812A7 /* NameLight.swift in Sources */,
 				9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */,
 				9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */,
