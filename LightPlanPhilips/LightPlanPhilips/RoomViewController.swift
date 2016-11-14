@@ -12,7 +12,14 @@ import UIKit
 import SpriteKit
 //import GameplayKit
 
-class RoomViewController: UIViewController {
+
+protocol RoomSceneDelegate: class {
+  func showAlertMessage(bulb: String) -> String
+}
+
+
+class RoomViewController: UIViewController, RoomSceneDelegate {
+  
   let d = D() // debugger functionality
   @IBOutlet weak var test1Button: UIButton!
   @IBOutlet weak var test2Button: UIButton!
@@ -28,24 +35,32 @@ class RoomViewController: UIViewController {
     }
   }
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    var scene: RoomScene
+    
     if let view = self.view as! SKView? {
-      // Load the SKScene from 'RoomScene.sks'
-      if let scene = SKScene(fileNamed: "RoomScene") {
-        // Set the scale mode to scale to fit the window
-        scene.scaleMode = .aspectFill
-        
-        // Present the scene
-        view.presentScene(scene)
-      }
       
+      scene = SKScene(fileNamed: "RoomScene") as! RoomScene
+      
+      // Set the scale mode to scale to fit the window
+      scene.scaleMode = .aspectFill
+      // Present the scene
+      
+      view.presentScene(scene)
+      
+      scene.roomSceneDelegate = self
+    
       view.ignoresSiblingOrder = true
       
       view.showsFPS = true
       view.showsNodeCount = true
     }
+    
+    
+    
     test1Button.layer.borderColor  = UIColor.darkGray.cgColor
     test1Button.layer.borderWidth  = 0.5
     test1Button.layer.cornerRadius = 5
@@ -55,12 +70,17 @@ class RoomViewController: UIViewController {
     test3Button.layer.borderColor  = UIColor.darkGray.cgColor
     test3Button.layer.borderWidth  = 0.5
     test3Button.layer.cornerRadius = 5
-
+    
     
   }
   
   override var shouldAutorotate: Bool {
     return false
+  }
+  
+  func showAlertMessage(bulb: String) -> String {
+    print("\(bulb) was clicked")
+    return "test"
   }
   
   
