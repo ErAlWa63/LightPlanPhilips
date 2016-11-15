@@ -21,7 +21,10 @@
 //
 // http://stackoverflow.com/questions/25917693/swift-how-to-set-a-default-value-of-a-uipickerview-with-three-components-in-swi
 //
-
+// http://stackoverflow.com/questions/4201959/label-under-image-in-uibutton
+//
+// http://stackoverflow.com/questions/24468336/how-to-correctly-handle-weak-self-in-swift-blocks-with-arguments (NatashaTheRobot)
+//
 
 import UIKit
 
@@ -54,23 +57,48 @@ class NameLightViewController : UIViewController {
   }
   
   @IBAction func chooseLightTypeButton(_ sender: Any) {
-//    temporaryNameLight.lightTypeIndex
   }
-  
   
   var delegateLamp      : Lamp!
   var temporaryNameLight: NameLight!
   var delegateLightTypeIndex = 0
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "LightTypeSegue") {
+      if let LightTypeCollectionViewController = segue.destination as? LightTypeCollectionViewController {
+        let closureToPerform = { [weak self] (index: Int) in
+          if let strongSelf = self {
+            strongSelf.delegateLightTypeIndex = index
+          }
+        }
+        LightTypeCollectionViewController.closureToPerform = closureToPerform
+      }
+    }
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+    temporaryNameLight.lightTypeIndex = delegateLightTypeIndex
+    chooseLightTypeButton.contentEdgeInsets  = UIEdgeInsetsMake(0, -90, 0, 0)
+    chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
+    chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
+    chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
+    saveButton.isHidden = false
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    nameLightType.delegate = self
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+    nameLightType.delegate                   = self
     chooseLightTypeButton.layer.borderColor  = UIColor.lightGray.cgColor
     chooseLightTypeButton.layer.borderWidth  = 0.5
     chooseLightTypeButton.layer.cornerRadius = 5
+    chooseLightTypeButton.tintColor          = UIColor.black
+    chooseLightTypeButton.contentEdgeInsets  = UIEdgeInsetsMake(0, -90, 0, 0)
+    chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
     if let delegateLamp = delegateLamp {
       if let nameLight = delegateLamp.nameLight {
         temporaryNameLight = NameLight(name: nameLight.name, lightTypeIndex: nameLight.lightTypeIndex)
+        delegateLightTypeIndex = nameLight.lightTypeIndex
       } else {
         removeButton.isHidden = true
         saveButton.isHidden = true
@@ -78,10 +106,11 @@ class NameLightViewController : UIViewController {
       }
       if let temporaryNameLight = temporaryNameLight {
         nameLightType.text = temporaryNameLight.name
-//        dropLightType.selectRow((temporaryNameLight.lightTypeIndex), inComponent: 0, animated: true)
+        delegateLightTypeIndex = temporaryNameLight.lightTypeIndex
+        chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
+        chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
       }
     }
-    delegateLightTypeIndex = temporaryNameLight.lightTypeIndex
     
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
     tapRecognizer.numberOfTapsRequired = 1
@@ -110,9 +139,7 @@ extension NameLightViewController: UITextFieldDelegate {
   }
   
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//    saveButton.isHidden = false
     nameLightType.resignFirstResponder()
-    self.view.endEditing(true)
     return true
   }
 }

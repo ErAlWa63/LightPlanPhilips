@@ -13,7 +13,7 @@ import UIKit
 
 final class LightTypeCollectionViewController: UICollectionViewController {
   let d = D() // debugger functionality
-
+  var closureToPerform: ((Int) -> Void)?
   fileprivate let reuseIdentifier = "lightTypeCell"
   fileprivate let sectionInsets = UIEdgeInsets(top: 18.0, left: 10.0, bottom: 18.0, right: 10.0)
   fileprivate let itemsPerRow: CGFloat = 3
@@ -67,6 +67,18 @@ final class LightTypeCollectionViewController: UICollectionViewController {
   
   // MARK: UICollectionViewDelegate
   
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //    addToList.append(objectsArray[indexPath.row])
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+    d.c(m: "indexPath.row = \(indexPath.row)", f: #file, fu: #function, l: #line)
+    let cell = collectionView.cellForItem(at: indexPath as IndexPath)
+    cell?.layer.borderWidth = 2.0
+    cell?.layer.borderColor = UIColor.gray.cgColor
+    closureToPerform?( indexPath.row)
+    d.c(m: "stop", f: #file, fu: #function, l: #line)
+    dismiss(animated: true, completion: nil)
+  }
+  
   /*
    // Uncomment this method to specify if the specified item should be highlighted during tracking
    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
@@ -74,12 +86,9 @@ final class LightTypeCollectionViewController: UICollectionViewController {
    }
    */
   
-  /*
-   // Uncomment this method to specify if the specified item should be selected
-   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-   return true
-   }
-   */
+  override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    return true
+  }
   
   /*
    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -100,7 +109,6 @@ final class LightTypeCollectionViewController: UICollectionViewController {
 //extension LightTypeCollectionViewController: UICollectionViewDataSource {
 //
 //}
-
 
 extension LightTypeCollectionViewController: UICollectionViewDelegateFlowLayout {
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -125,26 +133,4 @@ extension LightTypeCollectionViewController: UICollectionViewDelegateFlowLayout 
   //  @available(iOS 6.0, *)
   //  optional public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize
   //
-}
-
-// MARK: - UICollectionViewDelegate
-extension LightTypeCollectionViewController {
-  
-  override func collectionView(_ collectionView: UICollectionView,
-                               shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    
-    return true
-  }
-  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //    addToList.append(objectsArray[indexPath.row])
-    d.c(m: "start", f: #file, fu: #function, l: #line)
-    let cell = collectionView.cellForItem(at: indexPath as IndexPath)
-    cell?.layer.borderWidth = 2.0
-    cell?.layer.borderColor = UIColor.gray.cgColor
-    dismiss(animated: true, completion: nil)
-    d.c(m: "stop", f: #file, fu: #function, l: #line)
-
-  }
-  
-
 }
