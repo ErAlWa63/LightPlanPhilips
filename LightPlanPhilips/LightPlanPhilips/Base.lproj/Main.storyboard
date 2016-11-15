@@ -174,13 +174,7 @@
                                 <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67i-co-Cx5">
-                                <rect key="frame" x="57" y="193" width="206" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="VSo-jK-fah"/>
-                                </constraints>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur" userLabel="Name light type">
                                 <rect key="frame" x="57" y="253" width="206" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="xSR-IW-8be"/>
@@ -214,7 +208,7 @@
                                     <action selector="saveButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="Pak-tR-j0h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gby-ig-AcZ" userLabel="Cancel Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gby-ig-AcZ" userLabel="Cancel">
                                 <rect key="frame" x="274" y="65" width="30" height="30"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -223,11 +217,20 @@
                                     <action selector="cancelButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="zfX-xb-kZK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rh-Eo-9S4" userLabel="Choose light type">
+                                <rect key="frame" x="57" y="193" width="206" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="chooseLightTypeButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="O8y-r2-ugA"/>
+                                    <segue destination="5yu-7i-LiJ" kind="popoverPresentation" identifier="LightTypeSegue" popoverAnchorView="2rh-Eo-9S4" id="A2d-1Y-hNU">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OAp-Jk-7rT" firstAttribute="top" secondItem="gby-ig-AcZ" secondAttribute="bottom" constant="19" id="0JC-aU-PVD"/>
-                            <constraint firstItem="67i-co-Cx5" firstAttribute="leading" secondItem="BAo-0a-Jc9" secondAttribute="leading" id="28G-Ws-aex"/>
                             <constraint firstItem="keA-G7-1B2" firstAttribute="leading" secondItem="r4T-f1-biG" secondAttribute="leadingMargin" constant="72" id="4Yr-HN-Z4U"/>
                             <constraint firstItem="MrM-vs-9mf" firstAttribute="trailing" secondItem="keA-G7-1B2" secondAttribute="trailing" id="7vc-xq-ksA"/>
                             <constraint firstItem="OAp-Jk-7rT" firstAttribute="top" secondItem="rdG-pk-UR5" secondAttribute="bottom" constant="94" id="FCR-SK-5Ad"/>
@@ -239,8 +242,6 @@
                             <constraint firstItem="pHx-lo-nur" firstAttribute="centerX" secondItem="r4T-f1-biG" secondAttribute="centerX" id="gaG-aR-x0E"/>
                             <constraint firstItem="MrM-vs-9mf" firstAttribute="leading" secondItem="keA-G7-1B2" secondAttribute="leading" id="haY-tN-OZq"/>
                             <constraint firstItem="BAo-0a-Jc9" firstAttribute="top" secondItem="r4T-f1-biG" secondAttribute="top" constant="164" id="mIM-7v-kzs"/>
-                            <constraint firstItem="67i-co-Cx5" firstAttribute="top" secondItem="BAo-0a-Jc9" secondAttribute="bottom" constant="8" symbolic="YES" id="o0Z-uT-mWJ"/>
-                            <constraint firstItem="67i-co-Cx5" firstAttribute="trailing" secondItem="pHx-lo-nur" secondAttribute="trailing" id="r3h-4e-J2D"/>
                             <constraint firstItem="BAo-0a-Jc9" firstAttribute="top" secondItem="OAp-Jk-7rT" secondAttribute="bottom" constant="20" id="rCq-bo-I4w"/>
                             <constraint firstItem="pHx-lo-nur" firstAttribute="leading" secondItem="r4T-f1-biG" secondAttribute="leadingMargin" constant="41" id="u6u-vT-Qmn"/>
                             <constraint firstItem="OAp-Jk-7rT" firstAttribute="leading" secondItem="r4T-f1-biG" secondAttribute="leadingMargin" id="vte-eA-GNz"/>
@@ -251,7 +252,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="dropLightType" destination="67i-co-Cx5" id="zhR-Vn-3Y6"/>
+                        <outlet property="chooseLightTypeButton" destination="2rh-Eo-9S4" id="GYH-pg-fTf"/>
                         <outlet property="nameLightType" destination="pHx-lo-nur" id="054-te-Khf"/>
                         <outlet property="removeButton" destination="keA-G7-1B2" id="TWz-h4-ztK"/>
                         <outlet property="saveButton" destination="MrM-vs-9mf" id="Gjg-7K-BF3"/>
@@ -259,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GU-sn-o4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="-546"/>
+            <point key="canvasLocation" x="1207.5" y="-546.12676056338034"/>
         </scene>
         <!--Light Type Collection View Controller-->
         <scene sceneID="f6i-t9-wTU">
@@ -299,4 +300,7 @@
     <resources>
         <image name="A1.0.png" width="712" height="1254"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GUq-Lg-WeL"/>
+    </inferredMetricsTieBreakers>
 </document>

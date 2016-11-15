@@ -10,6 +10,7 @@ import UIKit
 
 class DataLightPlan: NSObject {
   static let  sharedInstance = DataLightPlan()
+  private override init () {}
   
   var listLightType = [
     LightType(name: "br30 slim",               file: "br30_slim.png"),
@@ -33,7 +34,5 @@ class DataLightPlan: NSObject {
     Lamp(name: "Bulb 6")]
   
   func loadLightPlan() {
-    
   }
-  
 }
