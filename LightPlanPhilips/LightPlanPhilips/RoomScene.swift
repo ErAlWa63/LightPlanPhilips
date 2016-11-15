@@ -64,7 +64,7 @@ class RoomScene: SKScene {
             movableNode = node
             movableNode!.position = location
           } else {
-            print(roomSceneDelegate?.showAlertMessage(bulb: node.name!))
+            roomSceneDelegate?.clickBulb(bulbName: node.name!)
           }
         }
       }

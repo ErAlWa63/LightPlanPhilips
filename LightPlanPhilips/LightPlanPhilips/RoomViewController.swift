@@ -10,11 +10,11 @@
 
 import UIKit
 import SpriteKit
-//import GameplayKit
-
 
 protocol RoomSceneDelegate: class {
   func showAlertMessage(bulb: String) -> String
+  func clickBulb(bulbName: String)
+  func clickGroup(groupName: String)
 }
 
 
@@ -25,19 +25,19 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   @IBOutlet weak var test2Button: UIButton!
   @IBOutlet weak var test3Button: UIButton!
   
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //    d.c(s: "\(#file) - prepare - start")
 //    d.c(s: "\(#file) - prepare - segue.identifier - \(segue.identifier)")
 //    d.c(m: "start", f: #file, fu: #function, l: #line)
 ////    d.c(s: "\(#file) - prepare - start")
 ////    d.c(s: "\(#file) - prepare - segue.identifier - \(segue.identifier)")
 //    
-//    if(segue.identifier == "NameLightSegue") {
-//      let nameLightViewController = (segue.destination) as! NameLightViewController
-//      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
-//    }
-//  }
-  
+    if(segue.identifier == "NameLightSegue") {
+      let nameLightViewController = (segue.destination) as! NameLightViewController
+      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
+    }
+  }
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,13 +45,9 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
     var scene: RoomScene
     
     if let view = self.view as! SKView? {
-      
+      // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
-      
-      // Set the scale mode to scale to fit the window
       scene.scaleMode = .aspectFill
-      // Present the scene
-      
       view.presentScene(scene)
       
       scene.roomSceneDelegate = self
@@ -82,11 +78,20 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
     return false
   }
   
+  // Delegate functions
+  func clickBulb(bulbName: String){
+    print(bulbName)
+      performSegue(withIdentifier: "NameLightSegue", sender: nil)
+    
+  }
+  
+  
+  func clickGroup(groupName: String) {
+    
+  }
+  
   func showAlertMessage(bulb: String) -> String {
     print("\(bulb) was clicked")
     return "test"
   }
-  
-  
-  
 }
