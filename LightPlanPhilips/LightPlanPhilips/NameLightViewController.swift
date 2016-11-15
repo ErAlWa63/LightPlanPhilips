@@ -64,6 +64,7 @@ class NameLightViewController : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    nameLightType.delegate = self
     chooseLightTypeButton.layer.borderColor  = UIColor.lightGray.cgColor
     chooseLightTypeButton.layer.borderWidth  = 0.5
     chooseLightTypeButton.layer.cornerRadius = 5
@@ -109,7 +110,9 @@ extension NameLightViewController: UITextFieldDelegate {
   }
   
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//    saveButton.isHidden = false
     nameLightType.resignFirstResponder()
+    self.view.endEditing(true)
     return true
   }
 }
