@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784D1DD3ADB7003812A7 /* LightType.swift */; };
 		030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784F1DD3AE32003812A7 /* DataLightPlan.swift */; };
-		030878551DD3B402003812A7 /* Dining.png in Resources */ = {isa = PBXBuildFile; fileRef = 030878521DD3B402003812A7 /* Dining.png */; };
-		030878561DD3B402003812A7 /* Floorstand.png in Resources */ = {isa = PBXBuildFile; fileRef = 030878531DD3B402003812A7 /* Floorstand.png */; };
-		030878571DD3B402003812A7 /* Pendant.png in Resources */ = {isa = PBXBuildFile; fileRef = 030878541DD3B402003812A7 /* Pendant.png */; };
 		030878771DD48AE5003812A7 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878761DD48AE5003812A7 /* Lamp.swift */; };
 		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
@@ -42,6 +39,23 @@
 		0374EB361DD67330002165CD /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB351DD67330002165CD /* TestButton.swift */; };
 		0374EB381DD67A9D002165CD /* PLPRedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB371DD67A9D002165CD /* PLPRedButton.swift */; };
 		0374EB3A1DD67D88002165CD /* PLPOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB391DD67D88002165CD /* PLPOrangeButton.swift */; };
+		03B2B1871DDA160100CCFF70 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17C1DDA160100CCFF70 /* spot.png */; };
+		03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17D1DDA160100CCFF70 /* rec_spot.png */; };
+		03B2B1891DDA160100CCFF70 /* ceiling.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17E1DDA160100CCFF70 /* ceiling.png */; };
+		03B2B18A1DDA160100CCFF70 /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17F1DDA160100CCFF70 /* table.png */; };
+		03B2B18B1DDA160100CCFF70 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1801DDA160100CCFF70 /* floor.png */; };
+		03B2B18C1DDA160100CCFF70 /* pendant.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1811DDA160100CCFF70 /* pendant.png */; };
+		03B2B18D1DDA160100CCFF70 /* br30_slim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1821DDA160100CCFF70 /* br30_slim.png */; };
+		03B2B18E1DDA160100CCFF70 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1831DDA160100CCFF70 /* go.png */; };
+		03B2B18F1DDA160100CCFF70 /* gu10_perfectfit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1841DDA160100CCFF70 /* gu10_perfectfit.png */; };
+		03B2B1901DDA160100CCFF70 /* lightstrip.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1851DDA160100CCFF70 /* lightstrip.png */; };
+		03B2B1911DDA160100CCFF70 /* white_and_color_e27_b22.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1861DDA160100CCFF70 /* white_and_color_e27_b22.png */; };
+		03B2B1991DDA162F00CCFF70 /* bathroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1931DDA162F00CCFF70 /* bathroom.png */; };
+		03B2B19A1DDA162F00CCFF70 /* bedroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1941DDA162F00CCFF70 /* bedroom.png */; };
+		03B2B19B1DDA162F00CCFF70 /* dining.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1951DDA162F00CCFF70 /* dining.png */; };
+		03B2B19C1DDA162F00CCFF70 /* kitchen.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1961DDA162F00CCFF70 /* kitchen.png */; };
+		03B2B19D1DDA162F00CCFF70 /* living.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1971DDA162F00CCFF70 /* living.png */; };
+		03B2B19E1DDA162F00CCFF70 /* toilet.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B1981DDA162F00CCFF70 /* toilet.png */; };
 		03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03121DD0C75B00AD5069 /* AppDelegate.swift */; };
 		03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03141DD0C75B00AD5069 /* ViewController.swift */; };
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
@@ -57,9 +71,6 @@
 /* Begin PBXFileReference section */
 		0308784D1DD3ADB7003812A7 /* LightType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightType.swift; sourceTree = "<group>"; };
 		0308784F1DD3AE32003812A7 /* DataLightPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLightPlan.swift; sourceTree = "<group>"; };
-		030878521DD3B402003812A7 /* Dining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dining.png; sourceTree = "<group>"; };
-		030878531DD3B402003812A7 /* Floorstand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Floorstand.png; sourceTree = "<group>"; };
-		030878541DD3B402003812A7 /* Pendant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pendant.png; sourceTree = "<group>"; };
 		030878761DD48AE5003812A7 /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 		030878781DD48B88003812A7 /* NameLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLight.swift; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +101,23 @@
 		0374EB351DD67330002165CD /* TestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
 		0374EB371DD67A9D002165CD /* PLPRedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPRedButton.swift; sourceTree = "<group>"; };
 		0374EB391DD67D88002165CD /* PLPOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPOrangeButton.swift; sourceTree = "<group>"; };
+		03B2B17C1DDA160100CCFF70 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spot.png; sourceTree = "<group>"; };
+		03B2B17D1DDA160100CCFF70 /* rec_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec_spot.png; sourceTree = "<group>"; };
+		03B2B17E1DDA160100CCFF70 /* ceiling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ceiling.png; sourceTree = "<group>"; };
+		03B2B17F1DDA160100CCFF70 /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
+		03B2B1801DDA160100CCFF70 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
+		03B2B1811DDA160100CCFF70 /* pendant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pendant.png; sourceTree = "<group>"; };
+		03B2B1821DDA160100CCFF70 /* br30_slim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = br30_slim.png; sourceTree = "<group>"; };
+		03B2B1831DDA160100CCFF70 /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
+		03B2B1841DDA160100CCFF70 /* gu10_perfectfit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gu10_perfectfit.png; sourceTree = "<group>"; };
+		03B2B1851DDA160100CCFF70 /* lightstrip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightstrip.png; sourceTree = "<group>"; };
+		03B2B1861DDA160100CCFF70 /* white_and_color_e27_b22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_and_color_e27_b22.png; sourceTree = "<group>"; };
+		03B2B1931DDA162F00CCFF70 /* bathroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bathroom.png; sourceTree = "<group>"; };
+		03B2B1941DDA162F00CCFF70 /* bedroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bedroom.png; sourceTree = "<group>"; };
+		03B2B1951DDA162F00CCFF70 /* dining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dining.png; sourceTree = "<group>"; };
+		03B2B1961DDA162F00CCFF70 /* kitchen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kitchen.png; sourceTree = "<group>"; };
+		03B2B1971DDA162F00CCFF70 /* living.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = living.png; sourceTree = "<group>"; };
+		03B2B1981DDA162F00CCFF70 /* toilet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toilet.png; sourceTree = "<group>"; };
 		03BB030F1DD0C75B00AD5069 /* LightPlanPhilips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightPlanPhilips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BB03121DD0C75B00AD5069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BB03141DD0C75B00AD5069 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,9 +146,17 @@
 		030878511DD3B392003812A7 /* Philips Light Plan LightType */ = {
 			isa = PBXGroup;
 			children = (
-				030878521DD3B402003812A7 /* Dining.png */,
-				030878531DD3B402003812A7 /* Floorstand.png */,
-				030878541DD3B402003812A7 /* Pendant.png */,
+				03B2B1821DDA160100CCFF70 /* br30_slim.png */,
+				03B2B17E1DDA160100CCFF70 /* ceiling.png */,
+				03B2B1801DDA160100CCFF70 /* floor.png */,
+				03B2B1831DDA160100CCFF70 /* go.png */,
+				03B2B1841DDA160100CCFF70 /* gu10_perfectfit.png */,
+				03B2B1851DDA160100CCFF70 /* lightstrip.png */,
+				03B2B1811DDA160100CCFF70 /* pendant.png */,
+				03B2B17D1DDA160100CCFF70 /* rec_spot.png */,
+				03B2B17C1DDA160100CCFF70 /* spot.png */,
+				03B2B17F1DDA160100CCFF70 /* table.png */,
+				03B2B1861DDA160100CCFF70 /* white_and_color_e27_b22.png */,
 			);
 			name = "Philips Light Plan LightType";
 			sourceTree = "<group>";
@@ -203,6 +239,19 @@
 			name = "Philips Light Plan PDF";
 			sourceTree = "<group>";
 		};
+		03B2B1921DDA160C00CCFF70 /* Philips Light Plan RoomType */ = {
+			isa = PBXGroup;
+			children = (
+				03B2B1931DDA162F00CCFF70 /* bathroom.png */,
+				03B2B1941DDA162F00CCFF70 /* bedroom.png */,
+				03B2B1951DDA162F00CCFF70 /* dining.png */,
+				03B2B1961DDA162F00CCFF70 /* kitchen.png */,
+				03B2B1971DDA162F00CCFF70 /* living.png */,
+				03B2B1981DDA162F00CCFF70 /* toilet.png */,
+			);
+			name = "Philips Light Plan RoomType";
+			sourceTree = "<group>";
+		};
 		03BB03061DD0C75B00AD5069 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +271,7 @@
 		03BB03111DD0C75B00AD5069 /* LightPlanPhilips */ = {
 			isa = PBXGroup;
 			children = (
+				03B2B1921DDA160C00CCFF70 /* Philips Light Plan RoomType */,
 				030878511DD3B392003812A7 /* Philips Light Plan LightType */,
 				031CEBD21DD3802000E40BCF /* Controller */,
 				031CEBD11DD3801800E40BCF /* Model */,
@@ -294,34 +344,48 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B2B18C1DDA160100CCFF70 /* pendant.png in Resources */,
 				0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */,
-				030878551DD3B402003812A7 /* Dining.png in Resources */,
+				03B2B18E1DDA160100CCFF70 /* go.png in Resources */,
 				03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */,
+				03B2B19C1DDA162F00CCFF70 /* kitchen.png in Resources */,
+				03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */,
+				03B2B1911DDA160100CCFF70 /* white_and_color_e27_b22.png in Resources */,
 				0321F4A11DD1E3DC00CB13BE /* A1.0.png in Resources */,
 				0321F4BB1DD1E40200CB13BE /* D1.2.png in Resources */,
+				03B2B1891DDA160100CCFF70 /* ceiling.png in Resources */,
+				03B2B19E1DDA162F00CCFF70 /* toilet.png in Resources */,
 				0321F4B51DD1E40200CB13BE /* B1.1.png in Resources */,
+				03B2B19D1DDA162F00CCFF70 /* living.png in Resources */,
+				03B2B18A1DDA160100CCFF70 /* table.png in Resources */,
 				0321F4B71DD1E40200CB13BE /* C1.1.png in Resources */,
 				0321F4A21DD1E3DC00CB13BE /* A1.2.png in Resources */,
+				03B2B18F1DDA160100CCFF70 /* gu10_perfectfit.png in Resources */,
+				03B2B18D1DDA160100CCFF70 /* br30_slim.png in Resources */,
 				0321F4BE1DD1E40200CB13BE /* D1.5.png in Resources */,
 				0321F4C01DD1E40200CB13BE /* E0a.png in Resources */,
 				0321F4A31DD1E3DC00CB13BE /* A1.3.png in Resources */,
 				0321F4B61DD1E40200CB13BE /* B1.2.png in Resources */,
+				03B2B19B1DDA162F00CCFF70 /* dining.png in Resources */,
 				0321F4BC1DD1E40200CB13BE /* D1.3.png in Resources */,
 				0321F4BD1DD1E40200CB13BE /* D1.4.png in Resources */,
 				0321F4A61DD1E3DC00CB13BE /* A1.5b.png in Resources */,
+				03B2B19A1DDA162F00CCFF70 /* bedroom.png in Resources */,
 				0321F4C21DD1E40200CB13BE /* E1.4b.png in Resources */,
+				03B2B18B1DDA160100CCFF70 /* floor.png in Resources */,
 				0321F4A51DD1E3DC00CB13BE /* A1.5a.png in Resources */,
 				03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */,
 				9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */,
 				03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */,
-				030878571DD3B402003812A7 /* Pendant.png in Resources */,
+				03B2B1871DDA160100CCFF70 /* spot.png in Resources */,
 				0321F4B91DD1E40200CB13BE /* C1.3.png in Resources */,
 				0321F4A41DD1E3DC00CB13BE /* A1.4.png in Resources */,
 				0321F4BF1DD1E40200CB13BE /* D1.6.png in Resources */,
 				0321F4B81DD1E40200CB13BE /* C1.2.png in Resources */,
-				030878561DD3B402003812A7 /* Floorstand.png in Resources */,
+				03B2B1991DDA162F00CCFF70 /* bathroom.png in Resources */,
 				0321F4BA1DD1E40200CB13BE /* D1.1.png in Resources */,
 				0321F4C11DD1E40200CB13BE /* E1.4a.png in Resources */,
+				03B2B1901DDA160100CCFF70 /* lightstrip.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

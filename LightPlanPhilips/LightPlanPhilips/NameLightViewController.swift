@@ -28,10 +28,10 @@ import UIKit
 class NameLightViewController : UIViewController {
   let d = D() // debugger functionality
   
-  @IBOutlet weak var dropLightType: UIPickerView!
   @IBOutlet weak var nameLightType: UITextField!
   @IBOutlet weak var removeButton: UIButton!
   @IBOutlet weak var saveButton: UIButton!
+  @IBOutlet weak var chooseLightTypeButton: UIButton!
   
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
@@ -53,16 +53,20 @@ class NameLightViewController : UIViewController {
     dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func chooseLightTypeButton(_ sender: Any) {
+//    temporaryNameLight.lightTypeIndex
+  }
+  
+  
   var delegateLamp      : Lamp!
   var temporaryNameLight: NameLight!
+  var delegateLightTypeIndex = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    dropLightType.dataSource         = self
-    dropLightType.delegate           = self
-    dropLightType.layer.borderColor  = UIColor.lightGray.cgColor
-    dropLightType.layer.borderWidth  = 0.5
-    dropLightType.layer.cornerRadius = 5
+    chooseLightTypeButton.layer.borderColor  = UIColor.lightGray.cgColor
+    chooseLightTypeButton.layer.borderWidth  = 0.5
+    chooseLightTypeButton.layer.cornerRadius = 5
     if let delegateLamp = delegateLamp {
       if let nameLight = delegateLamp.nameLight {
         temporaryNameLight = NameLight(name: nameLight.name, lightTypeIndex: nameLight.lightTypeIndex)
@@ -73,11 +77,11 @@ class NameLightViewController : UIViewController {
       }
       if let temporaryNameLight = temporaryNameLight {
         nameLightType.text = temporaryNameLight.name
-        dropLightType.selectRow((temporaryNameLight.lightTypeIndex), inComponent: 0, animated: true)
+//        dropLightType.selectRow((temporaryNameLight.lightTypeIndex), inComponent: 0, animated: true)
       }
     }
-    nameLightType.keyboardType = UIKeyboardType.alphabet
-    nameLightType.delegate     = self
+    delegateLightTypeIndex = temporaryNameLight.lightTypeIndex
+    
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
     tapRecognizer.numberOfTapsRequired = 1
     self.view.addGestureRecognizer(tapRecognizer)
@@ -85,47 +89,6 @@ class NameLightViewController : UIViewController {
   
   func handleSingleTap(recognizer: UITapGestureRecognizer) {
     self.view.endEditing(true)
-  }
-}
-
-extension NameLightViewController: UIPickerViewDataSource {
-  func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
-  }
-  
-  internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return DataLightPlan.sharedInstance.listLightType.count
-  }
-}
-
-extension NameLightViewController: UIPickerViewDelegate {
-  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    if let temporaryNameLight = temporaryNameLight {
-      saveButton.isHidden = false
-      temporaryNameLight.lightTypeIndex = row
-    }
-  }
-  
-  func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-    return 30
-  }
-  
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    pickerView.endEditing(true)
-    return DataLightPlan.sharedInstance.listLightType[row].name
-  }
-  
-  func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-    let myImageView   = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-    myImageView.image = DataLightPlan.sharedInstance.listLightType[row].pictogram
-    let rowString     = DataLightPlan.sharedInstance.listLightType[row].name
-    let myLabel       = UILabel(frame: CGRect(x: 40, y: 0, width: pickerView.bounds.width - 70, height: 25))
-    myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
-    myLabel.text      = rowString
-    let myView        = UIView(frame: CGRect(x: 0, y: 0, width: pickerView.bounds.width - 30, height: 25))
-    myView.addSubview(myLabel)
-    myView.addSubview(myImageView)
-    return myView
   }
 }
 

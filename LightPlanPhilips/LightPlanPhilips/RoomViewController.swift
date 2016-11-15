@@ -26,19 +26,13 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   @IBOutlet weak var test3Button: UIButton!
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    d.c(s: "\(#file) - prepare - start")
-//    d.c(s: "\(#file) - prepare - segue.identifier - \(segue.identifier)")
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
-////    d.c(s: "\(#file) - prepare - start")
-////    d.c(s: "\(#file) - prepare - segue.identifier - \(segue.identifier)")
-//    
+
     if(segue.identifier == "NameLightSegue") {
       let nameLightViewController = (segue.destination) as! NameLightViewController
       nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
     }
   }
 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -57,21 +51,6 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
       view.showsFPS = true
       view.showsNodeCount = true
     }
-    
-    
-    
-    test1Button.layer.borderColor  = UIColor.darkGray.cgColor
-    test1Button.layer.borderWidth  = 0.5
-    test1Button.layer.cornerRadius = 5
-    test2Button.layer.borderColor  = UIColor.darkGray.cgColor
-    test2Button.layer.borderWidth  = 0.5
-    test2Button.layer.cornerRadius = 5
-    test3Button.layer.borderColor  = UIColor.darkGray.cgColor
-    test3Button.layer.borderWidth  = 0.5
-    test3Button.layer.cornerRadius = 5
-    
-
-    
   }
   
   override var shouldAutorotate: Bool {
