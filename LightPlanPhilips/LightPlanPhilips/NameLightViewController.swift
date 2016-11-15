@@ -54,7 +54,7 @@ class NameLightViewController : UIViewController {
   }
   
   @IBAction func chooseLightTypeButton(_ sender: Any) {
-    temporaryNameLight.lightTypeIndex
+//    temporaryNameLight.lightTypeIndex
   }
   
   
