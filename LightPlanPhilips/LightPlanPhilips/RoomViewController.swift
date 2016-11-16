@@ -18,9 +18,6 @@ protocol RoomSceneDelegate: class {
 }
 
 
-
-
-
 class RoomViewController: UIViewController, RoomSceneDelegate {
   
     var scene: RoomScene!
