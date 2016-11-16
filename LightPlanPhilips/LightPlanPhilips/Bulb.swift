@@ -14,8 +14,8 @@ class Bulb {
   //    var lightType: String?
   //    var bulbIcon: String = "bulb.jpeg"
   var selected: Bool
-  var positionX: Int?
-  var positionY: Int?
+  var positionX: Float?
+  var positionY: Float?
   
   
   init (name: String) {

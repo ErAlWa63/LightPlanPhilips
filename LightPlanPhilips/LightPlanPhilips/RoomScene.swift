@@ -24,7 +24,7 @@ class RoomScene: SKScene {
   var dragDropEnabled: Bool = true
   var createGroup: Bool = false
   
-  let dataSource = DataSource.sharedInstance
+let dataSource = DataSource.sharedInstance
   
   var bulbCollection = [Bulb]()
   var groupCollection = [[Bulb]]()
@@ -36,11 +36,14 @@ class RoomScene: SKScene {
   
   override func didMove(to view: SKView) {
     
-    bulbCollection = dataSource.GetBulbs()
     
+    self.roomSceneDelegate?.test()
+    
+    //bulbCollection = (roomSceneDelegate?.getBulbs())!
+    bulbCollection = dataSource.GetBulbs()
     for bulb in bulbCollection {
       let sprite = bulbSprite.copy() as! SKSpriteNode
-      sprite.position = CGPoint(x: bulb.positionX!, y: bulb.positionY!)
+      sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
       sprite.setScale(1.5)
       sprite.name = bulb.name
       sprite.isSelected = false
@@ -80,7 +83,6 @@ class RoomScene: SKScene {
               
               node.isSelected = true
             } else {
-              
               
               node.removeAllActions()
               let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
