@@ -86,6 +86,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-es-RzG">
+                                <rect key="frame" x="254" y="394" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="GroupButton"/>
+                                <connections>
+                                    <action selector="groupClicked:" destination="g8Q-k0-1es" eventType="touchUpInside" id="sW4-jS-lJF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="CJN-JI-rtz" firstAttribute="top" secondItem="uga-Wy-LTh" secondAttribute="bottom" constant="8" symbolic="YES" id="6aR-p5-kEl"/>
@@ -109,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="-546"/>
+            <point key="canvasLocation" x="16.875" y="-546.12676056338034"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -299,6 +307,7 @@
     </scenes>
     <resources>
         <image name="A1.0.png" width="712" height="1254"/>
+        <image name="GroupButton" width="712" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GUq-Lg-WeL"/>

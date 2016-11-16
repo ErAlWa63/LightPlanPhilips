@@ -21,11 +21,13 @@ class RoomScene: SKScene {
   
   var roomSceneDelegate: RoomSceneDelegate?
   
-  let dragDropEnabled: Bool = false
+  var dragDropEnabled: Bool = true
+  var createGroup: Bool = false
   
   let dataSource = DataSource.sharedInstance
   
   var bulbCollection = [Bulb]()
+  var groupCollection = [[Bulb]]()
   
   
   let bulbSprite = SKSpriteNode(imageNamed: "Bulb")
@@ -41,11 +43,12 @@ class RoomScene: SKScene {
       sprite.position = CGPoint(x: bulb.positionX!, y: bulb.positionY!)
       sprite.setScale(1.5)
       sprite.name = bulb.name
-      
       self.addChild(sprite)
     }
   }
   
+  
+
   
   
   
@@ -64,12 +67,34 @@ class RoomScene: SKScene {
             movableNode = node
             movableNode!.position = location
           } else {
-            roomSceneDelegate?.clickBulb(bulbName: node.name!)
+            
+            let expandAction = SKAction.scale(to: 1, duration: 0.33)
+            let contractAction = SKAction.scale(to: 1.8, duration: 0.33)
+            let pulsateAction = SKAction.repeatForever(SKAction.sequence([expandAction, contractAction]))
+          
+            node.run(pulsateAction)
+            createNewGroup()
+            
+            
+            
+            // voor uitezetten pulseren
+//            spaceshipSprite.removeAllActions()
+//            let restoreScaleAction = SKAction.scaleTo(0.33, duration: 0.1)
+//            spaceshipSprite.runAction(restoreScaleAction)
           }
         }
       }
     }
   }
+  
+  
+
+  
+
+  
+  
+  
+  
   
   
   
@@ -112,7 +137,6 @@ class RoomScene: SKScene {
       }
       movableNode = nil
       
-      print("gevonden nodes: \(testForGroup(location: location).count)")
     }
   }
   
@@ -123,19 +147,25 @@ class RoomScene: SKScene {
     }
   }
   
-  func testForGroup(location: CGPoint) -> [SKSpriteNode]  {
-    let touchedNodes = self.nodes(at: location)
-    
-    var foundBulbs = [SKSpriteNode]()
-    for node in touchedNodes {
-      if node is SKSpriteNode {
-        foundBulbs.append(node as! SKSpriteNode)
-      }
-    }
-    return foundBulbs
-  }
+//  func testForGroup(location: CGPoint) -> [SKSpriteNode]  {
+//    let touchedNodes = self.nodes(at: location)
+//    
+//    var foundBulbs = [SKSpriteNode]()
+//    for node in touchedNodes {
+//      if node is SKSpriteNode {
+//        foundBulbs.append(node as! SKSpriteNode)
+//      }
+//    }
+//    return foundBulbs
+//  }
   
-  func createGroup(node: [SKSpriteNode]) {
+  func createNewGroup() {
+    
+    var group = [Bulb]()
+    
+    self.groupCollection.append(group)
+
+    createGroup = true
     
   }
   
