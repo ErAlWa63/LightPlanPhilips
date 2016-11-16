@@ -79,6 +79,15 @@
                                     <constraint firstItem="1hl-Si-gGP" firstAttribute="centerY" secondItem="URC-HY-JIU" secondAttribute="centerY" id="c9I-VR-4iF"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-es-RzG">
+                                <rect key="frame" x="254" y="394" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="GroupButton"/>
+                                <connections>
+                                    <action selector="groupClicked:" destination="g8Q-k0-1es" eventType="touchUpInside" id="sW4-jS-lJF"/>
+                                    <segue destination="kCi-ea-CYN" kind="show" id="yrJ-9j-HTP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="CJN-JI-rtz" firstAttribute="top" secondItem="uga-Wy-LTh" secondAttribute="bottom" constant="8" symbolic="YES" id="AYF-es-aR7"/>
@@ -147,6 +156,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-469" y="-547"/>
+        </scene>
+        <!--Group Bulbs View Controller-->
+        <scene sceneID="ee8-GI-Lts">
+            <objects>
+                <viewController id="kCi-ea-CYN" customClass="GroupBulbsViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QEB-YR-dDh"/>
+                        <viewControllerLayoutGuide type="bottom" id="CZg-kG-K6T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oRa-gv-j6g" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-I3-cYj">
+                                <rect key="frame" x="31" y="61" width="259" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-aO-NEU">
+                                <rect key="frame" x="16" y="28" width="115" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="VA2-mA-KES"/>
+                                    <constraint firstAttribute="width" constant="115" id="aYd-bG-JjX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rt-LN-DJg">
+                                <rect key="frame" x="258" y="20" width="46" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="dT6-mP-tyk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ohb-aO-NEU" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" id="71i-5R-lxY"/>
+                            <constraint firstItem="Ohb-aO-NEU" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" constant="8" symbolic="YES" id="E7t-D3-kCd"/>
+                            <constraint firstItem="uWC-I3-cYj" firstAttribute="centerX" secondItem="oRa-gv-j6g" secondAttribute="centerX" id="UDw-QQ-dTC"/>
+                            <constraint firstItem="uWC-I3-cYj" firstAttribute="top" secondItem="Ohb-aO-NEU" secondAttribute="bottom" id="a7i-D2-cV8"/>
+                            <constraint firstItem="CZg-kG-K6T" firstAttribute="top" secondItem="uWC-I3-cYj" secondAttribute="bottom" constant="438" id="clm-iW-j0a"/>
+                            <constraint firstItem="uWC-I3-cYj" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="15" id="p5U-hN-N4J"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830.625" y="-1189.4366197183099"/>
         </scene>
         <!--Name Light View Controller-->
         <scene sceneID="NX5-8i-gyE">
@@ -276,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GU-sn-o4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207.5" y="-546.12676056338034"/>
+            <point key="canvasLocation" x="1506" y="-566"/>
         </scene>
         <!--Light Type Collection View Controller-->
         <scene sceneID="f6i-t9-wTU">
@@ -316,5 +379,6 @@
     </scenes>
     <resources>
         <image name="A1.0.png" width="712" height="1254"/>
+        <image name="GroupButton" width="712" height="1254"/>
     </resources>
 </document>
