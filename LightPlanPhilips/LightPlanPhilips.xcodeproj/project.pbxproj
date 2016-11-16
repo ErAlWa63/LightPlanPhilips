@@ -169,8 +169,8 @@
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 				0308784F1DD3AE32003812A7 /* DataLightPlan.swift */,
 				030878761DD48AE5003812A7 /* Lamp.swift */,
-				030878781DD48B88003812A7 /* NameLight.swift */,
 				0308784D1DD3ADB7003812A7 /* LightType.swift */,
+				030878781DD48B88003812A7 /* NameLight.swift */,
 				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
 			);
 			name = Model;
@@ -180,9 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
-				03BB03141DD0C75B00AD5069 /* ViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
 				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
+				03BB03141DD0C75B00AD5069 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -190,11 +190,11 @@
 		031CEBD31DD3803400E40BCF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0374EB331DD60DBC002165CD /* PLPButton.swift */,
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
-				0374EB351DD67330002165CD /* TestButton.swift */,
+				0374EB331DD60DBC002165CD /* PLPButton.swift */,
 				0374EB371DD67A9D002165CD /* PLPRedButton.swift */,
 				0374EB391DD67D88002165CD /* PLPOrangeButton.swift */,
+				0374EB351DD67330002165CD /* TestButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

@@ -71,11 +71,6 @@
                                             <constraint firstAttribute="height" constant="100" id="m43-P5-Uzf"/>
                                         </constraints>
                                         <state key="normal" title="T2"/>
-                                        <connections>
-                                            <segue destination="5yu-7i-LiJ" kind="popoverPresentation" popoverAnchorView="1hl-Si-gGP" id="GUq-Lg-WeL">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amT-hY-E5B" userLabel="Test 3 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="30" height="100"/>
@@ -309,7 +304,4 @@
         <image name="A1.0.png" width="712" height="1254"/>
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="GUq-Lg-WeL"/>
-    </inferredMetricsTieBreakers>
 </document>
