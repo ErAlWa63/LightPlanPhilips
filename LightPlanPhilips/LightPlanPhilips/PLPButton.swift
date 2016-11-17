@@ -28,17 +28,17 @@ class PLPButton: UIButton {
   }
   
   private func basics () {
-    layer.cornerRadius = 5
-    layer.masksToBounds = true
-    layer.borderWidth = 1
-    layer.borderColor = UIColor.darkGray.cgColor
+//    layer.cornerRadius = 5
+//    layer.masksToBounds = true
+//    layer.borderWidth = 1
+//    layer.borderColor = UIColor.darkGray.cgColor
 //    layer.shadowColor = UIColor.lightGray.cgColor
 //    layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
     tintColor = UIColor.white
-//    frame = CGRect(x: 10, y: 10, width: 10, height: 10)
+    frame = CGRect(x: 10, y: 10, width: 10, height: 10)
   }
   
-  func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+  override func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     return UIColor(
       red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
       green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,

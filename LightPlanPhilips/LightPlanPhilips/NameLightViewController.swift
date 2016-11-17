@@ -31,9 +31,9 @@ import UIKit
 class NameLightViewController : UIViewController {
   let d = D() // debugger functionality
   
-  @IBOutlet weak var nameLightType: UITextField!
-  @IBOutlet weak var removeButton: UIButton!
-  @IBOutlet weak var saveButton: UIButton!
+  @IBOutlet weak var nameLightType:         UITextField!
+  @IBOutlet weak var removeButton:          UIButton!
+  @IBOutlet weak var saveButton:            UIButton!
   @IBOutlet weak var chooseLightTypeButton: UIButton!
   
   @IBAction func cancelButton(_ sender: Any) {
@@ -62,16 +62,17 @@ class NameLightViewController : UIViewController {
   var delegateLamp      : Lamp!
   var temporaryNameLight: NameLight!
   var delegateLightTypeIndex = 0
+  var firstTime = true
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if(segue.identifier == "LightTypeSegue") {
       if let LightTypeCollectionViewController = segue.destination as? LightTypeCollectionViewController {
-        let closureToPerform = { [weak self] (index: Int) in
+        LightTypeCollectionViewController.delegateLightTypeIndex = delegateLightTypeIndex
+        LightTypeCollectionViewController.closureToPerform = { [weak self] (index: Int) in
           if let strongSelf = self {
             strongSelf.delegateLightTypeIndex = index
           }
         }
-        LightTypeCollectionViewController.closureToPerform = closureToPerform
       }
     }
   }
@@ -82,7 +83,11 @@ class NameLightViewController : UIViewController {
     chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
     chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
     chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
-    saveButton.isHidden = false
+    if firstTime {
+      firstTime = false
+    } else {
+      saveButton.isHidden = false
+    }
   }
   
   override func viewDidLoad() {

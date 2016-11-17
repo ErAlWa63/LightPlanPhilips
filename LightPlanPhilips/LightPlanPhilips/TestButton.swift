@@ -24,7 +24,7 @@ class TestButton: UIButton {
     basics()
   }
   
-  private func basics () {
+  func basics () {
     layer.cornerRadius = 5
     layer.masksToBounds = true
     layer.borderWidth = 1

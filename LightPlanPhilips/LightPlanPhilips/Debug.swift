@@ -11,6 +11,13 @@
 
 import UIKit
 
+/*
+ let d = D() // debugger functionality
+ d.c(m: "start", f: #file, fu: #function, l: #line)
+
+ 
+*/
+
 class D {
   private var now: String {
     get {
