@@ -69,10 +69,18 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hl-Si-gGP" userLabel="Test 2 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="100" width="30" height="100"/>
                                         <state key="normal" title="T2"/>
+                                        <connections>
+                                            <segue destination="sqM-BW-dRz" kind="popoverPresentation" popoverAnchorView="1hl-Si-gGP" id="mgh-d8-JsH">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amT-hY-E5B" userLabel="Test 3 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="30" height="100"/>
                                         <state key="normal" title="T3"/>
+                                        <connections>
+                                            <segue destination="vLo-nQ-Chj" kind="show" id="rQ1-Kt-cgb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -112,6 +120,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="428" y="-547"/>
+        </scene>
+        <!--Room Shape View Controller-->
+        <scene sceneID="6lH-Ik-IPV">
+            <objects>
+                <viewController id="vLo-nQ-Chj" customClass="RoomShapeViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e9g-bo-XjV"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ob-o3-8xr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wlQ-NP-TiS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9If-uQ-e1l" userLabel="Cancel">
+                                <rect key="frame" x="274" y="65" width="30" height="30"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.91372549020000005" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="8R7-xM-HyF"/>
+                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="k8f-Oc-fYl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaC-56-BxT">
+                                <rect key="frame" x="119" y="246" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FaC-56-BxT" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="226" id="9p0-F0-f3M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FaC-56-BxT" secondAttribute="trailing" constant="139" id="BJf-vy-3fg"/>
+                            <constraint firstItem="FaC-56-BxT" firstAttribute="leading" secondItem="wlQ-NP-TiS" secondAttribute="leading" constant="119" id="F1e-Jk-DmH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9If-uQ-e1l" secondAttribute="trailing" id="Krh-zD-95C"/>
+                            <constraint firstItem="9If-uQ-e1l" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="45" id="kDe-d5-R4f"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyU-6C-XhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="239"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zlu-Lt-gC2">
+            <objects>
+                <viewController id="sqM-BW-dRz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZTq-Oe-lgg"/>
+                        <viewControllerLayoutGuide type="bottom" id="IMo-aO-efs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kXm-q7-67l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8J-GK-JLr" userLabel="Cancel">
+                                <rect key="frame" x="251" y="55" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="uzd-FO-Lsh"/>
+                                    <constraint firstAttribute="height" constant="30" id="zna-K7-vrD"/>
+                                </constraints>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.91372549020000005" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="BZz-o2-xsE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcO-YS-zaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="132"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -374,7 +456,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFq-eW-lLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="-547"/>
+            <point key="canvasLocation" x="2308" y="-566"/>
         </scene>
     </scenes>
     <resources>

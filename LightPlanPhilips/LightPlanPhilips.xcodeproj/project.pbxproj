@@ -36,6 +36,7 @@
 		0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB0E1DD4ABAB002165CD /* Debug.swift */; };
 		0374EB321DD5E8F3002165CD /* LightTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */; };
 		0374EB361DD67330002165CD /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB351DD67330002165CD /* TestButton.swift */; };
+		03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */; };
 		03B2B1871DDA160100CCFF70 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17C1DDA160100CCFF70 /* spot.png */; };
 		03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17D1DDA160100CCFF70 /* rec_spot.png */; };
 		03B2B1891DDA160100CCFF70 /* ceiling.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17E1DDA160100CCFF70 /* ceiling.png */; };
@@ -98,6 +99,7 @@
 		0374EB0E1DD4ABAB002165CD /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		0374EB351DD67330002165CD /* TestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
+		03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShapeViewController.swift; sourceTree = "<group>"; };
 		03B2B17C1DDA160100CCFF70 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spot.png; sourceTree = "<group>"; };
 		03B2B17D1DDA160100CCFF70 /* rec_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec_spot.png; sourceTree = "<group>"; };
 		03B2B17E1DDA160100CCFF70 /* ceiling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ceiling.png; sourceTree = "<group>"; };
@@ -182,8 +184,8 @@
 			children = (
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
+				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
 				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
-				03BB03141DD0C75B00AD5069 /* ViewController.swift */,
 				9C7D676A1DDC782300C0CEAF /* GroupBulbsViewController.swift */,
 			);
 			name = Controller;
@@ -400,7 +402,6 @@
 				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
 				0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */,
 				9C3DE6111DDB4A0600BDD092 /* SKNodeExtension.swift in Sources */,
-				03BB03151DD0C75B00AD5069 /* ViewController.swift in Sources */,
 				9C7D67671DDC4C8500C0CEAF /* Group.swift in Sources */,
 				9C7D676B1DDC782300C0CEAF /* GroupBulbsViewController.swift in Sources */,
 				030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */,
@@ -413,6 +414,7 @@
 				9C7D67691DDC4F4F00C0CEAF /* Room.swift in Sources */,
 				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
+				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				030878771DD48AE5003812A7 /* Lamp.swift in Sources */,
 			);
