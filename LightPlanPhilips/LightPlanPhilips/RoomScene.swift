@@ -191,7 +191,7 @@ class RoomScene: SKScene {
   
   func createNewGroup() {
     
-    var group = [Bulb]()
+    let group = [Bulb]()
     
     self.groupCollection.append(group)
     
