@@ -160,12 +160,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyU-6C-XhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763" y="239"/>
+            <point key="canvasLocation" x="711" y="370"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Light Group View Controller-->
         <scene sceneID="zlu-Lt-gC2">
             <objects>
-                <viewController id="sqM-BW-dRz" sceneMemberID="viewController">
+                <viewController id="sqM-BW-dRz" customClass="CreateLightGroupViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZTq-Oe-lgg"/>
                         <viewControllerLayoutGuide type="bottom" id="IMo-aO-efs"/>
@@ -187,13 +187,27 @@
                                     <action selector="cancelButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="BZz-o2-xsE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8d-Ss-TyQ" userLabel="Save Button">
+                                <rect key="frame" x="66" y="454" width="154" height="50"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="94t-81-Htf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <state key="normal" title="Create light group">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="K8e-CZ-ddP" eventType="touchUpInside" id="3Au-og-Rvo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcO-YS-zaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="132"/>
+            <point key="canvasLocation" x="1506" y="-295"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -292,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830.625" y="-1189.4366197183099"/>
+            <point key="canvasLocation" x="1506" y="-1647"/>
         </scene>
         <!--Name Light View Controller-->
         <scene sceneID="NX5-8i-gyE">
@@ -359,11 +373,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keA-G7-1B2">
-                                <rect key="frame" x="85" y="384" width="150" height="50"/>
+                                <rect key="frame" x="60" y="384" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.8171797395" green="0.0079236086460000004" blue="0.1060770229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0yt-N4-6JG"/>
-                                    <constraint firstAttribute="width" constant="150" id="ytN-sE-LIn"/>
+                                    <constraint firstAttribute="width" constant="200" id="ytN-sE-LIn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <state key="normal" title="Remove">
@@ -374,11 +388,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrM-vs-9mf" userLabel="Save Button">
-                                <rect key="frame" x="85" y="454" width="150" height="50"/>
+                                <rect key="frame" x="60" y="454" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.51372549019607838" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VCn-to-gpA"/>
-                                    <constraint firstAttribute="width" constant="150" id="ifb-g4-Zm5"/>
+                                    <constraint firstAttribute="width" constant="200" id="ifb-g4-Zm5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <state key="normal" title="Save">
@@ -422,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GU-sn-o4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="-566"/>
+            <point key="canvasLocation" x="1506" y="-986"/>
         </scene>
         <!--Light Type Collection View Controller-->
         <scene sceneID="f6i-t9-wTU">
@@ -457,7 +471,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFq-eW-lLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="-566"/>
+            <point key="canvasLocation" x="2558" y="-651"/>
         </scene>
     </scenes>
     <resources>
