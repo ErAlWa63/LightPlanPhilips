@@ -16,6 +16,7 @@ protocol RoomSceneDelegate: class {
   func clickGroup(groupName: String)
   func getBulbs() -> [Bulb]
   func test()
+  func enableButton(button: UIButton)
 }
 
 
@@ -37,13 +38,20 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
     if(segue.identifier == "NameLightSegue") {
       let nameLightViewController = (segue.destination) as! NameLightViewController
       nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
+    } else if (segue.identifier == "CreateGroup") {
+      let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
+      groupBulbsViewController.bulbCollection = bulbCollection
     }
   }
   
   //click group button
   @IBAction func groupClicked(_ sender: Any) {
         saveBulbs()
-   
+        //
+    
+    
+    
+    
         performSegue(withIdentifier: "CreateGroup", sender: nil)
   }
   
@@ -61,23 +69,12 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
       scene.scaleMode = .aspectFill
       
       scene.roomSceneDelegate = self
-      
-      
       view.presentScene(scene)
-      
- 
-      
 
       scene.dragDropEnabled = true
       scene.createGroup = false
       
-      
-
-      
-      
-      
       view.ignoresSiblingOrder = true
-      
       view.showsFPS = true
       view.showsNodeCount = true
     }
@@ -121,9 +118,7 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   
   
   func getBulbs() -> [Bulb]{
-    
     return self.bulbCollection
-    
   }
   
   
@@ -132,11 +127,13 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   }
   
   
+  func enableButton(button: UIButton) {
+    button.isEnabled = true
+  }
+  
   func clickGroup(groupName: String) {
     
     
     
   }
-  
-
 }
