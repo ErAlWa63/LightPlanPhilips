@@ -12,16 +12,17 @@ import UIKit
 import SpriteKit
 
 protocol RoomSceneDelegate: class {
-  func showAlertMessage(bulb: String) -> String
   func clickBulb(bulbName: String)
   func clickGroup(groupName: String)
+  func getBulbs() -> [Bulb]
+  func test()
 }
 
 
 class RoomViewController: UIViewController, RoomSceneDelegate {
   
-    var scene: RoomScene!
-  
+  var scene: RoomScene!
+  var bulbCollection: [Bulb] = []
   
   
   
@@ -41,11 +42,9 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   
   //click group button
   @IBAction func groupClicked(_ sender: Any) {
-    if scene.dragDropEnabled {
-      scene.dragDropEnabled = false
-    } else {
-      scene.dragDropEnabled = true
-    }
+        saveBulbs()
+   
+        performSegue(withIdentifier: "CreateGroup", sender: nil)
   }
   
 
@@ -54,14 +53,28 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    bulbCollection = DataSource.sharedInstance.GetBulbs()
     
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
       scene.scaleMode = .aspectFill
-      view.presentScene(scene)
       
       scene.roomSceneDelegate = self
+      
+      
+      view.presentScene(scene)
+      
+ 
+      
+
+      scene.dragDropEnabled = true
+      scene.createGroup = false
+      
+      
+
+      
+      
       
       view.ignoresSiblingOrder = true
       
@@ -80,6 +93,25 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   
   
   
+
+  
+  func saveBulbs(){
+    scene.enumerateChildNodes(withName: "//*", using:
+      { (node, stop) -> Void in
+        if node is SKSpriteNode { 
+          for bulb in self.bulbCollection {
+            if bulb.name == node.name {
+              bulb.positionX = Float(node.position.x)
+              bulb.positionY = Float(node.position.y)
+              break
+            }
+          }
+        }
+    })
+  }
+  
+  
+  
   // Delegate functions
   func clickBulb(bulbName: String){
     print(bulbName)
@@ -88,12 +120,23 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   }
   
   
-  func clickGroup(groupName: String) {
+  func getBulbs() -> [Bulb]{
+    
+    return self.bulbCollection
     
   }
   
-  func showAlertMessage(bulb: String) -> String {
-    print("\(bulb) was clicked")
-    return "test"
+  
+  func test() {
+    print("test")
   }
+  
+  
+  func clickGroup(groupName: String) {
+    
+    
+    
+  }
+  
+
 }

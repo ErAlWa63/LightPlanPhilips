@@ -93,7 +93,6 @@
                                 <state key="normal" backgroundImage="GroupButton"/>
                                 <connections>
                                     <action selector="groupClicked:" destination="g8Q-k0-1es" eventType="touchUpInside" id="sW4-jS-lJF"/>
-                                    <segue destination="kCi-ea-CYN" kind="show" id="yrJ-9j-HTP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -115,6 +114,7 @@
                         <outlet property="test1Button" destination="KkP-od-pMc" id="z9r-o3-q3c"/>
                         <outlet property="test2Button" destination="1hl-Si-gGP" id="HEF-99-5sG"/>
                         <outlet property="test3Button" destination="amT-hY-E5B" id="QFg-V5-eMf"/>
+                        <segue destination="kCi-ea-CYN" kind="show" identifier="CreateGroup" id="5dC-XA-yX3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,6 +288,7 @@
                             <constraint firstItem="uWC-I3-cYj" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="15" id="p5U-hN-N4J"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dB5-ok-DRa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

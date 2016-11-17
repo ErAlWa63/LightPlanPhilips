@@ -14,6 +14,7 @@ import SpriteKit
 
 
 
+
 class GroupBulbsViewController: UIViewController {
   
   
@@ -35,9 +36,16 @@ class GroupBulbsViewController: UIViewController {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
       scene.scaleMode = .aspectFill
-      view.presentScene(scene)
+      
+      
+      let VC: RoomViewController
+      scene.roomSceneDelegate = VC
+        view.presentScene(scene)
       
       //scene.roomSceneDelegate = self
+      
+      scene.dragDropEnabled = false
+      scene.createGroup = true
       
       view.ignoresSiblingOrder = true
       
