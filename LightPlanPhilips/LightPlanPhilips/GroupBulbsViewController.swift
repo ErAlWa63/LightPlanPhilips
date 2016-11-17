@@ -15,7 +15,7 @@ import SpriteKit
 
 
 
-class GroupBulbsViewController: UIViewController {
+class GroupBulbsViewController: UIViewController,RoomSceneDelegate {
   
   
     @IBAction func cancelButton(_ sender: Any) {
@@ -23,10 +23,10 @@ class GroupBulbsViewController: UIViewController {
           dismiss(animated: true, completion: nil)
     }
   
-
+  var bulbCollection: [Bulb] = []
 
   
-    var scene: RoomScene!
+  var scene: RoomScene!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,13 +36,11 @@ class GroupBulbsViewController: UIViewController {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
       scene.scaleMode = .aspectFill
+  
+ 
+      scene.roomSceneDelegate = self
       
-      
-      let VC: RoomViewController
-      scene.roomSceneDelegate = VC
-        view.presentScene(scene)
-      
-      //scene.roomSceneDelegate = self
+      view.presentScene(scene)
       
       scene.dragDropEnabled = false
       scene.createGroup = true
@@ -55,6 +53,33 @@ class GroupBulbsViewController: UIViewController {
     
     
   }
+  
+  // Delegate functions
+  func clickBulb(bulbName: String){
+    print(bulbName)
+    performSegue(withIdentifier: "NameLightSegue", sender: nil)
+    
+  }
+  
+  
+  func getBulbs() -> [Bulb]{
+    
+    return self.bulbCollection
+    
+  }
+  
+  
+  func test() {
+    print("test1")
+  }
+  
+  
+  func clickGroup(groupName: String) {
+    
+    
+    
+  }
+  
   
   
 }
