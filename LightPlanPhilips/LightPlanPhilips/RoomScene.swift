@@ -24,7 +24,7 @@ class RoomScene: SKScene {
   var dragDropEnabled: Bool = true
   var createGroup: Bool = false
   
-let dataSource = DataSource.sharedInstance
+  let dataSource = DataSource.sharedInstance
   
   var bulbCollection = [Bulb]()
   var groupCollection = [[Bulb]]()
