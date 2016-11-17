@@ -1,34 +1,34 @@
-//
-//  NameLightViewController.swift
-//  LightPlanPhilips
-//
-//  Created by Erik Waterham on 09/11/2016.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-// Dropdown menu in xcode using picker view and textbox(swift):
-//   https://www.youtube.com/watch?v=SfjZwgxlwcc&feature=youtu.be
-//   http://stackoverflow.com/questions/30319718/making-a-drop-down-list-using-swift/38666026#38666026
-//
-// How can I get images to appear in UI PickerView Component in Swift?
-//   http://stackoverflow.com/questions/27769246/how-can-i-get-images-to-appear-in-ui-pickerview-component-in-swift
-//
-// Extra protocol repairs conform Swift 3
-//
-// http://stackoverflow.com/questions/28919450/how-to-add-a-border-to-a-uipickerview
-// http://stackoverflow.com/questions/37620867/swift-error-cant-assign-value-of-type-uicolor-to-type-cgcolor
-//
-// http://stackoverflow.com/questions/26089152/sending-data-with-segue-with-swift (1. The boxing style)
-//
-// http://stackoverflow.com/questions/25917693/swift-how-to-set-a-default-value-of-a-uipickerview-with-three-components-in-swi
-//
-// http://stackoverflow.com/questions/4201959/label-under-image-in-uibutton
-//
-// http://stackoverflow.com/questions/24468336/how-to-correctly-handle-weak-self-in-swift-blocks-with-arguments (NatashaTheRobot)
-//
-
-import UIKit
-
-class NameLightViewController : UIViewController {
+ //
+ //  NameLightViewController.swift
+ //  LightPlanPhilips
+ //
+ //  Created by Erik Waterham on 09/11/2016.
+ //  Copyright © 2016 The App Academy. All rights reserved.
+ //
+ // Dropdown menu in xcode using picker view and textbox(swift):
+ //   https://www.youtube.com/watch?v=SfjZwgxlwcc&feature=youtu.be
+ //   http://stackoverflow.com/questions/30319718/making-a-drop-down-list-using-swift/38666026#38666026
+ //
+ // How can I get images to appear in UI PickerView Component in Swift?
+ //   http://stackoverflow.com/questions/27769246/how-can-i-get-images-to-appear-in-ui-pickerview-component-in-swift
+ //
+ // Extra protocol repairs conform Swift 3
+ //
+ // http://stackoverflow.com/questions/28919450/how-to-add-a-border-to-a-uipickerview
+ // http://stackoverflow.com/questions/37620867/swift-error-cant-assign-value-of-type-uicolor-to-type-cgcolor
+ //
+ // http://stackoverflow.com/questions/26089152/sending-data-with-segue-with-swift (1. The boxing style)
+ //
+ // http://stackoverflow.com/questions/25917693/swift-how-to-set-a-default-value-of-a-uipickerview-with-three-components-in-swi
+ //
+ // http://stackoverflow.com/questions/4201959/label-under-image-in-uibutton
+ //
+ // http://stackoverflow.com/questions/24468336/how-to-correctly-handle-weak-self-in-swift-blocks-with-arguments (NatashaTheRobot)
+ //
+ 
+ import UIKit
+ 
+ class NameLightViewController : UIViewController {
   let d = D() // debugger functionality
   
   @IBOutlet weak var nameLightType:         UITextField!
@@ -39,7 +39,6 @@ class NameLightViewController : UIViewController {
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
-  
   @IBAction func removeButton(_ sender: Any) {
     if let delegateLamp = delegateLamp {
       delegateLamp.nameLight = nil
@@ -61,7 +60,7 @@ class NameLightViewController : UIViewController {
   
   var delegateLamp      : Lamp!
   var temporaryNameLight: NameLight!
-  var delegateLightTypeIndex = 0
+  var delegateLightTypeIndex: Int?
   var firstTime = true
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,17 +75,18 @@ class NameLightViewController : UIViewController {
       }
     }
   }
+  
   override func viewDidAppear(_ animated: Bool) {
     d.c(m: "start", f: #file, fu: #function, l: #line)
-    temporaryNameLight.lightTypeIndex = delegateLightTypeIndex
-    chooseLightTypeButton.contentEdgeInsets  = UIEdgeInsetsMake(0, -90, 0, 0)
-    chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
-    chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
-    chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
-    if firstTime {
-      firstTime = false
-    } else {
-      saveButton.isHidden = false
+    if let temporaryNameLight = temporaryNameLight {
+      if let delegateLightTypeIndex = delegateLightTypeIndex {
+        temporaryNameLight.lightTypeIndex = delegateLightTypeIndex
+        chooseLightTypeButton.contentEdgeInsets  = UIEdgeInsetsMake(0, -90, 0, 0)
+        chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
+        chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
+        chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
+        saveButton.isHidden = false
+      }
     }
   }
   
@@ -125,16 +125,17 @@ class NameLightViewController : UIViewController {
   func handleSingleTap(recognizer: UITapGestureRecognizer) {
     self.view.endEditing(true)
   }
-}
-
-extension NameLightViewController: UITextFieldDelegate {
+ }
+ 
+ extension NameLightViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     if let nameLightType = nameLightType {
       saveButton.isHidden = false
       if let text = nameLightType.text {
-        temporaryNameLight.name = text
-      } else {
-        temporaryNameLight.name = ""
+        if let temporaryNameLight = temporaryNameLight {
+          temporaryNameLight.name = text
+        }
       }
     }
   }
@@ -147,4 +148,4 @@ extension NameLightViewController: UITextFieldDelegate {
     nameLightType.resignFirstResponder()
     return true
   }
-}
+ }
