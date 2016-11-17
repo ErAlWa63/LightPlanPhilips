@@ -59,6 +59,7 @@
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
 		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
+		03DE722A1DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */; };
 		9C3DE6111DDB4A0600BDD092 /* SKNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DE6101DDB4A0600BDD092 /* SKNodeExtension.swift */; };
 		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
 		9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A41DD3814400DE07EA /* RoomScene.swift */; };
@@ -125,6 +126,7 @@
 		03BB03191DD0C75B00AD5069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLightGroupBulbCollectionView.swift; sourceTree = "<group>"; };
 		9C3DE6101DDB4A0600BDD092 /* SKNodeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeExtension.swift; sourceTree = "<group>"; };
 		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
 		9C4884A41DD3814400DE07EA /* RoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
+				03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */,
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DE722A1DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift in Sources */,
 				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
 				0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */,
 				9C3DE6111DDB4A0600BDD092 /* SKNodeExtension.swift in Sources */,

@@ -22,6 +22,7 @@ final class LightTypeCollectionViewController: UICollectionViewController {
     super.viewDidLoad()
     self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     self.collectionView!.allowsMultipleSelection = false
+    self.collectionView!.backgroundColor = UIColor.lightGray
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,6 +34,7 @@ final class LightTypeCollectionViewController: UICollectionViewController {
     myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
     myLabel.text      = rowString
     myLabel.textAlignment = .center
+    cell.backgroundColor = UIColor.white
     cell.addSubview(myLabel)
     cell.addSubview(myImageView)
     if let delegateLightTypeIndex = delegateLightTypeIndex {

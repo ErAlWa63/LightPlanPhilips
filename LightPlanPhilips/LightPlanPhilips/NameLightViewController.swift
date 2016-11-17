@@ -31,6 +31,11 @@
  class NameLightViewController : UIViewController {
   let d = D() // debugger functionality
   
+  var delegateLamp      :     Lamp!
+  var temporaryNameLight:     NameLight!
+  var delegateLightTypeIndex: Int?
+  var firstTime = true
+  
   @IBOutlet weak var nameLightType:         UITextField!
   @IBOutlet weak var removeButton:          UIButton!
   @IBOutlet weak var saveButton:            UIButton!
@@ -58,11 +63,6 @@
   @IBAction func chooseLightTypeButton(_ sender: Any) {
   }
   
-  var delegateLamp      : Lamp!
-  var temporaryNameLight: NameLight!
-  var delegateLightTypeIndex: Int?
-  var firstTime = true
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if(segue.identifier == "LightTypeSegue") {
       if let LightTypeCollectionViewController = segue.destination as? LightTypeCollectionViewController {
@@ -85,7 +85,11 @@
         chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
         chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
         chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
-        saveButton.isHidden = false
+        if firstTime {
+          firstTime = false
+        } else {
+          saveButton.isHidden = false
+        }
       }
     }
   }
@@ -107,14 +111,25 @@
       } else {
         removeButton.isHidden = true
         saveButton.isHidden = true
-        temporaryNameLight = NameLight(name: "!\(delegateLamp.name)", lightTypeIndex: 0)
+        temporaryNameLight = NameLight(name: "< give name >", lightTypeIndex: 0)
       }
       if let temporaryNameLight = temporaryNameLight {
         nameLightType.text = temporaryNameLight.name
         delegateLightTypeIndex = temporaryNameLight.lightTypeIndex
-        chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
-        chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
+        if delegateLightTypeIndex == nil {
+          nameLightType.text = "< give name >"
+          chooseLightTypeButton.setTitle("< select light type >", for: .normal)
+          chooseLightTypeButton.setImage(nil, for: .normal)
+        } else {
+          chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
+          chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
+        }
       }
+    } else {
+      nameLightType.textColor = UIColor.red
+      nameLightType.text = "< no single lamp selected >"
+      removeButton.isHidden = true
+      saveButton.isHidden = true
     }
     
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
@@ -130,18 +145,24 @@
  extension NameLightViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
     d.c(m: "start", f: #file, fu: #function, l: #line)
-    if let nameLightType = nameLightType {
-      saveButton.isHidden = false
-      if let text = nameLightType.text {
-        if let temporaryNameLight = temporaryNameLight {
-          temporaryNameLight.name = text
+    if delegateLamp != nil {
+      if let nameLightType = nameLightType {
+        saveButton.isHidden = false
+        if let text = nameLightType.text {
+          if let temporaryNameLight = temporaryNameLight {
+            temporaryNameLight.name = text
+          }
         }
       }
     }
   }
   
   public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    return true
+    if (delegateLamp) != nil {
+      return true
+    } else {
+      return false
+    }
   }
   
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
