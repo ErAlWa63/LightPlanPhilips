@@ -17,34 +17,51 @@ import SpriteKit
 
 class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldDelegate {
   
-    @IBOutlet weak var groupName: UITextField!
+  @IBOutlet weak var groupName: UITextField!
   
-    @IBAction func cancelButton(_ sender: Any) {
-      
-          dismiss(animated: true, completion: nil)
-    }
+  @IBAction func cancelButton(_ sender: Any) {
+    
+    dismiss(animated: true, completion: nil)
+  }
   
-    @IBOutlet weak var isArea: UIButton!
-    
-    @IBAction func isArea(_ sender: Any) {
-      if isArea.currentTitle == "☐" {
-        isArea.setTitle("☒", for: .normal)
-      } else {
-        isArea.setTitle("☐", for: .normal)
-      }
-        
+  @IBOutlet weak var isArea: UIButton!
+  
+  @IBAction func isArea(_ sender: Any) {
+    if isArea.currentTitle == "☐" {
+      isArea.setTitle("☒", for: .normal)
+    } else {
+      isArea.setTitle("☐", for: .normal)
     }
     
-    
-    @IBOutlet weak var creatGroup: UIButton!
-    
-    @IBAction func createGroup(_ sender: Any) {
-        
-        print("group")
-    }
-    
-  var bulbCollection: [Bulb] = []
+  }
+  
+  @IBOutlet weak var createGroup: UIButton!
+  
 
+    @IBAction func groupNameChanged(_ sender: Any) {
+        if groupName.text != "" {
+            groupNameFilled = true
+        } else {
+            groupNameFilled = false
+        }
+        enableDisableButton()
+    
+    
+    }
+  
+  
+  @IBAction func createGroup(_ sender: Any) {
+    
+    print("group")
+  }
+  
+  
+  
+  
+  var groupSelected: Bool = false
+  var groupNameFilled: Bool = false
+  var selectedBulbs: [Bulb] = []
+  
   
   var scene: RoomScene!
   
@@ -58,8 +75,8 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
       scene.scaleMode = .aspectFill
-    
- 
+      
+      
       scene.roomSceneDelegate = self
       
       view.presentScene(scene)
@@ -76,40 +93,29 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
   
   
   
+  
   // dismiss keyboard when return is pressed
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     self.view.endEditing(true)
     return false
   }
-
-  // Delegate functions
-  func clickBulb(bulbName: String){
-    print(bulbName)
-    performSegue(withIdentifier: "NameLightSegue", sender: nil)
+  
+  
+  func enableDisableButton() {
+    if self.groupSelected && self.groupNameFilled {
+      createGroup.isHidden = false
+    } else {
+      createGroup.isHidden = true
+    }
   }
   
   
-  func getBulbs() -> [Bulb]{
-    return self.bulbCollection
+  // delegate function
+  func groupSelected(groupSelected: Bool) {
+    self.groupSelected = groupSelected
+    enableDisableButton()
   }
-  
-  
-  func enableButton(button: UIButton) {
-    button.isEnabled = true
+  func selectedBulbs(bulbs: [Bulb]) {
+    self.selectedBulbs = bulbs
   }
-  
-  
-  func test() {
-    print("test1")
-  }
-  
-  
-  func clickGroup(groupName: String) {
-    
-    
-    
-  }
-  
-  
-  
 }

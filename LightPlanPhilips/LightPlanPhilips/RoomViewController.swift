@@ -11,19 +11,12 @@
 import UIKit
 import SpriteKit
 
-protocol RoomSceneDelegate: class {
-  func clickBulb(bulbName: String)
-  func clickGroup(groupName: String)
-  func getBulbs() -> [Bulb]
-  func test()
-  func enableButton(button: UIButton)
-}
 
 
 class RoomViewController: UIViewController, RoomSceneDelegate {
   
   var scene: RoomScene!
-  var bulbCollection: [Bulb] = []
+  //var bulbCollection: [Bulb] = []
   
   
   
@@ -107,33 +100,13 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
     })
   }
   
+  // delegate functions
+  func groupSelected(groupSelected: Bool) {
   
-  
-  // Delegate functions
-  func clickBulb(bulbName: String){
-    print(bulbName)
-    performSegue(withIdentifier: "NameLightSegue", sender: nil)
+  }
+  func selectedBulbs(bulbs: [Bulb]){
     
   }
   
-  
-  func getBulbs() -> [Bulb]{
-    return self.bulbCollection
-  }
-  
-  
-  func test() {
-    print("test")
-  }
-  
-  
-  func enableButton(button: UIButton) {
-    button.isEnabled = true
-  }
-  
-  func clickGroup(groupName: String) {
-    
-    
-    
-  }
+
 }

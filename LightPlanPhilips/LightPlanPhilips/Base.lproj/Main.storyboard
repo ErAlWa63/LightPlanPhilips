@@ -884,19 +884,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifL-eF-fxB">
-                                <rect key="frame" x="85" y="498" width="150" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="afW-cv-adi"/>
-                                </constraints>
-                                <state key="normal" title="Create light group">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createGroup:" destination="kCi-ea-CYN" eventType="touchUpInside" id="FVN-GR-IlJ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-I3-cYj">
                                 <rect key="frame" x="31" y="61" width="259" height="69"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -929,6 +916,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="groupNameChanged:" destination="kCi-ea-CYN" eventType="editingChanged" id="WCj-L0-XPC"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvY-b5-lMu">
                                 <rect key="frame" x="31" y="457" width="46" height="30"/>
@@ -939,6 +929,19 @@
                                 </state>
                                 <connections>
                                     <action selector="isArea:" destination="kCi-ea-CYN" eventType="touchUpInside" id="tIr-Ls-K3T"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifL-eF-fxB">
+                                <rect key="frame" x="85" y="498" width="150" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="afW-cv-adi"/>
+                                </constraints>
+                                <state key="normal" title="Create light group">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createGroup:" destination="kCi-ea-CYN" eventType="touchUpInside" id="FVN-GR-IlJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -957,14 +960,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="dB5-ok-DRa"/>
                     <connections>
-                        <outlet property="creatGroup" destination="ifL-eF-fxB" id="35b-WU-cNi"/>
+                        <outlet property="createGroup" destination="ifL-eF-fxB" id="aHw-J8-FGX"/>
                         <outlet property="groupName" destination="dvo-Zp-C9E" id="ocf-YA-UNm"/>
                         <outlet property="isArea" destination="JvY-b5-lMu" id="oOk-30-QIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505.625" y="-1275"/>
+            <point key="canvasLocation" x="1506" y="-1613"/>
         </scene>
         <!--NameLightSegue-->
         <scene sceneID="QsR-HZ-Nb7">
