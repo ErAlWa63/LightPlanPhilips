@@ -134,6 +134,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qj-LY-oiG">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DFQ-uD-U3X"/>
+                    </constraints>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                </button>
             </objects>
             <point key="canvasLocation" x="428" y="-547"/>
         </scene>
@@ -1053,6 +1063,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifL-eF-fxB">
+                                <rect key="frame" x="85" y="498" width="150" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="afW-cv-adi"/>
+                                </constraints>
+                                <state key="normal" title="Create light group">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createGroup:" destination="kCi-ea-CYN" eventType="touchUpInside" id="FVN-GR-IlJ"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-I3-cYj">
                                 <rect key="frame" x="31" y="61" width="259" height="69"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1079,22 +1102,48 @@
                                     <action selector="cancelButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="dT6-mP-tyk"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Group name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvo-Zp-C9E">
+                                <rect key="frame" x="31" y="419" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvY-b5-lMu">
+                                <rect key="frame" x="31" y="457" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="☒">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="isArea:" destination="kCi-ea-CYN" eventType="touchUpInside" id="tIr-Ls-K3T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ohb-aO-NEU" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" id="71i-5R-lxY"/>
                             <constraint firstItem="Ohb-aO-NEU" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" constant="8" symbolic="YES" id="E7t-D3-kCd"/>
+                            <constraint firstItem="ifL-eF-fxB" firstAttribute="centerX" secondItem="uWC-I3-cYj" secondAttribute="centerX" id="NvP-1C-pIA"/>
                             <constraint firstItem="uWC-I3-cYj" firstAttribute="centerX" secondItem="oRa-gv-j6g" secondAttribute="centerX" id="UDw-QQ-dTC"/>
+                            <constraint firstItem="ifL-eF-fxB" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="69" id="W7W-Xo-6Q9"/>
                             <constraint firstItem="uWC-I3-cYj" firstAttribute="top" secondItem="Ohb-aO-NEU" secondAttribute="bottom" id="a7i-D2-cV8"/>
                             <constraint firstItem="CZg-kG-K6T" firstAttribute="top" secondItem="uWC-I3-cYj" secondAttribute="bottom" constant="438" id="clm-iW-j0a"/>
                             <constraint firstItem="uWC-I3-cYj" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="15" id="p5U-hN-N4J"/>
+                            <constraint firstAttribute="bottom" secondItem="ifL-eF-fxB" secondAttribute="bottom" constant="20" symbolic="YES" id="vIJ-hb-Pyl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dB5-ok-DRa"/>
+                    <connections>
+                        <outlet property="creatGroup" destination="ifL-eF-fxB" id="35b-WU-cNi"/>
+                        <outlet property="groupName" destination="dvo-Zp-C9E" id="ocf-YA-UNm"/>
+                        <outlet property="isArea" destination="JvY-b5-lMu" id="oOk-30-QIw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="-1647"/>
+            <point key="canvasLocation" x="1505.625" y="-1275"/>
         </scene>
         <!--NameLightSegue-->
         <scene sceneID="QsR-HZ-Nb7">

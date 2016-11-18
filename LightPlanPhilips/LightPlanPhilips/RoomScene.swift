@@ -28,7 +28,7 @@ class RoomScene: SKScene {
   
   var bulbCollection = [Bulb]()
   var groupCollection = [[Bulb]]()
-  
+  var selectedBulbs = [String:Bool]()
   
   let bulbSprite = SKSpriteNode(imageNamed: "Bulb")
   let groupSprite = SKSpriteNode(imageNamed: "Bulb group")
@@ -39,14 +39,17 @@ class RoomScene: SKScene {
     
     self.roomSceneDelegate?.test()
     
-    //bulbCollection = (roomSceneDelegate?.getBulbs())!
-    bulbCollection = dataSource.GetBulbs()
+    bulbCollection = (roomSceneDelegate?.getBulbs())!
+    
+    
     for bulb in bulbCollection {
       let sprite = bulbSprite.copy() as! SKSpriteNode
       sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
       sprite.setScale(1.5)
       sprite.name = bulb.name
-      sprite.isSelected = false
+      selectedBulbs[bulb.name] = false
+      
+      
       self.addChild(sprite)
     }
   }
@@ -65,7 +68,12 @@ class RoomScene: SKScene {
     if let touch = touches.first {
       let location = touch.location(in: self)
       let touchedNodes = self.nodes(at: location)
+      
+      print(selectedBulbs)
+      
+      
       for node in touchedNodes {
+  
         if node is SKSpriteNode {
           if dragDropEnabled {
             movableNode = node
@@ -73,7 +81,9 @@ class RoomScene: SKScene {
           } else {
             
             
-            if node.isSelected == false {
+            
+            
+            if selectedBulbs[node.name!]! == false {
               
               let expandAction = SKAction.scale(to: 2, duration: 0.33)
               let contractAction = SKAction.scale(to: 1.5, duration: 0.33)
@@ -81,14 +91,18 @@ class RoomScene: SKScene {
               
               node.run(pulsateAction)
               
-              node.isSelected = true
+              
+              selectedBulbs[node.name!]! = true
+              
+              
             } else {
               
               node.removeAllActions()
               let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
               node.run(restoreScaleAcction)
               
-              node.isSelected = false
+              
+               selectedBulbs[node.name!]! = false
             }
           }
         }
@@ -156,17 +170,24 @@ class RoomScene: SKScene {
     }
   }
   
-  //  func testForGroup(location: CGPoint) -> [SKSpriteNode]  {
-  //    let touchedNodes = self.nodes(at: location)
-  //
-  //    var foundBulbs = [SKSpriteNode]()
-  //    for node in touchedNodes {
-  //      if node is SKSpriteNode {
-  //        foundBulbs.append(node as! SKSpriteNode)
-  //      }
-  //    }
-  //    return foundBulbs
-  //  }
+
+  
+  func checkIfGroup() {
+    
+    var counter: Int = 0
+    for bulb in selectedBulbs {
+      if bulb.value == true {
+        counter += 1
+      }
+      if counter >= 2 {
+        
+        //roomSceneDelegate?.enableButton(button: createGroup)
+      } else {
+
+      }
+    }
+ 
+  }
   
   func createNewGroup() {
     
