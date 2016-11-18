@@ -1028,6 +1028,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="sqM-BW-dRz" id="4v8-vj-XFD"/>
+                                    <outlet property="delegate" destination="sqM-BW-dRz" id="LOY-e6-s77"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1046,6 +1050,10 @@
                             <constraint firstItem="vqN-De-Rdc" firstAttribute="top" secondItem="ZTq-Oe-lgg" secondAttribute="bottom" constant="50" id="rwl-18-Pj1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createLightGroupBulbCollectionView" destination="ub8-yz-Vnx" id="7ko-gc-W01"/>
+                        <outletCollection property="createLightGroupBulbCollectionView" destination="ub8-yz-Vnx" collectionClass="NSMutableArray" id="Ta8-cM-cej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcO-YS-zaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
