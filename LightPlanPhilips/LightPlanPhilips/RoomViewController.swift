@@ -56,6 +56,11 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
     
     bulbCollection = DataSource.sharedInstance.GetBulbs()
     
+
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    print(bulbCollection)
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
@@ -63,18 +68,20 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
       
       scene.roomSceneDelegate = self
       view.presentScene(scene)
-
-      scene.dragDropEnabled = true
+      
+      scene.dragDropEnabled = false
       scene.createGroup = false
       
       view.ignoresSiblingOrder = true
       view.showsFPS = true
       view.showsNodeCount = true
     }
-    
-    
   }
   
+  
+  
+  
+
   override var shouldAutorotate: Bool {
     return false
   }

@@ -39,13 +39,14 @@ class RoomScene: SKScene {
   
   
   override func didMove(to view: SKView) {
-    
-    
-    self.roomSceneDelegate?.test()
-    
+    // get bulbs
     bulbCollection = (roomSceneDelegate?.getBulbs())!
     
+    // get groups
+    var groups: [Group] = []
+    groups = (roomSceneDelegate?.getGroups())!
     
+    //place bulbs
     for bulb in bulbCollection {
       let sprite = bulbSprite.copy() as! SKSpriteNode
       sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
@@ -53,6 +54,16 @@ class RoomScene: SKScene {
       sprite.name = bulb.name
       selectedBulbs[bulb.name] = false
       
+      self.addChild(sprite)
+    }
+    
+    // place groups
+    for group in groups {
+      let sprite = groupSprite.copy() as! SKSpriteNode
+      
+      sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
+      sprite.setScale(1.5)
+      sprite.name = group.name
       
       self.addChild(sprite)
     }
@@ -73,50 +84,66 @@ class RoomScene: SKScene {
       let location = touch.location(in: self)
       let touchedNodes = self.nodes(at: location)
       
-      print(selectedBulbs)
       
       
       for node in touchedNodes {
         if node is SKSpriteNode {
           if dragDropEnabled {
+            // move bulb
             movableNode = node
             movableNode!.position = location
           } else {
-            if selectedBulbs[node.name!]! == false {
-              
-              let expandAction = SKAction.scale(to: 2, duration: 0.33)
-              let contractAction = SKAction.scale(to: 1.5, duration: 0.33)
-              let pulsateAction = SKAction.repeatForever(SKAction.sequence([expandAction, contractAction]))
-              node.run(pulsateAction)
+            if createGroup {
               
               
-              // add bulb to collection of selected bulbs
-             // let bulb = node.copy() as! Bulb
-              //bulbs[node.name!]! = bulb
+              // check if bulb has been selected
+              if selectedBulbs[node.name!]! == false {
+                
+                // add blinking animation
+                let expandAction = SKAction.scale(to: 2, duration: 0.33)
+                let contractAction = SKAction.scale(to: 1.5, duration: 0.33)
+                let pulsateAction = SKAction.repeatForever(SKAction.sequence([expandAction, contractAction]))
+                node.run(pulsateAction)
+                
+                // add bulb to collection of selected bulbs
+                selectedBulbs[node.name!]! = true
+              } else {
+                // remove blinking animation
+                node.removeAllActions()
+                let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
+                node.run(restoreScaleAcction)
+                
+                // remove bulb from collection of selected bulbs
+                bulbs.removeValue(forKey: node.name!)
+                selectedBulbs[node.name!]! = false
+              }
               
-              selectedBulbs[node.name!]! = true
+              // check if we have group (at least two selected)
+              if checkIfGroup() {
+                var groupBulbs = [Bulb]()
+                for bulb in bulbCollection {
+                  if selectedBulbs[bulb.name] == true {
+                    groupBulbs.append(bulb)
+                  }
+                }
+                
+                roomSceneDelegate?.selectedBulbs(bulbs: groupBulbs)
+                roomSceneDelegate?.groupSelected(groupSelected: true)
+              } else {
+                roomSceneDelegate?.groupSelected(groupSelected: false)
+              }
             } else {
+              print("klik bulb")
+              // check if single bulb or group
+              //if node
               
-              node.removeAllActions()
-              let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
-              node.run(restoreScaleAcction)
-              
-              // remove bulb from collection of selected bulbs
-              bulbs.removeValue(forKey: node.name!)
-              selectedBulbs[node.name!]! = false
-            }
-            if checkIfGroup() {
-              //roomSceneDelegate?.selectedBulbs(bulbs: bulbs)
-              roomSceneDelegate?.groupSelected(groupSelected: true)
-            } else {
-              roomSceneDelegate?.groupSelected(groupSelected: false)
             }
           }
         }
       }
     }
   }
-
+  
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if let touch = touches.first, movableNode != nil {
       let location = touch.location(in: self)
@@ -170,7 +197,7 @@ class RoomScene: SKScene {
   
   func checkIfGroup() -> Bool{
     var counter: Int = 0
-  
+    
     for bulb in selectedBulbs {
       if bulb.value == true {
         counter += 1

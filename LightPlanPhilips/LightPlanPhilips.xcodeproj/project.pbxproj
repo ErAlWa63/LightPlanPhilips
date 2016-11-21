@@ -60,6 +60,7 @@
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
 		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
 		03DE722A1DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */; };
+		9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */; };
 		9C3DE6111DDB4A0600BDD092 /* UIVewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DE6101DDB4A0600BDD092 /* UIVewControllerExtension.swift */; };
 		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
 		9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A41DD3814400DE07EA /* RoomScene.swift */; };
@@ -127,6 +128,7 @@
 		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLightGroupBulbCollectionView.swift; sourceTree = "<group>"; };
+		9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bulbSpriteNode.swift; sourceTree = "<group>"; };
 		9C3DE6101DDB4A0600BDD092 /* UIVewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVewControllerExtension.swift; sourceTree = "<group>"; };
 		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
 		9C4884A41DD3814400DE07EA /* RoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
 				9C7D67661DDC4C8500C0CEAF /* Group.swift */,
 				9C7D67681DDC4F4F00C0CEAF /* Room.swift */,
+				9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				030878771DD48AE5003812A7 /* Lamp.swift in Sources */,
+				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

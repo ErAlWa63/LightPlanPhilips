@@ -32,27 +32,65 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
     } else {
       isArea.setTitle("☐", for: .normal)
     }
-    
   }
+  
   
   @IBOutlet weak var createGroup: UIButton!
   
-
-    @IBAction func groupNameChanged(_ sender: Any) {
-        if groupName.text != "" {
-            groupNameFilled = true
-        } else {
-            groupNameFilled = false
-        }
-        enableDisableButton()
-    
-    
+  
+  @IBAction func groupNameChanged(_ sender: Any) {
+    if groupName.text != "" {
+      groupNameFilled = true
+    } else {
+      groupNameFilled = false
     }
+    enableDisableButton()
+    
+    
+  }
   
   
   @IBAction func createGroup(_ sender: Any) {
     
-    print("group")
+    // create group
+    let group = Group(name: groupName.text!, bulbs: selectedBulbs)
+    
+    // get group position
+    var positionX: Float = 0
+    var positionY: Float = 0
+    let numberInGroup: Float = Float(selectedBulbs.count)
+
+    for bulb in group.bulbs {
+      positionX += bulb.positionX!
+      positionY += bulb.positionY!
+    }
+    
+    positionX = positionX / numberInGroup
+    positionY = positionY / numberInGroup
+    
+    
+    group.positionX = positionX
+    group.positionY = positionY
+    
+    groupCollection.append(group)
+    
+    // remove groupbulbs from bulbcollection
+    var index: Int = 0
+  
+    for bulbinCollection in self.bulbCollection {
+      
+      for bulbInGroup in group.bulbs {
+        if bulbInGroup.name == bulbinCollection.name {
+          bulbCollection.remove(at: index)
+          index -= 1
+        }
+      }
+      index += 1
+    }
+    
+
+    
+    dismiss(animated: true, completion: nil)
   }
   
   
@@ -115,7 +153,11 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
     self.groupSelected = groupSelected
     enableDisableButton()
   }
+  
+  
   func selectedBulbs(bulbs: [Bulb]) {
+    
+    
     self.selectedBulbs = bulbs
   }
 }

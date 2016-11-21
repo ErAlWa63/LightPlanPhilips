@@ -13,6 +13,7 @@ import UIKit
 protocol RoomSceneDelegate: class {
   func clickBulb(bulbName: String)
   func getBulbs() -> [Bulb]
+  func getGroups() -> [Group]
   func test()
   func groupSelected(groupSelected: Bool)
   func selectedBulbs(bulbs: [Bulb])
@@ -23,6 +24,7 @@ extension UIViewController {
   
   private struct customProperties{
     static var bulbCollection:[Bulb] = []
+    static var groupCollection:[Group] = []
   }
   var bulbCollection:[Bulb] {
     get {
@@ -33,15 +35,29 @@ extension UIViewController {
     }
   }
   
+  var groupCollection: [Group] {
+    get {
+      return customProperties.groupCollection
+    } set {
+      customProperties.groupCollection = newValue
+    }
+  }
+  
+  
+  
+  
   // Delegate functions
   func clickBulb(bulbName: String){
-    print(bulbName)
     performSegue(withIdentifier: "NameLightSegue", sender: nil)
   }
   
   
   func getBulbs() -> [Bulb]{
     return self.bulbCollection
+  }
+  
+  func getGroups() -> [Group]{
+    return self.groupCollection
   }
   
   
