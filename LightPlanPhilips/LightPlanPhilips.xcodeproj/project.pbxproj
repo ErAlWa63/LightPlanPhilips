@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784D1DD3ADB7003812A7 /* LightType.swift */; };
 		030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784F1DD3AE32003812A7 /* DataLightPlan.swift */; };
-		030878771DD48AE5003812A7 /* Lamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878761DD48AE5003812A7 /* Lamp.swift */; };
 		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
 		0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4991DD1E3BD00CB13BE /* A1.1.png */; };
@@ -60,7 +59,11 @@
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
 		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
 		03DE722A1DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */; };
+<<<<<<< HEAD
 		9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */; };
+=======
+		03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E606A41DE2EA10000311F3 /* TestUIViewController.swift */; };
+>>>>>>> bc86c635cad2db60196a26dbee623a5fd1e6f76e
 		9C3DE6111DDB4A0600BDD092 /* UIVewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DE6101DDB4A0600BDD092 /* UIVewControllerExtension.swift */; };
 		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
 		9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A41DD3814400DE07EA /* RoomScene.swift */; };
@@ -75,7 +78,6 @@
 /* Begin PBXFileReference section */
 		0308784D1DD3ADB7003812A7 /* LightType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightType.swift; sourceTree = "<group>"; };
 		0308784F1DD3AE32003812A7 /* DataLightPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLightPlan.swift; sourceTree = "<group>"; };
-		030878761DD48AE5003812A7 /* Lamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lamp.swift; sourceTree = "<group>"; };
 		030878781DD48B88003812A7 /* NameLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLight.swift; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
 		0321F4991DD1E3BD00CB13BE /* A1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.1.png; sourceTree = "<group>"; };
@@ -128,7 +130,11 @@
 		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLightGroupBulbCollectionView.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bulbSpriteNode.swift; sourceTree = "<group>"; };
+=======
+		03E606A41DE2EA10000311F3 /* TestUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUIViewController.swift; sourceTree = "<group>"; };
+>>>>>>> bc86c635cad2db60196a26dbee623a5fd1e6f76e
 		9C3DE6101DDB4A0600BDD092 /* UIVewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVewControllerExtension.swift; sourceTree = "<group>"; };
 		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
 		9C4884A41DD3814400DE07EA /* RoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
@@ -175,13 +181,12 @@
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
 				0308784F1DD3AE32003812A7 /* DataLightPlan.swift */,
-				030878761DD48AE5003812A7 /* Lamp.swift */,
+				9C7D67661DDC4C8500C0CEAF /* Group.swift */,
 				0308784D1DD3ADB7003812A7 /* LightType.swift */,
 				030878781DD48B88003812A7 /* NameLight.swift */,
-				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
-				9C7D67661DDC4C8500C0CEAF /* Group.swift */,
 				9C7D67681DDC4F4F00C0CEAF /* Room.swift */,
 				9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */,
+				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -189,8 +194,8 @@
 		031CEBD21DD3802000E40BCF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				03E606A41DE2EA10000311F3 /* TestUIViewController.swift */,
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
-				03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */,
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
@@ -203,6 +208,7 @@
 		031CEBD31DD3803400E40BCF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03DE72291DDDFB220026E98A /* CreateLightGroupBulbCollectionView.swift */,
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
 				0374EB351DD67330002165CD /* TestButton.swift */,
 			);
@@ -424,11 +430,15 @@
 				0374EB321DD5E8F3002165CD /* LightTypeCollectionViewController.swift in Sources */,
 				9C7D67691DDC4F4F00C0CEAF /* Room.swift in Sources */,
 				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
+				03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				030878771DD48AE5003812A7 /* Lamp.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,
+=======
+>>>>>>> bc86c635cad2db60196a26dbee623a5fd1e6f76e
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
