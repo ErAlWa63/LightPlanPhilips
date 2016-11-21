@@ -173,12 +173,12 @@
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
 				0308784F1DD3AE32003812A7 /* DataLightPlan.swift */,
+				9C7D67661DDC4C8500C0CEAF /* Group.swift */,
 				030878761DD48AE5003812A7 /* Lamp.swift */,
 				0308784D1DD3ADB7003812A7 /* LightType.swift */,
 				030878781DD48B88003812A7 /* NameLight.swift */,
-				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
-				9C7D67661DDC4C8500C0CEAF /* Group.swift */,
 				9C7D67681DDC4F4F00C0CEAF /* Room.swift */,
+				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

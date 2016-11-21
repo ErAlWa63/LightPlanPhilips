@@ -14,7 +14,9 @@ import UIKit
 var stringArray: [String] = ["1", "2", "3", "4","5", "6", "7", "8",
                              "9", "10", "11"]
 
-class CreateLightGroupViewController: UIViewController {
+class CreateLightGroupViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+  let d = D() // debugger functionality
+
   @IBOutlet weak var createLightGroupBulbCollectionView: UICollectionView!
   
   var selectedCell: Int! = 0
@@ -36,6 +38,8 @@ class CreateLightGroupViewController: UIViewController {
     
     // Do any additional setup after loading the view.
     selectedCell = 0
+    createLightGroupBulbCollectionView.dataSource = self
+    createLightGroupBulbCollectionView.delegate = self
 
   }
   
@@ -55,16 +59,17 @@ class CreateLightGroupViewController: UIViewController {
    }
    */
   
-}
-
-//: UICollectionViewDataSource
-extension CreateLightGroupBulbCollectionView {
-  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//}
+//
+////: UICollectionViewDataSource
+//extension CreateLightGroupBulbCollectionView {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     return stringArray.count
   }
   
-  func collectionView(collectionView: UICollectionView,
-                      cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(_ collectionView: UICollectionView,
+                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath as IndexPath)
     let myLabel       = UILabel(frame: CGRect(x: 5, y: 30, width: cell.frame.width - 10, height: 20))
