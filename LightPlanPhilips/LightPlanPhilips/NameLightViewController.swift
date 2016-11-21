@@ -45,14 +45,14 @@
     dismiss(animated: true, completion: nil)
   }
   @IBAction func removeButton(_ sender: Any) {
-    if let delegateLamp = delegateLamp {
+    if var delegateLamp = delegateLamp {
       delegateLamp.nameLight = nil
     }
     dismiss(animated: true, completion: nil)
   }
   
   @IBAction func saveButton(_ sender: Any) {
-    if let delegateLamp = delegateLamp {
+    if var delegateLamp = delegateLamp {
       if let temporaryNameLight = temporaryNameLight {
         delegateLamp.nameLight = temporaryNameLight
       }

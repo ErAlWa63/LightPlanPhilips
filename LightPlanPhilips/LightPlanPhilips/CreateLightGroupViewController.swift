@@ -11,15 +11,13 @@
 
 import UIKit
 
-var stringArray: [String] = ["1", "2", "3", "4","5", "6", "7", "8",
-                             "9", "10", "11"]
-
-class CreateLightGroupViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CreateLightGroupViewController: UIViewController {
   let d = D() // debugger functionality
+  fileprivate let reuseIdentifier = "lightTypeCell"
 
-  @IBOutlet weak var createLightGroupBulbCollectionView: UICollectionView!
+  @IBOutlet weak var collectionView: UICollectionView!
   
-  var selectedCell: Int! = 0
+//    var selectedCell: Int! = 0
 
 //  var delegateLightGroupTypeIndex: Int?
 //  var closureToPerform: ((Int) -> Void)?
@@ -31,53 +29,29 @@ class CreateLightGroupViewController: UIViewController, UICollectionViewDataSour
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-//    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-//    self.collectionView!.allowsMultipleSelection = false
-//    self.collectionView!.backgroundColor = UIColor.lightGray
-    
-    // Do any additional setup after loading the view.
-    selectedCell = 0
-    createLightGroupBulbCollectionView.dataSource = self
-    createLightGroupBulbCollectionView.delegate = self
+    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    self.collectionView!.allowsMultipleSelection = false
+  }
+}
 
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
-//}
-//
-////: UICollectionViewDataSource
-//extension CreateLightGroupBulbCollectionView {
+extension CreateLightGroupViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     d.c(m: "start", f: #file, fu: #function, l: #line)
-    return stringArray.count
+    return DataLightPlan.sharedInstance.listLamp.count
   }
   
-  func collectionView(_ collectionView: UICollectionView,
-                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-  {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath as IndexPath)
-    let myLabel       = UILabel(frame: CGRect(x: 5, y: 30, width: cell.frame.width - 10, height: 20))
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath)
+    let myImageView   = UIImageView(frame: CGRect(x: 5, y: 10, width: 15, height: 15))
+    myImageView.image = DataLightPlan.sharedInstance.listLamp[indexPath.item].pictogram
+    let myLabel       = UILabel(frame: CGRect(x: 25, y: 10, width: cell.frame.width - 40, height: 15))
     myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
-    myLabel.text      = stringArray[indexPath.item]
-    myLabel.textAlignment = .center
+    myLabel.text      = DataLightPlan.sharedInstance.listLamp[indexPath.item].name
+    myLabel.textAlignment = .left
     cell.backgroundColor = UIColor.white
     cell.addSubview(myLabel)
+    cell.addSubview(myImageView)
+
 
 //    cell.label.text = stringArray[indexPath.item]
 //    
@@ -98,4 +72,8 @@ class CreateLightGroupViewController: UIViewController, UICollectionViewDataSour
     return cell
   }
 
+}
+
+extension CreateLightGroupViewController : UICollectionViewDelegate {
+  
 }

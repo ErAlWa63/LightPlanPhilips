@@ -8,6 +8,25 @@
 
 import UIKit
 
+struct Lamp {
+  var name      : String
+  var pictogram : UIImage
+  var nameLight : NameLight?
+  
+  init(name: String, file: String) {
+    self.name      = name
+    self.pictogram = UIImage(named: file)!
+    self.nameLight = nil
+  }
+  
+  init(name: String, file: String, nameLight: NameLight) {
+    self.name      = name
+    self.pictogram = UIImage(named: file)!
+    self.nameLight = nameLight
+  }
+}
+
+
 class DataLightPlan: NSObject {
   static let  sharedInstance = DataLightPlan()
   private override init () {}
@@ -26,12 +45,8 @@ class DataLightPlan: NSObject {
     LightType(name: "white and color e27 b22", file: "white_and_color_e27_b22.png")]
   
   var listLamp = [
-    Lamp(name: "Bulb 1"),
-    Lamp(name: "Bulb 2"),
-    Lamp(name: "Bulb 3"),
-    Lamp(name: "Bulb 4"),
-    Lamp(name: "Bulb 5"),
-    Lamp(name: "Bulb 6")]
+    Lamp(name: "Bulb 1", file: "br30_slim.png"),
+    Lamp(name: "Bulb 2", file: "br30_slim.png")]
   
   func loadLightPlan() {
   }
