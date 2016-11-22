@@ -109,7 +109,7 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   
   // delegate functions
   func groupSelected(groupSelected: Bool) {
-  
+    // not used here
   }
   func selectedBulbs(bulbs: [Bulb]){
     
