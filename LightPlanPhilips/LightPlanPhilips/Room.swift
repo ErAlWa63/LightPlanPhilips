@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Room {
-  var name: String
-  var bulbs: [Bulb] = []
-  var groups: [Group] = []
-  
-  init (name: String) {
-    self.name = name
-  }
-}
+//class Room {
+//  var name: String
+//  var bulbs: [Bulb] = []
+//  var groups: [Group] = []
+//  
+//  init (name: String) {
+//    self.name = name
+//  }
+//}

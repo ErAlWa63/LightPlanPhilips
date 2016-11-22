@@ -8,6 +8,25 @@
 
 import UIKit
 
+struct Home {
+  var room : [Room] = []
+}
+
+struct Room {
+  var name        : String
+  var description : String
+  var pictogram   : UIImage
+  
+  init(name: String, description: String, file: String) {
+    self.name        = name
+    self.description = description
+    self.pictogram   = UIImage(named: file)!
+  }
+}
+
+
+// ====================================================================
+
 struct Lamp {
   var name      : String
   var pictogram : UIImage
@@ -31,6 +50,18 @@ class DataLightPlan: NSObject {
   static let  sharedInstance = DataLightPlan()
   private override init () {}
   let d = D() // debugger functionality
+  
+  var myHome = Home()
+  
+  func getHome () -> Home {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+    myHome.room.append(Room(name: "Living room", description: "",                file: "br30_slim.png"))
+    myHome.room.append(Room(name: "Kitchen",     description: "",                file: "br30_slim.png"))
+    myHome.room.append(Room(name: "Bedroom",     description: "",                file: "br30_slim.png"))
+    myHome.room.append(Room(name: "Open space",  description: "Definable areas", file: "br30_slim.png"))
+    d.c(m: "myHome = \(myHome)", f: #file, fu: #function, l: #line)
+    return myHome
+  }
 
   
   var listLightType = [
@@ -52,10 +83,10 @@ class DataLightPlan: NSObject {
   
   func loadLightPlan() {
   }
-
+  
   // =======================================================================================================================
-
-/// RoomShapeViewController related
+  
+  /// RoomShapeViewController related
   
   private let addFrame4    = [ true,  true, false,  true,  true, false,  true,  true]
   private let removeFrame4 = [ true,  true,  true,  true,  true, false,  true,  true]
@@ -153,7 +184,7 @@ class DataLightPlan: NSObject {
     var y: Int
   }
   
-   var countCell = 0
+  var countCell = 0
   private let index2Point = [ Point(x: 0, y: 0), Point(x: 1, y: 0), Point(x: 2, y: 0), Point(x: 3, y: 0), Point(x: 4, y: 0), Point(x: 5, y: 0), Point(x: 6, y: 0),
                               Point(x: 0, y: 1), Point(x: 1, y: 1), Point(x: 2, y: 1), Point(x: 3, y: 1), Point(x: 4, y: 1), Point(x: 5, y: 1), Point(x: 6, y: 1),
                               Point(x: 0, y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2), Point(x: 3, y: 2), Point(x: 4, y: 2), Point(x: 5, y: 2), Point(x: 6, y: 2),
@@ -302,7 +333,7 @@ class DataLightPlan: NSObject {
     return toggle[index]
   }
   
-   func processNext () {
+  func processNext () {
     var minimumIndex = toggle.count
     for index in 0 ..< toggle.count {
       if toggle[index] {
@@ -371,7 +402,7 @@ class DataLightPlan: NSObject {
     d.c(m: "corner = \(corner)", f: #file, fu: #function, l: #line)
   }
   
-   func processCell( index: Int) -> Bool {
+  func processCell( index: Int) -> Bool {
     switch index {
     case 0:                                                                         return allowedCorner(index: index, angle: .Normal)
     case 6:                                                                         return allowedCorner(index: index, angle: .Right)
@@ -386,9 +417,9 @@ class DataLightPlan: NSObject {
     }
   }
   
-   var toggle = Array(repeating: Bool(), count: 49)
+  var toggle = Array(repeating: Bool(), count: 49)
   
   // =======================================================================================================================
- 
-
+  
+  
 }

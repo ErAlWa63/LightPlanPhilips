@@ -71,7 +71,7 @@
                                         <rect key="frame" x="0.0" y="100" width="30" height="88"/>
                                         <state key="normal" title="T2"/>
                                         <connections>
-                                            <segue destination="sqM-BW-dRz" kind="popoverPresentation" popoverAnchorView="1hl-Si-gGP" id="mgh-d8-JsH">
+                                            <segue destination="sqM-BW-dRz" kind="popoverPresentation" identifier="CreateLightGroupSegue" popoverAnchorView="1hl-Si-gGP" id="mgh-d8-JsH">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="188" width="30" height="100"/>
                                         <state key="normal" title="T3"/>
                                         <connections>
-                                            <segue destination="jnL-qQ-u3R" kind="show" id="VdF-47-HAG"/>
+                                            <segue destination="jnL-qQ-u3R" kind="show" identifier="TestUISegue" id="VdF-47-HAG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -930,7 +930,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="liW-FZ-xi9"/>
-                                    <segue destination="g8Q-k0-1es" kind="show" id="pYi-xB-vQg"/>
+                                    <segue destination="g8Q-k0-1es" kind="show" identifier="LightsSegue" id="pYi-xB-vQg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1026,7 +1026,7 @@
                                 </state>
                                 <connections>
                                     <action selector="startButton:" destination="Oe7-1F-9sN" eventType="touchUpInside" id="ISZ-Rx-1XJ"/>
-                                    <segue destination="ZsP-bK-i0u" kind="show" id="gLk-KT-d3o"/>
+                                    <segue destination="ZsP-bK-i0u" kind="show" identifier="SelectRoomTypeSegue" id="gLk-KT-d3o"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1046,10 +1046,10 @@
             </objects>
             <point key="canvasLocation" x="-2295" y="-549"/>
         </scene>
-        <!--Select Room Type View Controller-->
+        <!--SelectRoomTypeSegue-->
         <scene sceneID="heE-od-SYM">
             <objects>
-                <viewController id="ZsP-bK-i0u" customClass="SelectRoomTypeViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SelectRoomTypeSegue" id="ZsP-bK-i0u" customClass="SelectRoomTypeViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="If1-4d-Kkx"/>
                         <viewControllerLayoutGuide type="bottom" id="gfS-tv-jq8"/>
@@ -1103,7 +1103,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="ATa-QB-ZXd"/>
-                                    <segue destination="vLo-nQ-Chj" kind="show" id="sDo-xr-8HZ"/>
+                                    <segue destination="vLo-nQ-Chj" kind="show" identifier="RoomShapeSegue" id="sDo-xr-8HZ"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-nh-l2j">
@@ -1222,7 +1222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVa-Q0-qF7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="372"/>
+            <point key="canvasLocation" x="1451" y="629"/>
         </scene>
         <!--Create Light Group View Controller-->
         <scene sceneID="zlu-Lt-gC2">
