@@ -10,16 +10,15 @@ import Foundation
 
 class Group {
   var name: String
-  var bulbs: [Bulb] = []
-  var groupType : String
-  //var groupIcon: String = "bulbs.jpeg"
+  var bulbs: [Bulb]
+  var groupType : String?
   var isArea: Bool = true
-  var positionX: Int?
-  var positionY: Int?
+  var positionX: Float?
+  var positionY: Float?
   
   
-  init (name: String, groupType: String) {
+  init (name: String, bulbs: [Bulb]) {
     self.name = name
-    self.groupType = groupType
+    self.bulbs = bulbs
   }
 }
