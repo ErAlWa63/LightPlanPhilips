@@ -14,26 +14,45 @@ import UIKit
 class CreateLightGroupViewController: UIViewController {
   let d = D() // debugger functionality
   fileprivate let reuseIdentifier = "lightTypeCell"
-
+  
   @IBOutlet weak var collectionView: UICollectionView!
   
-//    var selectedCell: Int! = 0
-
-//  var delegateLightGroupTypeIndex: Int?
-//  var closureToPerform: ((Int) -> Void)?
-
+  //    var selectedCell: Int! = 0
+  
+  //  var delegateLightGroupTypeIndex: Int?
+  //  var closureToPerform: ((Int) -> Void)?
+  
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
- }
-
+  }
+  
   @IBOutlet weak var nameLightGroup: UITextField!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+//    NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+//    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name:NSNotification.Name.UIKeyboardWasShown, object: nil);
     nameLightGroup.delegate = self
     self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     self.collectionView!.allowsMultipleSelection = false
+    
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+    tapRecognizer.numberOfTapsRequired = 1
+    self.view.addGestureRecognizer(tapRecognizer)
   }
+  
+  func handleSingleTap(recognizer: UITapGestureRecognizer) {
+    self.view.endEditing(true)
+  }
+  
+//  func keyboardWasShown(notification: NSNotification) {
+//    let info = notification.userInfo!
+//    let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//    
+//    UIView.animateWithDuration(0.1, animations: { () -> Void in
+//      self.bottomConstraint.constant = keyboardFrame.size.height + 20
+//    })
+//  }
 }
 
 extension CreateLightGroupViewController: UICollectionViewDataSource {
@@ -53,27 +72,27 @@ extension CreateLightGroupViewController: UICollectionViewDataSource {
     cell.backgroundColor = UIColor.white
     cell.addSubview(myLabel)
     cell.addSubview(myImageView)
-
-
-//    cell.label.text = stringArray[indexPath.item]
-//    
-//    cell.layer.shouldRasterize = true;
-//    cell.layer.rasterizationScale = UIScreen.mainScreen().scale
-//    
-//    if(selectedCell != nil){
-//      if(indexPath.item == selectedCell){
-//        cell.image.image = UIImage(named: "FullCircle")!
-//        cell.label.textColor = UIColor.whiteColor()
-//      }
-//      else{
-//        cell.image.image = UIImage(named: "EmptyCircle")!
-//        cell.label.textColor = UIColor.blackColor()
-//      }
-//    }
+    
+    
+    //    cell.label.text = stringArray[indexPath.item]
+    //
+    //    cell.layer.shouldRasterize = true;
+    //    cell.layer.rasterizationScale = UIScreen.mainScreen().scale
+    //
+    //    if(selectedCell != nil){
+    //      if(indexPath.item == selectedCell){
+    //        cell.image.image = UIImage(named: "FullCircle")!
+    //        cell.label.textColor = UIColor.whiteColor()
+    //      }
+    //      else{
+    //        cell.image.image = UIImage(named: "EmptyCircle")!
+    //        cell.label.textColor = UIColor.blackColor()
+    //      }
+    //    }
     
     return cell
   }
-
+  
 }
 
 extension CreateLightGroupViewController : UICollectionViewDelegate {
@@ -82,25 +101,25 @@ extension CreateLightGroupViewController : UICollectionViewDelegate {
 extension CreateLightGroupViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
     d.c(m: "start", f: #file, fu: #function, l: #line)
-//    if delegateLamp != nil {
-//      if let nameLightType = nameLightType {
-//        saveButton.isHidden = false
-//        if let text = nameLightType.text {
-//          if let temporaryNameLight = temporaryNameLight {
-//            temporaryNameLight.name = text
-//          }
-//        }
-//      }
-//    }
+    //    if delegateLamp != nil {
+    //      if let nameLightType = nameLightType {
+    //        saveButton.isHidden = false
+    //        if let text = nameLightType.text {
+    //          if let temporaryNameLight = temporaryNameLight {
+    //            temporaryNameLight.name = text
+    //          }
+    //        }
+    //      }
+    //    }
     animateTextField(textField: textField, up: false, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
   }
   
   public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//    if (delegateLamp) != nil {
-//      return true
-//    } else {
-//      return false
-//    }
+    //    if (delegateLamp) != nil {
+    //      return true
+    //    } else {
+    //      return false
+    //    }
     return true
   }
   
@@ -112,8 +131,8 @@ extension CreateLightGroupViewController: UITextFieldDelegate {
   func animateTextField(textField: UITextField, up: Bool, height: CGFloat) {
     UIView.beginAnimations("animateTextField", context: nil)
     UIView.setAnimationBeginsFromCurrentState(true)
-    UIView.setAnimationDuration(0.0)
-    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: (up ? height - 200 : 200 - height))
+    UIView.setAnimationDuration(0.3)
+    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: (up ? height - 250 : 250 - height))
     UIView.commitAnimations()
   }
   

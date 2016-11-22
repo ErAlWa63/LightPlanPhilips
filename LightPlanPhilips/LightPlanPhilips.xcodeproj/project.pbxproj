@@ -37,6 +37,8 @@
 		0374EB361DD67330002165CD /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB351DD67330002165CD /* TestButton.swift */; };
 		0376EDD61DDDA08B00587303 /* CreateLightGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */; };
 		039137441DE4448000A6FB1E /* Extension UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137431DE4448000A6FB1E /* Extension UIButton.swift */; };
+		039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */; };
+		0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */; };
 		03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */; };
 		03B2B1871DDA160100CCFF70 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17C1DDA160100CCFF70 /* spot.png */; };
 		03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17D1DDA160100CCFF70 /* rec_spot.png */; };
@@ -103,6 +105,8 @@
 		0374EB351DD67330002165CD /* TestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
 		0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLightGroupViewController.swift; sourceTree = "<group>"; };
 		039137431DE4448000A6FB1E /* Extension UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension UIButton.swift"; sourceTree = "<group>"; };
+		039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPlanCreatorViewController.swift; sourceTree = "<group>"; };
+		039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeViewController.swift; sourceTree = "<group>"; };
 		03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShapeViewController.swift; sourceTree = "<group>"; };
 		03B2B17C1DDA160100CCFF70 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spot.png; sourceTree = "<group>"; };
 		03B2B17D1DDA160100CCFF70 /* rec_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec_spot.png; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		031CEBD21DD3802000E40BCF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */,
+				039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */,
 				03E606A41DE2EA10000311F3 /* TestUIViewController.swift */,
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
@@ -427,7 +433,9 @@
 				03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
+				039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
+				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

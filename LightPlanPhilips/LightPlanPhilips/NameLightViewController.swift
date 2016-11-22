@@ -25,6 +25,8 @@
  //
  // http://stackoverflow.com/questions/24468336/how-to-correctly-handle-weak-self-in-swift-blocks-with-arguments (NatashaTheRobot)
  //
+ // http://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift
+ //
  
  import UIKit
  
@@ -174,8 +176,8 @@
   func animateTextField(textField: UITextField, up: Bool, height: CGFloat) {
     UIView.beginAnimations("animateTextField", context: nil)
     UIView.setAnimationBeginsFromCurrentState(true)
-    UIView.setAnimationDuration(0.0)
-    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: (up ? height - 200 : 200 - height))
+    UIView.setAnimationDuration(0.3)
+    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: (up ? height - 250 : 250 - height))
     UIView.commitAnimations()
   }
   
