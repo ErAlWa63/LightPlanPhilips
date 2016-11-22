@@ -21,7 +21,7 @@ class RoomScene: SKScene {
   
   var roomSceneDelegate: RoomSceneDelegate?
   
-  var dragDropEnabled: Bool = true
+  var dragDropEnabled: Bool = false
   var createGroup: Bool = false
   
   let dataSource = DataSource.sharedInstance
@@ -31,11 +31,10 @@ class RoomScene: SKScene {
   var selectedBulbs = [String:Bool]()
   var bulbs = [String: Bulb ]()
   
-  let bulbSprite = SKSpriteNode(imageNamed: "Bulb")
-  let groupSprite = SKSpriteNode(imageNamed: "Bulb group")
-  var selectedNode = SKSpriteNode()
-  
-  
+  let bulbSprite = bulbSpriteNode(imageName: "Bulb")
+  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
+  var selectedNode = bulbSpriteNode()
+
   
   
   override func didMove(to view: SKView) {
@@ -45,26 +44,26 @@ class RoomScene: SKScene {
     // get groups
     var groups: [Group] = []
     groups = (roomSceneDelegate?.getGroups())!
-    
+
     //place bulbs
     for bulb in bulbCollection {
-      let sprite = bulbSprite.copy() as! SKSpriteNode
+      let sprite = bulbSprite.copy() as! bulbSpriteNode
+      sprite.type = "bulb"
       sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
       sprite.setScale(1.5)
       sprite.name = bulb.name
       selectedBulbs[bulb.name] = false
-      
       self.addChild(sprite)
     }
     
     // place groups
     for group in groups {
-      let sprite = groupSprite.copy() as! SKSpriteNode
-      
+      let sprite = groupSprite.copy() as! bulbSpriteNode
+      sprite.type = "group"
       sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
       sprite.setScale(1.5)
       sprite.name = group.name
-      
+    
       self.addChild(sprite)
     }
   }
@@ -84,18 +83,14 @@ class RoomScene: SKScene {
       let location = touch.location(in: self)
       let touchedNodes = self.nodes(at: location)
       
-      
-      
       for node in touchedNodes {
-        if node is SKSpriteNode {
+        if node is bulbSpriteNode {
           if dragDropEnabled {
             // move bulb
             movableNode = node
             movableNode!.position = location
           } else {
             if createGroup {
-              
-              
               // check if bulb has been selected
               if selectedBulbs[node.name!]! == false {
                 
@@ -133,10 +128,12 @@ class RoomScene: SKScene {
                 roomSceneDelegate?.groupSelected(groupSelected: false)
               }
             } else {
-              print("klik bulb")
-              // check if single bulb or group
-              //if node
-              
+              let bulbNode = node as! bulbSpriteNode
+              if bulbNode.type == "bulb" {
+                print("een enkele lamp")
+              } else {
+                print("een groep")
+              }
             }
           }
         }
