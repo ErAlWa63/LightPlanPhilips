@@ -11,6 +11,9 @@ import UIKit
 class TestUIViewController: UIViewController {
   let d = D() // debugger functionality
 
+  @IBAction func cancelButton(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
 }
 
 extension TestUIViewController: UICollectionViewDataSource {

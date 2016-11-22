@@ -14,6 +14,9 @@ import SpriteKit
 
 
 class RoomViewController: UIViewController, RoomSceneDelegate {
+  @IBAction func cancelButton(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
   
   var scene: RoomScene!
   //var bulbCollection: [Bulb] = []
