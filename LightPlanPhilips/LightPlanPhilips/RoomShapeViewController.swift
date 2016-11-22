@@ -86,13 +86,13 @@ class RoomShapeViewController: UIViewController {
                        true,  true, false,  true, false, false, false, false,
                        true,  true, false,  true,  true, false,  true, false]
   
-  var cellN = false
+  var cellN  = false
   var cellNE = false
-  var cellE = false
+  var cellE  = false
   var cellSE = false
-  var cellS = false
+  var cellS  = false
   var cellSW = false
-  var cellW = false
+  var cellW  = false
   var cellNW = false
   
   enum Angle {
@@ -108,7 +108,6 @@ class RoomShapeViewController: UIViewController {
   }
   
   var countCell = 0
-  
   let index2Point = [ Point(x: 0, y: 0), Point(x: 1, y: 0), Point(x: 2, y: 0), Point(x: 3, y: 0), Point(x: 4, y: 0), Point(x: 5, y: 0), Point(x: 6, y: 0),
                       Point(x: 0, y: 1), Point(x: 1, y: 1), Point(x: 2, y: 1), Point(x: 3, y: 1), Point(x: 4, y: 1), Point(x: 5, y: 1), Point(x: 6, y: 1),
                       Point(x: 0, y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2), Point(x: 3, y: 2), Point(x: 4, y: 2), Point(x: 5, y: 2), Point(x: 6, y: 2),
@@ -273,21 +272,15 @@ class RoomShapeViewController: UIViewController {
   }
   
   @IBAction func cellButton(_ sender: Any) {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
-    
     let cellButton = sender as! UIButton
     let interim = processCell( index: Int(cellButton.currentTitle!)!)
     if interim {
-//      d.c(m: "interim = \(interim)", f: #file, fu: #function, l: #line)
-      
       cellButton.backgroundColor = UIColorFromRGB(rgbValue: 0xE7BF7E)
       cellButton.setTitleColor(UIColorFromRGB(rgbValue: 0xE7BF7E), for: .normal)
     } else {
       cellButton.backgroundColor = UIColorFromRGB(rgbValue: 0xD8D8D8)
       cellButton.setTitleColor(UIColorFromRGB(rgbValue: 0xD8D8D8), for: .normal)
     }
-    //    toggle[cellIndex] = !toggle[cellIndex]
-    
   }
   
   @IBAction func nextButton(_ sender: Any) {
@@ -299,18 +292,67 @@ class RoomShapeViewController: UIViewController {
         }
       }
     }
-    d.c(m: "minimumIndex = \(minimumIndex)", f: #file, fu: #function, l: #line)
-    let startpoint = index2Point[minimumIndex]
-    d.c(m: "startpoint = \(startpoint)", f: #file, fu: #function, l: #line)
-
-    
-
+    var corner = [index2Point[minimumIndex]]
+    var currentPoint = corner[0]
+    var currentAngle : Angle = .Normal
+    var nextPoint = Point(x: currentPoint.x + 1, y: currentPoint.y)
+    while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
+      currentPoint = nextPoint
+      switch currentAngle {
+      case .Normal:
+        if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Left
+          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+        } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+          nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+        } else {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Right
+          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+        }
+      case .Left:
+        if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Half
+          nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+        } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+        } else {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Normal
+          nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+        }
+      case .Right:
+        if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Normal
+          nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+        } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+        } else {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Half
+          nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+        }
+      case .Half:
+        if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Right
+          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+        } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+          nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+        } else {
+          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+          currentAngle = .Left
+          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+        }
+      }
+    }
+    d.c(m: "corner = \(corner)", f: #file, fu: #function, l: #line)
   }
-  @IBOutlet weak var nextButton: UIButton!
   
   func processCell( index: Int) -> Bool {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
-    
     switch index {
     case 0:                                                                         return allowedCorner(index: index, angle: .Normal)
     case 6:                                                                         return allowedCorner(index: index, angle: .Right)
@@ -325,14 +367,10 @@ class RoomShapeViewController: UIViewController {
     }
   }
   
-  struct Cell {
-    var Point = (0, 0)
-    var cell = false
-    
-  }
-  
   var toggle = Array(repeating: Bool(), count: 49)
-  
+
+  @IBOutlet weak var nextButton: UIButton!
+ 
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
