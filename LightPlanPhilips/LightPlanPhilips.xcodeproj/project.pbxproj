@@ -431,11 +431,8 @@
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
 				030878771DD48AE5003812A7 /* Lamp.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,
-=======
->>>>>>> bc86c635cad2db60196a26dbee623a5fd1e6f76e
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
