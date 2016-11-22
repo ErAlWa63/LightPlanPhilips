@@ -155,6 +155,7 @@
         }
       }
     }
+    animateTextField(textField: textField, up: false, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
   }
   
   public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -169,4 +170,25 @@
     nameLightType.resignFirstResponder()
     return true
   }
+  
+  func animateTextField(textField: UITextField, up: Bool, height: CGFloat) {
+    UIView.beginAnimations("animateTextField", context: nil)
+    UIView.setAnimationBeginsFromCurrentState(true)
+    UIView.setAnimationDuration(0.0)
+    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: (up ? height - 200 : 200 - height))
+    UIView.commitAnimations()
+  }
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    animateTextField(textField: textField, up: true, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
+  }
+  
+////  func textFieldDidEndEditing(_ textField: UITextField) {
+//    textField.backgroundColor = UIColor.white
+//    let yOnScreen = textField.frame.origin.y
+//    let textFieldHeight = textField.frame.height
+//    let heightToGoDown = view.frame.size.height-yOnScreen-textFieldHeight-20
+//    animateTextField(textField: textField, up: false, height: heightToGoDown)
+////  }
+
  }
