@@ -71,7 +71,7 @@
                                         <rect key="frame" x="0.0" y="100" width="30" height="88"/>
                                         <state key="normal" title="T2"/>
                                         <connections>
-                                            <segue destination="sqM-BW-dRz" kind="popoverPresentation" popoverAnchorView="1hl-Si-gGP" id="mgh-d8-JsH">
+                                            <segue destination="sqM-BW-dRz" kind="popoverPresentation" identifier="" popoverAnchorView="1hl-Si-gGP" id="mgh-d8-JsH">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -1537,7 +1537,7 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur" userLabel="Name light type">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur" userLabel="Name light type">
                                 <rect key="frame" x="56" y="165" width="208" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="WPM-bj-hMK"/>

@@ -34,7 +34,7 @@ class bulbSpriteNode: SKSpriteNode {
   
   
   override convenience init(texture: SKTexture?, color: UIColor, size: CGSize) {
-    self.init(texture: texture, color: color, size: size) //, type: "")
+    self.init(texture: texture, color: color, size: size, type: "")
   }
   
   

@@ -51,6 +51,10 @@ extension UIViewController {
     performSegue(withIdentifier: "NameLightSegue", sender: nil)
   }
   
+  func clickGroup(groupName: String){
+    performSegue(withIdentifier: "", sender: nil)
+  }
+  
   
   func getBulbs() -> [Bulb]{
     return self.bulbCollection

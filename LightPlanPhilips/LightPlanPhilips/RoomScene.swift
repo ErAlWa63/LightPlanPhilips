@@ -131,6 +131,12 @@ class RoomScene: SKScene {
               let bulbNode = node as! bulbSpriteNode
               if bulbNode.type == "bulb" {
                 print("een enkele lamp")
+                roomSceneDelegate?.clickBulb(bulbName: node.name!)
+                
+                
+                // segue NameLightSegue
+                //performSegue(withIdentifier: "NameLightSegue", sender: nil)
+                
               } else {
                 print("een groep")
               }
