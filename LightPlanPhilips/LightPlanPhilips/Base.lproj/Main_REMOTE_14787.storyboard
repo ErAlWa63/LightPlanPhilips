@@ -153,47 +153,6 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="URC-HY-JIU">
-                                <rect key="frame" x="290" y="40" width="30" height="288"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-od-pMc" userLabel="Test 1 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="Ff7-9f-Ypf"/>
-                                        </constraints>
-                                        <state key="normal" title="T1"/>
-                                        <connections>
-                                            <segue destination="DkV-1Z-Oj0" kind="popoverPresentation" identifier="NameLightSegue" popoverAnchorView="KkP-od-pMc" id="ILX-gH-pSo">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hl-Si-gGP" userLabel="Test 2 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="30" height="88"/>
-                                        <state key="normal" title="T2"/>
-                                        <connections>
-                                            <segue destination="sqM-BW-dRz" kind="popoverPresentation" identifier="" popoverAnchorView="1hl-Si-gGP" id="mgh-d8-JsH">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amT-hY-E5B" userLabel="Test 3 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="30" height="100"/>
-                                        <state key="normal" title="T3"/>
-                                        <connections>
-                                            <segue destination="jnL-qQ-u3R" kind="show" id="VdF-47-HAG"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="1hl-Si-gGP" firstAttribute="centerY" secondItem="URC-HY-JIU" secondAttribute="centerY" id="c9I-VR-4iF"/>
-                                </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-es-RzG">
-                                <rect key="frame" x="254" y="394" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="GroupButton"/>
                                 <connections>
                                     <action selector="nextButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="ATa-QB-ZXd"/>
                                     <segue destination="vLo-nQ-Chj" kind="show" identifier="RoomShapeSegue" id="sDo-xr-8HZ"/>
@@ -1578,7 +1537,7 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur" userLabel="Name light type">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur" userLabel="Name light type">
                                 <rect key="frame" x="56" y="165" width="208" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="WPM-bj-hMK"/>

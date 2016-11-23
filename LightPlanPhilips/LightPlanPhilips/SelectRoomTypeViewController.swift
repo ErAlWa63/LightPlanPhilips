@@ -11,6 +11,9 @@ import UIKit
 class SelectRoomTypeViewController: UIViewController {
   let d = D() // debugger functionality
   
+  var delegateRoom : [Room]? = nil
+  var closureToPerform : (([Room]) -> Void)?
+  
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
@@ -23,6 +26,9 @@ class SelectRoomTypeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     d.c(m: "start", f: #file, fu: #function, l: #line)
+    if let delegateRoom = delegateRoom {
+      d.c(m: "delegateRoom = \(delegateRoom)", f: #file, fu: #function, l: #line)
+    }
     
 //    nextButton.isHidden = true
   }

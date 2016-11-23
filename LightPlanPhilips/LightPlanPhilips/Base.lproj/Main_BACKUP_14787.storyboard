@@ -153,6 +153,7 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+<<<<<<< HEAD
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="URC-HY-JIU">
                                 <rect key="frame" x="290" y="40" width="30" height="288"/>
@@ -194,6 +195,8 @@
                                 <rect key="frame" x="254" y="394" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="GroupButton"/>
+=======
+>>>>>>> 159ca31cf0c835e45e9c585ebfe20d64e286b20b
                                 <connections>
                                     <action selector="nextButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="ATa-QB-ZXd"/>
                                     <segue destination="vLo-nQ-Chj" kind="show" identifier="RoomShapeSegue" id="sDo-xr-8HZ"/>
