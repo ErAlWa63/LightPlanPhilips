@@ -72,6 +72,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKh-2A-ZRp" userLabel="Test 3 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="145.5" width="30" height="72.5"/>
                                                 <state key="normal" title="T3"/>
+                                                <connections>
+                                                    <segue destination="PHd-av-abv" kind="show" identifier="TestSKViewSegue" id="e8T-QT-6Sk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -185,44 +188,53 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-nh-l2j">
-                                <rect key="frame" x="56" y="170" width="208" height="100"/>
+                                <rect key="frame" x="56" y="200" width="208" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="mnN-KP-PVt"/>
+                                    <constraint firstAttribute="height" constant="200" id="mnN-KP-PVt"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bHf-jZ-1Hg">
-                                    <size key="itemSize" width="99" height="25"/>
+                                    <size key="itemSize" width="208" height="31"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="Wdz-ir-cuL">
-                                        <rect key="frame" x="0.0" y="0.0" width="99" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="99" height="25"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="208" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="sqM-BW-dRz" id="l9r-Uw-uBF"/>
-                                    <outlet property="delegate" destination="sqM-BW-dRz" id="a7R-0V-rk0"/>
-                                    <outlet property="prefetchDataSource" destination="sqM-BW-dRz" id="who-A9-JBn"/>
+                                    <outlet property="dataSource" destination="ZsP-bK-i0u" id="vCr-Lf-cSd"/>
+                                    <outlet property="delegate" destination="ZsP-bK-i0u" id="lcr-qq-tD3"/>
+                                    <outlet property="prefetchDataSource" destination="ZsP-bK-i0u" id="tlf-yx-pGu"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13p-1c-r8F" customClass="PushButton" customModule="LightPlanPhilips" customModuleProvider="target">
+                                <rect key="frame" x="36" y="445" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hcq-q7-hTp"/>
+                                    <constraint firstAttribute="width" constant="50" id="ohF-9N-zZP"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EgM-Fy-FRz" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" id="0YR-04-zdQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ie7-Kh-QJO" secondAttribute="trailing" constant="50" id="1Vn-c1-flp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EgM-Fy-FRz" secondAttribute="trailing" id="Abw-9h-xHI"/>
+                            <constraint firstItem="13p-1c-r8F" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" constant="20" id="G2U-ie-mJW"/>
                             <constraint firstItem="F64-7A-9yH" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="50" id="PXU-Pn-MXt"/>
                             <constraint firstItem="XtL-JN-6Th" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" id="ZaR-Wl-SuE"/>
                             <constraint firstItem="ie7-Kh-QJO" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" constant="50" id="ZvI-Ps-Gay"/>
+                            <constraint firstItem="13p-1c-r8F" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="425" id="arq-Dy-cvD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F64-7A-9yH" secondAttribute="trailing" constant="40" id="f2b-Jx-Uqi"/>
-                            <constraint firstItem="MQY-nh-l2j" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="150" id="md0-zC-fze"/>
+                            <constraint firstItem="MQY-nh-l2j" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="180" id="md0-zC-fze"/>
                             <constraint firstItem="gfS-tv-jq8" firstAttribute="top" secondItem="ie7-Kh-QJO" secondAttribute="bottom" constant="20" id="n5T-zg-Z8k"/>
                             <constraint firstItem="F64-7A-9yH" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" constant="40" id="ox2-cB-gTU"/>
                             <constraint firstItem="MQY-nh-l2j" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" constant="40" id="s3j-Tg-iLE"/>
@@ -231,12 +243,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionview" destination="MQY-nh-l2j" id="zVv-gu-Qnz"/>
                         <outlet property="nextButton" destination="ie7-Kh-QJO" id="USF-0z-MSf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0b-Uw-kM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1434" y="-549"/>
+            <point key="canvasLocation" x="-1434.375" y="-549.29577464788736"/>
         </scene>
         <!--Room Shape View Controller-->
         <scene sceneID="6lH-Ik-IPV">
@@ -1383,6 +1396,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H82-dW-Cjl" userLabel="Cancel">
+                                <rect key="frame" x="284" y="20" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="8wD-sd-hKY"/>
+                                    <constraint firstAttribute="height" constant="20" id="En3-z8-Vdf"/>
+                                </constraints>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" red="0.031372549020000001" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="d8K-e3-8HK"/>
+                                    <action selector="cancelButton:" destination="sqM-BW-dRz" eventType="touchUpInside" id="ojR-Mt-lSG"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uga-Wy-LTh">
                                 <rect key="frame" x="16" y="20" width="250" height="30"/>
                                 <constraints>
@@ -1402,6 +1429,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-es-RzG">
+                                <rect key="frame" x="254" y="394" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="GroupButton"/>
+                                <connections>
+                                    <action selector="groupClicked:" destination="g8Q-k0-1es" eventType="touchUpInside" id="sW4-jS-lJF"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKM-Sc-ynr">
                                 <rect key="frame" x="66" y="498" width="188" height="50"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1439,28 +1474,6 @@
                                     <constraint firstItem="1hl-Si-gGP" firstAttribute="centerY" secondItem="URC-HY-JIU" secondAttribute="centerY" id="c9I-VR-4iF"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-es-RzG">
-                                <rect key="frame" x="254" y="394" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="GroupButton"/>
-                                <connections>
-                                    <action selector="groupClicked:" destination="g8Q-k0-1es" eventType="touchUpInside" id="sW4-jS-lJF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H82-dW-Cjl" userLabel="Cancel">
-                                <rect key="frame" x="284" y="20" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="8wD-sd-hKY"/>
-                                    <constraint firstAttribute="height" constant="20" id="En3-z8-Vdf"/>
-                                </constraints>
-                                <state key="normal" title="✕">
-                                    <color key="titleColor" red="0.031372549020000001" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="d8K-e3-8HK"/>
-                                    <action selector="cancelButton:" destination="sqM-BW-dRz" eventType="touchUpInside" id="ojR-Mt-lSG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="H82-dW-Cjl" secondAttribute="trailing" id="BQq-zM-u4S"/>
@@ -1595,6 +1608,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1506" y="-1613"/>
+        </scene>
+        <!--TestSK View Controller-->
+        <scene sceneID="Eex-iU-weZ">
+            <objects>
+                <viewController id="PHd-av-abv" customClass="TestSKViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D5M-69-0pN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jlh-Fb-zZd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WAt-ae-4aF" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACW-UM-kq7" userLabel="Cancel">
+                                <rect key="frame" x="284" y="20" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0HH-Wv-xIE"/>
+                                    <constraint firstAttribute="width" constant="20" id="l8E-O9-9q5"/>
+                                </constraints>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="vqW-s0-HUm"/>
+                                    <action selector="cancelButton:" destination="PHd-av-abv" eventType="touchUpInside" id="xEV-wP-BEu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ACW-UM-kq7" firstAttribute="top" secondItem="D5M-69-0pN" secondAttribute="bottom" id="n7c-Ut-MtS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ACW-UM-kq7" secondAttribute="trailing" id="tfm-su-aw2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQ6-vq-hYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610" y="721"/>
         </scene>
         <!--TestUI View Controller-->
         <scene sceneID="FR8-Ce-x6c">

@@ -10,6 +10,9 @@
 		0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784D1DD3ADB7003812A7 /* LightType.swift */; };
 		030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784F1DD3AE32003812A7 /* DataLightPlan.swift */; };
 		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
+		030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */; };
+		0311F65A1DE5A07000FDB150 /* Open space.png in Resources */ = {isa = PBXBuildFile; fileRef = 0311F6591DE5A07000FDB150 /* Open space.png */; };
+		0311F65E1DE5F14700FDB150 /* PushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311F65D1DE5F14700FDB150 /* PushButton.swift */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
 		0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4991DD1E3BD00CB13BE /* A1.1.png */; };
 		0321F4A11DD1E3DC00CB13BE /* A1.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49B1DD1E3DC00CB13BE /* A1.0.png */; };
@@ -78,6 +81,9 @@
 		0308784D1DD3ADB7003812A7 /* LightType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightType.swift; sourceTree = "<group>"; };
 		0308784F1DD3AE32003812A7 /* DataLightPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLightPlan.swift; sourceTree = "<group>"; };
 		030878781DD48B88003812A7 /* NameLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLight.swift; sourceTree = "<group>"; };
+		030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSKViewController.swift; sourceTree = "<group>"; };
+		0311F6591DE5A07000FDB150 /* Open space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open space.png"; sourceTree = "<group>"; };
+		0311F65D1DE5F14700FDB150 /* PushButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButton.swift; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
 		0321F4991DD1E3BD00CB13BE /* A1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.1.png; sourceTree = "<group>"; };
 		0321F49B1DD1E3DC00CB13BE /* A1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.0.png; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 		031CEBD21DD3802000E40BCF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0311F65D1DE5F14700FDB150 /* PushButton.swift */,
 				039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */,
 				039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */,
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
@@ -200,6 +207,7 @@
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
 				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
 				9C7D676A1DDC782300C0CEAF /* GroupBulbsViewController.swift */,
+				030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */,
 				03E606A41DE2EA10000311F3 /* TestUIViewController.swift */,
 			);
 			name = Controller;
@@ -260,6 +268,7 @@
 		03B2B1921DDA160C00CCFF70 /* Philips Light Plan RoomType */ = {
 			isa = PBXGroup;
 			children = (
+				0311F6591DE5A07000FDB150 /* Open space.png */,
 				03B2B1931DDA162F00CCFF70 /* bathroom.png */,
 				03B2B1941DDA162F00CCFF70 /* bedroom.png */,
 				03B2B1951DDA162F00CCFF70 /* dining.png */,
@@ -366,6 +375,7 @@
 				0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */,
 				03B2B18E1DDA160100CCFF70 /* go.png in Resources */,
 				03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */,
+				0311F65A1DE5A07000FDB150 /* Open space.png in Resources */,
 				03B2B19C1DDA162F00CCFF70 /* kitchen.png in Resources */,
 				03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */,
 				03B2B1911DDA160100CCFF70 /* white_and_color_e27_b22.png in Resources */,
@@ -432,11 +442,13 @@
 				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
 				03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
+				030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,
+				0311F65E1DE5F14700FDB150 /* PushButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

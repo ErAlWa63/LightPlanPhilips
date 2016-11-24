@@ -135,12 +135,6 @@
     }
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
     tapRecognizer.numberOfTapsRequired = 1
-    self.view.addGestureRecognizer(tapRecognizer)
-    UIView.beginAnimations("animateTextField", context: nil)
-    UIView.setAnimationBeginsFromCurrentState(true)
-    UIView.setAnimationDuration(0.3)
-    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: 20)
-    UIView.commitAnimations()
   }
   
   func handleSingleTap(recognizer: UITapGestureRecognizer) {
@@ -188,13 +182,4 @@
   func textFieldDidBeginEditing(_ textField: UITextField) {
     animateTextField(textField: textField, up: true, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
   }
-  
-////  func textFieldDidEndEditing(_ textField: UITextField) {
-//    textField.backgroundColor = UIColor.white
-//    let yOnScreen = textField.frame.origin.y
-//    let textFieldHeight = textField.frame.height
-//    let heightToGoDown = view.frame.size.height-yOnScreen-textFieldHeight-20
-//    animateTextField(textField: textField, up: false, height: heightToGoDown)
-////  }
-
  }

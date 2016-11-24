@@ -18,6 +18,7 @@ import SpriteKit
 
 
 class RoomScene: SKScene {
+  let d = D() // debugger functionality
   
   var roomSceneDelegate: RoomSceneDelegate?
   
@@ -27,6 +28,7 @@ class RoomScene: SKScene {
   let dataSource = DataSource.sharedInstance
   
   var bulbCollection = [Bulb]()
+  var groups: [Group] = []
   var groupCollection = [[Bulb]]()
   var selectedBulbs = [String:Bool]()
   var bulbs = [String: Bulb ]()
@@ -34,17 +36,22 @@ class RoomScene: SKScene {
   let bulbSprite = bulbSpriteNode(imageName: "Bulb")
   let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
   var selectedNode = bulbSpriteNode()
-
+  
   
   
   override func didMove(to view: SKView) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     // get bulbs
-    bulbCollection = (roomSceneDelegate?.getBulbs())!
-    
     // get groups
-    var groups: [Group] = []
-    groups = (roomSceneDelegate?.getGroups())!
-
+    
+    if let roomSceneDelegate = roomSceneDelegate {
+      d.c(m: "start", f: #file, fu: #function, l: #line)
+      bulbCollection = roomSceneDelegate.getBulbs()
+    }
+    //    bulbCollection = (roomSceneDelegate?.getBulbs())!
+    
+    //    groups = (roomSceneDelegate?.getGroups())!
+    
     //place bulbs
     for bulb in bulbCollection {
       let sprite = bulbSprite.copy() as! bulbSpriteNode
@@ -63,9 +70,48 @@ class RoomScene: SKScene {
       sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
       sprite.setScale(1.5)
       sprite.name = group.name
-    
+      
       self.addChild(sprite)
     }
+//    let label = SKLabelNode(fontNamed: "Chalkduster")
+//    label.text = "Wel opletten"
+//    label.fontSize = 70
+//    label.fontColor = SKColor.red
+//    label.position = CGPoint(x: 0, y: 0)
+//    self.addChild(label)
+    d.c(m: "start", f: #file, fu: #function, l: #line)
+
+    var edge = [Point(x: 0, y: 0),
+                Point(x: 1, y: 0),
+                Point(x: 1, y: 1),
+                Point(x: 3, y: 1),
+                Point(x: 3, y: 3),
+                Point(x: 0, y: 3)
+    ]
+//    edge = DataLightPlan.sharedInstance.processNext()
+    if edge.count != 0 {
+      d.c(m: "start", f: #file, fu: #function, l: #line)
+      let shape = UIBezierPath()
+      let multiply = 100
+      shape.move(to: CGPoint(x: edge[0].x * multiply, y: edge[0].y * multiply))
+      for point in edge {
+        shape.addLine(to: CGPoint(x: point.x * multiply, y: point.y * multiply))
+      }
+      shape.close()
+      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: true)
+      shapeTrack.position = CGPoint(x: 0, y: 50)
+      shapeTrack.strokeColor = UIColor.white
+      shapeTrack.fillColor = UIColor.green
+      self.addChild(shapeTrack)
+      
+      //      shapeLayer.path = shape.cgPath
+      //      shapeLayer.fillColor = UIColor(red: 0.95, green: 0.7, blue: 0.5, alpha: 1).cgColor
+      //      shapeLayer.strokeColor = UIColor.black.cgColor
+      //      shapeLayer.lineWidth = 0.5
+      //      view.layer.addSublayer(shapeLayer)
+    }
+    
+    
   }
   
   
@@ -78,6 +124,7 @@ class RoomScene: SKScene {
   
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     
     if let touch = touches.first {
       let location = touch.location(in: self)
@@ -142,6 +189,7 @@ class RoomScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     if let touch = touches.first, movableNode != nil {
       let location = touch.location(in: self)
       
@@ -157,6 +205,7 @@ class RoomScene: SKScene {
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     if let touch = touches.first, movableNode != nil {
       
       let location = touch.location(in: self)
@@ -181,6 +230,7 @@ class RoomScene: SKScene {
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     if touches.first != nil {
       movableNode = nil
     }
@@ -193,6 +243,7 @@ class RoomScene: SKScene {
   
   
   func checkIfGroup() -> Bool{
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     var counter: Int = 0
     
     for bulb in selectedBulbs {
@@ -211,6 +262,7 @@ class RoomScene: SKScene {
   
   
   func createNewGroup() {
+    d.c(m: "start", f: #file, fu: #function, l: #line)
     
     let group = [Bulb]()
     
