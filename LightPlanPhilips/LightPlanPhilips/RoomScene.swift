@@ -81,34 +81,64 @@ class RoomScene: SKScene {
 //    self.addChild(label)
     d.c(m: "start", f: #file, fu: #function, l: #line)
 
-    var edge = [Point(x: 0, y: 0),
-                Point(x: 1, y: 0),
-                Point(x: 1, y: 1),
-                Point(x: 3, y: 1),
-                Point(x: 3, y: 3),
-                Point(x: 0, y: 3)
-    ]
-//    edge = DataLightPlan.sharedInstance.processNext()
+//    var edge = [Point(x: 0, y: 0),
+//                Point(x: 5, y: 0),
+//                Point(x: 5, y: 1),
+//                Point(x: 3, y: 1),
+//                Point(x: 3  , y: 6),
+//                Point(x: 0, y: 6)
+//    ]
+////    edge = DataLightPlan.sharedInstance.processNext()
+//    DataLightPlan.sharedInstance.edge = DataLightPlan.sharedInstance.processNext()
+    var edge = DataLightPlan.sharedInstance.edge
+
     if edge.count != 0 {
       d.c(m: "start", f: #file, fu: #function, l: #line)
       let shape = UIBezierPath()
-      let multiply = 100
-      shape.move(to: CGPoint(x: edge[0].x * multiply, y: edge[0].y * multiply))
+      let multiply = 85
+      var newX = ((edge[0].x - 3) * multiply) - 45
+      var newY = (((7 - edge[0].y) - 3) * multiply) - 45
+      shape.move(to: CGPoint(x: newX , y: newY))
       for point in edge {
-        shape.addLine(to: CGPoint(x: point.x * multiply, y: point.y * multiply))
+         newX = ((point.x - 3) * multiply) - 45
+         newY = (((7 - point.y) - 3) * multiply) - 45
+        shape.addLine(to: CGPoint(x: newX, y: newY))
+        d.c(m: "newX = \(newX), newY = \(newY)", f: #file, fu: #function, l: #line)
       }
       shape.close()
-      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: true)
+      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
       shapeTrack.position = CGPoint(x: 0, y: 50)
       shapeTrack.strokeColor = UIColor.white
       shapeTrack.fillColor = UIColor.green
       self.addChild(shapeTrack)
+      var midX = 0.0
+      var midY = 0.0
+      for index in 0 ..< edge.count {
+        var firstPoint: Point
+        var secondPoint: Point
+        if index == 0 {
+           firstPoint = edge[index]
+           secondPoint = edge[edge.count - 1]
+        } else {
+           firstPoint = edge[index]
+           secondPoint = edge[index - 1]
+        }
+        let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
+        let averageY = Double((7 - firstPoint.y) + (7 - secondPoint.y)) / 2.0
+        midX = (averageX - 3.0) * Double(multiply) - 45
+        midY = (averageY - 3.0) * Double(multiply) - 45
+        d.c(m: "midX = \(midX), midY = \(midY)", f: #file, fu: #function, l: #line)
+
+        let shape = SKShapeNode()
+        shape.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
+        shape.position = CGPoint(x: midX, y: midY)
+//        shape.position = CGPoint(x: -300, y: -300)
+        shape.fillColor = UIColor.black
+        shape.strokeColor = UIColor.black
+        shape.lineWidth = 2
+        addChild(shape)
+      }
       
-      //      shapeLayer.path = shape.cgPath
-      //      shapeLayer.fillColor = UIColor(red: 0.95, green: 0.7, blue: 0.5, alpha: 1).cgColor
-      //      shapeLayer.strokeColor = UIColor.black.cgColor
-      //      shapeLayer.lineWidth = 0.5
-      //      view.layer.addSublayer(shapeLayer)
     }
     
     

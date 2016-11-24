@@ -71,6 +71,8 @@ class DataLightPlan: NSObject {
   let d = D() // debugger functionality
   
   var myHome = Home()
+  var edge : [Point] = []
+
   
   func getHome () -> Home {
     d.c(m: "start", f: #file, fu: #function, l: #line)
