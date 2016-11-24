@@ -30,7 +30,7 @@
  
  import UIKit
  
- class NameLightViewController : UIViewController {
+ class NameLightViewController : UIViewController, RoomSceneDelegate {
   let d = D() // debugger functionality
   
   var delegateLamp      :     Lamp!
@@ -54,6 +54,13 @@
   }
   
   @IBAction func saveButton(_ sender: Any) {
+    
+    
+    
+    
+    
+    print(bulbCollection)
+    
     if var delegateLamp = delegateLamp {
       if let temporaryNameLight = temporaryNameLight {
         delegateLamp.nameLight = temporaryNameLight
@@ -182,4 +189,22 @@
   func textFieldDidBeginEditing(_ textField: UITextField) {
     animateTextField(textField: textField, up: true, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
   }
+  
+////  func textFieldDidEndEditing(_ textField: UITextField) {
+//    textField.backgroundColor = UIColor.white
+//    let yOnScreen = textField.frame.origin.y
+//    let textFieldHeight = textField.frame.height
+//    let heightToGoDown = view.frame.size.height-yOnScreen-textFieldHeight-20
+//    animateTextField(textField: textField, up: false, height: heightToGoDown)
+////  }
+  
+  
+  // delegate functions
+  func groupSelected(groupSelected: Bool) {
+    // not used here
+  }
+  func selectedBulbs(bulbs: [Bulb]){
+    
+  }
+
  }
