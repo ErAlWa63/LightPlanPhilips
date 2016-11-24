@@ -25,19 +25,16 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   
   
   let d = D() // debugger functionality
-  @IBOutlet weak var test1Button: UIButton!
-  @IBOutlet weak var test2Button: UIButton!
-  @IBOutlet weak var test3Button: UIButton!
-  
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-    if(segue.identifier == "NameLightSegue") {
-      let nameLightViewController = (segue.destination) as! NameLightViewController
-      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
-    } else if (segue.identifier == "CreateGroup") {
-      let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
-      groupBulbsViewController.bulbCollection = bulbCollection
-    }
+//    if(segue.identifier == "NameLightSegue") {
+//      let nameLightViewController = (segue.destination) as! NameLightViewController
+//      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
+//    } else if (segue.identifier == "CreateGroup") {
+//      let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
+//      groupBulbsViewController.bulbCollection = bulbCollection
+//    }
   }
   
   //click group button

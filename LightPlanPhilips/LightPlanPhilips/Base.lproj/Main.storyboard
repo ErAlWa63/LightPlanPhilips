@@ -1448,43 +1448,14 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="URC-HY-JIU">
-                                <rect key="frame" x="290" y="40" width="30" height="288"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkP-od-pMc" userLabel="Test 1 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="Ff7-9f-Ypf"/>
-                                        </constraints>
-                                        <state key="normal" title="T1"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hl-Si-gGP" userLabel="Test 2 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="30" height="88"/>
-                                        <state key="normal" title="T2"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amT-hY-E5B" userLabel="Test 3 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="30" height="100"/>
-                                        <state key="normal" title="T3"/>
-                                        <connections>
-                                            <segue destination="jnL-qQ-u3R" kind="show" identifier="TestUISegue" id="VdF-47-HAG"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="1hl-Si-gGP" firstAttribute="centerY" secondItem="URC-HY-JIU" secondAttribute="centerY" id="c9I-VR-4iF"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="H82-dW-Cjl" secondAttribute="trailing" id="BQq-zM-u4S"/>
-                            <constraint firstAttribute="trailing" secondItem="URC-HY-JIU" secondAttribute="trailing" id="CT1-zy-daJ"/>
                             <constraint firstItem="CJN-JI-rtz" firstAttribute="leading" secondItem="CYk-dD-8RN" secondAttribute="leadingMargin" constant="40" id="FHB-Pb-fGm"/>
                             <constraint firstItem="CJN-JI-rtz" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" constant="50" id="JS9-GP-JqT"/>
-                            <constraint firstItem="URC-HY-JIU" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" constant="20" id="KKR-Vp-cN3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eKM-Sc-ynr" secondAttribute="trailing" constant="50" id="Llo-3B-EAp"/>
                             <constraint firstAttribute="bottom" secondItem="eKM-Sc-ynr" secondAttribute="bottom" constant="20" id="Ovr-1l-qGT"/>
                             <constraint firstItem="H82-dW-Cjl" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" id="bCi-52-STk"/>
-                            <constraint firstItem="uzi-J2-Qxv" firstAttribute="top" secondItem="URC-HY-JIU" secondAttribute="bottom" constant="240" id="l3k-w4-N9P"/>
                             <constraint firstItem="uga-Wy-LTh" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" id="lXQ-UX-I6g"/>
                             <constraint firstItem="eKM-Sc-ynr" firstAttribute="leading" secondItem="CYk-dD-8RN" secondAttribute="leadingMargin" constant="50" id="n2w-bK-cuB"/>
                             <constraint firstItem="uga-Wy-LTh" firstAttribute="leading" secondItem="CYk-dD-8RN" secondAttribute="leadingMargin" id="qt5-Du-aoW"/>
@@ -1492,9 +1463,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="test1Button" destination="KkP-od-pMc" id="z9r-o3-q3c"/>
-                        <outlet property="test2Button" destination="1hl-Si-gGP" id="HEF-99-5sG"/>
-                        <outlet property="test3Button" destination="amT-hY-E5B" id="QFg-V5-eMf"/>
                         <segue destination="kCi-ea-CYN" kind="show" identifier="CreateGroup" id="5dC-XA-yX3"/>
                     </connections>
                 </viewController>
