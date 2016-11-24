@@ -73,25 +73,25 @@ class RoomScene: SKScene {
       
       self.addChild(sprite)
     }
-//    let label = SKLabelNode(fontNamed: "Chalkduster")
-//    label.text = "Wel opletten"
-//    label.fontSize = 70
-//    label.fontColor = SKColor.red
-//    label.position = CGPoint(x: 0, y: 0)
-//    self.addChild(label)
+    //    let label = SKLabelNode(fontNamed: "Chalkduster")
+    //    label.text = "Wel opletten"
+    //    label.fontSize = 70
+    //    label.fontColor = SKColor.red
+    //    label.position = CGPoint(x: 0, y: 0)
+    //    self.addChild(label)
     d.c(m: "start", f: #file, fu: #function, l: #line)
-
-//    var edge = [Point(x: 0, y: 0),
-//                Point(x: 5, y: 0),
-//                Point(x: 5, y: 1),
-//                Point(x: 3, y: 1),
-//                Point(x: 3  , y: 6),
-//                Point(x: 0, y: 6)
-//    ]
-////    edge = DataLightPlan.sharedInstance.processNext()
-//    DataLightPlan.sharedInstance.edge = DataLightPlan.sharedInstance.processNext()
+    
+    //    var edge = [Point(x: 0, y: 0),
+    //                Point(x: 5, y: 0),
+    //                Point(x: 5, y: 1),
+    //                Point(x: 3, y: 1),
+    //                Point(x: 3  , y: 6),
+    //                Point(x: 0, y: 6)
+    //    ]
+    ////    edge = DataLightPlan.sharedInstance.processNext()
+    //    DataLightPlan.sharedInstance.edge = DataLightPlan.sharedInstance.processNext()
     var edge = DataLightPlan.sharedInstance.edge
-
+    
     if edge.count != 0 {
       d.c(m: "start", f: #file, fu: #function, l: #line)
       let shape = UIBezierPath()
@@ -100,8 +100,8 @@ class RoomScene: SKScene {
       var newY = (((7 - edge[0].y) - 3) * multiply) - 45
       shape.move(to: CGPoint(x: newX , y: newY))
       for point in edge {
-         newX = ((point.x - 3) * multiply) - 45
-         newY = (((7 - point.y) - 3) * multiply) - 45
+        newX = ((point.x - 3) * multiply) - 45
+        newY = (((7 - point.y) - 3) * multiply) - 45
         shape.addLine(to: CGPoint(x: newX, y: newY))
         d.c(m: "newX = \(newX), newY = \(newY)", f: #file, fu: #function, l: #line)
       }
@@ -117,26 +117,33 @@ class RoomScene: SKScene {
         var firstPoint: Point
         var secondPoint: Point
         if index == 0 {
-           firstPoint = edge[index]
-           secondPoint = edge[edge.count - 1]
+          firstPoint = edge[index]
+          secondPoint = edge[edge.count - 1]
         } else {
-           firstPoint = edge[index]
-           secondPoint = edge[index - 1]
+          firstPoint = edge[index]
+          secondPoint = edge[index - 1]
         }
         let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
         let averageY = Double((7 - firstPoint.y) + (7 - secondPoint.y)) / 2.0
         midX = (averageX - 3.0) * Double(multiply) - 45
         midY = (averageY - 3.0) * Double(multiply) - 45
         d.c(m: "midX = \(midX), midY = \(midY)", f: #file, fu: #function, l: #line)
-
+        
         let shape = SKShapeNode()
         shape.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
         shape.position = CGPoint(x: midX, y: midY)
-//        shape.position = CGPoint(x: -300, y: -300)
+        //        shape.position = CGPoint(x: -300, y: -300)
         shape.fillColor = UIColor.black
         shape.strokeColor = UIColor.black
         shape.lineWidth = 2
         addChild(shape)
+        let label = SKLabelNode(fontNamed: "Chalkduster")
+        label.text = "?"
+        label.fontSize = 20
+        label.fontColor = SKColor.white
+        label.position = CGPoint(x: midX, y: midY + 40)
+        self.addChild(label)
+        
       }
       
     }
