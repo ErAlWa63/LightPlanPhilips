@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Fingertips
+
+
 let themeColor = UIColor(red: 0.01, green: 0.41, blue: 0.22, alpha: 1.0)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
-  var window: UIWindow?
+//  var window: UIWindow?
+  var window: UIWindow? = MBFingerTipWindow(frame: UIScreen.main.bounds)
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     DataLightPlan.sharedInstance.loadLightPlan()
+    
     return true
   }
   

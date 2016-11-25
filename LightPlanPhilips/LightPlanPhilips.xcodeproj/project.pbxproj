@@ -66,6 +66,8 @@
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
 		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
+		03CA5EBE1DE8854400B83D2A /* MBFingerTipWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CA5EBD1DE8854400B83D2A /* MBFingerTipWindow.m */; };
+		03CA5EC01DE8858C00B83D2A /* Fingertips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CA5EBF1DE8858C00B83D2A /* Fingertips.framework */; };
 		03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E606A41DE2EA10000311F3 /* TestUIViewController.swift */; };
 		9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */; };
 		9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC961DE5DB63000D6382 /* Home.swift */; };
@@ -142,6 +144,11 @@
 		03BB03191DD0C75B00AD5069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03CA5EBA1DE8854400B83D2A /* LightPlanPhilips-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightPlanPhilips-Bridging-Header.h"; sourceTree = "<group>"; };
+		03CA5EBB1DE8854400B83D2A /* Fingertips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fingertips.h; sourceTree = "<group>"; };
+		03CA5EBC1DE8854400B83D2A /* MBFingerTipWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFingerTipWindow.h; sourceTree = "<group>"; };
+		03CA5EBD1DE8854400B83D2A /* MBFingerTipWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFingerTipWindow.m; sourceTree = "<group>"; };
+		03CA5EBF1DE8858C00B83D2A /* Fingertips.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fingertips.framework; sourceTree = "<group>"; };
 		03E606A41DE2EA10000311F3 /* TestUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUIViewController.swift; sourceTree = "<group>"; };
 		9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bulbSpriteNode.swift; sourceTree = "<group>"; };
 		9C0BFC961DE5DB63000D6382 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -161,12 +168,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CA5EC01DE8858C00B83D2A /* Fingertips.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03013F341DE87F6C002BBA6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03CA5EBF1DE8858C00B83D2A /* Fingertips.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		030878511DD3B392003812A7 /* Philips Light Plan LightType */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +252,9 @@
 		031CEBD41DD3807500E40BCF /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
+				03CA5EBB1DE8854400B83D2A /* Fingertips.h */,
+				03CA5EBC1DE8854400B83D2A /* MBFingerTipWindow.h */,
+				03CA5EBD1DE8854400B83D2A /* MBFingerTipWindow.m */,
 				03BB03191DD0C75B00AD5069 /* Assets.xcassets */,
 				03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */,
 				03BB031E1DD0C75B00AD5069 /* Info.plist */,
@@ -270,6 +289,7 @@
 				0321F4B21DD1E40200CB13BE /* E0a.png */,
 				0321F4B31DD1E40200CB13BE /* E1.4a.png */,
 				0321F4B41DD1E40200CB13BE /* E1.4b.png */,
+				03CA5EBA1DE8854400B83D2A /* LightPlanPhilips-Bridging-Header.h */,
 			);
 			name = "Philips Light Plan PDF";
 			sourceTree = "<group>";
@@ -293,6 +313,7 @@
 			children = (
 				03BB03111DD0C75B00AD5069 /* LightPlanPhilips */,
 				03BB03101DD0C75B00AD5069 /* Products */,
+				03013F341DE87F6C002BBA6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -353,6 +374,7 @@
 					03BB030E1DD0C75B00AD5069 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = HZWL927386;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -439,6 +461,7 @@
 				03013F151DE8389B002BBA6B /* RoomSizeAdjustScene.swift in Sources */,
 				9C3DE6111DDB4A0600BDD092 /* SceneViewController.swift in Sources */,
 				9C7D67671DDC4C8500C0CEAF /* Group.swift in Sources */,
+				03CA5EBE1DE8854400B83D2A /* MBFingerTipWindow.m in Sources */,
 				9C7D676B1DDC782300C0CEAF /* GroupBulbsViewController.swift in Sources */,
 				0376EDD61DDDA08B00587303 /* CreateLightGroupViewController.swift in Sources */,
 				030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */,
@@ -583,11 +606,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = HZWL927386;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LightPlanPhilips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theappacademy.LightPlanPhilips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightPlanPhilips/LightPlanPhilips-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -596,11 +626,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = HZWL927386;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LightPlanPhilips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.theappacademy.LightPlanPhilips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightPlanPhilips/LightPlanPhilips-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
