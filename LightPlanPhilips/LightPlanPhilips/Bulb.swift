@@ -9,7 +9,7 @@
 import Foundation
 
 class Bulb {
-  var idBulb: Int
+  var id: String
   var name: String
   //    var bulbType: String?
   //    var lightType: String?
@@ -19,9 +19,12 @@ class Bulb {
   var positionY: Float?
   
   
-  init (id: Int, name: String) {
-    self.idBulb = id
+  init (id: String, name: String) {
+    self.id = id
     self.name = name
     self.selected = true
   }
 }
+
+
+

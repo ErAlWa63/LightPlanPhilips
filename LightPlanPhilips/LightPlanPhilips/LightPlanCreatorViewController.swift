@@ -26,11 +26,11 @@ class LightPlanCreatorViewController: UIViewController {
         d.c(m: "SelectRoomTypeViewController", f: #file, fu: #function, l: #line)
         if let myHome = myHome {
           d.c(m: "myHome", f: #file, fu: #function, l: #line)
-          SelectRoomTypeViewController.delegateRoom = myHome.room
+          //SelectRoomTypeViewController.delegateRoom = myHome.room
           SelectRoomTypeViewController.closureToPerform = { [weak self] (rooms: [Room]) in
             if let strongSelf = self {
               if var myHome = strongSelf.myHome {
-                myHome.room = rooms
+               // myHome.room = rooms
               }
             }
           }
@@ -42,9 +42,9 @@ class LightPlanCreatorViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     d.c(m: "start", f: #file, fu: #function, l: #line)
-    myHome = DataLightPlan.sharedInstance.getHome()
+    //myHome = DataLightPlan.sharedInstance.getHome()
     
-    
+    DataSource.sharedInstance.createData()
   }
   
   

@@ -9,6 +9,7 @@
 import Foundation
 
 class Group {
+  var id: String
   var name: String
   var bulbs: [Bulb]
   var groupType : String?
@@ -16,9 +17,9 @@ class Group {
   var positionX: Float?
   var positionY: Float?
   
-  
-  init (name: String, bulbs: [Bulb]) {
+  init (id: String ,name: String) {
+    self.id = id
     self.name = name
-    self.bulbs = bulbs
+    bulbs = []
   }
 }

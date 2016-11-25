@@ -7,13 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
-//class Room {
-//  var name: String
-//  var bulbs: [Bulb] = []
-//  var groups: [Group] = []
-//  
-//  init (name: String) {
-//    self.name = name
-//  }
-//}
+
+class Room {
+  var id: String
+  var name: String
+  var description: String?
+  var pictogram: UIImage?
+  var bulbs: [Bulb] = []
+  var groups: [Group] = []
+
+  init(id: String, name: String) {
+    self.id = id
+    self.name = name
+  }
+}

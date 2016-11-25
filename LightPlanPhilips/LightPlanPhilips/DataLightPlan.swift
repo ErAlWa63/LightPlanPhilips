@@ -8,21 +8,21 @@
 
 import UIKit
 
-struct Home {
-  var room : [Room] = []
-}
+//struct Home {
+//  var room : [Room] = []
+//}
 
-struct Room {
-  var name        : String
-  var description : String
-  var pictogram   : UIImage
-  
-  init(name: String, description: String, file: String) {
-    self.name        = name
-    self.description = description
-    self.pictogram   = UIImage(named: file)!
-  }
-}
+//struct Room {
+//  var name        : String
+//  var description : String
+//  var pictogram   : UIImage
+//  
+//  init(name: String, description: String, file: String) {
+//    self.name        = name
+//    self.description = description
+//    self.pictogram   = UIImage(named: file)!
+//  }
+//}
 
 
 // ====================================================================
@@ -53,15 +53,15 @@ class DataLightPlan: NSObject {
   
   var myHome = Home()
   
-  func getHome () -> Home {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
-    myHome.room.append(Room(name: "Living room", description: "",                file: "br30_slim.png"))
-    myHome.room.append(Room(name: "Kitchen",     description: "",                file: "br30_slim.png"))
-    myHome.room.append(Room(name: "Bedroom",     description: "",                file: "br30_slim.png"))
-    myHome.room.append(Room(name: "Open space",  description: "Definable areas", file: "br30_slim.png"))
-    d.c(m: "myHome = \(myHome)", f: #file, fu: #function, l: #line)
-    return myHome
-  }
+//  func getHome () -> Home {
+//    d.c(m: "start", f: #file, fu: #function, l: #line)
+//    myHome.room.append(Room(name: "Living room", description: "",                file: "br30_slim.png"))
+//    myHome.room.append(Room(name: "Kitchen",     description: "",                file: "br30_slim.png"))
+//    myHome.room.append(Room(name: "Bedroom",     description: "",                file: "br30_slim.png"))
+//    myHome.room.append(Room(name: "Open space",  description: "Definable areas", file: "br30_slim.png"))
+//    d.c(m: "myHome = \(myHome)", f: #file, fu: #function, l: #line)
+//    return myHome
+//  }
 
   
   var listLightType = [

@@ -30,7 +30,7 @@
  
  import UIKit
  
- class NameLightViewController : UIViewController, RoomSceneDelegate {
+ class NameLightViewController : UIViewController {
   let d = D() // debugger functionality
   
   var delegateLamp      :     Lamp!
@@ -59,7 +59,7 @@
     
     
     
-    print(bulbCollection)
+
     
     if var delegateLamp = delegateLamp {
       if let temporaryNameLight = temporaryNameLight {
