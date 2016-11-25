@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03013F151DE8389B002BBA6B /* RoomSizeAdjustScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03013F141DE8389B002BBA6B /* RoomSizeAdjustScene.swift */; };
+		03013F171DE838BB002BBA6B /* RoomSizeAdjustScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03013F161DE838BB002BBA6B /* RoomSizeAdjustScene.sks */; };
+		03013F191DE83953002BBA6B /* RoomSizeAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */; };
 		0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784D1DD3ADB7003812A7 /* LightType.swift */; };
 		030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784F1DD3AE32003812A7 /* DataLightPlan.swift */; };
 		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
@@ -78,6 +81,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03013F141DE8389B002BBA6B /* RoomSizeAdjustScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomSizeAdjustScene.swift; sourceTree = "<group>"; };
+		03013F161DE838BB002BBA6B /* RoomSizeAdjustScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomSizeAdjustScene.sks; sourceTree = "<group>"; };
+		03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomSizeAdjustViewController.swift; sourceTree = "<group>"; };
 		0308784D1DD3ADB7003812A7 /* LightType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightType.swift; sourceTree = "<group>"; };
 		0308784F1DD3AE32003812A7 /* DataLightPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLightPlan.swift; sourceTree = "<group>"; };
 		030878781DD48B88003812A7 /* NameLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLight.swift; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 				039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */,
 				039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */,
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
+				03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
@@ -217,6 +224,8 @@
 		031CEBD31DD3803400E40BCF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03013F161DE838BB002BBA6B /* RoomSizeAdjustScene.sks */,
+				03013F141DE8389B002BBA6B /* RoomSizeAdjustScene.swift */,
 				039137431DE4448000A6FB1E /* Extension UIButton.swift */,
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
 				0374EB351DD67330002165CD /* TestButton.swift */,
@@ -402,6 +411,7 @@
 				0321F4C21DD1E40200CB13BE /* E1.4b.png in Resources */,
 				03B2B18B1DDA160100CCFF70 /* floor.png in Resources */,
 				0321F4A51DD1E3DC00CB13BE /* A1.5a.png in Resources */,
+				03013F171DE838BB002BBA6B /* RoomSizeAdjustScene.sks in Resources */,
 				03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */,
 				9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */,
 				03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */,
@@ -426,12 +436,14 @@
 			files = (
 				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
 				0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */,
+				03013F151DE8389B002BBA6B /* RoomSizeAdjustScene.swift in Sources */,
 				9C3DE6111DDB4A0600BDD092 /* SceneViewController.swift in Sources */,
 				9C7D67671DDC4C8500C0CEAF /* Group.swift in Sources */,
 				9C7D676B1DDC782300C0CEAF /* GroupBulbsViewController.swift in Sources */,
 				0376EDD61DDDA08B00587303 /* CreateLightGroupViewController.swift in Sources */,
 				030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */,
 				039137441DE4448000A6FB1E /* Extension UIButton.swift in Sources */,
+				03013F191DE83953002BBA6B /* RoomSizeAdjustViewController.swift in Sources */,
 				031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */,
 				0374EB361DD67330002165CD /* TestButton.swift in Sources */,
 				030878791DD48B88003812A7 /* NameLight.swift in Sources */,

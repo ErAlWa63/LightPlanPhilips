@@ -26,6 +26,7 @@ class TestSKViewController: UIViewController {
     //myBulbCollection = [Bulb.init(id: 1, name: "bulb1", selected: false, positionX: 0, positionY: 0),
     //                    Bulb.init(id: 2, name: "bulb2", selected: false, positionX: 100, positionY: 100),
     //                    Bulb.init(id: 3, name: "bulb3", selected: false, positionX: -100, positionY: -100)]
+
   }
   
   override func viewWillAppear(_ animated: Bool) {
