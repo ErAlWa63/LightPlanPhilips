@@ -142,12 +142,6 @@
     }
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
     tapRecognizer.numberOfTapsRequired = 1
-    self.view.addGestureRecognizer(tapRecognizer)
-    UIView.beginAnimations("animateTextField", context: nil)
-    UIView.setAnimationBeginsFromCurrentState(true)
-    UIView.setAnimationDuration(0.3)
-    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: 20)
-    UIView.commitAnimations()
   }
   
   func handleSingleTap(recognizer: UITapGestureRecognizer) {

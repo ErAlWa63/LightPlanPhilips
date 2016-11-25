@@ -9,11 +9,11 @@
 import UIKit
 
 class LightPlanCreatorViewController: UIViewController {
-  let d = D() // debugger functionality
+  private let d = D() // debugger functionality
   
-  var myHome : Home?
+  private var myHome : Home?
   
-  @IBAction func startButton(_ sender: Any) {
+  @IBAction private func startButton(_ sender: Any) {
     d.c(m: "start", f: #file, fu: #function, l: #line)
   }
   
@@ -42,10 +42,10 @@ class LightPlanCreatorViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     d.c(m: "start", f: #file, fu: #function, l: #line)
+
     //myHome = DataLightPlan.sharedInstance.getHome()
     
     DataSource.sharedInstance.createData()
+
   }
-  
-  
 }

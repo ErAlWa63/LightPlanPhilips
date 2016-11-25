@@ -1,4 +1,4 @@
-//
+  //
 //  bulbSpriteNode.swift
 //  LightPlanPhilips
 //
@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+
 
 enum NodeType {
   case bulb
@@ -44,16 +45,13 @@ class BulbSpriteNode: SKSpriteNode {
 //
 //  
   
+
   
   override convenience init(texture: SKTexture?, color: UIColor, size: CGSize) {
     self.init(texture: texture, color: color, size: size, type: NodeType.bulb)
   }
   
-  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-
-
 }

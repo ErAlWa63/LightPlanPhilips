@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 //struct Home {
 //  var room : [Room] = []
 //}
@@ -23,6 +24,20 @@ import UIKit
 //    self.pictogram   = UIImage(named: file)!
 //  }
 //}
+
+
+struct BulbX {
+  var name        : String  // e.g. Bulb 1
+  var pictogram   : UIImage
+  //  var room        : Int
+  
+}
+
+struct Point {
+  var x: Int
+  var y: Int
+}
+
 
 
 // ====================================================================
@@ -52,7 +67,10 @@ class DataLightPlan: NSObject {
   let d = D() // debugger functionality
   
   var myHome = Home()
+  var edge : [Point] = []
+
   
+
 //  func getHome () -> Home {
 //    d.c(m: "start", f: #file, fu: #function, l: #line)
 //    myHome.room.append(Room(name: "Living room", description: "",                file: "br30_slim.png"))
@@ -62,6 +80,7 @@ class DataLightPlan: NSObject {
 //    d.c(m: "myHome = \(myHome)", f: #file, fu: #function, l: #line)
 //    return myHome
 //  }
+
 
   
   var listLightType = [
@@ -177,11 +196,6 @@ class DataLightPlan: NSObject {
     case Right
     case Half
     case Left
-  }
-  
-  private struct Point {
-    var x: Int
-    var y: Int
   }
   
   var countCell = 0
@@ -333,73 +347,79 @@ class DataLightPlan: NSObject {
     return toggle[index]
   }
   
-  func processNext () {
-    var minimumIndex = toggle.count
-    for index in 0 ..< toggle.count {
-      if toggle[index] {
-        if index < minimumIndex {
-          minimumIndex = index
+  func processNext () -> [Point] {
+    if countCell == 0 {
+      return []
+    } else {
+      
+      var minimumIndex = toggle.count
+      for index in 0 ..< toggle.count {
+        if toggle[index] {
+          if index < minimumIndex {
+            minimumIndex = index
+          }
         }
       }
-    }
-    var corner = [index2Point[minimumIndex]]
-    var currentPoint = corner[0]
-    var currentAngle : Angle = .Normal
-    var nextPoint = Point(x: currentPoint.x + 1, y: currentPoint.y)
-    while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
-      currentPoint = nextPoint
-      switch currentAngle {
-      case .Normal:
-        if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Left
-          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
-        } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
-          nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
-        } else {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Right
-          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
-        }
-      case .Left:
-        if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Half
-          nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
-        } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
-          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
-        } else {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Normal
-          nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
-        }
-      case .Right:
-        if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Normal
-          nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
-        } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
-          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
-        } else {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Half
-          nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
-        }
-      case .Half:
-        if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Right
-          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
-        } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
-          nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
-        } else {
-          corner.append(Point(x: currentPoint.x, y: currentPoint.y))
-          currentAngle = .Left
-          nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+      var corner = [index2Point[minimumIndex]]
+      var currentPoint = corner[0]
+      var currentAngle : Angle = .Normal
+      var nextPoint = Point(x: currentPoint.x + 1, y: currentPoint.y)
+      while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
+        currentPoint = nextPoint
+        switch currentAngle {
+        case .Normal:
+          if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Left
+            nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+          } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+            nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+          } else {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Right
+            nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+          }
+        case .Left:
+          if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Half
+            nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+          } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+            nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+          } else {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Normal
+            nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+          }
+        case .Right:
+          if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Normal
+            nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+          } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+            nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+          } else {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Half
+            nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+          }
+        case .Half:
+          if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Right
+            nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+          } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && toggle[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+            nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+          } else {
+            corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            currentAngle = .Left
+            nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+          }
         }
       }
+      d.c(m: "corner = \(corner)", f: #file, fu: #function, l: #line)
+      return corner
     }
-    d.c(m: "corner = \(corner)", f: #file, fu: #function, l: #line)
   }
   
   func processCell( index: Int) -> Bool {
