@@ -30,9 +30,9 @@ class SelectRoomTypeViewController: UIViewController {
     d.c(m: "start", f: #file, fu: #function, l: #line)
     if var delegateRoom = delegateRoom {
       d.c(m: "delegateRoom = \(delegateRoom)", f: #file, fu: #function, l: #line)
-      for index in 0 ..< delegateRoom.count {
-        delegateRoom[index].selected = false
-      }
+//      for index in 0 ..< delegateRoom.count {
+//        delegateRoom[index].selected = false
+//      }
     }
     self.collectionview.reloadData()
     
@@ -67,7 +67,7 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
       let selected                 = UILabel(frame: CGRect(x: 2, y: 0, width: 20, height: 20))
       selected.font                = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
       selected.textColor           = UIColor.blue
-      selected.text                = delegateRoom[indexPath.row].selected ? "✓" : ""
+      //selected.text                = delegateRoom[indexPath.row].selected ? "✓" : ""
       cell.addSubview(selected)
       let pictogram                = UIImageView(frame: CGRect(x: 42, y: 2, width: 20, height: 20))
       pictogram.image              = delegateRoom[indexPath.row].pictogram
@@ -94,9 +94,9 @@ return true
     d.c(m: "start", f: #file, fu: #function, l: #line)
     if var delegateRoom = delegateRoom {
       d.c(m: "start", f: #file, fu: #function, l: #line)
-      d.c(m: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", f: #file, fu: #function, l: #line)
-      delegateRoom[indexPath.row].selected = !delegateRoom[indexPath.row].selected
-      d.c(m: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", f: #file, fu: #function, l: #line)
+//      d.c(m: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", f: #file, fu: #function, l: #line)
+//      delegateRoom[indexPath.row].selected = !delegateRoom[indexPath.row].selected
+//      d.c(m: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", f: #file, fu: #function, l: #line)
 
     }
   }
