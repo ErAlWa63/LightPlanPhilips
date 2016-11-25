@@ -15,7 +15,14 @@ import SpriteKit
 
 
 
-class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldDelegate {
+class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
+  
+  
+  var groupId: String = ""
+  var bulbCollection: [Bulb] = []
+  var groupCollection: [Group] = []
+ //var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
+  var roomId: String = ""
   
   @IBOutlet weak var groupName: UITextField!
   
@@ -52,43 +59,35 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
   
   @IBAction func createGroup(_ sender: Any) {
     
-    // create group
-    let group = Group(name: groupName.text!, bulbs: selectedBulbs)
+    let newId: String = UUID().uuidString
+ 
+    //create room
+    let group = Group(id: newId, name: groupName.text!)
+     //add group to room
+    DataSource.sharedInstance.addGroupToRoom(roomId: roomId, group: group)
+    
     
     // get group position
     var positionX: Float = 0
     var positionY: Float = 0
     let numberInGroup: Float = Float(selectedBulbs.count)
-
-    for bulb in group.bulbs {
+    
+    
+    // get all bulbs in group
+    for bulb in selectedBulbs {
       positionX += bulb.positionX!
       positionY += bulb.positionY!
-    }
-    
-    positionX = positionX / numberInGroup
-    positionY = positionY / numberInGroup
-    
-    
-    group.positionX = positionX
-    group.positionY = positionY
-    
-    groupCollection.append(group)
-    
-    // remove groupbulbs from bulbcollection
-    var index: Int = 0
-  
-    for bulbinCollection in self.bulbCollection {
       
-      for bulbInGroup in group.bulbs {
-        if bulbInGroup.name == bulbinCollection.name {
-          bulbCollection.remove(at: index)
-          index -= 1
-        }
-      }
-      index += 1
+      DataSource.sharedInstance.moveBulbFromRoomToGroup(bulbId: bulb.id, groupId: newId)
     }
     
-
+    //positionX = positionX / numberInGroup
+    //positionY = positionY / numberInGroup
+    
+    
+    group.positionX = positionX / numberInGroup
+    group.positionY = positionY / numberInGroup
+  
     
     dismiss(animated: true, completion: nil)
   }
@@ -106,6 +105,13 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
+
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
+    print("group view \(self.bulbCollection)")
     
     self.groupName.delegate = self
     
@@ -127,8 +133,11 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
       view.showsFPS = true
       view.showsNodeCount = true
     }
+    
+    
+    
+    
   }
-  
   
   
   
@@ -149,15 +158,23 @@ class GroupBulbsViewController: UIViewController,RoomSceneDelegate, UITextFieldD
   
   
   // delegate function
-  func groupSelected(groupSelected: Bool) {
+  override func groupSelected(groupSelected: Bool) {
     self.groupSelected = groupSelected
     enableDisableButton()
   }
   
   
-  func selectedBulbs(bulbs: [Bulb]) {
+  override func selectedBulbs(bulbs: [Bulb]) {
     
     
     self.selectedBulbs = bulbs
+  }
+  
+  override func getBulbs() -> [Bulb]{
+    return self.bulbCollection
+  }
+
+  override func getGroups() -> [Group]{
+    return []
   }
 }

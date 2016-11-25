@@ -8,21 +8,47 @@
 
 import SpriteKit
 
-class bulbSpriteNode: SKSpriteNode {
-  var type: String
+
+enum NodeType {
+  case bulb
+  case group
+}
+
+
+class BulbSpriteNode: SKSpriteNode {
   
-  init(texture: SKTexture?, color: UIColor, size: CGSize, type: String) {
-    self.type = ""
+  var type: NodeType
+  
+  
+  init(texture: SKTexture?, color: UIColor, size: CGSize, type: NodeType) {
+    self.type = type
     super.init(texture: texture, color: color, size: size)
   }
-  
-  convenience init(imageName: String) {
-    let image = SKTexture(imageNamed: imageName)
-    self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0))
+
+
+  convenience init(type: NodeType) {
+    //self.type = type
+    switch type {
+    case .bulb:
+      let image = SKTexture(imageNamed: "Bulb")
+      self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0), type: type)
+    case .group:
+      let image = SKTexture(imageNamed: "Bulb group")
+      self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0), type: type)
+    }
   }
   
+//  convenience init(imageName: String) {
+//    let image = SKTexture(imageNamed: imageName)
+//    self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0))
+//  }
+//
+//  
+  
+
+  
   override convenience init(texture: SKTexture?, color: UIColor, size: CGSize) {
-    self.init(texture: texture, color: color, size: size, type: "")
+    self.init(texture: texture, color: color, size: size, type: NodeType.bulb)
   }
   
   required init?(coder aDecoder: NSCoder) {

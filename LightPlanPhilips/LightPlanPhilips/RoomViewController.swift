@@ -13,14 +13,15 @@ import SpriteKit
 
 
 
-class RoomViewController: UIViewController, RoomSceneDelegate {
+class RoomViewController: SceneViewController {
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
   
   var scene: RoomScene!
-  //var bulbCollection: [Bulb] = []
-  
+  var bulbCollection: [Bulb] = []
+  var groupCollection: [Group] = []
+  var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
   
   
   
@@ -28,13 +29,15 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-//    if(segue.identifier == "NameLightSegue") {
-//      let nameLightViewController = (segue.destination) as! NameLightViewController
-//      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
-//    } else if (segue.identifier == "CreateGroup") {
-//      let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
-//      groupBulbsViewController.bulbCollection = bulbCollection
-//    }
+
+    if(segue.identifier == "NameLightSegue") {
+      let nameLightViewController = (segue.destination) as! NameLightViewController
+      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
+    } else if (segue.identifier == "CreateGroup") {
+      let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
+      groupBulbsViewController.roomId = roomId
+    }
+
   }
   
   //click group button
@@ -54,13 +57,19 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    bulbCollection = DataSource.sharedInstance.GetBulbs()
+        
     
 
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
+    groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
+    
+    
+    
     print(bulbCollection)
+    print(groupCollection)
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
@@ -108,12 +117,18 @@ class RoomViewController: UIViewController, RoomSceneDelegate {
   }
   
   // delegate functions
-  func groupSelected(groupSelected: Bool) {
+  override func groupSelected(groupSelected: Bool) {
     // not used here
   }
-  func selectedBulbs(bulbs: [Bulb]){
+  override func selectedBulbs(bulbs: [Bulb]){
     
   }
-  
+  override func getBulbs() -> [Bulb]{
+    return self.bulbCollection
+  }
+
+  override func getGroups() -> [Group]{
+    return self.groupCollection
+  }
 
 }
