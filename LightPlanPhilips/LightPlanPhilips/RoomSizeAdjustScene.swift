@@ -26,9 +26,9 @@ class RoomSizeAdjustScene: SKScene {
   var selectedBulbs = [String:Bool]()
   var bulbs = [String: Bulb ]()
   
-  let bulbSprite = bulbSpriteNode(imageName: "Bulb")
-  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
-  var selectedNode = bulbSpriteNode()
+  //  let bulbSprite = bulbSpriteNode(imageName: "Bulb")
+  //  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
+  //  var selectedNode = bulbSpriteNode()
   
   
   
@@ -85,8 +85,8 @@ class RoomSizeAdjustScene: SKScene {
             shape.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
             shape.position = CGPoint(x: midX, y: midY)
             shape.fillColor = UIColor.black
-//            shape.strokeColor = UIColor.black
-//            shape.lineWidth = 2
+            //            shape.strokeColor = UIColor.black
+            //            shape.lineWidth = 2
             addChild(shape)
             let label = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
             label.text = "?"
@@ -114,31 +114,26 @@ class RoomSizeAdjustScene: SKScene {
     //    groups = (roomSceneDelegate?.getGroups())!
     
     //place bulbs
-    for bulb in bulbCollection {
-      let sprite = bulbSprite.copy() as! bulbSpriteNode
-      sprite.type = "bulb"
-      sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
-      sprite.setScale(1.5)
-      sprite.name = bulb.name
-      selectedBulbs[bulb.name] = false
-      self.addChild(sprite)
-    }
+    //    for bulb in bulbCollection {
+    //      let sprite = bulbSprite.copy() as! bulbSpriteNode
+    //      sprite.type = "bulb"
+    //      sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
+    //      sprite.setScale(1.5)
+    //      sprite.name = bulb.name
+    //      selectedBulbs[bulb.name] = false
+    //      self.addChild(sprite)
+    //    }
     
     // place groups
-    for group in groups {
-      let sprite = groupSprite.copy() as! bulbSpriteNode
-      sprite.type = "group"
-      sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
-      sprite.setScale(1.5)
-      sprite.name = group.name
-      
-      self.addChild(sprite)
-    }
-    
+    //    for group in groups {
+    //      let sprite = groupSprite.copy() as! bulbSpriteNode
+    //      sprite.type = "group"
+    //      sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
+    //      sprite.setScale(1.5)
+    //      sprite.name = group.name
+    //
+    //      self.addChild(sprite)
   }
-  
-  
-  
   
   
   
@@ -153,67 +148,67 @@ class RoomSizeAdjustScene: SKScene {
       let location = touch.location(in: self)
       let touchedNodes = self.nodes(at: location)
       
-      for node in touchedNodes {
-        if node is bulbSpriteNode {
-          if dragDropEnabled {
-            // move bulb
-            movableNode = node
-            movableNode!.position = location
-          } else {
-            if createGroup {
-              // check if bulb has been selected
-              if selectedBulbs[node.name!]! == false {
-                
-                // add blinking animation
-                let expandAction = SKAction.scale(to: 2, duration: 0.33)
-                let contractAction = SKAction.scale(to: 1.5, duration: 0.33)
-                let pulsateAction = SKAction.repeatForever(SKAction.sequence([expandAction, contractAction]))
-                node.run(pulsateAction)
-                
-                // add bulb to collection of selected bulbs
-                selectedBulbs[node.name!]! = true
-              } else {
-                // remove blinking animation
-                node.removeAllActions()
-                let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
-                node.run(restoreScaleAcction)
-                
-                // remove bulb from collection of selected bulbs
-                bulbs.removeValue(forKey: node.name!)
-                selectedBulbs[node.name!]! = false
-              }
-              
-              // check if we have group (at least two selected)
-              if checkIfGroup() {
-                var groupBulbs = [Bulb]()
-                for bulb in bulbCollection {
-                  if selectedBulbs[bulb.name] == true {
-                    groupBulbs.append(bulb)
-                  }
-                }
-                
-                roomSceneDelegate?.selectedBulbs(bulbs: groupBulbs)
-                roomSceneDelegate?.groupSelected(groupSelected: true)
-              } else {
-                roomSceneDelegate?.groupSelected(groupSelected: false)
-              }
-            } else {
-              let bulbNode = node as! bulbSpriteNode
-              if bulbNode.type == "bulb" {
-                print("een enkele lamp")
-                roomSceneDelegate?.clickBulb(bulbName: node.name!)
-                
-                
-                // segue NameLightSegue
-                //performSegue(withIdentifier: "§", sender: nil)
-                
-              } else {
-                print("een groep")
-              }
-            }
-          }
-        }
-      }
+//      for node in touchedNodes {
+//        if node is bulbSpriteNode {
+//          if dragDropEnabled {
+//            // move bulb
+//            movableNode = node
+//            movableNode!.position = location
+//          } else {
+//            if createGroup {
+//              // check if bulb has been selected
+//              if selectedBulbs[node.name!]! == false {
+//                
+//                // add blinking animation
+//                let expandAction = SKAction.scale(to: 2, duration: 0.33)
+//                let contractAction = SKAction.scale(to: 1.5, duration: 0.33)
+//                let pulsateAction = SKAction.repeatForever(SKAction.sequence([expandAction, contractAction]))
+//                node.run(pulsateAction)
+//                
+//                // add bulb to collection of selected bulbs
+//                selectedBulbs[node.name!]! = true
+//              } else {
+//                // remove blinking animation
+//                node.removeAllActions()
+//                let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
+//                node.run(restoreScaleAcction)
+//                
+//                // remove bulb from collection of selected bulbs
+//                bulbs.removeValue(forKey: node.name!)
+//                selectedBulbs[node.name!]! = false
+//              }
+//              
+//              // check if we have group (at least two selected)
+//              if checkIfGroup() {
+//                var groupBulbs = [Bulb]()
+//                for bulb in bulbCollection {
+//                  if selectedBulbs[bulb.name] == true {
+//                    groupBulbs.append(bulb)
+//                  }
+//                }
+//                
+//                roomSceneDelegate?.selectedBulbs(bulbs: groupBulbs)
+//                roomSceneDelegate?.groupSelected(groupSelected: true)
+//              } else {
+//                roomSceneDelegate?.groupSelected(groupSelected: false)
+//              }
+//            } else {
+//              let bulbNode = node as! bulbSpriteNode
+//              if bulbNode.type == "bulb" {
+//                print("een enkele lamp")
+//                roomSceneDelegate?.clickBulb(bulbName: node.name!)
+//                
+//                
+//                // segue NameLightSegue
+//                //performSegue(withIdentifier: "§", sender: nil)
+//                
+//              } else {
+//                print("een groep")
+//              }
+//            }
+//          }
+//        }
+//      }
     }
   }
   

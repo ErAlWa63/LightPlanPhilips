@@ -23,9 +23,9 @@ class TestSKViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     d.c(m: "start", f: #file, fu: #function, l: #line)
-    myBulbCollection = [Bulb.init(id: 1, name: "bulb1", selected: false, positionX: 0, positionY: 0),
-                        Bulb.init(id: 2, name: "bulb2", selected: false, positionX: 100, positionY: 100),
-                        Bulb.init(id: 3, name: "bulb3", selected: false, positionX: -100, positionY: -100)]
+//    myBulbCollection = [Bulb.init(id: 1, name: "bulb1", positionX: 0, positionY: 0),
+//                        Bulb.init(id: 2, name: "bulb2", positionX: 100, positionY: 100),
+//                        Bulb.init(id: 3, name: "bulb3", positionX: -100, positionY: -100)]
   }
   
   override func viewWillAppear(_ animated: Bool) {

@@ -44,24 +44,25 @@ class RoomSizeAdjustViewController: UIViewController {
     return false
   }
   
-  private func saveBulbs(){
-    if let scene = scene {
-      scene.enumerateChildNodes(withName: "//*", using:
-        { (node, stop) -> Void in
-          if node is SKSpriteNode {
-            for bulb in self.bulbCollection {
-              if bulb.name == node.name {
-                bulb.positionX = Float(node.position.x)
-                bulb.positionY = Float(node.position.y)
-                break
-              }
-            }
-          }
-      }
-      )
-    }
-  }
-  
+//  private func saveBulbs(){
+//    if let scene = scene {
+//      scene.enumerateChildNodes(withName: "//*", using:
+//        { (node, stop) -> Void in
+//          if node is SKSpriteNode {
+//            for bulb in self.bulbCollection {
+//              if bulb.name == node.name {
+//                bulb.positionX = Float(node.position.x)
+//                bulb.positionY = Float(node.position.y)
+//                break
+//              }
+//            }
+//          }
+//      }
+//      )
+//    }
+//  }
+}
+
   // delegate functions
   internal func groupSelected(groupSelected: Bool) {
     // not used here
@@ -71,4 +72,4 @@ class RoomSizeAdjustViewController: UIViewController {
   }
   
   
-}
+//}
