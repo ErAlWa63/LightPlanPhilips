@@ -52,7 +52,7 @@ class RoomScene: SKScene {
     }
     //    bulbCollection = (roomSceneDelegate?.getBulbs())!
     
-    //    groups = (roomSceneDelegate?.getGroups())!
+        groups = (roomSceneDelegate?.getGroups())!
     
     //place bulbs
     for bulb in bulbCollection {
