@@ -18,7 +18,7 @@ import SpriteKit
 
 
 class RoomScene: SKScene {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   var delegateRoomSizeAdjust: Bool?
   
   var roomSceneDelegate: RoomSceneDelegate?
@@ -47,7 +47,7 @@ class RoomScene: SKScene {
     // get groups
     
     if let roomSceneDelegate = roomSceneDelegate {
-      d.c(m: "start", f: #file, fu: #function, l: #line)
+      debug.console(message: "start", file: #file, function: #function, line: #line)
       bulbCollection = roomSceneDelegate.getBulbs()
     }
     //    bulbCollection = (roomSceneDelegate?.getBulbs())!
@@ -87,7 +87,7 @@ class RoomScene: SKScene {
   
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     
     if let touch = touches.first {
       let location = touch.location(in: self)
@@ -158,7 +158,7 @@ class RoomScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {
       let location = touch.location(in: self)
       
@@ -174,7 +174,7 @@ class RoomScene: SKScene {
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {
       
       let location = touch.location(in: self)
@@ -199,7 +199,7 @@ class RoomScene: SKScene {
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if touches.first != nil {
       movableNode = nil
     }
@@ -212,7 +212,7 @@ class RoomScene: SKScene {
   
   
   func checkIfGroup() -> Bool{
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     var counter: Int = 0
     
     for bulb in selectedBulbs {
@@ -231,7 +231,7 @@ class RoomScene: SKScene {
   
   
   func createNewGroup() {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     
     let group = [Bulb]()
     

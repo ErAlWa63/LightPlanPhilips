@@ -1,6 +1,0 @@
-framework module Fingertips {
-  umbrella header "Fingertips.h"
-
-  export *
-  module * { export * }
-}

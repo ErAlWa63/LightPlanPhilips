@@ -9,7 +9,7 @@
 import UIKit
 
 class TestUIViewController: UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
 
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
@@ -18,17 +18,17 @@ class TestUIViewController: UIViewController {
 
 extension TestUIViewController: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
     return 1
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
     return 10
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
     let lbl = UILabel(frame: cell.contentView.frame)
     lbl.textColor = UIColor.green

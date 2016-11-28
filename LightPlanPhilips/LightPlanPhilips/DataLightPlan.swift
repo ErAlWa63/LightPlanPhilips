@@ -64,7 +64,7 @@ struct Lamp {
 class DataLightPlan: NSObject {
   static let  sharedInstance = DataLightPlan()
   private override init () {}
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   
   var myHome = Home()
   var edge : [Point] = []
@@ -72,12 +72,12 @@ class DataLightPlan: NSObject {
   
 
 //  func getHome () -> Home {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
 //    myHome.room.append(Room(name: "Living room", description: "",                file: "br30_slim.png"))
 //    myHome.room.append(Room(name: "Kitchen",     description: "",                file: "br30_slim.png"))
 //    myHome.room.append(Room(name: "Bedroom",     description: "",                file: "br30_slim.png"))
 //    myHome.room.append(Room(name: "Open space",  description: "Definable areas", file: "br30_slim.png"))
-//    d.c(m: "myHome = \(myHome)", f: #file, fu: #function, l: #line)
+//    debug.console(message: "myHome = \(myHome)", file: #file, function: #function, line: #line)
 //    return myHome
 //  }
 
@@ -417,7 +417,7 @@ class DataLightPlan: NSObject {
           }
         }
       }
-      d.c(m: "corner = \(corner)", f: #file, fu: #function, l: #line)
+      debug.console(message: "corner = \(corner)", file: #file, function: #function, line: #line)
       return corner
     }
   }

@@ -12,7 +12,7 @@
 import UIKit
 
 class CreateLightGroupViewController: UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   fileprivate let reuseIdentifier = "lightTypeCell"
   
   @IBOutlet weak var collectionView: UICollectionView!
@@ -57,7 +57,7 @@ class CreateLightGroupViewController: UIViewController {
 
 extension CreateLightGroupViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     return DataLightPlan.sharedInstance.listLamp.count
   }
   
@@ -100,7 +100,7 @@ extension CreateLightGroupViewController : UICollectionViewDelegate {
 }
 extension CreateLightGroupViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     //    if delegateLamp != nil {
     //      if let nameLightType = nameLightType {
     //        saveButton.isHidden = false

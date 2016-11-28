@@ -25,7 +25,7 @@ class RoomViewController: SceneViewController {
   
   
   
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
