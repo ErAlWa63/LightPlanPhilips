@@ -20,8 +20,8 @@ class Bulb {
   
   
 
-  init (id: String, name: String) {
-    self.id = id
+  init (name: String) {
+    self.id =  UUID().uuidString
     self.name = name
     self.selected = true
   }

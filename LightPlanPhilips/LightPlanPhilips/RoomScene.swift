@@ -57,7 +57,7 @@ class RoomScene: SKScene {
     //place bulbs
     for bulb in bulbCollection {
       // create sprite with type image and type
-      let sprite = BulbSpriteNode(type:NodeType.bulb)
+      let sprite = BulbSpriteNode(type:NodeType.bulb, id: bulb.id)
       sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
       sprite.setScale(1.5)
       sprite.name = bulb.name
@@ -67,7 +67,7 @@ class RoomScene: SKScene {
     
     // place groups
     for group in groups {
-      let sprite = BulbSpriteNode(type: NodeType.group)
+      let sprite = BulbSpriteNode(type: NodeType.group, id: group.id)
       sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
       sprite.setScale(1.5)
       sprite.name = group.name
@@ -140,12 +140,11 @@ class RoomScene: SKScene {
             } else {
               let bulbNode = node as! BulbSpriteNode
               if bulbNode.type == NodeType.bulb {
-                print("een enkele lamp")
-                roomSceneDelegate?.clickBulb(bulbName: node.name!)
-                
-                
-                // segue NameLightSegue
-                //performSegue(withIdentifier: "§", sender: nil)
+            
+            
+                roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "NameLight")
+
+
                 
               } else {
                 print("een groep")

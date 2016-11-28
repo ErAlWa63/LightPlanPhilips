@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol RoomSceneDelegate: class {
-  func clickBulb(bulbName: String)
+  func clickBulb(id: String, segue: String)
   func getBulbs() -> [Bulb]
   func getGroups() -> [Group]
   func test()
@@ -51,9 +51,10 @@ class SceneViewController: UIViewController , RoomSceneDelegate {
     assert(false, "Implement this in subclass")
   }
   
-  // Delegate functions
-  func clickBulb(bulbName: String){
-    performSegue(withIdentifier: "NameLightSegue", sender: nil)
+
+  func clickBulb(id: String, segue: String){
+    
+    performSegue(withIdentifier: segue, sender: nil)
   }
   
   func clickGroup(groupName: String){

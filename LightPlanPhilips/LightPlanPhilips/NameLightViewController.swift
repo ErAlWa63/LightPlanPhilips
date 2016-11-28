@@ -33,10 +33,15 @@
  class NameLightViewController : UIViewController {
   let d = D() // debugger functionality
   
-  var delegateLamp      :     Lamp!
+ 
   var temporaryNameLight:     NameLight!
   var delegateLightTypeIndex: Int?
   var firstTime = true
+  var bulbId: String?
+  var delegateBulb: Bulb?
+  
+  
+  
   
   @IBOutlet weak var nameLightType:         UITextField!
   @IBOutlet weak var removeButton:          UIButton!
@@ -47,8 +52,8 @@
     dismiss(animated: true, completion: nil)
   }
   @IBAction func removeButton(_ sender: Any) {
-    if var delegateLamp = delegateLamp {
-      delegateLamp.nameLight = nil
+    if var delegateBulb = delegateBulb {
+      delegateBulb.name = nil
     }
     dismiss(animated: true, completion: nil)
   }
@@ -59,11 +64,11 @@
     
     
     
-
     
-    if var delegateLamp = delegateLamp {
+    
+    if var delegateBulb = delegateBulb {
       if let temporaryNameLight = temporaryNameLight {
-        delegateLamp.nameLight = temporaryNameLight
+        delegateBulb.nameLight = temporaryNameLight
       }
     }
     dismiss(animated: true, completion: nil)
@@ -104,7 +109,12 @@
   }
   
   override func viewDidLoad() {
+
     super.viewDidLoad()
+    
+    delegateBulb = DataSource.sharedInstance.getBulb(bulbId: (self.bulbId)!)
+    
+    
     d.c(m: "start", f: #file, fu: #function, l: #line)
     nameLightType.delegate                   = self
     chooseLightTypeButton.layer.borderColor  = UIColor.lightGray.cgColor
@@ -113,27 +123,27 @@
     chooseLightTypeButton.tintColor          = UIColor.black
     chooseLightTypeButton.contentEdgeInsets  = UIEdgeInsetsMake(0, -90, 0, 0)
     chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
-    if let delegateLamp = delegateLamp {
-      if let nameLight = delegateLamp.nameLight {
-        temporaryNameLight = NameLight(name: nameLight.name, lightTypeIndex: nameLight.lightTypeIndex)
-        delegateLightTypeIndex = nameLight.lightTypeIndex
-      } else {
-        removeButton.isHidden = true
-        saveButton.isHidden = true
-        temporaryNameLight = NameLight(name: "< give name >", lightTypeIndex: 0)
-      }
-      if let temporaryNameLight = temporaryNameLight {
-        nameLightType.text = temporaryNameLight.name
-        delegateLightTypeIndex = temporaryNameLight.lightTypeIndex
-        if delegateLightTypeIndex == nil {
-          nameLightType.text = "< give name >"
-          chooseLightTypeButton.setTitle("< select light type >", for: .normal)
-          chooseLightTypeButton.setImage(nil, for: .normal)
-        } else {
-          chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
-          chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
-        }
-      }
+    if let delegateBulb = delegateBulb {
+//      if let nameLight = delegateBulb.nameLight {
+//        temporaryNameLight = NameLight(name: nameLight.name, lightTypeIndex: nameLight.lightTypeIndex)
+//        delegateLightTypeIndex = nameLight.lightTypeIndex
+//      } else {
+//        removeButton.isHidden = true
+//        saveButton.isHidden = true
+//        temporaryNameLight = NameLight(name: "< give name >", lightTypeIndex: 0)
+//      }
+//      if let temporaryNameLight = temporaryNameLight {
+//        nameLightType.text = temporaryNameLight.name
+//        delegateLightTypeIndex = temporaryNameLight.lightTypeIndex
+//        if delegateLightTypeIndex == nil {
+//          nameLightType.text = "< give name >"
+//          chooseLightTypeButton.setTitle("< select light type >", for: .normal)
+//          chooseLightTypeButton.setImage(nil, for: .normal)
+//        } else {
+//          chooseLightTypeButton.setImage(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].pictogram, for: .normal)
+//          chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
+//        }
+//      }
     } else {
       nameLightType.textColor = UIColor.red
       nameLightType.text = "< no single lamp selected >"
@@ -152,7 +162,7 @@
  extension NameLightViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
     d.c(m: "start", f: #file, fu: #function, l: #line)
-    if delegateLamp != nil {
+    if delegateBulb != nil {
       if let nameLightType = nameLightType {
         saveButton.isHidden = false
         if let text = nameLightType.text {
@@ -166,7 +176,7 @@
   }
   
   public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    if (delegateLamp) != nil {
+    if (delegateBulb) != nil {
       return true
     } else {
       return false
@@ -190,21 +200,21 @@
     animateTextField(textField: textField, up: true, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
   }
   
-////  func textFieldDidEndEditing(_ textField: UITextField) {
-//    textField.backgroundColor = UIColor.white
-//    let yOnScreen = textField.frame.origin.y
-//    let textFieldHeight = textField.frame.height
-//    let heightToGoDown = view.frame.size.height-yOnScreen-textFieldHeight-20
-//    animateTextField(textField: textField, up: false, height: heightToGoDown)
-////  }
+  ////  func textFieldDidEndEditing(_ textField: UITextField) {
+  //    textField.backgroundColor = UIColor.white
+  //    let yOnScreen = textField.frame.origin.y
+  //    let textFieldHeight = textField.frame.height
+  //    let heightToGoDown = view.frame.size.height-yOnScreen-textFieldHeight-20
+  //    animateTextField(textField: textField, up: false, height: heightToGoDown)
+  ////  }
   
+//  
+//  // delegate functions
+//  func groupSelected(groupSelected: Bool) {
+//    // not used here
+//  }
+//  func selectedBulbs(bulbs: [Bulb]){
+//    
+//  }
   
-  // delegate functions
-  func groupSelected(groupSelected: Bool) {
-    // not used here
-  }
-  func selectedBulbs(bulbs: [Bulb]){
-    
-  }
-
  }

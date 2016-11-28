@@ -22,7 +22,7 @@ class RoomViewController: SceneViewController {
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
   var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
-  
+  var bulbId: String = ""
   
   
   let d = D() // debugger functionality
@@ -30,9 +30,10 @@ class RoomViewController: SceneViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
 
-    if(segue.identifier == "NameLightSegue") {
+    if(segue.identifier == "NameLight") {
       let nameLightViewController = (segue.destination) as! NameLightViewController
-      nameLightViewController.delegateLamp = DataLightPlan.sharedInstance.listLamp[0]
+      nameLightViewController.bulbId = bulbId
+      
     } else if (segue.identifier == "CreateGroup") {
       let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
       groupBulbsViewController.roomId = roomId
@@ -66,7 +67,7 @@ class RoomViewController: SceneViewController {
     bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
     groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
     
-    
+
     
     print(bulbCollection)
     print(groupCollection)
@@ -117,6 +118,16 @@ class RoomViewController: SceneViewController {
   }
   
   // delegate functions
+  override   func clickBulb(id: String, segue: String){
+    self.bulbId = id
+    performSegue(withIdentifier: segue, sender: nil)
+  }
+  
+  
+  
+  
+  
+  
   override func groupSelected(groupSelected: Bool) {
     // not used here
   }
@@ -131,4 +142,6 @@ class RoomViewController: SceneViewController {
     return self.groupCollection
   }
 
+  
+  
 }

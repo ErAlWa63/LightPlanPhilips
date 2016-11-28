@@ -12,35 +12,35 @@ class DataSource: NSObject {
   
   static let sharedInstance = DataSource()
   var myHome: Home = Home()
-
+  
   
   private override init() {}
   
-
+  
   func createData() {
     // create room and add to house
-    let room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Woonkamer")
+    let room = Room(name: "Woonkamer")
     myHome.rooms.append(room)
     
     // create 3 bulbs and add to room
     var  bulb: Bulb
-    bulb = Bulb(id: "76e7a55b-e873-4590-91cf-5a9af07db989", name: "bulb1")
+    bulb = Bulb(name: "bulb1")
     bulb.positionX = 0
     bulb.positionY = 0
     room.bulbs.append(bulb)
-    bulb = Bulb(id: "8bceeefb-7c3e-4ba6-acda-2ae755106fa6", name: "bulb2")
+    bulb = Bulb(name: "bulb2")
     bulb.positionX = 100
     bulb.positionY = 100
     room.bulbs.append(bulb)
-    bulb = Bulb(id: "eff0f021-c79c-4f04-8605-54503fc75baa", name: "bulb3")
+    bulb = Bulb(name: "bulb3")
     bulb.positionX = -100
     bulb.positionY = -100
     room.bulbs.append(bulb)
     
     // create 2 bulbs and add to home (unassigned bulbs)
-    bulb = Bulb(id: "2148efdf-af31-4153-9dc7-a1c78bc7b291", name: "bulb4")
+    bulb = Bulb(name: "bulb4")
     myHome.bulbs.append(bulb)
-    bulb = Bulb(id: "62e66e0a-f14d-4117-9a04-4c9003c10bda", name: "bulb5")
+    bulb = Bulb(name: "bulb5")
     myHome.bulbs.append(bulb)
   }
   
@@ -71,6 +71,34 @@ class DataSource: NSObject {
     }
     return foundgroup
   }
+  
+  
+  func getBulb(bulbId: String) -> Bulb? {
+   
+    for bulb in getBulbsInHome() {
+      if bulb.id == bulbId {
+        return bulb
+      }
+    }
+    
+    for room in myHome.rooms {
+      for bulb in room.bulbs {
+        if bulb.id == bulbId {
+          return bulb
+        }
+        for group in room.groups {
+          for bulb in group.bulbs {
+            if bulb.id == bulbId {
+              return bulb
+            }
+          }
+        }
+      }
+    }
+    return nil
+  }
+  
+  
   
   // add bulb to room
   func addBulbToRoom(bulb: Bulb, roomId: String) {
@@ -154,7 +182,7 @@ class DataSource: NSObject {
       }
     }
   }
-
+  
   
   // create group and add to room
   func addGroupToRoom(roomId: String, group: Group) {

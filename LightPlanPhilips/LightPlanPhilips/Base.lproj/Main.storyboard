@@ -1464,6 +1464,7 @@
                     </view>
                     <connections>
                         <segue destination="kCi-ea-CYN" kind="show" identifier="CreateGroup" id="5dC-XA-yX3"/>
+                        <segue destination="DkV-1Z-Oj0" kind="show" identifier="NameLight" id="awP-qW-ABT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1751,4 +1752,7 @@
     <resources>
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="awP-qW-ABT"/>
+    </inferredMetricsTieBreakers>
 </document>
