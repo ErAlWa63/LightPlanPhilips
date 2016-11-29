@@ -21,6 +21,9 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   @IBOutlet weak var saveBulb: UIButton!
   
+  @IBOutlet weak var lightType: UIButton!
+  
+  
   @IBAction func saveBulb(_ sender: Any) {
     print(bulbName.text!)
     
@@ -38,7 +41,19 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
-
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "chooseType") {
+      
+      let lightTypeCollectionViewController = (segue.destination) as! LightTypeCollectionViewController
+      lightTypeCollectionViewController.bulb = bulbCollection[0]
+    }
+  }
+  
+  
+  
+  @IBAction func chooseType(_ sender: Any) {
+  }
+  
   
   var scene: RoomScene!
   var bulbCollection: [Bulb] = []
@@ -46,7 +61,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   //var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
   var bulbId: String = ""
   
-
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -58,8 +73,17 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     bulbCollection.append(DataSource.sharedInstance.getBulb(bulbId: bulbId)!)
     
     
-    if bulbCollection[0].name != "" {
+    if bulbCollection[0].name == "" {
       self.bulbName.text = bulbCollection[0].name
+    }
+    
+    if bulbCollection[0].lightType == "" {
+      lightType.setTitle("choose type >", for: UIControlState.normal)
+    } else {
+      lightType.setTitle("\(UIImage(named: bulbCollection[0].lightType)) \(bulbCollection[0].lightType) >", for: UIControlState.normal)
+    
+
+    
     }
     
     self.bulbName.delegate = self
@@ -85,7 +109,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     return false
   }
   
-
+  
   // dismiss keyboard when return is pressed
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     self.view.endEditing(true)

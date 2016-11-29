@@ -19,13 +19,14 @@ class DataSource: NSObject {
   
   func createData() {
     // create room and add to house
-    var room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "WoonkamerA")
+    var room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "WoonkamerD")
     myHome.rooms.append(room)
      room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "WoonkamerB")
     myHome.rooms.append(room)
      room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "WoonkamerC")
     myHome.rooms.append(room)
-     room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "WoonkamerD")
+    
+    room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "WoonkamerA")
     myHome.rooms.append(room)
     
     // create 3 bulbs and add to room

@@ -12,7 +12,7 @@ class Bulb {
   var id: String
   var name: String = ""
   //    var bulbType: String?
-  //    var lightType: String?
+  var lightType: String = ""
   //    var bulbIcon: String = "bulb.jpeg"
   var selected: Bool
   var positionX: Float?

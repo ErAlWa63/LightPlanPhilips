@@ -224,13 +224,13 @@
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
 				03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
-				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
 				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
 				9C7D676A1DDC782300C0CEAF /* GroupBulbsViewController.swift */,
 				030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */,
 				03E606A41DE2EA10000311F3 /* TestUIViewController.swift */,
 				9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */,
+				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

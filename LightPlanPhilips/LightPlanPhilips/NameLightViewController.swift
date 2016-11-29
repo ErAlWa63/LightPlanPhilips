@@ -111,15 +111,13 @@
   override func viewDidLoad() {
 
     super.viewDidLoad()
-<<<<<<< HEAD
+
     
     delegateBulb = DataSource.sharedInstance.getBulb(bulbId: (self.bulbId)!)
     
     
-    d.c(m: "start", f: #file, fu: #function, l: #line)
-=======
-    debug.console(message: "start", file: #file, function: #function, line: #line)
->>>>>>> 942a03f015bcbf7afebc9dc431ed9379389ca4f4
+    //d.c(m: "start", f: #file, fu: #function, l: #line)
+
     nameLightType.delegate                   = self
     chooseLightTypeButton.layer.borderColor  = UIColor.lightGray.cgColor
     chooseLightTypeButton.layer.borderWidth  = 0.5

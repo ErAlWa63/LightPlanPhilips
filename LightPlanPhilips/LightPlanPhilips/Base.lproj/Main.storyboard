@@ -122,6 +122,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="SCQ-QG-G63" secondAttribute="trailing" constant="-20" id="jyv-df-HNt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="PHd-av-abv" kind="show" identifier="testSegue" id="jgM-3L-kOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LK-8B-BSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1207,9 +1210,6 @@
                                 </constraints>
                                 <connections>
                                     <action selector="chooseLightTypeButton:" destination="DkV-1Z-Oj0" eventType="touchUpInside" id="pKs-Zd-4rs"/>
-                                    <segue destination="5yu-7i-LiJ" kind="popoverPresentation" identifier="LightTypeSegue" popoverAnchorView="2rh-Eo-9S4" id="A2d-1Y-hNU">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="pHx-lo-nur" userLabel="Name light type">
@@ -1317,7 +1317,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFq-eW-lLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2394" y="-958"/>
+            <point key="canvasLocation" x="169" y="406"/>
         </scene>
         <!--Create Light Group View Controller-->
         <scene sceneID="zlu-Lt-gC2">
@@ -1917,6 +1917,10 @@
                                 <state key="normal" title="choose type &gt;">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseType:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="rdb-3o-b8x"/>
+                                    <segue destination="5yu-7i-LiJ" kind="show" identifier="chooseType" id="vdM-Ss-NyG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1935,6 +1939,7 @@
                     <navigationItem key="navigationItem" id="ggm-X9-FRx"/>
                     <connections>
                         <outlet property="bulbName" destination="zyx-J5-G4D" id="0MN-ae-XLN"/>
+                        <outlet property="lightType" destination="fAz-tz-FaB" id="Q8o-28-Ut2"/>
                         <outlet property="saveBulb" destination="nro-uO-3af" id="X77-5A-5gf"/>
                     </connections>
                 </viewController>
