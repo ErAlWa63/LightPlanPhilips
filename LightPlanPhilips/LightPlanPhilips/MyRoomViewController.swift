@@ -9,20 +9,26 @@
 import UIKit
 
 class MyRoomViewController: UIViewController {
-  let debug = Debug()
-  @IBOutlet weak var myRoomTableView: UITableView!
-  @IBAction func cancelButton(_ sender: Any) {
+  var destinationMyHome : Home?
+  var closureToPerform: ((Home) -> Void)?
+
+  @IBOutlet weak var backButton: UIButton!
+  @IBAction func backButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
+  @IBOutlet weak var cancelButton: UIButton!
+  @IBAction func cancelButton(_ sender: Any) {
+    self.presentingViewController!.dismiss(animated: true, completion: nil)
+  }
+  @IBOutlet weak var myRoomTableView: UITableView!
   
   @IBAction private func nextButton(_ sender: Any) {
   }
   @IBOutlet weak var nextButton: UIButton!
   
-  var destinationMyHome : Home?
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+    cancelButton.layer.cornerRadius = cancelButton.frame.size.width / 2
     myRoomTableView.delegate = self
     myRoomTableView.dataSource = self
     myRoomTableView.layer.cornerRadius = 5
@@ -33,13 +39,11 @@ class MyRoomViewController: UIViewController {
 }
 
 extension MyRoomViewController: UITableViewDelegate {
-  
 }
 
 extension MyRoomViewController: UITableViewDataSource {
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let destinationMyHome = destinationMyHome {
-      debug.console(message: "destinationMyHome.rooms.count = \(destinationMyHome.rooms.count)", file: #file, function: #function, line: #line)
       return destinationMyHome.rooms.count <= 5 ? destinationMyHome.rooms.count : 5
     } else {
       return 5
