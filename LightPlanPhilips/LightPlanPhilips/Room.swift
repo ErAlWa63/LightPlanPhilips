@@ -19,7 +19,7 @@ class Room {
   var groups: [Group] = []
 
   init(id: String, name: String) {
-    self.id = id
+    self.id =  id
     self.name = name
   }
 }

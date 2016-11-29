@@ -62,7 +62,9 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     let newId: String = UUID().uuidString
  
     //create room
-    let group = Group(id: newId, name: groupName.text!)
+    let group = Group(name: groupName.text!)
+    
+   
      //add group to room
     DataSource.sharedInstance.addGroupToRoom(roomId: roomId, group: group)
     

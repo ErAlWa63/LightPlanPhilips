@@ -17,8 +17,8 @@ class Group {
   var positionX: Float?
   var positionY: Float?
   
-  init (id: String ,name: String) {
-    self.id = id
+  init (name: String) {
+    self.id =  UUID().uuidString
     self.name = name
     bulbs = []
   }

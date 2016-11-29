@@ -1617,16 +1617,17 @@
                     </view>
                     <connections>
                         <segue destination="kCi-ea-CYN" kind="show" identifier="CreateGroup" id="5dC-XA-yX3"/>
+                        <segue destination="ZwL-hk-b0u" kind="show" identifier="NameBulb" id="B9v-Iv-SUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1982" y="558"/>
         </scene>
-        <!--Group Bulbs View Controller-->
+        <!--Name Bulb View Controller-->
         <scene sceneID="ee8-GI-Lts">
             <objects>
-                <viewController id="kCi-ea-CYN" customClass="GroupBulbsViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kCi-ea-CYN" userLabel="Name Bulb View Controller" customClass="GroupBulbsViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QEB-YR-dDh"/>
                         <viewControllerLayoutGuide type="bottom" id="CZg-kG-K6T"/>
@@ -1718,7 +1719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1163" y="558"/>
+            <point key="canvasLocation" x="-900" y="1002"/>
         </scene>
         <!--TestSK View Controller-->
         <scene sceneID="Eex-iU-weZ">
@@ -1899,6 +1900,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T0-i4-8X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-216" y="-547"/>
+        </scene>
+        <!--Name Bulb View Controller-->
+        <scene sceneID="f1w-28-ZUB">
+            <objects>
+                <viewController id="ZwL-hk-b0u" customClass="NameBulbViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QTe-2M-DvY"/>
+                        <viewControllerLayoutGuide type="bottom" id="v3S-cz-DLa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zhJ-2z-ay7" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-qu-XRf">
+                                <rect key="frame" x="31" y="61" width="259" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs6-Ec-UJK">
+                                <rect key="frame" x="16" y="28" width="115" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="KIy-WA-dz2"/>
+                                    <constraint firstAttribute="height" constant="33" id="mg0-DJ-cub"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-ZI-6La">
+                                <rect key="frame" x="258" y="20" width="46" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="qGw-Ba-o17"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-J5-G4D">
+                                <rect key="frame" x="31" y="419" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <action selector="nameChanged:" destination="ZwL-hk-b0u" eventType="editingChanged" id="TSq-37-SaL"/>
+                                </connections>
+                            </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nro-uO-3af">
+                                <rect key="frame" x="85" y="498" width="150" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qLa-xQ-AqI"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBulb:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="huz-S8-0mR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB9-La-WHg">
+                                <rect key="frame" x="31" y="462" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAz-tz-FaB">
+                                <rect key="frame" x="156" y="457" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="choose type &gt;">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nro-uO-3af" firstAttribute="centerX" secondItem="EKB-qu-XRf" secondAttribute="centerX" id="2wd-FR-DCg"/>
+                            <constraint firstItem="EKB-qu-XRf" firstAttribute="top" secondItem="fs6-Ec-UJK" secondAttribute="bottom" id="Fo0-0V-Cgg"/>
+                            <constraint firstItem="fs6-Ec-UJK" firstAttribute="leading" secondItem="zhJ-2z-ay7" secondAttribute="leadingMargin" id="ISm-s1-TZk"/>
+                            <constraint firstItem="nro-uO-3af" firstAttribute="leading" secondItem="zhJ-2z-ay7" secondAttribute="leadingMargin" constant="69" id="Mlz-V6-URz"/>
+                            <constraint firstItem="v3S-cz-DLa" firstAttribute="top" secondItem="EKB-qu-XRf" secondAttribute="bottom" constant="438" id="ShX-FC-GRx"/>
+                            <constraint firstItem="EKB-qu-XRf" firstAttribute="leading" secondItem="zhJ-2z-ay7" secondAttribute="leadingMargin" constant="15" id="kte-tL-22i"/>
+                            <constraint firstItem="EKB-qu-XRf" firstAttribute="centerX" secondItem="zhJ-2z-ay7" secondAttribute="centerX" id="ree-Pz-NsR"/>
+                            <constraint firstItem="fs6-Ec-UJK" firstAttribute="top" secondItem="QTe-2M-DvY" secondAttribute="bottom" constant="8" symbolic="YES" id="s24-tm-9PH"/>
+                            <constraint firstAttribute="bottom" secondItem="nro-uO-3af" secondAttribute="bottom" constant="20" symbolic="YES" id="tNq-tx-U5v"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ggm-X9-FRx"/>
+                    <connections>
+                        <outlet property="bulbName" destination="zyx-J5-G4D" id="0MN-ae-XLN"/>
+                        <outlet property="saveBulb" destination="nro-uO-3af" id="X77-5A-5gf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MeA-CJ-tew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900" y="265.14084507042253"/>
         </scene>
     </scenes>
     <resources>

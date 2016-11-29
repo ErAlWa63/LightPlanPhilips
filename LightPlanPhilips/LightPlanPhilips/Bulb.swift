@@ -10,7 +10,7 @@ import Foundation
 
 class Bulb {
   var id: String
-  var name: String
+  var name: String = ""
   //    var bulbType: String?
   //    var lightType: String?
   //    var bulbIcon: String = "bulb.jpeg"
@@ -20,9 +20,8 @@ class Bulb {
   
   
 
-  init (id: String, name: String) {
-    self.id = id
-    self.name = name
+  init () {
+    self.id =  UUID().uuidString
     self.selected = true
   }
 }

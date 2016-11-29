@@ -71,6 +71,7 @@
 		9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */; };
 		9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC961DE5DB63000D6382 /* Home.swift */; };
 		9C3DE6111DDB4A0600BDD092 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DE6101DDB4A0600BDD092 /* SceneViewController.swift */; };
+		9C3F10341DED6F90003AB480 /* NameBulbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */; };
 		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
 		9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A41DD3814400DE07EA /* RoomScene.swift */; };
 		9C4884A71DD3816800DE07EA /* RoomScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9C4884A61DD3816800DE07EA /* RoomScene.sks */; };
@@ -149,6 +150,7 @@
 		9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bulbSpriteNode.swift; sourceTree = "<group>"; };
 		9C0BFC961DE5DB63000D6382 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9C3DE6101DDB4A0600BDD092 /* SceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
+		9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameBulbViewController.swift; sourceTree = SOURCE_ROOT; };
 		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
 		9C4884A41DD3814400DE07EA /* RoomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScene.swift; sourceTree = "<group>"; };
 		9C4884A61DD3816800DE07EA /* RoomScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RoomScene.sks; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				9C7D676A1DDC782300C0CEAF /* GroupBulbsViewController.swift */,
 				030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */,
 				03E606A41DE2EA10000311F3 /* TestUIViewController.swift */,
+				9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */,
 				030B19E91DEC28B6000A9607 /* MyRoomViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
+				9C3F10341DED6F90003AB480 /* NameBulbViewController.swift in Sources */,
 				030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */,

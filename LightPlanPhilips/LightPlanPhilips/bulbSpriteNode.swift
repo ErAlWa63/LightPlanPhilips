@@ -18,37 +18,31 @@ enum NodeType {
 class BulbSpriteNode: SKSpriteNode {
   
   var type: NodeType
+  var id: String
   
-  
-  init(texture: SKTexture?, color: UIColor, size: CGSize, type: NodeType) {
+  init(texture: SKTexture?, color: UIColor, size: CGSize, type: NodeType, id: String) {
     self.type = type
+    self.id = id
     super.init(texture: texture, color: color, size: size)
   }
 
 
-  convenience init(type: NodeType) {
+  convenience init(type: NodeType, id: String) {
     //self.type = type
     switch type {
     case .bulb:
       let image = SKTexture(imageNamed: "Bulb")
-      self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0), type: type)
+      self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0), type: type, id: id)
     case .group:
       let image = SKTexture(imageNamed: "Bulb group")
-      self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0), type: type)
+      self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0), type: type, id: id)
     }
   }
-  
-//  convenience init(imageName: String) {
-//    let image = SKTexture(imageNamed: imageName)
-//    self.init(texture: image, color: UIColor.black, size: CGSize(width:40.0, height:40.0))
-//  }
-//
-//  
   
 
   
   override convenience init(texture: SKTexture?, color: UIColor, size: CGSize) {
-    self.init(texture: texture, color: color, size: size, type: NodeType.bulb)
+    self.init(texture: texture, color: color, size: size, type: NodeType.bulb, id: "")
   }
   
   required init?(coder aDecoder: NSCoder) {
