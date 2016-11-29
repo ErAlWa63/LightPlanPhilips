@@ -18,8 +18,8 @@ class Room {
   var bulbs: [Bulb] = []
   var groups: [Group] = []
 
-  init(name: String) {
-    self.id =  UUID().uuidString
+  init(id: String, name: String) {
+    self.id =  id
     self.name = name
   }
 }

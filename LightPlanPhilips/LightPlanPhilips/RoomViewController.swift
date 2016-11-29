@@ -30,9 +30,13 @@ class RoomViewController: SceneViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
 
-    if(segue.identifier == "NameLight") {
-      let nameLightViewController = (segue.destination) as! NameLightViewController
-      nameLightViewController.bulbId = bulbId
+    if(segue.identifier == "NameBulb") {
+
+      let nameBulbViewController = (segue.destination) as! NameBulbViewController
+      nameBulbViewController.bulbId = bulbId
+      
+      
+      
       
     } else if (segue.identifier == "CreateGroup") {
       let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController

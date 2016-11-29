@@ -142,7 +142,7 @@ class RoomScene: SKScene {
               if bulbNode.type == NodeType.bulb {
             
             
-                roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "NameLight")
+                roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "NameBulb")
 
 
                 

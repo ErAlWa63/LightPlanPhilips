@@ -53,7 +53,7 @@
   }
   @IBAction func removeButton(_ sender: Any) {
     if var delegateBulb = delegateBulb {
-      delegateBulb.name = nil
+     // delegateBulb.name = nil
     }
     dismiss(animated: true, completion: nil)
   }
@@ -68,7 +68,7 @@
     
     if var delegateBulb = delegateBulb {
       if let temporaryNameLight = temporaryNameLight {
-        delegateBulb.nameLight = temporaryNameLight
+       // delegateBulb.nameLight = temporaryNameLight
       }
     }
     dismiss(animated: true, completion: nil)

@@ -19,28 +19,28 @@ class DataSource: NSObject {
   
   func createData() {
     // create room and add to house
-    let room = Room(name: "Woonkamer")
+    let room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Woonkamer")
     myHome.rooms.append(room)
     
     // create 3 bulbs and add to room
     var  bulb: Bulb
-    bulb = Bulb(name: "bulb1")
+    bulb = Bulb()
     bulb.positionX = 0
     bulb.positionY = 0
     room.bulbs.append(bulb)
-    bulb = Bulb(name: "bulb2")
+    bulb = Bulb()
     bulb.positionX = 100
     bulb.positionY = 100
     room.bulbs.append(bulb)
-    bulb = Bulb(name: "bulb3")
+    bulb = Bulb()
     bulb.positionX = -100
     bulb.positionY = -100
     room.bulbs.append(bulb)
     
     // create 2 bulbs and add to home (unassigned bulbs)
-    bulb = Bulb(name: "bulb4")
+    bulb = Bulb()
     myHome.bulbs.append(bulb)
-    bulb = Bulb(name: "bulb5")
+    bulb = Bulb()
     myHome.bulbs.append(bulb)
   }
   
