@@ -30,7 +30,7 @@ final class LightTypeCollectionViewController: UICollectionViewController {
     let myImageView   = UIImageView(frame: CGRect(x: (cell.frame.width / 2) - 10, y: 5, width: 20, height: 20))
     myImageView.image = DataLightPlan.sharedInstance.listLightType[indexPath.item].pictogram
     let myLabel       = UILabel(frame: CGRect(x: 5, y: 30, width: cell.frame.width - 10, height: 20))
-    myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
+    myLabel.font      = UIFont(name: "AppleSDGothicNeo-Light", size: 23.0)
     myLabel.text      = DataLightPlan.sharedInstance.listLightType[indexPath.item].name
 
     myLabel.textAlignment = .center

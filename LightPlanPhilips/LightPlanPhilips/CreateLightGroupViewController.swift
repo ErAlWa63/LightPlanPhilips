@@ -66,7 +66,7 @@ extension CreateLightGroupViewController: UICollectionViewDataSource {
     let myImageView   = UIImageView(frame: CGRect(x: 5, y: 10, width: 15, height: 15))
     myImageView.image = DataLightPlan.sharedInstance.listLamp[indexPath.item].pictogram
     let myLabel       = UILabel(frame: CGRect(x: 25, y: 10, width: cell.frame.width - 40, height: 15))
-    myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
+    myLabel.font      = UIFont(name: "AppleSDGothicNeo-Light", size: 23.0)
     myLabel.text      = DataLightPlan.sharedInstance.listLamp[indexPath.item].name
     myLabel.textAlignment = .left
     cell.backgroundColor = UIColor.white

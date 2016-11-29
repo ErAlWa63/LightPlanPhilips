@@ -65,7 +65,7 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
     if let delegateRoom = delegateRoom {
       let selected                 = UILabel(frame: CGRect(x: 2, y: 0, width: 20, height: 20))
-      selected.font                = UIFont(name: "AppleSDGothicNeo-Bold", size: 30.0)
+      selected.font                = UIFont(name: "SDGothicNeo-BoldApple", size: 30.0)
       selected.textColor           = UIColor.blue
       //selected.text                = delegateRoom[indexPath.row].selected ? "✓" : ""
       cell.addSubview(selected)
