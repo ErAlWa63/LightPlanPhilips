@@ -10,7 +10,7 @@ import SpriteKit
 
 
 class RoomSizeAdjustScene: SKScene {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   var delegateRoomSizeAdjust: Bool?
   
   var roomSceneDelegate: RoomSceneDelegate?
@@ -33,16 +33,16 @@ class RoomSizeAdjustScene: SKScene {
   
   
   override func didMove(to view: SKView) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     delegateRoomSizeAdjust = true
     if let delegateRoomSizeAdjust = delegateRoomSizeAdjust {
-      d.c(m: "delegateRoomSizeAdjust", f: #file, fu: #function, l: #line)
+      debug.console(message: "delegateRoomSizeAdjust", file: #file, function: #function, line: #line)
       if delegateRoomSizeAdjust {
-        d.c(m: "delegateRoomSizeAdjust = \(delegateRoomSizeAdjust)", f: #file, fu: #function, l: #line)
+        debug.console(message: "delegateRoomSizeAdjust = \(delegateRoomSizeAdjust)", file: #file, function: #function, line: #line)
         view.backgroundColor = UIColor.white
         var edge = DataLightPlan.sharedInstance.edge
         if edge.count != 0 {
-          d.c(m: "edge.count = \(edge.count)", f: #file, fu: #function, l: #line)
+          debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
           let shape = UIBezierPath()
           let multiplyEdge2NodePoint = 85
           let offsetNodePoint = 45
@@ -50,11 +50,11 @@ class RoomSizeAdjustScene: SKScene {
           let offsetEdge2NodePoint = 3
           shape.move(to: CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
                                  y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-          d.c(m: "(x,y) = (\(((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", f: #file, fu: #function, l: #line)
+          debug.console(message: "(x,y) = (\(((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
           for point in edge {
             shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
                                       y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-            d.c(m: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", f: #file, fu: #function, l: #line)
+            debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
           }
           shape.close()
           let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
@@ -79,7 +79,7 @@ class RoomSizeAdjustScene: SKScene {
             let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
             midX = (averageX - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
             midY = (averageY - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-            d.c(m: "midX = \(midX), midY = \(midY)", f: #file, fu: #function, l: #line)
+            debug.console(message: "midX = \(midX), midY = \(midY)", file: #file, function: #function, line: #line)
             
             let shape = SKShapeNode()
             shape.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
@@ -106,7 +106,7 @@ class RoomSizeAdjustScene: SKScene {
     // get groups
     
     if let roomSceneDelegate = roomSceneDelegate {
-      d.c(m: "start", f: #file, fu: #function, l: #line)
+      debug.console(message: "start", file: #file, function: #function, line: #line)
       bulbCollection = roomSceneDelegate.getBulbs()
     }
     //    bulbCollection = (roomSceneDelegate?.getBulbs())!
@@ -142,7 +142,7 @@ class RoomSizeAdjustScene: SKScene {
   
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     
     if let touch = touches.first {
       let location = touch.location(in: self)
@@ -213,7 +213,7 @@ class RoomSizeAdjustScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {
       let location = touch.location(in: self)
       
@@ -229,7 +229,7 @@ class RoomSizeAdjustScene: SKScene {
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {
       
       let location = touch.location(in: self)
@@ -254,7 +254,7 @@ class RoomSizeAdjustScene: SKScene {
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if touches.first != nil {
       movableNode = nil
     }
@@ -267,7 +267,7 @@ class RoomSizeAdjustScene: SKScene {
   
   
   func checkIfGroup() -> Bool{
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     var counter: Int = 0
     
     for bulb in selectedBulbs {
@@ -286,7 +286,7 @@ class RoomSizeAdjustScene: SKScene {
   
   
   func createNewGroup() {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     
     let group = [Bulb]()
     

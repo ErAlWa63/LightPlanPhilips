@@ -12,7 +12,7 @@ import UIKit
 import SpriteKit
 
 class TestSKViewController: UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
@@ -22,7 +22,7 @@ class TestSKViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     //myBulbCollection = [Bulb.init(id: 1, name: "bulb1", selected: false, positionX: 0, positionY: 0),
     //                    Bulb.init(id: 2, name: "bulb2", selected: false, positionX: 100, positionY: 100),
     //                    Bulb.init(id: 3, name: "bulb3", selected: false, positionX: -100, positionY: -100)]
@@ -30,7 +30,7 @@ class TestSKViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     print(myBulbCollection)
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
@@ -50,12 +50,12 @@ class TestSKViewController: UIViewController {
   }
   
   override var shouldAutorotate: Bool {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     return false
   }
   
   func saveBulbs(){
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     scene.enumerateChildNodes(withName: "//*", using:
       { (node, stop) -> Void in
         if node is SKSpriteNode {
@@ -72,11 +72,11 @@ class TestSKViewController: UIViewController {
   
   // delegate functions
   func groupSelected(groupSelected: Bool) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     // not used here
   }
   func selectedBulbs(bulbs: [Bulb]){
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
 }
 

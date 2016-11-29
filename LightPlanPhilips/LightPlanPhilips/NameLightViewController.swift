@@ -31,7 +31,7 @@
  import UIKit
  
  class NameLightViewController : UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   
  
   var temporaryNameLight:     NameLight!
@@ -91,7 +91,7 @@
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let temporaryNameLight = temporaryNameLight {
       if let delegateLightTypeIndex = delegateLightTypeIndex {
         temporaryNameLight.lightTypeIndex = delegateLightTypeIndex
@@ -111,11 +111,15 @@
   override func viewDidLoad() {
 
     super.viewDidLoad()
+<<<<<<< HEAD
     
     delegateBulb = DataSource.sharedInstance.getBulb(bulbId: (self.bulbId)!)
     
     
     d.c(m: "start", f: #file, fu: #function, l: #line)
+=======
+    debug.console(message: "start", file: #file, function: #function, line: #line)
+>>>>>>> 942a03f015bcbf7afebc9dc431ed9379389ca4f4
     nameLightType.delegate                   = self
     chooseLightTypeButton.layer.borderColor  = UIColor.lightGray.cgColor
     chooseLightTypeButton.layer.borderWidth  = 0.5
@@ -161,8 +165,10 @@
  
  extension NameLightViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+
+    //d.c(m: "start", f: #file, fu: #function, l: #line)
     if delegateBulb != nil {
+
       if let nameLightType = nameLightType {
         saveButton.isHidden = false
         if let text = nameLightType.text {

@@ -9,7 +9,7 @@
 import UIKit
 
 class RoomShapeViewController: UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   let shapeLayer = CAShapeLayer()
   
   @IBAction func cancelButton(_ sender: Any) {
@@ -47,14 +47,14 @@ class RoomShapeViewController: UIViewController {
   @IBOutlet weak var nextButton: UIButton!
 
 //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    d.c(m: "start", f: #file, fu: #function, l: #line)
-//    d.c(m: "segue.identifier = \(segue.identifier)", f: #file, fu: #function, l: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "segue.identifier = \(segue.identifier)", file: #file, function: #function, line: #line)
 //    if(segue.identifier == "SelectRoomTypeSegue") {
-//      d.c(m: "SelectRoomTypeSegue", f: #file, fu: #function, l: #line)
+//      debug.console(message: "SelectRoomTypeSegue", file: #file, function: #function, line: #line)
 //      if let SelectRoomTypeViewController = segue.destination as? SelectRoomTypeViewController {
-//        d.c(m: "SelectRoomTypeViewController", f: #file, fu: #function, l: #line)
+//        debug.console(message: "SelectRoomTypeViewController", file: #file, function: #function, line: #line)
 //        if let myHome = myHome {
-//          d.c(m: "myHome", f: #file, fu: #function, l: #line)
+//          debug.console(message: "myHome", file: #file, function: #function, line: #line)
 //          SelectRoomTypeViewController.delegateRoom = myHome.room
 //          SelectRoomTypeViewController.closureToPerform = { [weak self] (rooms: [Room]) in
 //            if let strongSelf = self {
@@ -70,7 +70,7 @@ class RoomShapeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     
     DataLightPlan.sharedInstance.toggle = DataLightPlan.sharedInstance.toggle.map{ _ in false}
     nextButton.isHidden = true
@@ -78,7 +78,7 @@ class RoomShapeViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
 }
 

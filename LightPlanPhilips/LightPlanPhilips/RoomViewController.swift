@@ -25,7 +25,7 @@ class RoomViewController: SceneViewController {
   var bulbId: String = ""
   
   
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     

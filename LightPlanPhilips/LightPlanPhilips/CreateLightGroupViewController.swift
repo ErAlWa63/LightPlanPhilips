@@ -12,7 +12,7 @@
 import UIKit
 
 class CreateLightGroupViewController: UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   fileprivate let reuseIdentifier = "lightTypeCell"
   
   @IBOutlet weak var collectionView: UICollectionView!
@@ -57,7 +57,7 @@ class CreateLightGroupViewController: UIViewController {
 
 extension CreateLightGroupViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     return DataLightPlan.sharedInstance.listLamp.count
   }
   
@@ -66,7 +66,7 @@ extension CreateLightGroupViewController: UICollectionViewDataSource {
     let myImageView   = UIImageView(frame: CGRect(x: 5, y: 10, width: 15, height: 15))
     myImageView.image = DataLightPlan.sharedInstance.listLamp[indexPath.item].pictogram
     let myLabel       = UILabel(frame: CGRect(x: 25, y: 10, width: cell.frame.width - 40, height: 15))
-    myLabel.font      = UIFont(name: "Apple SD Gothic Neo Regular", size: 23.0)
+    myLabel.font      = UIFont(name: "AppleSDGothicNeo-Light", size: 23.0)
     myLabel.text      = DataLightPlan.sharedInstance.listLamp[indexPath.item].name
     myLabel.textAlignment = .left
     cell.backgroundColor = UIColor.white
@@ -100,7 +100,7 @@ extension CreateLightGroupViewController : UICollectionViewDelegate {
 }
 extension CreateLightGroupViewController: UITextFieldDelegate {
   public func textFieldDidEndEditing(_ textField: UITextField) {
-    d.c(m: "start", f: #file, fu: #function, l: #line)
+    debug.console(message: "start", file: #file, function: #function, line: #line)
     //    if delegateLamp != nil {
     //      if let nameLightType = nameLightType {
     //        saveButton.isHidden = false

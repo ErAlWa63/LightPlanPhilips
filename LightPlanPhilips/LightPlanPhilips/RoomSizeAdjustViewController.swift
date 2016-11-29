@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 class RoomSizeAdjustViewController: UIViewController {
-  let d = D() // debugger functionality
+  let debug = Debug() // debugger functionality
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
