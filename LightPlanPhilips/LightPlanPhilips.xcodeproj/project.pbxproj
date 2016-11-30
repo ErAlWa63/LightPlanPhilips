@@ -66,7 +66,6 @@
 		03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BB03121DD0C75B00AD5069 /* AppDelegate.swift */; };
 		03BB03181DD0C75B00AD5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03161DD0C75B00AD5069 /* Main.storyboard */; };
 		03BB031A1DD0C75B00AD5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BB03191DD0C75B00AD5069 /* Assets.xcassets */; };
-		03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */; };
 		03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E606A41DE2EA10000311F3 /* TestUIViewController.swift */; };
 		9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */; };
 		9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC961DE5DB63000D6382 /* Home.swift */; };
@@ -143,7 +142,6 @@
 		03BB03121DD0C75B00AD5069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BB03171DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03BB03191DD0C75B00AD5069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		03BB031C1DD0C75B00AD5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03BB031E1DD0C75B00AD5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CA5EBA1DE8854400B83D2A /* LightPlanPhilips-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightPlanPhilips-Bridging-Header.h"; sourceTree = "<group>"; };
 		03E606A41DE2EA10000311F3 /* TestUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUIViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				03BB03191DD0C75B00AD5069 /* Assets.xcassets */,
-				03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */,
 				03BB031E1DD0C75B00AD5069 /* Info.plist */,
 				9C4884A41DD3814400DE07EA /* RoomScene.swift */,
 				9C4884A61DD3816800DE07EA /* RoomScene.sks */,
@@ -400,7 +397,6 @@
 				03B2B18C1DDA160100CCFF70 /* pendant.png in Resources */,
 				0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */,
 				03B2B18E1DDA160100CCFF70 /* go.png in Resources */,
-				03BB031D1DD0C75B00AD5069 /* LaunchScreen.storyboard in Resources */,
 				0311F65A1DE5A07000FDB150 /* Open space.png in Resources */,
 				03B2B19C1DDA162F00CCFF70 /* kitchen.png in Resources */,
 				03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */,
@@ -492,14 +488,6 @@
 				03BB03171DD0C75B00AD5069 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		03BB031B1DD0C75B00AD5069 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				03BB031C1DD0C75B00AD5069 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
