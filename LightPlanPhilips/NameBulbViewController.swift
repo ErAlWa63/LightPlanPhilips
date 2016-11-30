@@ -21,10 +21,13 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   @IBOutlet weak var saveBulb: UIButton!
   
+  @IBOutlet weak var lightType: UIButton!
+  
+  
   @IBAction func saveBulb(_ sender: Any) {
     print(bulbName.text!)
     
-    bulbCollection[0].name = bulbName.text!
+    bulb.name = bulbName.text!
     
     dismiss(animated: true, completion: nil)
   }
@@ -38,15 +41,25 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
-
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "chooseType") {
+      
+      let lightTypeCollectionViewController = (segue.destination) as! LightTypeCollectionViewController
+      lightTypeCollectionViewController.bulb = bulb
+    }
+  }
+  
+  
+  
+  @IBAction func chooseType(_ sender: Any) {
+  }
+  
   
   var scene: RoomScene!
-  var bulbCollection: [Bulb] = []
-  //var groupCollection: [Group] = []
-  //var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
+  var bulb: Bulb!
   var bulbId: String = ""
+  var tempName: String?
   
-
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,11 +68,20 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   override func viewWillAppear(_ animated: Bool) {
     
-    bulbCollection.append(DataSource.sharedInstance.getBulb(bulbId: bulbId)!)
     
     
-    if bulbCollection[0].name != "" {
-      self.bulbName.text = bulbCollection[0].name
+    bulb = DataSource.sharedInstance.getBulb(bulbId: bulbId)!
+    
+    
+    if bulb.name != "" {
+      self.bulbName.text = bulb.name
+    }
+    
+    if bulb.lightTypeName == nil {
+      lightType.setTitle("choose type >", for: UIControlState.normal)
+    } else {
+      lightType.setImage(bulb.lightTypeIcon, for: UIControlState.normal)
+      lightType.setTitle("   \(bulb.lightTypeName!) >", for: UIControlState.normal)
     }
     
     self.bulbName.delegate = self
@@ -85,7 +107,20 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     return false
   }
   
-
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    // started typing, move view up
+    self.view.frame.origin.y -= 100
+  
+  }
+  
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    // stopped typing, move view down
+    self.view.frame.origin.y += 100
+  }
+  
+  
   // dismiss keyboard when return is pressed
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     self.view.endEditing(true)
@@ -93,18 +128,9 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   }
   
   // delegate functions
-  override func groupSelected(groupSelected: Bool) {
-    // not used here
+  override func getBulbs() -> [Bulb] {
+    var bulbs: [Bulb] = []
+    bulbs.append(bulb)
+    return bulbs
   }
-  override func selectedBulbs(bulbs: [Bulb]){
-    
-  }
-  override func getBulbs() -> [Bulb]{
-    return self.bulbCollection
-  }
-  
-  
-  
-  
-  
 }

@@ -18,6 +18,9 @@ final class LightTypeCollectionViewController: UICollectionViewController {
   fileprivate let sectionInsets = UIEdgeInsets(top: 18.0, left: 10.0, bottom: 18.0, right: 10.0)
   fileprivate let itemsPerRow: CGFloat = 2
   
+  var bulb: Bulb?
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -58,6 +61,11 @@ final class LightTypeCollectionViewController: UICollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     delegateLightTypeIndex = indexPath.row
     closureToPerform?( indexPath.row)
+    
+    let lightTypeName = DataLightPlan.sharedInstance.listLightType[indexPath.item].name
+    let pictogram = DataLightPlan.sharedInstance.listLightType[indexPath.item].pictogram
+    bulb?.lightTypeName = lightTypeName
+    bulb?.lightTypeIcon = pictogram
     dismiss(animated: true, completion: nil)
   }
   
