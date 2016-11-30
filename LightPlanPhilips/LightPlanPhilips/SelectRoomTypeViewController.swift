@@ -15,7 +15,7 @@ class SelectRoomTypeViewController: UIViewController {
   var closureToPerform : (([Room]) -> Void)?
   
   @IBAction private func cancelButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    self.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
   }
   
   @IBAction private func nextButton(_ sender: Any) {

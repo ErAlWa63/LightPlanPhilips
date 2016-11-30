@@ -27,25 +27,29 @@ class LightPlanCreatorViewController: UIViewController {
   private func passDataToSomewhereScene(segue: UIStoryboardSegue) {
     if let destination = segue.destination as? MyRoomViewController {
       passDataToScene( destination: destination)
+      passClosureToPerformToScene( destination: destination)
     }
   }
   
   private func passDataToScene (destination: MyRoomViewController) {
     if let myHome = myHome {
       destination.destinationMyHome = myHome
-//      destination.closureToPerform = { [weak self] (myHome: MyHome) in
-////        if let strongSelf = self {
-//////          if var myHome = strongSelf.myHome {
-//////            // myHome.room = rooms
-//////          }
-////        }
-//      }
+    }
+  }
+  
+  private func passClosureToPerformToScene ( destination: MyRoomViewController) {
+    destination.closureToPerform = { [weak self] (myHome: Home) in
+      if let strongSelf = self {
+        strongSelf.myHome = myHome
+      }
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    DataSource.sharedInstance.createData()
-    myHome = DataSource.sharedInstance.myHome
+    if myHome == nil {
+      DataSource.sharedInstance.createData()
+      myHome = DataSource.sharedInstance.myHome
+    }
   }
 }
