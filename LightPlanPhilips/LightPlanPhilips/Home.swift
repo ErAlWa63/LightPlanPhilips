@@ -11,6 +11,6 @@ import Foundation
 
 class Home {
 
-  var bulbs: [Bulb] = []
+  var unassignedBulbs: [Bulb] = []
   var rooms: [Room] = []
 }

@@ -186,6 +186,7 @@
                                     <action selector="cancelButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="GE2-jN-3nz"/>
                                     <action selector="cancelButton:" destination="DkV-1Z-Oj0" eventType="touchUpInside" id="TjQ-Nd-03C"/>
                                     <action selector="cancelButton:" destination="11A-vC-hsn" eventType="touchUpInside" id="fuI-Wj-4ZK"/>
+                                    <action selector="editButton:" destination="11A-vC-hsn" eventType="touchUpInside" id="xw2-cY-Zoe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hU-jv-zCY" userLabel="Add">
@@ -199,6 +200,7 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="addButton:" destination="11A-vC-hsn" eventType="touchUpInside" id="EZt-fm-TWv"/>
                                     <action selector="cancelButton:" destination="11A-vC-hsn" eventType="touchUpInside" id="6NJ-eg-MrJ"/>
                                     <action selector="cancelButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="gj7-Sf-4gD"/>
                                     <action selector="cancelButton:" destination="DkV-1Z-Oj0" eventType="touchUpInside" id="kEp-Td-InF"/>
@@ -230,20 +232,48 @@
                                     <segue destination="ZsP-bK-i0u" kind="show" identifier="SelectRoomTypeSegue" id="hdZ-zt-6Jj"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-Ai-qaU">
-                                <rect key="frame" x="46" y="140" width="228" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-Ai-qaU">
+                                <rect key="frame" x="36" y="134" width="228" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="qML-Re-bo4"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myRoomCell" rowHeight="44" id="Bwd-ue-fIj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myRoomCell" rowHeight="44" id="Bwd-ue-fIj" customClass="MyRoomTableViewCell" customModule="LightPlanPhilips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="228" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bwd-ue-fIj" id="rq9-Ee-mFR">
-                                            <rect key="frame" x="0.0" y="0.0" width="228" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="228" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJy-pV-TU1">
+                                                    <rect key="frame" x="30" y="8" width="188" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5GD-xH-foo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="1xo-nH-C9Q"/>
+                                                        <constraint firstAttribute="width" constant="20" id="rLg-gf-Xma"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mJy-pV-TU1" firstAttribute="leading" secondItem="rq9-Ee-mFR" secondAttribute="leadingMargin" constant="22" id="GsN-2U-W83"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mJy-pV-TU1" secondAttribute="trailing" constant="2" id="fEI-YJ-c8H"/>
+                                                <constraint firstItem="mJy-pV-TU1" firstAttribute="top" secondItem="rq9-Ee-mFR" secondAttribute="topMargin" id="jNI-tT-iBL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="5GD-xH-foo" firstAttribute="leading" secondItem="Bwd-ue-fIj" secondAttribute="leading" id="IBe-oR-Dhu"/>
+                                            <constraint firstItem="5GD-xH-foo" firstAttribute="top" secondItem="Bwd-ue-fIj" secondAttribute="top" id="kPf-K7-dkr"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameCell" destination="mJy-pV-TU1" id="OAm-9g-Pik"/>
+                                            <outlet property="pictogramCell" destination="5GD-xH-foo" id="GmD-Tn-etE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -278,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyY-UJ-1LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2877" y="-549"/>
+            <point key="canvasLocation" x="-2878.125" y="-549.29577464788736"/>
         </scene>
         <!--Select Room Type View Controller-->
         <scene sceneID="heE-od-SYM">

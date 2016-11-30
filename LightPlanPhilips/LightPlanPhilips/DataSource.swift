@@ -9,45 +9,22 @@
 import Foundation
 
 class DataSource: NSObject {
-  
   static let sharedInstance = DataSource()
+  private override init() {}
   var myHome: Home = Home()
   
-  
-  private override init() {}
-  
-  
   func createData() {
-    // create room and add to house
-    var room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "WoonkamerA")
-    myHome.rooms.append(room)
-     room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "WoonkamerB")
-    myHome.rooms.append(room)
-     room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "WoonkamerC")
-    myHome.rooms.append(room)
-     room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "WoonkamerD")
-    myHome.rooms.append(room)
-    
-    // create 3 bulbs and add to room
-    var  bulb: Bulb
-    bulb = Bulb()
-    bulb.positionX = 0
-    bulb.positionY = 0
-    room.bulbs.append(bulb)
-    bulb = Bulb()
-    bulb.positionX = 100
-    bulb.positionY = 100
-    room.bulbs.append(bulb)
-    bulb = Bulb()
-    bulb.positionX = -100
-    bulb.positionY = -100
-    room.bulbs.append(bulb)
-    
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png"))
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "Kitchen", file: "kitchen.png"))
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "Bedroom", file: "bedroom.png"))
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "Open space", description: "Definable areas", file: "Open space.png"))
+    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 0))
+    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
+    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))
+
     // create 2 bulbs and add to home (unassigned bulbs)
-    bulb = Bulb()
-    myHome.bulbs.append(bulb)
-    bulb = Bulb()
-    myHome.bulbs.append(bulb)
+    myHome.unassignedBulbs.append(Bulb())
+    myHome.unassignedBulbs.append(Bulb())
   }
   
   
@@ -89,14 +66,14 @@ class DataSource: NSObject {
     }
     
     for room in myHome.rooms {
-      for bulb in room.bulbs {
-        if bulb.id == bulbId {
-          return bulb
+      for assignedBulb in room.assignedBulbs {
+        if assignedBulb.id == bulbId {
+          return assignedBulb
         }
         for group in room.groups {
-          for bulb in group.bulbs {
-            if bulb.id == bulbId {
-              return bulb
+          for assignedBulb in group.assignedBulbs {
+            if assignedBulb.id == bulbId {
+              return assignedBulb
             }
           }
         }
@@ -113,7 +90,7 @@ class DataSource: NSObject {
     for room in myHome.rooms {
       if room.id == roomId {
         // add bulb to room
-        room.bulbs.append(bulb)
+        room.assignedBulbs.append(bulb)
       }
     }
   }
@@ -132,12 +109,12 @@ class DataSource: NSObject {
     for room in myHome.rooms {
       if room.id == roomId {
         // find bulb in room
-        for bulb in room.bulbs {
-          if bulb.id == bulbId {
+        for assignedBulb in room.assignedBulbs {
+          if assignedBulb.id == bulbId {
             // remove bulb from room
-            room.bulbs.remove(at: bulbcounter)
+            room.assignedBulbs.remove(at: bulbcounter)
             // add bulb to home
-            myHome.bulbs.append(bulb)
+            myHome.unassignedBulbs.append(assignedBulb)
           }
         }
         bulbcounter += 1
@@ -153,12 +130,12 @@ class DataSource: NSObject {
       for group in room.groups {
         if group.id == groupId {
           // find bulb in group
-          for bulb in group.bulbs {
-            if bulb.id == bulbId {
+          for assignedBulb in group.assignedBulbs {
+            if assignedBulb.id == bulbId {
               // remove bulb from group
-              group.bulbs.remove(at: bulbCounter)
+              group.assignedBulbs.remove(at: bulbCounter)
               // add bulb to room
-              room.bulbs.append(bulb)
+              room.assignedBulbs.append(assignedBulb)
             }
             bulbCounter += 1
           }
@@ -176,12 +153,12 @@ class DataSource: NSObject {
       for group in room.groups {
         if group.id == groupId {
           bulbCounter = 0
-          for bulb in room.bulbs {
-            if bulb.id == bulbId {
+          for assignedBulb in room.assignedBulbs {
+            if assignedBulb.id == bulbId {
               // remove bulb from room
-              room.bulbs.remove(at: bulbCounter )
+              room.assignedBulbs.remove(at: bulbCounter )
               // add bulb to group
-              group.bulbs.append(bulb)
+              group.assignedBulbs.append(assignedBulb)
             }
             bulbCounter += 1
           }
@@ -211,8 +188,8 @@ class DataSource: NSObject {
       for group in room.groups {
         if group.id == groupId {
           // check if bulbs are in group and move to room
-          for bulb in group.bulbs {
-            room.bulbs.append(bulb)
+          for assignedBulb in group.assignedBulbs {
+            room.assignedBulbs.append(assignedBulb)
           }
           // remove room
           room.groups.remove(at: groupCounter)
@@ -252,17 +229,13 @@ class DataSource: NSObject {
   
   // get bulbs in room
   func getBulbsInRoom(roomId: String) -> [Bulb] {
-    var bulbs: [Bulb] = []
-    
     // find room in house
     for room in myHome.rooms {
       if room.id == roomId {
-        for bulb in room.bulbs {
-          bulbs.append(bulb)
-        }
+        return room.assignedBulbs
       }
     }
-    return bulbs
+    return []
   }
   
   // get bulbs in group
@@ -273,8 +246,8 @@ class DataSource: NSObject {
     for room in myHome.rooms{
       for group in room.groups {
         if group.id == groupId {
-          for bulb in group.bulbs {
-            bulbs.append(bulb)
+          for assignedBulb in group.assignedBulbs {
+            bulbs.append(assignedBulb)
           }
         }
       }
@@ -285,12 +258,7 @@ class DataSource: NSObject {
   
   // get unassigned bulbs in home
   func getBulbsInHome() -> [Bulb] {
-    var bulbs: [Bulb] = []
-    
-    for bulb in myHome.bulbs{
-      bulbs.append(bulb)
-    }
-    return bulbs
+    return myHome.unassignedBulbs
   }
 }
 

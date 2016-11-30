@@ -15,11 +15,22 @@ class Room {
   var name: String
   var description: String?
   var pictogram: UIImage?
-  var bulbs: [Bulb] = []
+  var assignedBulbs: [Bulb] = []
   var groups: [Group] = []
-
+  
   init(id: String, name: String) {
     self.id =  id
     self.name = name
+  }
+  init(id: String, name: String, file: String) {
+    self.id =  id
+    self.name = name
+    self.pictogram   = UIImage(named: file)!
+  }
+  init(id: String, name: String, description: String, file: String) {
+    self.id =  id
+    self.name = name
+    self.description = description
+    self.pictogram   = UIImage(named: file)!
   }
 }
