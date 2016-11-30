@@ -62,8 +62,10 @@ final class LightTypeCollectionViewController: UICollectionViewController {
     delegateLightTypeIndex = indexPath.row
     closureToPerform?( indexPath.row)
     
-    let lightType = DataLightPlan.sharedInstance.listLightType[indexPath.item].name
-    bulb?.lightType = lightType
+    let lightTypeName = DataLightPlan.sharedInstance.listLightType[indexPath.item].name
+    let pictogram = DataLightPlan.sharedInstance.listLightType[indexPath.item].pictogram
+    bulb?.lightTypeName = lightTypeName
+    bulb?.lightTypeIcon = pictogram
     dismiss(animated: true, completion: nil)
   }
   

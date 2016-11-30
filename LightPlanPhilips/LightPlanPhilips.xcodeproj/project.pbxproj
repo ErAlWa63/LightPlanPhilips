@@ -610,7 +610,7 @@
 				);
 				INFOPLIST_FILE = LightPlanPhilips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.theappacademy.LightPlanPhilips;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.LightPlanPhilips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LightPlanPhilips/LightPlanPhilips-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -630,7 +630,7 @@
 				);
 				INFOPLIST_FILE = LightPlanPhilips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.theappacademy.LightPlanPhilips;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.LightPlanPhilips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LightPlanPhilips/LightPlanPhilips-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
