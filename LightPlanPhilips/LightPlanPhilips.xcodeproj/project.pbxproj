@@ -17,6 +17,7 @@
 		030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */; };
 		0311F65A1DE5A07000FDB150 /* Open space.png in Resources */ = {isa = PBXBuildFile; fileRef = 0311F6591DE5A07000FDB150 /* Open space.png */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
+		031DB0861DEEBDAB006C0F66 /* MyRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */; };
 		0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4991DD1E3BD00CB13BE /* A1.1.png */; };
 		0321F4A11DD1E3DC00CB13BE /* A1.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49B1DD1E3DC00CB13BE /* A1.0.png */; };
 		0321F4A21DD1E3DC00CB13BE /* A1.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49C1DD1E3DC00CB13BE /* A1.2.png */; };
@@ -92,6 +93,7 @@
 		030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSKViewController.swift; sourceTree = "<group>"; };
 		0311F6591DE5A07000FDB150 /* Open space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open space.png"; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
+		031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoomTableViewCell.swift; sourceTree = "<group>"; };
 		0321F4991DD1E3BD00CB13BE /* A1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.1.png; sourceTree = "<group>"; };
 		0321F49B1DD1E3DC00CB13BE /* A1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.0.png; sourceTree = "<group>"; };
 		0321F49C1DD1E3DC00CB13BE /* A1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.2.png; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				0308784F1DD3AE32003812A7 /* DataLightPlan.swift */,
 				9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */,
 				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
+				031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */,
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 			);
 			name = Model;
@@ -471,6 +474,7 @@
 				9C3F10341DED6F90003AB480 /* NameBulbViewController.swift in Sources */,
 				030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
+				031DB0861DEEBDAB006C0F66 /* MyRoomTableViewCell.swift in Sources */,
 				039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,

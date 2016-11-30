@@ -23,6 +23,12 @@ class Bulb {
     self.id =  UUID().uuidString
     self.selected = true
   }
+  init( coordinateX: Float, coordinateY: Float) {
+    self.id =  UUID().uuidString
+    self.selected = true
+    self.positionX = coordinateX
+    self.positionY = coordinateY
+  }
 }
 
 

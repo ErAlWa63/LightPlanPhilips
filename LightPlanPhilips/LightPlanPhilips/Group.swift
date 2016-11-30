@@ -11,7 +11,7 @@ import Foundation
 class Group {
   var id: String
   var name: String
-  var bulbs: [Bulb]
+  var assignedBulbs: [Bulb] = []
   var groupType : String?
   var isArea: Bool = true
   var positionX: Float?
@@ -20,6 +20,5 @@ class Group {
   init (name: String) {
     self.id =  UUID().uuidString
     self.name = name
-    bulbs = []
   }
 }
