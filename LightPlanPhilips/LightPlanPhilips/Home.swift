@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 class Home {
-
   var unassignedBulbs: [Bulb] = []
   var rooms: [Room] = []
+  var selectedRoom: Int = 0
 }

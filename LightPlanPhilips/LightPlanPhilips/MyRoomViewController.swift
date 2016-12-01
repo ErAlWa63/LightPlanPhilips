@@ -21,9 +21,11 @@ class MyRoomViewController: UIViewController {
     let editButton = sender as! UIButton
     if myRoomTableView.isEditing{
       activateEditingEnvironment( editingButton: editButton, title: "Edit", editing: false, animated: false)
+      nextButton.isHidden = false
     }
     else{
       activateEditingEnvironment( editingButton: editButton, title: "Done", editing: true, animated: true)
+      nextButton.isHidden = true
     }
   }
   
@@ -32,6 +34,7 @@ class MyRoomViewController: UIViewController {
     editingButton.setTitle(title, for: .normal)
   }
   
+  @IBOutlet weak var nextButton: UIButton!
   @IBOutlet weak var myRoomTableView: UITableView!
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,8 +72,6 @@ class MyRoomViewController: UIViewController {
     super.viewDidLoad()
     myRoomTableView.delegate = self
     myRoomTableView.dataSource = self
-    myRoomTableView.rowHeight = UITableViewAutomaticDimension
-    myRoomTableView.estimatedRowHeight = 140
     myRoomTableView.reloadData()
   }
 }
@@ -115,7 +116,7 @@ extension MyRoomViewController: UITableViewDelegate {
     localRooms.insert(movedRoom, at: toIndex)
     return localRooms
   }
-
+  
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     if let myHome = myHome {
       myHome.rooms = moveRoomAtIndex(rooms: myHome.rooms, fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
@@ -124,15 +125,7 @@ extension MyRoomViewController: UITableViewDelegate {
 }
 
 extension MyRoomViewController: UITableViewDataSource {
-  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let myHome = myHome {
-      return myHome.rooms.count
-    } else {
-      return 0
-    }
-  }
-  
-  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "myRoomCell", for: indexPath) as! MyRoomTableViewCell
     if let myHome = myHome {
       cell.nameCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18.0)
@@ -142,5 +135,13 @@ extension MyRoomViewController: UITableViewDataSource {
       cell.pictogramCell.image = myHome.rooms[indexPath.item].pictogram
     }
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if let myHome = myHome {
+      return myHome.rooms.count
+    } else {
+      return 0
+    }
   }
 }

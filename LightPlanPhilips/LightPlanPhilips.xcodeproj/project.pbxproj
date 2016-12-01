@@ -14,6 +14,8 @@
 		030878501DD3AE32003812A7 /* DataLightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0308784F1DD3AE32003812A7 /* DataLightPlan.swift */; };
 		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
 		030B19E91DEC28B6000A9607 /* MyRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */; };
+		030CD8121DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */; };
+		030CD8141DF0580B00232D8D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8131DF0580B00232D8D /* CollectionViewCell.swift */; };
 		030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */; };
 		0311F65A1DE5A07000FDB150 /* Open space.png in Resources */ = {isa = PBXBuildFile; fileRef = 0311F6591DE5A07000FDB150 /* Open space.png */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
@@ -90,6 +92,8 @@
 		0308784F1DD3AE32003812A7 /* DataLightPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLightPlan.swift; sourceTree = "<group>"; };
 		030878781DD48B88003812A7 /* NameLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLight.swift; sourceTree = "<group>"; };
 		030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoomViewController.swift; sourceTree = "<group>"; };
+		030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeCollectionCell.swift; sourceTree = "<group>"; };
+		030CD8131DF0580B00232D8D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSKViewController.swift; sourceTree = "<group>"; };
 		0311F6591DE5A07000FDB150 /* Open space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open space.png"; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */,
 				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
 				031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */,
+				030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */,
+				030CD8131DF0580B00232D8D /* CollectionViewCell.swift */,
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 			);
 			name = Model;
@@ -476,7 +482,9 @@
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				031DB0861DEEBDAB006C0F66 /* MyRoomTableViewCell.swift in Sources */,
 				039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */,
+				030CD8141DF0580B00232D8D /* CollectionViewCell.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
+				030CD8121DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift in Sources */,
 				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,
 				9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,

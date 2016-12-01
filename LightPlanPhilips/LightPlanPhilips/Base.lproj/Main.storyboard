@@ -214,21 +214,21 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZsP-bK-i0u" kind="show" id="2Nd-ca-lcM"/>
+                                    <segue destination="ZsP-bK-i0u" kind="show" identifier="SelectRoomtypeSegue" id="2Nd-ca-lcM"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-Ai-qaU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-Ai-qaU">
                                 <rect key="frame" x="41" y="100" width="238" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="qML-Re-bo4"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myRoomCell" rowHeight="97" id="Bwd-ue-fIj" customClass="MyRoomTableViewCell" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="238" height="97"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myRoomCell" rowHeight="40" id="Bwd-ue-fIj" customClass="MyRoomTableViewCell" customModule="LightPlanPhilips" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="238" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bwd-ue-fIj" id="rq9-Ee-mFR">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="238" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5GD-xH-foo">
@@ -296,11 +296,12 @@
                     </view>
                     <connections>
                         <outlet property="myRoomTableView" destination="QiW-Ai-qaU" id="N0b-eq-wsA"/>
+                        <outlet property="nextButton" destination="1nr-Yl-klU" id="0LD-JR-MPC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyY-UJ-1LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3703" y="-581"/>
+            <point key="canvasLocation" x="-3703.125" y="-582.04225352112678"/>
         </scene>
         <!--Select Room Type View Controller-->
         <scene sceneID="heE-od-SYM">
@@ -324,6 +325,9 @@
                                 <state key="normal" title="&lt;">
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="backButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="4vQ-bW-CRA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-L1-pQC" userLabel="Cancel">
                                 <rect key="frame" x="254" y="20" width="50" height="20"/>
@@ -335,6 +339,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="ZsP-bK-i0u" eventType="touchUpInside" id="E6O-ld-kma"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Select room type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtL-JN-6Th" userLabel="Select room type">
                                 <rect key="frame" x="16" y="50" width="250" height="30"/>
@@ -366,7 +373,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vLo-nQ-Chj" kind="show" identifier="RoomShapeSegue" id="sDo-xr-8HZ"/>
+                                    <segue destination="vLo-nQ-Chj" kind="show" identifier="RoomShapeSegue" id="uGr-ow-Gqj"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-nh-l2j">
@@ -376,19 +383,56 @@
                                     <constraint firstAttribute="height" constant="200" id="mnN-KP-PVt"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bHf-jZ-1Hg">
-                                    <size key="itemSize" width="208" height="31"/>
+                                    <size key="itemSize" width="208" height="38"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="Wdz-ir-cuL">
-                                        <rect key="frame" x="0.0" y="0.0" width="208" height="31"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="Wdz-ir-cuL" customClass="SelectRoomTypeCollectionViewCell" customModule="LightPlanPhilips" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="208" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="208" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z5f-xz-kR3" userLabel="pictogramCell">
+                                                    <rect key="frame" x="8" y="18" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="XsZ-Ws-mjf"/>
+                                                        <constraint firstAttribute="height" constant="20" id="i0p-WB-9bf"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqp-7P-tgS" userLabel="nameCell">
+                                                    <rect key="frame" x="38" y="8" width="152" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuT-wS-mgz" userLabel="descriptionCell">
+                                                    <rect key="frame" x="38" y="38" width="152" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="Z5f-xz-kR3" firstAttribute="top" secondItem="Wdz-ir-cuL" secondAttribute="topMargin" constant="10" id="2Ny-U6-pUZ"/>
+                                            <constraint firstItem="OuT-wS-mgz" firstAttribute="top" secondItem="Wdz-ir-cuL" secondAttribute="topMargin" constant="30" id="CAD-CW-XK2"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="OuT-wS-mgz" secondAttribute="trailing" constant="10" id="GBH-DO-ZmA"/>
+                                            <constraint firstItem="Z5f-xz-kR3" firstAttribute="leading" secondItem="Wdz-ir-cuL" secondAttribute="leadingMargin" id="IkN-Kf-nc2"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Z5f-xz-kR3" secondAttribute="trailing" constant="172" id="LgL-fV-z5R"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="eqp-7P-tgS" secondAttribute="trailing" constant="10" id="VjA-bF-d3q"/>
+                                            <constraint firstItem="eqp-7P-tgS" firstAttribute="leading" secondItem="Wdz-ir-cuL" secondAttribute="leadingMargin" constant="30" id="adg-ZZ-adt"/>
+                                            <constraint firstItem="OuT-wS-mgz" firstAttribute="leading" secondItem="Wdz-ir-cuL" secondAttribute="leadingMargin" constant="30" id="izh-jC-weA"/>
+                                            <constraint firstItem="eqp-7P-tgS" firstAttribute="top" secondItem="Wdz-ir-cuL" secondAttribute="topMargin" id="muf-yS-0sh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="descriptionCell" destination="OuT-wS-mgz" id="KTj-cR-7Dn"/>
+                                            <outlet property="nameCell" destination="eqp-7P-tgS" id="L5Z-mt-a4s"/>
+                                            <outlet property="pictogramCell" destination="Z5f-xz-kR3" id="hZ0-U0-DcJ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -397,25 +441,16 @@
                                     <outlet property="prefetchDataSource" destination="ZsP-bK-i0u" id="tlf-yx-pGu"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13p-1c-r8F" customClass="PushButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                <rect key="frame" x="36" y="445" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hcq-q7-hTp"/>
-                                    <constraint firstAttribute="width" constant="50" id="ohF-9N-zZP"/>
-                                </constraints>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ie7-Kh-QJO" secondAttribute="trailing" constant="50" id="1Vn-c1-flp"/>
-                            <constraint firstItem="13p-1c-r8F" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" constant="20" id="G2U-ie-mJW"/>
                             <constraint firstItem="gy1-3j-yrG" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" id="M7A-rR-Neq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Umm-L1-pQC" secondAttribute="trailing" id="MLL-KO-80b"/>
                             <constraint firstItem="F64-7A-9yH" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="60" id="PXU-Pn-MXt"/>
                             <constraint firstItem="gy1-3j-yrG" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" id="Qqp-VU-oxY"/>
                             <constraint firstItem="XtL-JN-6Th" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="30" id="ZaR-Wl-SuE"/>
                             <constraint firstItem="ie7-Kh-QJO" firstAttribute="leading" secondItem="BG8-2A-xEw" secondAttribute="leadingMargin" constant="50" id="ZvI-Ps-Gay"/>
-                            <constraint firstItem="13p-1c-r8F" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="425" id="arq-Dy-cvD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F64-7A-9yH" secondAttribute="trailing" constant="30" id="f2b-Jx-Uqi"/>
                             <constraint firstItem="MQY-nh-l2j" firstAttribute="top" secondItem="If1-4d-Kkx" secondAttribute="bottom" constant="180" id="md0-zC-fze"/>
                             <constraint firstItem="gfS-tv-jq8" firstAttribute="top" secondItem="ie7-Kh-QJO" secondAttribute="bottom" constant="20" id="n5T-zg-Z8k"/>
@@ -433,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0b-Uw-kM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2798" y="-581"/>
+            <point key="canvasLocation" x="-2799.375" y="-582.04225352112678"/>
         </scene>
         <!--Room Shape View Controller-->
         <scene sceneID="6lH-Ik-IPV">
@@ -447,21 +482,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9If-uQ-e1l" userLabel="Cancel">
-                                <rect key="frame" x="284" y="20" width="20" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-wS-fEk" userLabel="&lt; ">
+                                <rect key="frame" x="16" y="20" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="7iN-rf-Dyx"/>
-                                    <constraint firstAttribute="height" constant="20" id="Itd-EV-qDK"/>
+                                    <constraint firstAttribute="width" constant="20" id="75I-6s-YZR"/>
+                                    <constraint firstAttribute="height" constant="20" id="LsA-BW-RnK"/>
                                 </constraints>
-                                <state key="normal" title="✕">
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="&lt;">
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="k8f-Oc-fYl"/>
+                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="CsH-v2-Lv7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKT-8h-dPg" userLabel="Cancel">
+                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Gzn-Gf-pIg"/>
+                                    <constraint firstAttribute="width" constant="50" id="V6b-ZS-9j2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="Ayu-dY-Mcb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room shape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsL-Dl-lVQ">
-                                <rect key="frame" x="16" y="20" width="250" height="30"/>
+                                <rect key="frame" x="16" y="50" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0MC-Hz-2Un"/>
                                     <constraint firstAttribute="width" constant="250" id="6YJ-Lc-FQf"/>
@@ -471,16 +521,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust this rectangular shape by selecting and/or deselecting squares to create the shape of your space." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkj-LS-FPh">
-                                <rect key="frame" x="46" y="50" width="228" height="90"/>
+                                <rect key="frame" x="46" y="80" width="228" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="5uX-Rq-PQv"/>
+                                    <constraint firstAttribute="height" constant="110" id="5uX-Rq-PQv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="25Y-AD-tci">
-                                <rect key="frame" x="40" y="170" width="240" height="240"/>
+                                <rect key="frame" x="40" y="200" width="240" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-yH-YKq">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
@@ -1215,24 +1265,22 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="nextButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="liW-FZ-xi9"/>
-                                    <segue destination="Ibe-6i-sGZ" kind="show" id="hA8-AW-fPf"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3Ob-o3-8xr" firstAttribute="top" secondItem="Irh-TF-bun" secondAttribute="bottom" constant="20" id="0MC-pI-pqf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eKT-8h-dPg" secondAttribute="trailing" id="6eV-iG-bgd"/>
                             <constraint firstItem="Vkj-LS-FPh" firstAttribute="leading" secondItem="wlQ-NP-TiS" secondAttribute="leadingMargin" constant="30" id="AdS-Mz-GmE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Irh-TF-bun" secondAttribute="trailing" constant="50" id="KXU-cj-CdO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9If-uQ-e1l" secondAttribute="trailing" id="Krh-zD-95C"/>
+                            <constraint firstItem="LJG-wS-fEk" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" id="NQ1-5s-1xc"/>
+                            <constraint firstItem="LJG-wS-fEk" firstAttribute="leading" secondItem="wlQ-NP-TiS" secondAttribute="leadingMargin" id="dRH-bC-qze"/>
                             <constraint firstItem="25Y-AD-tci" firstAttribute="centerX" secondItem="wlQ-NP-TiS" secondAttribute="centerX" id="fLC-EZ-iKf"/>
-                            <constraint firstItem="Vkj-LS-FPh" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="30" id="htu-zk-EXY"/>
-                            <constraint firstItem="9If-uQ-e1l" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" id="kDe-d5-R4f"/>
-                            <constraint firstItem="25Y-AD-tci" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="150" id="nh8-qn-R2s"/>
+                            <constraint firstItem="Vkj-LS-FPh" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="60" id="htu-zk-EXY"/>
+                            <constraint firstItem="25Y-AD-tci" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="180" id="nh8-qn-R2s"/>
                             <constraint firstItem="Irh-TF-bun" firstAttribute="leading" secondItem="wlQ-NP-TiS" secondAttribute="leadingMargin" constant="50" id="q9Z-jg-qqp"/>
-                            <constraint firstItem="lsL-Dl-lVQ" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" id="uxn-eh-Wx6"/>
+                            <constraint firstItem="eKT-8h-dPg" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" id="rmA-hd-p02"/>
+                            <constraint firstItem="lsL-Dl-lVQ" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="30" id="uxn-eh-Wx6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vkj-LS-FPh" secondAttribute="trailing" constant="30" id="wfq-6T-Ggi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lsL-Dl-lVQ" secondAttribute="leading" id="yvn-HO-VRS"/>
                         </constraints>
@@ -1243,7 +1291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyU-6C-XhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2270" y="-547"/>
+            <point key="canvasLocation" x="-1847" y="-582"/>
         </scene>
         <!--Name Light View Controller-->
         <scene sceneID="QsR-HZ-Nb7">
@@ -1849,7 +1897,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVa-Q0-qF7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="-547"/>
+            <point key="canvasLocation" x="-409" y="-547"/>
         </scene>
         <!--RoomSizeAdjustViewController-->
         <scene sceneID="koa-DK-6yX">
@@ -1927,7 +1975,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T0-i4-8X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1646" y="-547"/>
+            <point key="canvasLocation" x="-1103" y="-547"/>
         </scene>
         <!--Name Bulb View Controller-->
         <scene sceneID="f1w-28-ZUB">
