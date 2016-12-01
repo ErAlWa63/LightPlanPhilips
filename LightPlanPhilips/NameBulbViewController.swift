@@ -10,9 +10,11 @@ import UIKit
 import SpriteKit
 
 
-
+// press cancel
 class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   @IBAction func cancelButton(_ sender: Any) {
+    bulb.lightTypeName = tempLightTypeName
+    bulb.lightTypeIcon = tempLightTypeIcon
     dismiss(animated: true, completion: nil)
   }
   
@@ -35,7 +37,11 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   @IBAction func nameChanged(_ sender: Any) {
     if bulbName.text != "" {
-      saveBulb.isHidden = false
+      if bulb.lightTypeName != nil {
+        saveBulb.isHidden = false
+      } else {
+        saveBulb.isHidden = true
+      }
     } else {
       saveBulb.isHidden = true
     }
@@ -43,7 +49,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if(segue.identifier == "chooseType") {
-      
+      tempName = bulbName.text
       let lightTypeCollectionViewController = (segue.destination) as! LightTypeCollectionViewController
       lightTypeCollectionViewController.bulb = bulb
     }
@@ -59,6 +65,8 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   var bulb: Bulb!
   var bulbId: String = ""
   var tempName: String?
+  var tempLightTypeName: String?
+  var tempLightTypeIcon: UIImage?
   
   
   override func viewDidLoad() {
@@ -73,10 +81,27 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     bulb = DataSource.sharedInstance.getBulb(bulbId: bulbId)!
     
     
-    if bulb.name != "" {
-      self.bulbName.text = bulb.name
+    // save temp lighttype
+    if bulb.lightTypeName != nil, tempLightTypeName == nil {
+      tempLightTypeName = bulb.lightTypeName
+      tempLightTypeIcon = bulb.lightTypeIcon
     }
     
+    // enable save button if name is filled and lighttype selected
+    if self.bulbName.text != nil, bulb.lightTypeName != nil {
+      saveBulb.isHidden = false
+    }
+    
+    // fill name when returning from lighttype collection view
+    if bulb.name != "" {
+      if tempName != nil {
+        self.bulbName.text = tempName
+      } else {
+        self.bulbName.text = bulb.name
+      }
+    }
+    
+    // fil choose lighttype button
     if bulb.lightTypeName == nil {
       lightType.setTitle("choose type >", for: UIControlState.normal)
     } else {
@@ -96,6 +121,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
       
       scene.dragDropEnabled = false
       scene.createGroup = false
+      scene.noAction = true
       
       view.ignoresSiblingOrder = true
       view.showsFPS = true
@@ -111,7 +137,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
     // started typing, move view up
     self.view.frame.origin.y -= 100
-  
+    
   }
   
   

@@ -25,6 +25,7 @@ class RoomScene: SKScene {
   
   var dragDropEnabled: Bool?
   var createGroup: Bool?
+  var noAction: Bool = false
   
   let dataSource = DataSource.sharedInstance
   
@@ -34,12 +35,12 @@ class RoomScene: SKScene {
   var selectedBulbs = [String:Bool]()
   var bulbs = [String: Bulb ]()
   
-
-//  let bulbSprite = bulbSpriteNode(imageNamed: "Bulb")
-//  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
+  
+  //  let bulbSprite = bulbSpriteNode(imageNamed: "Bulb")
+  //  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
   var selectedNode = BulbSpriteNode()
-
-
+  
+  
   
   
   override func didMove(to view: SKView) {
@@ -52,7 +53,7 @@ class RoomScene: SKScene {
     }
     //    bulbCollection = (roomSceneDelegate?.getBulbs())!
     
-        groups = (roomSceneDelegate?.getGroups())!
+    groups = (roomSceneDelegate?.getGroups())!
     
     //place bulbs
     for bulb in bulbCollection {
@@ -138,16 +139,20 @@ class RoomScene: SKScene {
                 roomSceneDelegate?.groupSelected(groupSelected: false)
               }
             } else {
-              let bulbNode = node as! BulbSpriteNode
-              if bulbNode.type == NodeType.bulb {
-            
-            
-                roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "NameBulb")
-
-
-                
+              if noAction {
+                print("no action on touch")
               } else {
-                print("een groep")
+                let bulbNode = node as! BulbSpriteNode
+                if bulbNode.type == NodeType.bulb {
+                  
+                  
+                  roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "NameBulb")
+                  
+                  
+                  
+                } else {
+                  print("een groep")
+                }
               }
             }
           }
