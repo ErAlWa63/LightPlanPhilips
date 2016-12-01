@@ -6,7 +6,7 @@
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class DataSource: NSObject {
   static let sharedInstance = DataSource()
@@ -27,6 +27,28 @@ class DataSource: NSObject {
     myHome.unassignedBulbs.append(Bulb())
   }
   
+  
+  
+  
+  
+  
+  func getGroupAreas() -> [ChooseItem]{
+    var items:[ChooseItem] = []
+
+    items.append(ChooseItem(name: "Floorstand", image: UIImage(named: "Floorstand")!))
+    items.append(ChooseItem(name: "Dining", image: UIImage(named: "Dining")!))
+    items.append(ChooseItem(name: "Pendant", image: UIImage(named: "Pendant")!))
+    return items
+  }
+  
+  func getGroupTypes() -> [ChooseItem]{
+    var items:[ChooseItem] = []
+    
+    items.append(ChooseItem(name: "Floorstand", image: UIImage(named: "Floorstand")!))
+    items.append(ChooseItem(name: "Dining", image: UIImage(named: "Dining")!))
+    items.append(ChooseItem(name: "Pendant", image: UIImage(named: "Pendant")!))
+    return items
+  }
   
   
   // get room
@@ -96,11 +118,7 @@ class DataSource: NSObject {
   }
   
   
-  //  // add bulb to group
-  //  func addBulbToGroup(bulb: Bulb, groupId: String) {
-  //
-  //  }
-  //
+
   
   // move bulb from room and move to house
   func moveBulbFromRoomToHome(bulbId: String, roomId: String) {
@@ -123,7 +141,7 @@ class DataSource: NSObject {
   }
   
   // move bulb from group and move to room
-  func moveBulbFromGoupToRoom(bulbId: String, groupId: String) {
+  func moveBulbFromGroupToRoom(bulbId: String, groupId: String) {
     var bulbCounter: Int = 0
     // find group in home
     for room in myHome.rooms {

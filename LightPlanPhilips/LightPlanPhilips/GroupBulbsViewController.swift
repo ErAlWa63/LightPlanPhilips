@@ -21,8 +21,8 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   var groupId: String = ""
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
- //var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
   var roomId: String = ""
+  var area: Bool = false
   
   @IBOutlet weak var groupName: UITextField!
   
@@ -30,14 +30,22 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     
     dismiss(animated: true, completion: nil)
   }
+  @IBOutlet weak var chooseButton: UIButton!
   
   @IBOutlet weak var isArea: UIButton!
   
   @IBAction func isArea(_ sender: Any) {
     if isArea.currentTitle == "☐" {
       isArea.setTitle("☒", for: .normal)
-    } else {
+      area = true
+      chooseButton.setTitle("choose area >", for: .normal)    } else {
       isArea.setTitle("☐", for: .normal)
+      area = false
+      chooseButton.setTitle("choose type >", for: .normal)
+      
+      
+      
+      
     }
   }
   
@@ -59,12 +67,13 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   @IBAction func createGroup(_ sender: Any) {
     
-    let newId: String = UUID().uuidString
+    var groupId: String
  
     //create room
     let group = Group(name: groupName.text!)
     
-   
+    groupId = group.id
+    
      //add group to room
     DataSource.sharedInstance.addGroupToRoom(roomId: roomId, group: group)
     
@@ -80,22 +89,30 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       positionX += bulb.positionX!
       positionY += bulb.positionY!
       
-      DataSource.sharedInstance.moveBulbFromRoomToGroup(bulbId: bulb.id, groupId: newId)
+      DataSource.sharedInstance.moveBulbFromRoomToGroup(bulbId: bulb.id, groupId: groupId)
     }
-    
-    //positionX = positionX / numberInGroup
-    //positionY = positionY / numberInGroup
-    
     
     group.positionX = positionX / numberInGroup
     group.positionY = positionY / numberInGroup
   
-    
     dismiss(animated: true, completion: nil)
   }
   
   
+  @IBAction func unwindToGroup(segue: UIStoryboardSegue) {
+    if let svc = segue.source as? ChooseItemTableViewController {
+      var name: String
+      var image :UIImage
+        
+      name  = svc.itemName
+      image = svc.itemImage
+        chooseButton.setTitle("   \(name) >", for: .normal)
+      chooseButton.setImage(image, for: .normal)
+    }
   
+  
+  
+  }
   
   var groupSelected: Bool = false
   var groupNameFilled: Bool = false
@@ -110,6 +127,9 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     
 
   }
+  
+  
+  
   
   override func viewWillAppear(_ animated: Bool) {
     bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
@@ -157,6 +177,19 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       createGroup.isHidden = true
     }
   }
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    // started typing, move view up
+    self.view.frame.origin.y -= 100
+    
+  }
+    
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    // stopped typing, move view down
+    self.view.frame.origin.y += 100
+  }
+  
+  
   
   
   // delegate function

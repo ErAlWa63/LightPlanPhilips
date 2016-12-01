@@ -109,9 +109,10 @@ class RoomViewController: SceneViewController {
   func saveBulbs(){
     scene.enumerateChildNodes(withName: "//*", using:
       { (node, stop) -> Void in
-        if node is SKSpriteNode { 
+        if node is BulbSpriteNode {
           for bulb in self.bulbCollection {
-            if bulb.name == node.name {
+            let spriteNode = node as! BulbSpriteNode
+            if bulb.id == spriteNode.id {
               bulb.positionX = Float(node.position.x)
               bulb.positionY = Float(node.position.y)
               break
