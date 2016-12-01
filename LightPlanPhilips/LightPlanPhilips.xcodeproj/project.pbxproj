@@ -496,11 +496,7 @@
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,
 				031DB0861DEEBDAB006C0F66 /* MyRoomTableViewCell.swift in Sources */,
 				039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */,
-<<<<<<< HEAD
 				9C0BD1DE1DF055F1000BA00C /* ChooseItemTableViewController.swift in Sources */,
-=======
-				030CD8141DF0580B00232D8D /* CollectionViewCell.swift in Sources */,
->>>>>>> f7f1ebd378baff337ec490a0b8b0abcf6678a02d
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				030CD8121DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift in Sources */,
 				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,
