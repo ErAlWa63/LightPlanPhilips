@@ -10,6 +10,12 @@ import SpriteKit
 
 
 class RoomSizeAdjustScene: SKScene {
+  let roomShapeModel = RoomShapeModel()
+  struct Point {
+    var x: Int
+    var y: Int
+  }
+
   let debug = Debug() // debugger functionality
   var delegateRoomSizeAdjust: Bool?
   
@@ -40,7 +46,9 @@ class RoomSizeAdjustScene: SKScene {
       if delegateRoomSizeAdjust {
         debug.console(message: "delegateRoomSizeAdjust = \(delegateRoomSizeAdjust)", file: #file, function: #function, line: #line)
         view.backgroundColor = UIColor.white
-        var edge = DataLightPlan.sharedInstance.edge
+//        var edge = DataLightPlan.sharedInstance.edge
+        var edge : [Point] = []
+
         if edge.count != 0 {
           debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
           let shape = UIBezierPath()

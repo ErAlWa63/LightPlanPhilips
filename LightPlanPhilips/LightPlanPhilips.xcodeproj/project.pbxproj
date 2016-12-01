@@ -16,6 +16,7 @@
 		030B19E91DEC28B6000A9607 /* MyRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */; };
 		030CD8121DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */; };
 		030CD8141DF0580B00232D8D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8131DF0580B00232D8D /* CollectionViewCell.swift */; };
+		030CD8161DF07EFD00232D8D /* RoomShapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */; };
 		030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */; };
 		0311F65A1DE5A07000FDB150 /* Open space.png in Resources */ = {isa = PBXBuildFile; fileRef = 0311F6591DE5A07000FDB150 /* Open space.png */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
@@ -94,6 +95,7 @@
 		030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoomViewController.swift; sourceTree = "<group>"; };
 		030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeCollectionCell.swift; sourceTree = "<group>"; };
 		030CD8131DF0580B00232D8D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShapeModel.swift; sourceTree = "<group>"; };
 		030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSKViewController.swift; sourceTree = "<group>"; };
 		0311F6591DE5A07000FDB150 /* Open space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open space.png"; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */,
 				039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */,
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
+				030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */,
 				03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */,
 				031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */,
 				0376EDD51DDDA08B00587303 /* CreateLightGroupViewController.swift */,
@@ -477,6 +480,7 @@
 				03E606A51DE2EA10000311F3 /* TestUIViewController.swift in Sources */,
 				030B19E91DEC28B6000A9607 /* MyRoomViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,
+				030CD8161DF07EFD00232D8D /* RoomShapeModel.swift in Sources */,
 				9C3F10341DED6F90003AB480 /* NameBulbViewController.swift in Sources */,
 				030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */,
 				03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */,

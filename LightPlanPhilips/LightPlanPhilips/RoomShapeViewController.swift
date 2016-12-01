@@ -3,9 +3,7 @@ import UIKit
 class RoomShapeViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
-  
-  let debug = Debug() // debugger functionality
-  let shapeLayer = CAShapeLayer()
+  var roomShapeModel = RoomShapeModel()
   
   @IBAction func backButton(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
@@ -17,27 +15,24 @@ class RoomShapeViewController: UIViewController {
   
   @IBAction func cellButton(_ sender: Any) {
     let cellButton = sender as! UIButton
-    DataLightPlan.sharedInstance.processCell( index: Int(cellButton.currentTitle!)!) ? cellButton.color(rgbValue: 0xE7BF7E) : cellButton.color(rgbValue: 0xD8D8D8)
-    nextButton.isHidden = DataLightPlan.sharedInstance.countCell > 0 ? false : true
+    roomShapeModel.processCell( index: Int(cellButton.currentTitle!)!) ? cellButton.color(rgbValue: 0xE7BF7E) : cellButton.color(rgbValue: 0xD8D8D8)
+//    nextButton.isHidden = DataLightPlan.sharedInstance.countCell > 0 ? false : true
   }
   
   @IBAction func nextButton(_ sender: Any) {
-    DataLightPlan.sharedInstance.edge = DataLightPlan.sharedInstance.processNext()
+//    DataLightPlan.sharedInstance.edge = DataLightPlan.sharedInstance.processNext()
   }
   
   @IBOutlet weak var nextButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    
-    DataLightPlan.sharedInstance.toggle = DataLightPlan.sharedInstance.toggle.map{ _ in false}
+//    DataLightPlan.sharedInstance.toggle = DataLightPlan.sharedInstance.toggle.map{ _ in false}
     nextButton.isHidden = true
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
 }
 
