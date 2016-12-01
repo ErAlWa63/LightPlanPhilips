@@ -9,10 +9,11 @@
 import UIKit
 
 class SelectRoomTypeViewController: UIViewController {
-  internal let debug = Debug() // debugger functionality
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
   
-  var delegateRoom : [Room]? = nil
-  var closureToPerform : (([Room]) -> Void)?
+    var delegateRoom : [Room]? = nil
+  //  var closureToPerform : (([Room]) -> Void)?
   
   @IBAction private func cancelButton(_ sender: Any) {
     self.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
@@ -27,13 +28,11 @@ class SelectRoomTypeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    if var delegateRoom = delegateRoom {
-      debug.console(message: "delegateRoom = \(delegateRoom)", file: #file, function: #function, line: #line)
-//      for index in 0 ..< delegateRoom.count {
-//        delegateRoom[index].selected = false
-//      }
-    }
+//    if var delegateRoom = delegateRoom {
+      //      for index in 0 ..< delegateRoom.count {
+      //        delegateRoom[index].selected = false
+      //      }
+//    }
     self.collectionview.reloadData()
     
     //    nextButton.isHidden = true
@@ -41,18 +40,15 @@ class SelectRoomTypeViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
 }
 
 extension SelectRoomTypeViewController: UICollectionViewDataSource {
   internal func numberOfSections(in collectionView: UICollectionView) -> Int {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     return 1
   }
   
   internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let delegateRoom = delegateRoom {
       return delegateRoom.count
     } else {
@@ -61,7 +57,6 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
   }
   
   internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
     if let delegateRoom = delegateRoom {
       let selected                 = UILabel(frame: CGRect(x: 2, y: 0, width: 20, height: 20))
@@ -87,17 +82,14 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
 
 extension SelectRoomTypeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-return true
+    return true
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     if var delegateRoom = delegateRoom {
-      debug.console(message: "start", file: #file, function: #function, line: #line)
-//      debug.console(message: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", file: #file, function: #function, line: #line)
-//      delegateRoom[indexPath.row].selected = !delegateRoom[indexPath.row].selected
-//      debug.console(message: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", file: #file, function: #function, line: #line)
-
+      //      debug.console(message: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", file: #file, function: #function, line: #line)
+      //      delegateRoom[indexPath.row].selected = !delegateRoom[indexPath.row].selected
+      //      debug.console(message: "delegateRoom[indexPath.row].selected = \(delegateRoom[indexPath.row].selected)", file: #file, function: #function, line: #line)
+      
     }
   }
 }
