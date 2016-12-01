@@ -16,7 +16,7 @@ class RoomShapeViewController: UIViewController {
   @IBAction func cellButton(_ sender: Any) {
     let cellButton = sender as! UIButton
     roomShapeModel.processCell( index: Int(cellButton.currentTitle!)!) ? cellButton.color(rgbValue: 0xE7BF7E) : cellButton.color(rgbValue: 0xD8D8D8)
-//    nextButton.isHidden = DataLightPlan.sharedInstance.countCell > 0 ? false : true
+    nextButton.isHidden = roomShapeModel.countCell > 0 ? false : true
   }
   
   @IBAction func nextButton(_ sender: Any) {
