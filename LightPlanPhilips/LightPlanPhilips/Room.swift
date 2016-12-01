@@ -5,6 +5,8 @@
 //  Created by Mark Aptroot on 16-11-16.
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
+// iOS Programming: The Big Nerd Ranch Guide pag 169 - Moving Rows
+
 
 import Foundation
 import UIKit
