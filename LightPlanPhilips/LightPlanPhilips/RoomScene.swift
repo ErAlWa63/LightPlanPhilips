@@ -34,10 +34,6 @@ class RoomScene: SKScene {
   var groupCollection = [[Bulb]]()
   var selectedBulbs = [String:Bool]()
   var bulbs = [String: Bulb ]()
-  
-  
-  //  let bulbSprite = bulbSpriteNode(imageNamed: "Bulb")
-  //  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
   var selectedNode = BulbSpriteNode()
   
   
@@ -58,11 +54,19 @@ class RoomScene: SKScene {
     //place bulbs
     for bulb in bulbCollection {
       // create sprite with type image and type
-      let sprite = BulbSpriteNode(type:NodeType.bulb, id: bulb.id)
+      
+      
+      let sprite: BulbSpriteNode
+      if bulb.lightTypeName == nil {
+        sprite = BulbSpriteNode(type:NodeType.bulb, id: bulb.id)
+      } else {
+        sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
+      }
+    
       sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
       sprite.setScale(1.5)
       sprite.name = bulb.name
-      selectedBulbs[bulb.name] = false
+      selectedBulbs[bulb.id] = false
       self.addChild(sprite)
     }
     
@@ -102,8 +106,11 @@ class RoomScene: SKScene {
             movableNode!.position = location
           } else {
             if createGroup! {
+              
+              let bulbNode = node as! BulbSpriteNode
+              
               // check if bulb has been selected
-              if selectedBulbs[node.name!]! == false {
+              if selectedBulbs[bulbNode.id] == false {
                 
                 // add blinking animation
                 let expandAction = SKAction.scale(to: 2, duration: 0.33)
@@ -112,7 +119,7 @@ class RoomScene: SKScene {
                 node.run(pulsateAction)
                 
                 // add bulb to collection of selected bulbs
-                selectedBulbs[node.name!]! = true
+                selectedBulbs[bulbNode.id] = true
               } else {
                 // remove blinking animation
                 node.removeAllActions()
@@ -121,14 +128,14 @@ class RoomScene: SKScene {
                 
                 // remove bulb from collection of selected bulbs
                 bulbs.removeValue(forKey: node.name!)
-                selectedBulbs[node.name!]! = false
+                selectedBulbs[bulbNode.id] = false
               }
               
               // check if we have group (at least two selected)
               if checkIfGroup() {
                 var groupBulbs = [Bulb]()
                 for bulb in bulbCollection {
-                  if selectedBulbs[bulb.name] == true {
+                  if selectedBulbs[bulb.id] == true {
                     groupBulbs.append(bulb)
                   }
                 }
@@ -209,11 +216,7 @@ class RoomScene: SKScene {
     }
   }
   
-  
-  
-  
-  
-  
+
   
   func checkIfGroup() -> Bool{
     debug.console(message: "start", file: #file, function: #function, line: #line)
