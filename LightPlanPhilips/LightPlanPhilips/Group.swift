@@ -6,13 +6,14 @@
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Group {
   var id: String
   var name: String
   var assignedBulbs: [Bulb] = []
-  var groupType : String?
+  var groupTypeName: String?
+  var groupTypeIcon: UIImage?
   var isArea: Bool = true
   var positionX: Float?
   var positionY: Float?
