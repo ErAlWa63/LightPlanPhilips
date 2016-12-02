@@ -9,12 +9,6 @@
 import UIKit
 import SpriteKit
 
-
-
-
-
-
-
 class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   
@@ -107,8 +101,13 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   }
   
   
+  
+  
+  
+  
   @IBAction func unwindToGroup(segue: UIStoryboardSegue) {
     if let svc = segue.source as? ChooseItemTableViewController {
+      svc.area = area
       groupTypeName  = svc.itemName
       groupTypeIcon = svc.itemImage
       chooseButton.setTitle("   \(groupTypeName!) >", for: .normal)
@@ -117,6 +116,14 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     enableDisableButton()
   }
   
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ChooseItem" {
+      let viewController = (segue.destination) as! ChooseItemTableViewController
+      viewController.area = area
+
+    }
+  }
 
   
   override func viewDidLoad() {
@@ -145,15 +152,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
-  
-  
-  
-  override func viewWillAppear(_ animated: Bool) {
 
-  }
-  
-  
-  
   // dismiss keyboard when return is pressed
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     self.view.endEditing(true)
@@ -189,18 +188,14 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     enableDisableButton()
   }
   
-  
   override func selectedBulbs(bulbs: [Bulb]) {
-    
-    
     self.selectedBulbs = bulbs
   }
   
-  override func getBulbs() -> [Bulb]{
-    return self.bulbCollection
+  
+  override func getBulbs() -> [Bulb] {
+    return bulbCollection
   }
 
-  override func getGroups() -> [Group]{
-    return []
-  }
+
 }

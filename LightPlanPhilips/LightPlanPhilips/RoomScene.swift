@@ -159,7 +159,7 @@ class RoomScene: SKScene {
                   
                   
                 } else {
-                  print("een groep")
+                  roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "ShowGroup")
                 }
               }
             }

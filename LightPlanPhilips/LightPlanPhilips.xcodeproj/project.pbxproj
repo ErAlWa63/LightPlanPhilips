@@ -15,7 +15,6 @@
 		030878791DD48B88003812A7 /* NameLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030878781DD48B88003812A7 /* NameLight.swift */; };
 		030B19E91DEC28B6000A9607 /* MyRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */; };
 		030CD8121DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */; };
-		030CD8141DF0580B00232D8D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8131DF0580B00232D8D /* CollectionViewCell.swift */; };
 		030CD8161DF07EFD00232D8D /* RoomShapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */; };
 		030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */; };
 		0311F65A1DE5A07000FDB150 /* Open space.png in Resources */ = {isa = PBXBuildFile; fileRef = 0311F6591DE5A07000FDB150 /* Open space.png */; };
@@ -76,6 +75,7 @@
 		9C0BD1E21DF0600C000BA00C /* ChooseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BD1E11DF0600C000BA00C /* ChooseItem.swift */; };
 		9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */; };
 		9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0BFC961DE5DB63000D6382 /* Home.swift */; };
+		9C1200BD1DF18516005D3D61 /* ShowGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1200BC1DF18516005D3D61 /* ShowGroupViewController.swift */; };
 		9C3DE6111DDB4A0600BDD092 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3DE6101DDB4A0600BDD092 /* SceneViewController.swift */; };
 		9C3F10341DED6F90003AB480 /* NameBulbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */; };
 		9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4884A01DD37EEF00DE07EA /* Bulb.swift */; };
@@ -161,6 +161,7 @@
 		9C0BD1E11DF0600C000BA00C /* ChooseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseItem.swift; sourceTree = "<group>"; };
 		9C0BFC931DE34F3B000D6382 /* bulbSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bulbSpriteNode.swift; sourceTree = "<group>"; };
 		9C0BFC961DE5DB63000D6382 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		9C1200BC1DF18516005D3D61 /* ShowGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowGroupViewController.swift; sourceTree = "<group>"; };
 		9C3DE6101DDB4A0600BDD092 /* SceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
 		9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameBulbViewController.swift; sourceTree = SOURCE_ROOT; };
 		9C4884A01DD37EEF00DE07EA /* Bulb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				9C7D676A1DDC782300C0CEAF /* GroupBulbsViewController.swift */,
 				9C0BD1DD1DF055F1000BA00C /* ChooseItemTableViewController.swift */,
+				9C1200BC1DF18516005D3D61 /* ShowGroupViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -500,6 +502,7 @@
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				030CD8121DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift in Sources */,
 				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,
+				9C1200BD1DF18516005D3D61 /* ShowGroupViewController.swift in Sources */,
 				9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,
 				9C0BD1E01DF05B4E000BA00C /* ChooseItemCell.swift in Sources */,
