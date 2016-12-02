@@ -152,9 +152,9 @@ class RoomSizeAdjustScene: SKScene {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
     
-    if let touch = touches.first {
-      let location = touch.location(in: self)
-      let touchedNodes = self.nodes(at: location)
+//    if let touch = touches.first {
+//      let location = touch.location(in: self)
+//      let touchedNodes = self.nodes(at: location)
       
 //      for node in touchedNodes {
 //        if node is bulbSpriteNode {
@@ -217,7 +217,7 @@ class RoomSizeAdjustScene: SKScene {
 //          }
 //        }
 //      }
-    }
+//    }
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -1,15 +1,10 @@
-//
-//  RoomSizeAdjustViewController.swift
-//  LightPlanPhilips
-//
-//  Created by Erik Waterham on 25-11-16.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-
 import UIKit
 import SpriteKit
 
 class RoomSizeAdjustViewController: UIViewController {
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
+
   let debug = Debug() // debugger functionality
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
@@ -23,7 +18,7 @@ class RoomSizeAdjustViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
-      scene = SKScene(fileNamed: "RoomSizeAdjustScene") as! RoomSizeAdjustScene
+      scene = SKScene(fileNamed: "RoomSizeAdjustScene") as? RoomSizeAdjustScene
       if let scene = scene {
         scene.scaleMode = .aspectFill
         
