@@ -26,127 +26,125 @@ class RoomViewController: SceneViewController {
   
   
   let debug = Debug() // debugger functionality
-
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-
+    
     if(segue.identifier == "NameBulb") {
-
+      
       let nameBulbViewController = (segue.destination) as! NameBulbViewController
       nameBulbViewController.bulbId = bulbId
-      
-      
-      
-      
     } else if (segue.identifier == "CreateGroup") {
       let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
       groupBulbsViewController.roomId = roomId
+    } else if (segue.identifier == "ShowGroup") {
+      let showGroupViewController = (segue.destination) as! ShowGroupViewController
+      showGroupViewController.groupId = bulbId
     }
+}
 
+//click group button
+@IBAction func groupClicked(_ sender: Any) {
+  saveBulbs()
+  //
+  
+  
+  
+  
+  performSegue(withIdentifier: "CreateGroup", sender: nil)
+}
+
+
+
+
+override func viewDidLoad() {
+  super.viewDidLoad()
+  
+  
+  
+  
+}
+
+override func viewWillAppear(_ animated: Bool) {
+  bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
+  groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
+  
+  
+  
+  print(bulbCollection)
+  print(groupCollection)
+  if let view = self.view as! SKView? {
+    // Create spritekit Roomscene
+    scene = SKScene(fileNamed: "RoomScene") as! RoomScene
+    scene.scaleMode = .aspectFill
+    
+    scene.roomSceneDelegate = self
+    view.presentScene(scene)
+    
+    scene.dragDropEnabled = false
+    scene.createGroup = false
+    
+    view.ignoresSiblingOrder = true
+    view.showsFPS = true
+    view.showsNodeCount = true
   }
-  
-  //click group button
-  @IBAction func groupClicked(_ sender: Any) {
-        saveBulbs()
-        //
-    
-    
-    
-    
-        performSegue(withIdentifier: "CreateGroup", sender: nil)
-  }
-  
+}
 
-  
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-        
-    
 
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
-    groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
-    
 
-    
-    print(bulbCollection)
-    print(groupCollection)
-    if let view = self.view as! SKView? {
-      // Create spritekit Roomscene
-      scene = SKScene(fileNamed: "RoomScene") as! RoomScene
-      scene.scaleMode = .aspectFill
-      
-      scene.roomSceneDelegate = self
-      view.presentScene(scene)
-      
-      scene.dragDropEnabled = false
-      scene.createGroup = false
-      
-      view.ignoresSiblingOrder = true
-      view.showsFPS = true
-      view.showsNodeCount = true
-    }
-  }
-  
-  
-  
-  
 
-  override var shouldAutorotate: Bool {
-    return false
-  }
-  
-  
-  
-  
-  
 
-  
-  func saveBulbs(){
-    scene.enumerateChildNodes(withName: "//*", using:
-      { (node, stop) -> Void in
-        if node is BulbSpriteNode {
-          for bulb in self.bulbCollection {
-            let spriteNode = node as! BulbSpriteNode
-            if bulb.id == spriteNode.id {
-              bulb.positionX = Float(node.position.x)
-              bulb.positionY = Float(node.position.y)
-              break
-            }
+override var shouldAutorotate: Bool {
+  return false
+}
+
+
+
+
+
+
+
+func saveBulbs(){
+  scene.enumerateChildNodes(withName: "//*", using:
+    { (node, stop) -> Void in
+      if node is BulbSpriteNode {
+        for bulb in self.bulbCollection {
+          let spriteNode = node as! BulbSpriteNode
+          if bulb.id == spriteNode.id {
+            bulb.positionX = Float(node.position.x)
+            bulb.positionY = Float(node.position.y)
+            break
           }
         }
-    })
-  }
-  
-  // delegate functions
-  override   func clickBulb(id: String, segue: String){
-    self.bulbId = id
-    performSegue(withIdentifier: segue, sender: nil)
-  }
-  
-  
-  
-  
-  
-  
-  override func groupSelected(groupSelected: Bool) {
-    // not used here
-  }
-  override func selectedBulbs(bulbs: [Bulb]){
-    
-  }
-  override func getBulbs() -> [Bulb]{
-    return self.bulbCollection
-  }
+      }
+  })
+}
 
-  override func getGroups() -> [Group]{
-    return self.groupCollection
-  }
+// delegate functions
+override   func clickBulb(id: String, segue: String){
+  self.bulbId = id
+  performSegue(withIdentifier: segue, sender: nil)
+}
 
+
+
+
+
+
+override func groupSelected(groupSelected: Bool) {
+  // not used here
+}
+override func selectedBulbs(bulbs: [Bulb]){
   
-  
+}
+override func getBulbs() -> [Bulb]{
+  return self.bulbCollection
+}
+
+override func getGroups() -> [Group]{
+  return self.groupCollection
+}
+
+
+
 }
