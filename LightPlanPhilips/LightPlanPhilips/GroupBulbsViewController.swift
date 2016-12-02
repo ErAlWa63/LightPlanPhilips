@@ -23,6 +23,13 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   var groupCollection: [Group] = []
   var roomId: String = ""
   var area: Bool = false
+  var groupTypeName: String?
+  var groupTypeIcon: UIImage?
+  var groupSelected: Bool = false
+  var groupNameFilled: Bool = false
+  var selectedBulbs: [Bulb] = []
+  var scene: RoomScene!
+  
   
   @IBOutlet weak var groupName: UITextField!
   
@@ -38,15 +45,16 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     if isArea.currentTitle == "☐" {
       isArea.setTitle("☒", for: .normal)
       area = true
-      chooseButton.setTitle("choose area >", for: .normal)    } else {
+      chooseButton.setTitle("choose area >", for: .normal)
+    } else {
       isArea.setTitle("☐", for: .normal)
       area = false
       chooseButton.setTitle("choose type >", for: .normal)
-      
-      
-      
-      
     }
+    chooseButton.setImage(nil, for: .normal)
+    groupTypeName = nil
+    groupTypeIcon = nil
+    enableDisableButton()
   }
   
   
@@ -60,8 +68,6 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       groupNameFilled = false
     }
     enableDisableButton()
-    
-    
   }
   
   
@@ -94,6 +100,8 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     
     group.positionX = positionX / numberInGroup
     group.positionY = positionY / numberInGroup
+    group.groupTypeName = groupTypeName
+    group.groupTypeIcon = groupTypeIcon
   
     dismiss(animated: true, completion: nil)
   }
@@ -101,39 +109,19 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   @IBAction func unwindToGroup(segue: UIStoryboardSegue) {
     if let svc = segue.source as? ChooseItemTableViewController {
-      var name: String
-      var image :UIImage
-        
-      name  = svc.itemName
-      image = svc.itemImage
-        chooseButton.setTitle("   \(name) >", for: .normal)
-      chooseButton.setImage(image, for: .normal)
+      groupTypeName  = svc.itemName
+      groupTypeIcon = svc.itemImage
+      chooseButton.setTitle("   \(groupTypeName!) >", for: .normal)
+      chooseButton.setImage(groupTypeIcon, for: .normal)
     }
-  
-  
-  
+    enableDisableButton()
   }
   
-  var groupSelected: Bool = false
-  var groupNameFilled: Bool = false
-  var selectedBulbs: [Bulb] = []
-  
-  
-  var scene: RoomScene!
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    
-
-  }
-  
-  
-  
-  
-  override func viewWillAppear(_ animated: Bool) {
     bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
-    print("group view \(self.bulbCollection)")
     
     self.groupName.delegate = self
     
@@ -155,10 +143,13 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       view.showsFPS = true
       view.showsNodeCount = true
     }
-    
-    
-    
-    
+  }
+  
+  
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+
   }
   
   
@@ -171,7 +162,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   
   func enableDisableButton() {
-    if self.groupSelected && self.groupNameFilled {
+    if self.groupSelected && self.groupNameFilled && groupTypeName != nil {
       createGroup.isHidden = false
     } else {
       createGroup.isHidden = true
@@ -180,13 +171,13 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   func textFieldDidBeginEditing(_ textField: UITextField) {
     // started typing, move view up
-    self.view.frame.origin.y -= 100
+    self.view.frame.origin.y -= 250
     
   }
     
   func textFieldDidEndEditing(_ textField: UITextField) {
     // stopped typing, move view down
-    self.view.frame.origin.y += 100
+    self.view.frame.origin.y += 250
   }
   
   

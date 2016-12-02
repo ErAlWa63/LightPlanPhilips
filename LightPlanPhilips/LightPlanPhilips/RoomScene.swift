@@ -72,7 +72,8 @@ class RoomScene: SKScene {
     
     // place groups
     for group in groups {
-      let sprite = BulbSpriteNode(type: NodeType.group, id: group.id)
+      //let sprite = BulbSpriteNode(type: NodeType.group, id: group.id)
+      let sprite = BulbSpriteNode(lightTypeIcon: group.groupTypeIcon!, type: NodeType.group, id: group.id)
       sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
       sprite.setScale(1.5)
       sprite.name = group.name

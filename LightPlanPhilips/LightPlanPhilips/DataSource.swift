@@ -37,9 +37,9 @@ class DataSource: NSObject {
   func getGroupAreas() -> [ChooseItem]{
     var items:[ChooseItem] = []
 
-    items.append(ChooseItem(name: "Floorstand", image: UIImage(named: "Floorstand")!))
-    items.append(ChooseItem(name: "Dining", image: UIImage(named: "Dining")!))
-    items.append(ChooseItem(name: "Pendant", image: UIImage(named: "Pendant")!))
+    items.append(ChooseItem(name: "Livingarea", image: UIImage(named: "Floorstand")!))
+    items.append(ChooseItem(name: "Diningarea", image: UIImage(named: "Dining")!))
+    items.append(ChooseItem(name: "Kitchenarea", image: UIImage(named: "Pendant")!))
     return items
   }
   
