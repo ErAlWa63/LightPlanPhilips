@@ -52,9 +52,9 @@
     dismiss(animated: true, completion: nil)
   }
   @IBAction func removeButton(_ sender: Any) {
-    if var delegateBulb = delegateBulb {
-     // delegateBulb.name = nil
-    }
+//    if var delegateBulb = delegateBulb {
+//     // delegateBulb.name = nil
+//    }
     dismiss(animated: true, completion: nil)
   }
   
@@ -66,11 +66,11 @@
     
     
     
-    if var delegateBulb = delegateBulb {
-      if let temporaryNameLight = temporaryNameLight {
-       // delegateBulb.nameLight = temporaryNameLight
-      }
-    }
+//    if var delegateBulb = delegateBulb {
+////      if let temporaryNameLight = temporaryNameLight {
+////       // delegateBulb.nameLight = temporaryNameLight
+////      }
+//    }
     dismiss(animated: true, completion: nil)
   }
   
@@ -123,7 +123,7 @@
     chooseLightTypeButton.tintColor          = UIColor.black
     chooseLightTypeButton.contentEdgeInsets  = UIEdgeInsetsMake(0, -90, 0, 0)
     chooseLightTypeButton.titleEdgeInsets    = UIEdgeInsetsMake(0,  20, 0, 0)
-    if let delegateBulb = delegateBulb {
+//    if let delegateBulb = delegateBulb {
 //      if let nameLight = delegateBulb.nameLight {
 //        temporaryNameLight = NameLight(name: nameLight.name, lightTypeIndex: nameLight.lightTypeIndex)
 //        delegateLightTypeIndex = nameLight.lightTypeIndex
@@ -144,12 +144,12 @@
 //          chooseLightTypeButton.setTitle(DataLightPlan.sharedInstance.listLightType[temporaryNameLight.lightTypeIndex].name, for: .normal)
 //        }
 //      }
-    } else {
-      nameLightType.textColor = UIColor.red
-      nameLightType.text = "< no single lamp selected >"
-      removeButton.isHidden = true
-      saveButton.isHidden = true
-    }
+//    } else {
+//      nameLightType.textColor = UIColor.red
+//      nameLightType.text = "< no single lamp selected >"
+//      removeButton.isHidden = true
+//      saveButton.isHidden = true
+//    }
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
     tapRecognizer.numberOfTapsRequired = 1
   }

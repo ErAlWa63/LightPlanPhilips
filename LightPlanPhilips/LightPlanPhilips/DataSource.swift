@@ -15,7 +15,14 @@ class DataSource: NSObject {
   
   func createData() {
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png"))
-    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "Kitchen", file: "kitchen.png"))
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "Kitchen", file: "kitchen.png", grid: [
+      false, false, false, false, false, false, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false, false, false, false, false, false, false]))
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "Bedroom", file: "bedroom.png"))
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "Open space", description: "Definable areas", file: "Open space.png"))
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 0))
@@ -26,11 +33,6 @@ class DataSource: NSObject {
     myHome.unassignedBulbs.append(Bulb())
     myHome.unassignedBulbs.append(Bulb())
   }
-  
-  
-  
-  
-  
   
   func getGroupAreas() -> [ChooseItem]{
     var items:[ChooseItem] = []

@@ -52,10 +52,6 @@ class SelectRoomTypeViewController: UIViewController {
       }
     }
   }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-  }
 }
 
 extension SelectRoomTypeViewController: UICollectionViewDataSource {
