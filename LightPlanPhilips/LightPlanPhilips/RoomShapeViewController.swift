@@ -4,6 +4,9 @@ class RoomShapeViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
+  let debug = Debug() // debugger functionality
+
+  
   @IBOutlet weak var gridButton_0_0: UIButton!
   @IBOutlet weak var gridButton_1_0: UIButton!
   @IBOutlet weak var gridButton_2_0: UIButton!

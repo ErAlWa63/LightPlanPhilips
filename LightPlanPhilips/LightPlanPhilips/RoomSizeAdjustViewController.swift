@@ -16,7 +16,8 @@ class RoomSizeAdjustViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    if let view = self.view as! SKView? {
+    debug.console(message: "start", file: #file, function: #function, line: #line)
+   if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomSizeAdjustScene") as? RoomSizeAdjustScene
       if let scene = scene {

@@ -1,4 +1,7 @@
 class RoomShapeModel {
+  let debug = Debug() // debugger functionality
+
+  
   func processCell( index: Int) -> Bool {
     switch index {
     case 0:                                                                         return allowedCorner(index: index, angle: .Normal)
@@ -338,6 +341,8 @@ class RoomShapeModel {
             }
           }
         }
+        debug.console(message: "corner = \(corner)", file: #file, function: #function, line: #line)
+
         return corner
       }
     } else {

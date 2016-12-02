@@ -23,8 +23,16 @@ class DataSource: NSObject {
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
       false, false, false, false, false, false, false]))
-    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "Bedroom", file: "bedroom.png"))
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "Bedroom", file: "bedroom.png", grid: [
+      false,  true, false,  true, false,  true, false,
+      true,  true,  true,  true,  true,  true,  true,
+      false,  true, false,  true, false,  true, false,
+      false, false, false, false, false,  true,  true,
+      false,  true, false,  true, false,  true, false,
+      true,  true,  true,  true,  true,  true,  true,
+      false,  true, false,  true, false,  true, false]))
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "Open space", description: "Definable areas", file: "Open space.png"))
+
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 0))
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))

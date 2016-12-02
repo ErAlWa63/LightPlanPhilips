@@ -46,8 +46,11 @@ class RoomSizeAdjustScene: SKScene {
       if delegateRoomSizeAdjust {
         debug.console(message: "delegateRoomSizeAdjust = \(delegateRoomSizeAdjust)", file: #file, function: #function, line: #line)
         view.backgroundColor = UIColor.white
-//        var edge = DataLightPlan.sharedInstance.edge
-        var edge : [Point] = []
+                var edge : [Point] = []
+//        if let myHome = myHome {
+//          edge = myHome.rooms[myHome.selectedRoom].edge
+//        }
+
 
         if edge.count != 0 {
           debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
