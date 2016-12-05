@@ -4,6 +4,9 @@ class RoomShapeViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
+  let debug = Debug() // debugger functionality
+
+  
   @IBOutlet weak var gridButton_0_0: UIButton!
   @IBOutlet weak var gridButton_1_0: UIButton!
   @IBOutlet weak var gridButton_2_0: UIButton!
@@ -75,9 +78,9 @@ class RoomShapeViewController: UIViewController {
   @IBAction func nextButton(_ sender: Any) {
     if let myHome = myHome {
       myHome.rooms[myHome.selectedRoom].edge = roomShapeModel.processNext()
+      debug.console(message: "start", file: #file, function: #function, line: #line)
     }
   }
-  //  if myHome.rooms[myHome.selectedRoom].gridCell[index] {
   
   
   @IBOutlet weak var nextButton: UIButton!
@@ -85,6 +88,7 @@ class RoomShapeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     if let myHome = myHome {
+      roomShapeModel.myHome = myHome
       var gridButtons : [UIButton] = []
       gridButtons.append(gridButton_0_0)
       gridButtons.append(gridButton_1_0)
