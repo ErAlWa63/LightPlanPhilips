@@ -1,6 +1,7 @@
 class RoomShapeModel {
-  let debug = Debug() // debugger functionality
+  var myHome : Home?
 
+  let debug = Debug() // debugger functionality
   
   func processCell( index: Int) -> Bool {
     switch index {
@@ -23,7 +24,6 @@ class RoomShapeModel {
   }
   
 //  var edge : [Point] = []
-  var myHome : Home?
   
   private let addFrame4    = [ true,  true, false,  true,  true, false,  true,  true]
   private let removeFrame4 = [ true,  true,  true,  true,  true, false,  true,  true]

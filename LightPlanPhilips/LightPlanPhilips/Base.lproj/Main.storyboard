@@ -1260,6 +1260,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="nextButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="1C2-tj-JkA"/>
                                     <segue destination="Ibe-6i-sGZ" kind="show" identifier="RoomSizeAdjustSegue" id="fjc-kK-lxR"/>
                                 </connections>
                             </button>

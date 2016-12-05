@@ -1,14 +1,7 @@
-//
-//  PlaceFurnitureViewController.swift
-//  LightPlanPhilips
-//
-//  Created by Erik Waterham on 02/12/2016.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-
 import UIKit
 
 class PlaceFurnitureViewController: UIViewController {
+  let debug = Debug() // debugger functionality
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,4 +25,29 @@ class PlaceFurnitureViewController: UIViewController {
     }
     */
 
+}
+extension PlaceFurnitureViewController: UICollectionViewDataSource {
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
+    return 1
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
+    return 10
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+    let lbl = UILabel(frame: cell.contentView.frame)
+    lbl.textColor = UIColor.green
+    lbl.textAlignment = .center
+    lbl.text = "Cell: \(indexPath.row + 1)"
+    cell.addSubview(lbl)
+    return cell
+  }
+}
+
+extension PlaceFurnitureViewController: UICollectionViewDelegate {
 }

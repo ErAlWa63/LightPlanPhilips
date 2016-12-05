@@ -81,7 +81,6 @@ class RoomShapeViewController: UIViewController {
       debug.console(message: "start", file: #file, function: #function, line: #line)
     }
   }
-  //  if myHome.rooms[myHome.selectedRoom].gridCell[index] {
   
   
   @IBOutlet weak var nextButton: UIButton!
@@ -89,6 +88,7 @@ class RoomShapeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     if let myHome = myHome {
+      roomShapeModel.myHome = myHome
       var gridButtons : [UIButton] = []
       gridButtons.append(gridButton_0_0)
       gridButtons.append(gridButton_1_0)
