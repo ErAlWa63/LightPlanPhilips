@@ -18,13 +18,12 @@ class RoomSizeAdjustViewController: UIViewController {
   
   @IBAction func nextButton(_ sender: Any) {
   }
-  
-  @IBOutlet weak var sizeTextField: UITextField!
+  @IBOutlet weak var nextButton: UIButton!
   
   var scene: RoomSizeAdjustScene?
   override func viewDidLoad() {
     super.viewDidLoad()
-    sizeTextField.isHidden = true
+    nextButton.isHidden = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
