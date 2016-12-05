@@ -46,11 +46,6 @@ class RoomViewController: SceneViewController {
 //click group button
 @IBAction func groupClicked(_ sender: Any) {
   saveBulbs()
-  //
-  
-  
-  
-  
   performSegue(withIdentifier: "CreateGroup", sender: nil)
 }
 

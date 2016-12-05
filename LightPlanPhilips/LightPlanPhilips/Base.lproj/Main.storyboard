@@ -70,7 +70,7 @@
                                                 <rect key="frame" x="0.0" y="125.5" width="30" height="62.5"/>
                                                 <state key="normal" title="T3"/>
                                                 <connections>
-                                                    <segue destination="g8Q-k0-1es" kind="show" identifier="LightsSegue" id="qII-Wp-Mj5"/>
+                                                    <segue destination="jt6-n6-G48" kind="show" identifier="LightsSegue" id="cBv-hO-gsC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1937,7 +1937,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3323" y="326"/>
+            <point key="canvasLocation" x="-3576" y="468"/>
         </scene>
         <!--Create Group View Controller-->
         <scene sceneID="ee8-GI-Lts">
@@ -2351,11 +2351,131 @@
             </objects>
             <point key="canvasLocation" x="-2210.625" y="1271.8309859154929"/>
         </scene>
+        <!--Place Bulb View Controller-->
+        <scene sceneID="o00-G7-Kui">
+            <objects>
+                <viewController id="jt6-n6-G48" customClass="PlaceBulbViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QSr-Xc-E4p"/>
+                        <viewControllerLayoutGuide type="bottom" id="elS-mB-uag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kbd-fQ-MR1" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jg-tj-tH0" userLabel="Cancel">
+                                <rect key="frame" x="284" y="20" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="IVV-l7-DtS"/>
+                                    <constraint firstAttribute="width" constant="20" id="X0V-Sr-u2j"/>
+                                </constraints>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" red="0.031372549020000001" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="53T-nv-rqb"/>
+                                    <action selector="cancelButton:" destination="sqM-BW-dRz" eventType="touchUpInside" id="8iU-ln-rzZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGK-ky-8sv">
+                                <rect key="frame" x="16" y="20" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="YUf-Ox-h3L"/>
+                                    <constraint firstAttribute="height" constant="30" id="z4p-dK-FhN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ1-4F-Bez">
+                                <rect key="frame" x="46" y="50" width="228" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="tJp-XV-flL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6c-K6-A1w">
+                                <rect key="frame" x="66" y="498" width="188" height="50"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CNn-bI-wP8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="g8Q-k0-1es" kind="show" identifier="ShowBulbs" id="NdK-oX-y5S"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xVD-Iq-omE">
+                                <rect key="frame" x="0.0" y="416" width="320" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZMT-Xd-dlZ">
+                                    <size key="itemSize" width="54" height="64"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="bYH-x6-a6h" customClass="addBulbCell" customModule="LightPlanPhilips" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5" width="54" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="54" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCE-JM-U1v">
+                                                    <rect key="frame" x="6" y="42" width="42" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDn-2b-3SS">
+                                                    <rect key="frame" x="8" y="4" width="39" height="39"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="bulbIcon" destination="cDn-2b-3SS" id="kxN-7W-NN1"/>
+                                            <outlet property="bulbName" destination="LCE-JM-U1v" id="wdq-4f-uEb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="jt6-n6-G48" id="Wrl-Lg-URz"/>
+                                    <outlet property="delegate" destination="jt6-n6-G48" id="cHA-oG-rE6"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="o6c-K6-A1w" firstAttribute="leading" secondItem="kbd-fQ-MR1" secondAttribute="leadingMargin" constant="50" id="1VO-vo-cjG"/>
+                            <constraint firstAttribute="bottom" secondItem="o6c-K6-A1w" secondAttribute="bottom" constant="20" id="Avf-if-NDj"/>
+                            <constraint firstItem="zGK-ky-8sv" firstAttribute="leading" secondItem="kbd-fQ-MR1" secondAttribute="leadingMargin" id="FGv-Oi-Xwe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TZ1-4F-Bez" secondAttribute="trailing" constant="30" id="FN2-CV-fQ6"/>
+                            <constraint firstItem="TZ1-4F-Bez" firstAttribute="leading" secondItem="kbd-fQ-MR1" secondAttribute="leadingMargin" constant="30" id="QqM-YA-7d6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1jg-tj-tH0" secondAttribute="trailing" id="Qqo-Ih-KRi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o6c-K6-A1w" secondAttribute="trailing" constant="50" id="TXL-QH-34j"/>
+                            <constraint firstItem="zGK-ky-8sv" firstAttribute="top" secondItem="QSr-Xc-E4p" secondAttribute="bottom" id="ePR-A8-0Pa"/>
+                            <constraint firstItem="TZ1-4F-Bez" firstAttribute="top" secondItem="QSr-Xc-E4p" secondAttribute="bottom" constant="30" id="hPr-Q0-vNH"/>
+                            <constraint firstItem="1jg-tj-tH0" firstAttribute="top" secondItem="QSr-Xc-E4p" secondAttribute="bottom" id="kEQ-8V-dBM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UoK-A3-wxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4674.375" y="467.95774647887322"/>
+        </scene>
     </scenes>
     <resources>
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qII-Wp-Mj5"/>
+        <segue reference="NdK-oX-y5S"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -86,8 +86,8 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     
     // get all bulbs in group
     for bulb in selectedBulbs {
-      positionX += bulb.positionX!
-      positionY += bulb.positionY!
+      positionX += bulb.positionX
+      positionY += bulb.positionY
       
       DataSource.sharedInstance.moveBulbFromRoomToGroup(bulbId: bulb.id, groupId: groupId)
     }
