@@ -2,13 +2,13 @@ import SpriteKit
 
 class RoomSizeAdjustScene: SKScene {
   var myHome : Home?
-
+  
   let roomShapeModel = RoomShapeModel()
   struct Point {
     var x: Int
     var y: Int
   }
-
+  
   let debug = Debug() // debugger functionality
   var delegateRoomSizeAdjust: Bool?
   
@@ -19,18 +19,6 @@ class RoomSizeAdjustScene: SKScene {
   
   let dataSource = DataSource.sharedInstance
   
-  var bulbCollection = [Bulb]()
-  var groups: [Group] = []
-  var groupCollection = [[Bulb]]()
-  var selectedBulbs = [String:Bool]()
-  var bulbs = [String: Bulb ]()
-  
-  //  let bulbSprite = bulbSpriteNode(imageName: "Bulb")
-  //  let groupSprite = bulbSpriteNode(imageNamed: "Bulb group")
-  //  var selectedNode = bulbSpriteNode()
-  
-  
-  
   override func didMove(to view: SKView) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
     delegateRoomSizeAdjust = true
@@ -39,15 +27,13 @@ class RoomSizeAdjustScene: SKScene {
       if delegateRoomSizeAdjust {
         debug.console(message: "delegateRoomSizeAdjust = \(delegateRoomSizeAdjust)", file: #file, function: #function, line: #line)
         view.backgroundColor = UIColor.white
-                var edge : [RoomShapeModel.Point] = []
+        var edge : [RoomShapeModel.Point] = []
         if let myHome = myHome {
           debug.console(message: "start", file: #file, function: #function, line: #line)
           edge = myHome.rooms[myHome.selectedRoom].edge
           debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
-
         }
-
-
+        
         if edge.count != 0 {
           debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
           let shape = UIBezierPath()
@@ -92,8 +78,6 @@ class RoomSizeAdjustScene: SKScene {
             shape.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
             shape.position = CGPoint(x: midX, y: midY)
             shape.fillColor = UIColor.black
-            //            shape.strokeColor = UIColor.black
-            //            shape.lineWidth = 2
             addChild(shape)
             let label = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
             label.text = "?"
@@ -101,206 +85,91 @@ class RoomSizeAdjustScene: SKScene {
             label.fontColor = SKColor.white
             label.position = CGPoint(x: midX, y: midY + 40)
             self.addChild(label)
-            
           }
-          
         }
-        
-        
       }
     }
-    // get bulbs
-    // get groups
-    
-    if let roomSceneDelegate = roomSceneDelegate {
-      debug.console(message: "start", file: #file, function: #function, line: #line)
-      bulbCollection = roomSceneDelegate.getBulbs()
-    }
-    //    bulbCollection = (roomSceneDelegate?.getBulbs())!
-    
-    //    groups = (roomSceneDelegate?.getGroups())!
-    
-    //place bulbs
-    //    for bulb in bulbCollection {
-    //      let sprite = bulbSprite.copy() as! bulbSpriteNode
-    //      sprite.type = "bulb"
-    //      sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
-    //      sprite.setScale(1.5)
-    //      sprite.name = bulb.name
-    //      selectedBulbs[bulb.name] = false
-    //      self.addChild(sprite)
-    //    }
-    
-    // place groups
-    //    for group in groups {
-    //      let sprite = groupSprite.copy() as! bulbSpriteNode
-    //      sprite.type = "group"
-    //      sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
-    //      sprite.setScale(1.5)
-    //      sprite.name = group.name
-    //
-    //      self.addChild(sprite)
   }
-  
-  
   
   var movableNode : SKNode?
   var lastLocationInRoom: CGPoint?
-  
+  let highScoreText = UITextField (frame: CGRect(x: 100, y: 450, width: 200, height: 20))
+  var tapRecognizer : UITapGestureRecognizer?
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    
-//    if let touch = touches.first {
-//      let location = touch.location(in: self)
-//      let touchedNodes = self.nodes(at: location)
-      
-//      for node in touchedNodes {
-//        if node is bulbSpriteNode {
-//          if dragDropEnabled {
-//            // move bulb
-//            movableNode = node
-//            movableNode!.position = location
-//          } else {
-//            if createGroup {
-//              // check if bulb has been selected
-//              if selectedBulbs[node.name!]! == false {
-//                
-//                // add blinking animation
-//                let expandAction = SKAction.scale(to: 2, duration: 0.33)
-//                let contractAction = SKAction.scale(to: 1.5, duration: 0.33)
-//                let pulsateAction = SKAction.repeatForever(SKAction.sequence([expandAction, contractAction]))
-//                node.run(pulsateAction)
-//                
-//                // add bulb to collection of selected bulbs
-//                selectedBulbs[node.name!]! = true
-//              } else {
-//                // remove blinking animation
-//                node.removeAllActions()
-//                let restoreScaleAcction = SKAction.scale(to: 1.5, duration: 0.1)
-//                node.run(restoreScaleAcction)
-//                
-//                // remove bulb from collection of selected bulbs
-//                bulbs.removeValue(forKey: node.name!)
-//                selectedBulbs[node.name!]! = false
-//              }
-//              
-//              // check if we have group (at least two selected)
-//              if checkIfGroup() {
-//                var groupBulbs = [Bulb]()
-//                for bulb in bulbCollection {
-//                  if selectedBulbs[bulb.name] == true {
-//                    groupBulbs.append(bulb)
-//                  }
-//                }
-//                
-//                roomSceneDelegate?.selectedBulbs(bulbs: groupBulbs)
-//                roomSceneDelegate?.groupSelected(groupSelected: true)
-//              } else {
-//                roomSceneDelegate?.groupSelected(groupSelected: false)
-//              }
-//            } else {
-//              let bulbNode = node as! bulbSpriteNode
-//              if bulbNode.type == "bulb" {
-//                print("een enkele lamp")
-//                roomSceneDelegate?.clickBulb(bulbName: node.name!)
-//                
-//                
-//                // segue NameLightSegue
-//                //performSegue(withIdentifier: "§", sender: nil)
-//                
-//              } else {
-//                print("een groep")
-//              }
-//            }
-//          }
-//        }
-//      }
-//    }
+    if let view = view {
+      debug.console(message: "start", file: #file, function: #function, line: #line)
+      self.backgroundColor = UIColor.white
+      highScoreText.center = CGPoint(x: 100, y: 400)
+      highScoreText.borderStyle = UITextBorderStyle.roundedRect
+      highScoreText.textColor = UIColor.black
+      highScoreText.placeholder = "Size"
+      highScoreText.backgroundColor = UIColor.white
+      highScoreText.autocorrectionType = UITextAutocorrectionType.yes
+      highScoreText.keyboardType = UIKeyboardType.decimalPad
+      highScoreText.clearButtonMode = UITextFieldViewMode.whileEditing
+      highScoreText.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+      view.addSubview(highScoreText)
+      if tapRecognizer == nil {
+        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
+        if let tapRecognizer = tapRecognizer {
+          tapRecognizer.numberOfTapsRequired = 1
+        }
+      }
+    }
+  }
+  func handleSingleTap(recognizer: UITapGestureRecognizer) {
+    if let view = view {
+      view.endEditing(true)
+    }
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
-    if let touch = touches.first, movableNode != nil {
-      let location = touch.location(in: self)
-      
-      let touchedNodes = self.nodes(at: location)
-      
-      for node in touchedNodes {
-        if node is SKShapeNode {
-          lastLocationInRoom = location
-          movableNode!.position = location
-        }
-      }
-    }
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
-    if let touch = touches.first, movableNode != nil {
-      
-      let location = touch.location(in: self)
-      let touchedNodes = self.nodes(at: location)
-      var endedInRoom: Bool = false
-      
-      
-      for node in touchedNodes {
-        if node is SKShapeNode {
-          endedInRoom = true
-          lastLocationInRoom = location
-        }
-      }
-      
-      if endedInRoom {
-        movableNode!.position = location
-      } else {
-        movableNode!.position = lastLocationInRoom!
-      }
-      movableNode = nil
-    }
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
-    if touches.first != nil {
-      movableNode = nil
+  }
+}
+
+extension RoomSizeAdjustScene : UITextFieldDelegate {
+  //  func textFieldDidBeginEditing(_ textField: UITextField) {
+  //    if let view = view {
+  //      view.frame.origin.y -= 100
+  //    }
+  //  }
+  //
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    if let view = view {
+      view.frame.origin.y += 100
     }
   }
   
-  
-  
-  
-  
-  
-  
-  func checkIfGroup() -> Bool{
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    var counter: Int = 0
-    
-    for bulb in selectedBulbs {
-      if bulb.value == true {
-        counter += 1
-      }
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if let view = view {
+      view.endEditing(true)
     }
-    if counter >= 2 {
-      return true
-    } else {
-      return false
+    return false
+  }
+  func animateTextField(textField: UITextField, up: Bool, height: CGFloat) {
+    if let view = view {
+      UIView.beginAnimations("animateTextField", context: nil)
+      UIView.setAnimationBeginsFromCurrentState(true)
+      UIView.setAnimationDuration(0.3)
+      view.frame = view.frame.offsetBy(dx: 0, dy: (up ? height - 250 : 250 - height))
+      UIView.commitAnimations()
     }
   }
   
-  
-  
-  
-  func createNewGroup() {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    
-    let group = [Bulb]()
-    
-    self.groupCollection.append(group)
-    
-    createGroup = true
-    
+  internal func textFieldDidBeginEditing(_ textField: UITextField) {
+    if let view = view {
+      animateTextField(textField: textField, up: true, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
+    }
   }
   
 }

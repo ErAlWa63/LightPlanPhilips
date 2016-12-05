@@ -6,13 +6,25 @@ class RoomSizeAdjustViewController: UIViewController {
   var closureToPerform: ((Home) -> Void)?
   
   let debug = Debug() // debugger functionality
-  @IBAction func cancelButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+  
+  @IBOutlet weak var backButton: UIButton!
+  @IBAction func backButton(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
   }
+  
+  @IBAction func cancelButton(_ sender: Any) {
+    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func nextButton(_ sender: Any) {
+  }
+  
+  @IBOutlet weak var sizeTextField: UITextField!
   
   var scene: RoomSizeAdjustScene?
   override func viewDidLoad() {
     super.viewDidLoad()
+    sizeTextField.isHidden = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -36,37 +48,4 @@ class RoomSizeAdjustViewController: UIViewController {
       }
     }
   }
-  
-  override var shouldAutorotate: Bool {
-    return false
-  }
-  
-  //  private func saveBulbs(){
-  //    if let scene = scene {
-  //      scene.enumerateChildNodes(withName: "//*", using:
-  //        { (node, stop) -> Void in
-  //          if node is SKSpriteNode {
-  //            for bulb in self.bulbCollection {
-  //              if bulb.name == node.name {
-  //                bulb.positionX = Float(node.position.x)
-  //                bulb.positionY = Float(node.position.y)
-  //                break
-  //              }
-  //            }
-  //          }
-  //      }
-  //      )
-  //    }
-  //  }
 }
-
-// delegate functions
-internal func groupSelected(groupSelected: Bool) {
-  // not used here
-}
-func selectedBulbs(bulbs: [Bulb]){
-  
-}
-
-
-//}
