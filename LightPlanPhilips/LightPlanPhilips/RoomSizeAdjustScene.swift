@@ -1,15 +1,8 @@
-//
-//  RoomSizeAdjustScene.swift
-//  LightPlanPhilips
-//
-//  Created by Erik Waterham on 25-11-16.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-
 import SpriteKit
 
-
 class RoomSizeAdjustScene: SKScene {
+  var myHome : Home?
+
   let roomShapeModel = RoomShapeModel()
   struct Point {
     var x: Int
@@ -46,10 +39,13 @@ class RoomSizeAdjustScene: SKScene {
       if delegateRoomSizeAdjust {
         debug.console(message: "delegateRoomSizeAdjust = \(delegateRoomSizeAdjust)", file: #file, function: #function, line: #line)
         view.backgroundColor = UIColor.white
-                var edge : [Point] = []
-//        if let myHome = myHome {
-//          edge = myHome.rooms[myHome.selectedRoom].edge
-//        }
+                var edge : [RoomShapeModel.Point] = []
+        if let myHome = myHome {
+          debug.console(message: "start", file: #file, function: #function, line: #line)
+          edge = myHome.rooms[myHome.selectedRoom].edge
+          debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
+
+        }
 
 
         if edge.count != 0 {
@@ -77,8 +73,8 @@ class RoomSizeAdjustScene: SKScene {
           var midX = 0.0
           var midY = 0.0
           for index in 0 ..< edge.count {
-            var firstPoint: Point
-            var secondPoint: Point
+            var firstPoint: RoomShapeModel.Point
+            var secondPoint: RoomShapeModel.Point
             if index == 0 {
               firstPoint = edge[index]
               secondPoint = edge[edge.count - 1]

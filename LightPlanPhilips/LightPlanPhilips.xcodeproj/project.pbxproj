@@ -18,6 +18,8 @@
 		030CD8161DF07EFD00232D8D /* RoomShapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */; };
 		030E81BF1DE6DB6100A2301B /* TestSKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */; };
 		0311F65A1DE5A07000FDB150 /* Open space.png in Resources */ = {isa = PBXBuildFile; fileRef = 0311F6591DE5A07000FDB150 /* Open space.png */; };
+		0312B1371DF55D2E00044DB7 /* PlaceFurnitureScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */; };
+		0312B1391DF55D5300044DB7 /* PlaceFurnitureScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312B1381DF55D5300044DB7 /* PlaceFurnitureScene.swift */; };
 		031CEBD81DD3831D00E40BCF /* NameLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */; };
 		031DB0861DEEBDAB006C0F66 /* MyRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */; };
 		0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4991DD1E3BD00CB13BE /* A1.1.png */; };
@@ -102,6 +104,8 @@
 		030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShapeModel.swift; sourceTree = "<group>"; };
 		030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSKViewController.swift; sourceTree = "<group>"; };
 		0311F6591DE5A07000FDB150 /* Open space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Open space.png"; sourceTree = "<group>"; };
+		0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlaceFurnitureScene.sks; sourceTree = "<group>"; };
+		0312B1381DF55D5300044DB7 /* PlaceFurnitureScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceFurnitureScene.swift; sourceTree = "<group>"; };
 		031CEBD71DD3831D00E40BCF /* NameLightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameLightViewController.swift; sourceTree = "<group>"; };
 		031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoomTableViewCell.swift; sourceTree = "<group>"; };
 		0321F4991DD1E3BD00CB13BE /* A1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.1.png; sourceTree = "<group>"; };
@@ -264,7 +268,9 @@
 			children = (
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
 				03013F161DE838BB002BBA6B /* RoomSizeAdjustScene.sks */,
+				0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */,
 				03013F141DE8389B002BBA6B /* RoomSizeAdjustScene.swift */,
+				0312B1381DF55D5300044DB7 /* PlaceFurnitureScene.swift */,
 				039137431DE4448000A6FB1E /* Extension UIButton.swift */,
 				0374EB351DD67330002165CD /* TestButton.swift */,
 			);
@@ -433,6 +439,7 @@
 				03B2B19E1DDA162F00CCFF70 /* toilet.png in Resources */,
 				0321F4B51DD1E40200CB13BE /* B1.1.png in Resources */,
 				03B2B19D1DDA162F00CCFF70 /* living.png in Resources */,
+				0312B1371DF55D2E00044DB7 /* PlaceFurnitureScene.sks in Resources */,
 				03B2B18A1DDA160100CCFF70 /* table.png in Resources */,
 				0321F4B71DD1E40200CB13BE /* C1.1.png in Resources */,
 				0321F4A21DD1E3DC00CB13BE /* A1.2.png in Resources */,
@@ -474,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
+				0312B1391DF55D5300044DB7 /* PlaceFurnitureScene.swift in Sources */,
 				0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */,
 				03013F151DE8389B002BBA6B /* RoomSizeAdjustScene.swift in Sources */,
 				9C3DE6111DDB4A0600BDD092 /* SceneViewController.swift in Sources */,

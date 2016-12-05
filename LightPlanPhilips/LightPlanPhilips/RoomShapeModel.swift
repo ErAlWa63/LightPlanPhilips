@@ -22,7 +22,7 @@ class RoomShapeModel {
     var y: Int
   }
   
-  var edge : [Point] = []
+//  var edge : [Point] = []
   var myHome : Home?
   
   private let addFrame4    = [ true,  true, false,  true,  true, false,  true,  true]
