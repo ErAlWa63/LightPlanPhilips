@@ -14,8 +14,8 @@ class Bulb {
   var lightTypeName: String?
   var lightTypeIcon: UIImage?
   var selected: Bool
-  var positionX: Float?
-  var positionY: Float?
+  var positionX: Float = 0
+  var positionY: Float = 0
   
   
 
@@ -23,6 +23,15 @@ class Bulb {
     self.id =  UUID().uuidString
     self.selected = true
   }
+  
+  init(name: String, image: UIImage){
+    self.id =  UUID().uuidString
+    self.selected = true
+    self.lightTypeName = name
+    self.lightTypeIcon = image
+  }
+  
+  
   init( coordinateX: Float, coordinateY: Float) {
     self.id =  UUID().uuidString
     self.selected = true

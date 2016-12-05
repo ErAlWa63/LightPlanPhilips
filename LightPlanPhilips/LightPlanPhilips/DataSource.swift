@@ -32,19 +32,29 @@ class DataSource: NSObject {
       true,  true,  true,  true,  true,  true,  true,
       false,  true, false,  true, false,  true, false]))
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "Open space", description: "Definable areas", file: "Open space.png"))
-
-    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 0))
+    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 100))
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))
-
-    // create 2 bulbs and add to home (unassigned bulbs)
-    myHome.unassignedBulbs.append(Bulb())
-    myHome.unassignedBulbs.append(Bulb())
+    
+    // create some bulbs and add to home (unassigned bulbs)
+    
+    let image = UIImage(named: "Bulb")
+    myHome.unassignedBulbs.append(Bulb(name: "bulb1", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb2", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb3", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb4", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb5", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb6", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb7", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb8", image: image!))
+    myHome.unassignedBulbs.append(Bulb(name: "bulb9", image: image!))
+    
+    
   }
   
   func getGroupAreas() -> [ChooseItem]{
     var items:[ChooseItem] = []
-
+    
     items.append(ChooseItem(name: "Living area", image: UIImage(named: "Floorstand")!))
     items.append(ChooseItem(name: "Dining area", image: UIImage(named: "Dining")!))
     items.append(ChooseItem(name: "Kitchen area", image: UIImage(named: "Pendant")!))
@@ -63,7 +73,7 @@ class DataSource: NSObject {
   
   // get room
   func getRoom(roomId: String) -> Room? {
-//    return myHome.rooms.filter{ $0.id == roomId}
+    //    return myHome.rooms.filter{ $0.id == roomId}
     var foundRoom: Room?
     
     for room in myHome.rooms {
@@ -90,7 +100,7 @@ class DataSource: NSObject {
   
   
   func getBulb(bulbId: String) -> Bulb? {
-   
+    
     for bulb in getBulbsInHome() {
       if bulb.id == bulbId {
         return bulb
@@ -116,19 +126,26 @@ class DataSource: NSObject {
   
   
   
-  // add bulb to room
-  func addBulbToRoom(bulb: Bulb, roomId: String) {
-    // find room in home
-    for room in myHome.rooms {
-      if room.id == roomId {
-        // add bulb to room
-        room.assignedBulbs.append(bulb)
+  // add bulb to room and reove from home
+  func moveBulbFromHomeToRoom(bulbId: String, roomId: String) {
+    var bulbCounter = 0
+    for bulb in myHome.unassignedBulbs {
+      if bulb.id == bulbId {
+        myHome.unassignedBulbs.remove(at: bulbCounter)
+        for room in myHome.rooms {
+          if room.id == roomId {
+            bulb.positionX = 0
+            bulb.positionY = 0
+            room.assignedBulbs.append(bulb)
+          }
+        }
       }
+      bulbCounter += 1
     }
   }
   
   
-
+  
   
   // move bulb from room and move to house
   func moveBulbFromRoomToHome(bulbId: String, roomId: String) {

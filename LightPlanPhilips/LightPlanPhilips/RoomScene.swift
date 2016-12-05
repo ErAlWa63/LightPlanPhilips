@@ -63,7 +63,7 @@ class RoomScene: SKScene {
         sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
       }
     
-      sprite.position = CGPoint(x: CGFloat(bulb.positionX!), y: CGFloat(bulb.positionY!))
+      sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
       sprite.setScale(1.5)
       sprite.name = bulb.name
       selectedBulbs[bulb.id] = false
@@ -218,6 +218,20 @@ class RoomScene: SKScene {
   }
   
 
+  func placeBulb(bulb: Bulb){
+  
+      let sprite: BulbSpriteNode
+
+      sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
+      sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
+      sprite.setScale(1.5)
+      sprite.name = bulb.name
+      selectedBulbs[bulb.id] = false
+      self.addChild(sprite)
+      bulbCollection.append(bulb)
+  }
+  
+  
   
   func checkIfGroup() -> Bool{
     debug.console(message: "start", file: #file, function: #function, line: #line)
