@@ -21,6 +21,7 @@
 		0312B1371DF55D2E00044DB7 /* PlaceFurnitureScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */; };
 		0312B1391DF55D5300044DB7 /* PlaceFurnitureScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312B1381DF55D5300044DB7 /* PlaceFurnitureScene.swift */; };
 		031DB0861DEEBDAB006C0F66 /* MyRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */; };
+		032162C61DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032162C51DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift */; };
 		0321F49A1DD1E3BD00CB13BE /* A1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F4991DD1E3BD00CB13BE /* A1.1.png */; };
 		0321F4A11DD1E3DC00CB13BE /* A1.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49B1DD1E3DC00CB13BE /* A1.0.png */; };
 		0321F4A21DD1E3DC00CB13BE /* A1.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0321F49C1DD1E3DC00CB13BE /* A1.2.png */; };
@@ -104,6 +105,7 @@
 		0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlaceFurnitureScene.sks; sourceTree = "<group>"; };
 		0312B1381DF55D5300044DB7 /* PlaceFurnitureScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceFurnitureScene.swift; sourceTree = "<group>"; };
 		031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoomTableViewCell.swift; sourceTree = "<group>"; };
+		032162C51DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceFurnitureCollectionCell.swift; sourceTree = "<group>"; };
 		0321F4991DD1E3BD00CB13BE /* A1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.1.png; sourceTree = "<group>"; };
 		0321F49B1DD1E3DC00CB13BE /* A1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.0.png; sourceTree = "<group>"; };
 		0321F49C1DD1E3DC00CB13BE /* A1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A1.2.png; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				0374EB0E1DD4ABAB002165CD /* Debug.swift */,
 				031DB0851DEEBDAB006C0F66 /* MyRoomTableViewCell.swift */,
 				030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */,
+				032162C51DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift */,
 				030CD8131DF0580B00232D8D /* CollectionViewCell.swift */,
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 				9C0BD1DF1DF05B4E000BA00C /* ChooseItemCell.swift */,
@@ -489,6 +492,7 @@
 				9C7D67691DDC4F4F00C0CEAF /* Room.swift in Sources */,
 				038531CE1DF1684D00776F9D /* PlaceFurnitureViewController.swift in Sources */,
 				9C4884A51DD3814400DE07EA /* RoomScene.swift in Sources */,
+				032162C61DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift in Sources */,
 				9C0BD1E21DF0600C000BA00C /* ChooseItem.swift in Sources */,
 				030B19E91DEC28B6000A9607 /* MyRoomViewController.swift in Sources */,
 				9C4884A91DD3829100DE07EA /* RoomViewController.swift in Sources */,

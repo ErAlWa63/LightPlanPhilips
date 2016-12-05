@@ -39,7 +39,7 @@ extension PlaceFurnitureViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     //    debug.console(message: "start", file: #file, function: #function, line: #line)
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeFurnitureCell", for: indexPath)
     let lbl = UILabel(frame: cell.contentView.frame)
     lbl.textColor = UIColor.green
     lbl.textAlignment = .center
