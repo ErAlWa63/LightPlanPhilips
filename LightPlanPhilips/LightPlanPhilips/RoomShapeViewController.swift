@@ -145,12 +145,13 @@ class RoomShapeViewController: UIViewController {
         if myHome.rooms[myHome.selectedRoom].gridCell[index] {
           gridButtons[index].color(rgbValue: 0xE7BF7E)
           myHome.rooms[myHome.selectedRoom].countCell += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[roomShapeModel.index2Point[index].x] += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[roomShapeModel.index2Point[index].y] += 1
           nextButton.isHidden = false
         } else {
           gridButtons[index].color(rgbValue: 0xD8D8D8)
         }
       }
-      //    roomShapeModel.toggle = roomShapeModel.toggle.map{ _ in false}
     }
   }
   

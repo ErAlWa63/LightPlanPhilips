@@ -140,13 +140,37 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
       animateTextField(up: false, height: view.frame.size.height - 400)
     }
   }
+  
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    let regex = try! NSRegularExpression(pattern: "^[-+]?[0-9]*\\.?[0-9]+$", options: [])
+    if let text = textField.text {
+      let matches = regex.matches(in: text, options:[], range: NSMakeRange(0, text.characters.count))
+      guard matches.count == 0
+        else {
+          textField.resignFirstResponder()
+          return isTextField2DoublePossible(textField)
+      }
+    }
+    return isTextField2DoublePossible(textField)
+  }
+  
+  private func isTextField2DoublePossible (_ textField: UITextField) -> Bool {
+    let doubleValue = Double(textField.text!)
+    if doubleValue != nil {
+      return stopTextFieldEditing()
+    } else {
+      return false
+    }
+  }
+  
+  private func stopTextFieldEditing () -> Bool {
     if let view = view {
       view.endEditing(true)
     }
-    return false
+    return true
   }
-  func animateTextField(up: Bool, height: CGFloat) {
+  
+  private func animateTextField(up: Bool, height: CGFloat) {
     if let view = view {
       UIView.beginAnimations("animateTextField", context: nil)
       UIView.setAnimationBeginsFromCurrentState(true)
@@ -159,23 +183,30 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
   internal func textFieldDidBeginEditing(_ textField: UITextField) {
     if let view = view {
       animateTextField(up: true, height: view.frame.size.height - 400)
+      textField.text = ""
     }
   }
+  
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//  let aSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
-//    if string.rangeOfCharacter(from: ".0123456789") == nil {
-//      return false
-//    }
-    let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-    let replacementTextHasDecimalSeparator = string.range(of: ".")
-    if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
+    return givenInputIsPartOfDouble(textField, replacementString: string)
+  }
+  
+  private func givenInputIsPartOfDouble(_ textField: UITextField, replacementString string: String) -> Bool {
+    let char = string.cString(using: String.Encoding.utf8)!
+    let isBackSpace = strcmp(char, "\\b")
+    if (isBackSpace == -92) {
+      return true
+    }
+    if string.range(of: "[0-9\\.]", options: .regularExpression) == nil {
       return false
     }
-//    else {
-//      let replacementTextHasNumber = string.range(of: "0123456789")
-//      if replacementTextHasNumber
-//      return true
-//    }
-    return true
+    if string.range(of: ".") == nil {
+      return true
+    }
+    if textField.text?.range(of: ".") == nil {
+      return true
+    }
+    return false
   }
 }
+
