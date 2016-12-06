@@ -93,34 +93,31 @@ class RoomSizeAdjustScene: SKScene {
   
   var movableNode : SKNode?
   var lastLocationInRoom: CGPoint?
-  let highScoreText = UITextField (frame: CGRect(x: 100, y: 450, width: 200, height: 20))
-  var tapRecognizer : UITapGestureRecognizer?
+  var sizeTextField : UITextField?
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let view = view {
-      debug.console(message: "start", file: #file, function: #function, line: #line)
-      self.backgroundColor = UIColor.white
-      highScoreText.center = CGPoint(x: 100, y: 400)
-      highScoreText.borderStyle = UITextBorderStyle.roundedRect
-      highScoreText.textColor = UIColor.black
-      highScoreText.placeholder = "Size"
-      highScoreText.backgroundColor = UIColor.white
-      highScoreText.autocorrectionType = UITextAutocorrectionType.yes
-      highScoreText.keyboardType = UIKeyboardType.decimalPad
-      highScoreText.clearButtonMode = UITextFieldViewMode.whileEditing
-      highScoreText.autocapitalizationType = UITextAutocapitalizationType.allCharacters
-      view.addSubview(highScoreText)
-      if tapRecognizer == nil {
-        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
-        if let tapRecognizer = tapRecognizer {
-          tapRecognizer.numberOfTapsRequired = 1
+    debug.console(message: "start", file: #file, function: #function, line: #line)
+    if sizeTextField == nil {
+      if let view = view {
+        sizeTextField = UITextField (frame: CGRect(x: 100, y: 400, width: 150, height: 25))
+        if let sizeTextField = sizeTextField {
+          self.backgroundColor = UIColor.white
+          sizeTextField.layer.borderWidth = 1
+          sizeTextField.layer.borderColor  = UIColor.lightGray.cgColor
+          sizeTextField.layer.borderWidth  = 0.5
+          sizeTextField.layer.cornerRadius = 5
+          sizeTextField.tintColor          = UIColor.black
+          sizeTextField.textColor = UIColor.black
+          sizeTextField.placeholder = "Size"
+          sizeTextField.backgroundColor = UIColor.white
+          sizeTextField.autocorrectionType = UITextAutocorrectionType.yes
+          sizeTextField.keyboardType = UIKeyboardType.default
+          sizeTextField.clearButtonMode = UITextFieldViewMode.whileEditing
+          sizeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+          sizeTextField.delegate = self
+          view.addSubview(sizeTextField)
         }
       }
-    }
-  }
-  func handleSingleTap(recognizer: UITapGestureRecognizer) {
-    if let view = view {
-      view.endEditing(true)
     }
   }
   
@@ -138,29 +135,46 @@ class RoomSizeAdjustScene: SKScene {
 }
 
 extension RoomSizeAdjustScene : UITextFieldDelegate {
-  //  func textFieldDidBeginEditing(_ textField: UITextField) {
-  //    if let view = view {
-  //      view.frame.origin.y -= 100
-  //    }
-  //  }
-  //
   func textFieldDidEndEditing(_ textField: UITextField) {
     if let view = view {
-      view.frame.origin.y += 100
+      animateTextField(up: false, height: view.frame.size.height - 400)
     }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    let regex = try! NSRegularExpression(pattern: "^[-+]?[0-9]*\\.?[0-9]+$", options: [])
+    if let text = textField.text {
+      let matches = regex.matches(in: text, options:[], range: NSMakeRange(0, text.characters.count))
+      guard matches.count == 0
+        else {
+          textField.resignFirstResponder()
+          return isTextField2DoublePossible(textField)
+      }
+    }
+    return isTextField2DoublePossible(textField)
+  }
+  
+  private func isTextField2DoublePossible (_ textField: UITextField) -> Bool {
+    let doubleValue = Double(textField.text!)
+    if doubleValue != nil {
+      return stopTextFieldEditing()
+    } else {
+      return false
+    }
+  }
+  
+  private func stopTextFieldEditing () -> Bool {
     if let view = view {
       view.endEditing(true)
     }
-    return false
+    return true
   }
-  func animateTextField(textField: UITextField, up: Bool, height: CGFloat) {
+  
+  private func animateTextField(up: Bool, height: CGFloat) {
     if let view = view {
       UIView.beginAnimations("animateTextField", context: nil)
       UIView.setAnimationBeginsFromCurrentState(true)
-      UIView.setAnimationDuration(0.3)
+      UIView.setAnimationDuration(0.5)
       view.frame = view.frame.offsetBy(dx: 0, dy: (up ? height - 250 : 250 - height))
       UIView.commitAnimations()
     }
@@ -168,8 +182,31 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
   
   internal func textFieldDidBeginEditing(_ textField: UITextField) {
     if let view = view {
-      animateTextField(textField: textField, up: true, height: view.frame.size.height - textField.frame.origin.y - textField.frame.height - 20)
+      animateTextField(up: true, height: view.frame.size.height - 400)
+      textField.text = ""
     }
   }
   
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    return givenInputIsPartOfDouble(textField, replacementString: string)
+  }
+  
+  private func givenInputIsPartOfDouble(_ textField: UITextField, replacementString string: String) -> Bool {
+    let char = string.cString(using: String.Encoding.utf8)!
+    let isBackSpace = strcmp(char, "\\b")
+    if (isBackSpace == -92) {
+      return true
+    }
+    if string.range(of: "[0-9\\.]", options: .regularExpression) == nil {
+      return false
+    }
+    if string.range(of: ".") == nil {
+      return true
+    }
+    if textField.text?.range(of: ".") == nil {
+      return true
+    }
+    return false
+  }
 }
+

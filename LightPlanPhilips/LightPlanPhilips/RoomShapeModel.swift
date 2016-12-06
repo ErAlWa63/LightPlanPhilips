@@ -116,13 +116,13 @@ class RoomShapeModel {
     case Left
   }
   
-  private let index2Point = [ Point(x: 0, y: 0), Point(x: 1, y: 0), Point(x: 2, y: 0), Point(x: 3, y: 0), Point(x: 4, y: 0), Point(x: 5, y: 0), Point(x: 6, y: 0),
-                              Point(x: 0, y: 1), Point(x: 1, y: 1), Point(x: 2, y: 1), Point(x: 3, y: 1), Point(x: 4, y: 1), Point(x: 5, y: 1), Point(x: 6, y: 1),
-                              Point(x: 0, y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2), Point(x: 3, y: 2), Point(x: 4, y: 2), Point(x: 5, y: 2), Point(x: 6, y: 2),
-                              Point(x: 0, y: 3), Point(x: 1, y: 3), Point(x: 2, y: 3), Point(x: 3, y: 3), Point(x: 4, y: 3), Point(x: 5, y: 3), Point(x: 6, y: 3),
-                              Point(x: 0, y: 4), Point(x: 1, y: 4), Point(x: 2, y: 4), Point(x: 3, y: 4), Point(x: 4, y: 4), Point(x: 5, y: 4), Point(x: 6, y: 4),
-                              Point(x: 0, y: 5), Point(x: 1, y: 5), Point(x: 2, y: 5), Point(x: 3, y: 5), Point(x: 4, y: 5), Point(x: 5, y: 5), Point(x: 6, y: 5),
-                              Point(x: 0, y: 6), Point(x: 1, y: 6), Point(x: 2, y: 6), Point(x: 3, y: 6), Point(x: 4, y: 6), Point(x: 5, y: 6), Point(x: 6, y: 6)]
+  let index2Point = [ Point(x: 0, y: 0), Point(x: 1, y: 0), Point(x: 2, y: 0), Point(x: 3, y: 0), Point(x: 4, y: 0), Point(x: 5, y: 0), Point(x: 6, y: 0),
+                      Point(x: 0, y: 1), Point(x: 1, y: 1), Point(x: 2, y: 1), Point(x: 3, y: 1), Point(x: 4, y: 1), Point(x: 5, y: 1), Point(x: 6, y: 1),
+                      Point(x: 0, y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2), Point(x: 3, y: 2), Point(x: 4, y: 2), Point(x: 5, y: 2), Point(x: 6, y: 2),
+                      Point(x: 0, y: 3), Point(x: 1, y: 3), Point(x: 2, y: 3), Point(x: 3, y: 3), Point(x: 4, y: 3), Point(x: 5, y: 3), Point(x: 6, y: 3),
+                      Point(x: 0, y: 4), Point(x: 1, y: 4), Point(x: 2, y: 4), Point(x: 3, y: 4), Point(x: 4, y: 4), Point(x: 5, y: 4), Point(x: 6, y: 4),
+                      Point(x: 0, y: 5), Point(x: 1, y: 5), Point(x: 2, y: 5), Point(x: 3, y: 5), Point(x: 4, y: 5), Point(x: 5, y: 5), Point(x: 6, y: 5),
+                      Point(x: 0, y: 6), Point(x: 1, y: 6), Point(x: 2, y: 6), Point(x: 3, y: 6), Point(x: 4, y: 6), Point(x: 5, y: 6), Point(x: 6, y: 6)]
   
   private func allowedCorner( index: Int, angle: Angle) -> Bool {
     if let myHome = myHome {
@@ -153,16 +153,22 @@ class RoomShapeModel {
         if removeFrame4[sum] {
           myHome.rooms[myHome.selectedRoom].gridCell[index] = false
           myHome.rooms[myHome.selectedRoom].countCell -= 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] -= 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] -= 1
         }
       } else {
         if myHome.rooms[myHome.selectedRoom].countCell == 0 {
           myHome.rooms[myHome.selectedRoom].gridCell[index] = true
           myHome.rooms[myHome.selectedRoom].countCell += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame4[sum] {
               myHome.rooms[myHome.selectedRoom].gridCell[index] = true
               myHome.rooms[myHome.selectedRoom].countCell += 1
+              myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
+              myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
             }
           }
         }
@@ -212,16 +218,22 @@ class RoomShapeModel {
         if removeFrame6[sum] {
           myHome.rooms[myHome.selectedRoom].gridCell[index] = false
           myHome.rooms[myHome.selectedRoom].countCell -= 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] -= 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] -= 1
         }
       } else {
         if myHome.rooms[myHome.selectedRoom].countCell == 0 {
           myHome.rooms[myHome.selectedRoom].gridCell[index] = true
           myHome.rooms[myHome.selectedRoom].countCell += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame6[sum] {
               myHome.rooms[myHome.selectedRoom].gridCell[index] = true
               myHome.rooms[myHome.selectedRoom].countCell += 1
+              myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
+              myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
             }
           }
         }
@@ -256,16 +268,22 @@ class RoomShapeModel {
         if removeFrame9[sum] {
           myHome.rooms[myHome.selectedRoom].gridCell[index] = false
           myHome.rooms[myHome.selectedRoom].countCell -= 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] -= 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] -= 1
         }
       } else {
         if myHome.rooms[myHome.selectedRoom].countCell == 0 {
           myHome.rooms[myHome.selectedRoom].gridCell[index] = true
           myHome.rooms[myHome.selectedRoom].countCell += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame9[sum] {
               myHome.rooms[myHome.selectedRoom].gridCell[index] = true
               myHome.rooms[myHome.selectedRoom].countCell += 1
+              myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
+              myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
             }
           }
         }
@@ -278,6 +296,9 @@ class RoomShapeModel {
   
   func processNext () -> [Point] {
     if let myHome = myHome {
+      debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisX = \(myHome.rooms[myHome.selectedRoom].countGridAxisX)", file: #file, function: #function, line: #line)
+      debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisY = \(myHome.rooms[myHome.selectedRoom].countGridAxisY)", file: #file, function: #function, line: #line)
+      
       if myHome.rooms[myHome.selectedRoom].countCell == 0 {
         return []
       } else {

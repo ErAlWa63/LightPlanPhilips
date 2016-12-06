@@ -1414,15 +1414,6 @@
                                     <segue destination="h9I-6C-tGp" kind="show" identifier="placeFurnitureSegue" id="vM2-XW-f8k"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mee-LY-lP8">
-                                <rect key="frame" x="46" y="450" width="228" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="D9Y-HQ-36n"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="g2l-Tt-ORF" firstAttribute="leading" secondItem="xkt-6f-hzh" secondAttribute="leadingMargin" constant="50" id="2nV-kp-052"/>
@@ -1430,21 +1421,18 @@
                             <constraint firstItem="BzZ-B6-xcx" firstAttribute="top" secondItem="5Zh-Ke-yXi" secondAttribute="bottom" id="84b-Nn-dsM"/>
                             <constraint firstItem="UKd-Cu-L09" firstAttribute="leading" secondItem="xkt-6f-hzh" secondAttribute="leadingMargin" constant="30" id="APq-b3-VHe"/>
                             <constraint firstAttribute="bottom" secondItem="g2l-Tt-ORF" secondAttribute="bottom" constant="20" id="H6x-6s-P0M"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mee-LY-lP8" secondAttribute="trailing" constant="30" id="Mvm-mB-buc"/>
                             <constraint firstItem="Vu3-QB-KRN" firstAttribute="leading" secondItem="xkt-6f-hzh" secondAttribute="leadingMargin" id="Ow4-Gs-cLc"/>
                             <constraint firstItem="UKd-Cu-L09" firstAttribute="top" secondItem="5Zh-Ke-yXi" secondAttribute="bottom" constant="30" id="SHp-Zq-jrQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="g2l-Tt-ORF" secondAttribute="trailing" constant="50" id="Ugt-h5-JOA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UKd-Cu-L09" secondAttribute="trailing" constant="30" id="ZOe-bF-xUD"/>
                             <constraint firstItem="CXQ-hn-pPH" firstAttribute="leading" secondItem="xkt-6f-hzh" secondAttribute="leadingMargin" id="ZWD-s1-ti2"/>
-                            <constraint firstItem="mee-LY-lP8" firstAttribute="leading" secondItem="xkt-6f-hzh" secondAttribute="leadingMargin" constant="30" id="a6z-AO-csT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BzZ-B6-xcx" secondAttribute="trailing" id="bfQ-Ju-Xfh"/>
-                            <constraint firstItem="mee-LY-lP8" firstAttribute="top" secondItem="5Zh-Ke-yXi" secondAttribute="bottom" constant="430" id="kJg-Pv-yJL"/>
                             <constraint firstItem="Vu3-QB-KRN" firstAttribute="top" secondItem="5Zh-Ke-yXi" secondAttribute="bottom" id="smt-uX-SLh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Vu3-QB-KRN" id="afk-ma-fsB"/>
-                        <outlet property="sizeTextField" destination="mee-LY-lP8" id="SGZ-hB-jFL"/>
+                        <outlet property="nextButton" destination="g2l-Tt-ORF" id="BKW-Lg-jM0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T0-i4-8X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
