@@ -36,6 +36,9 @@ class DataSource: NSObject {
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
     myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))
     
+    
+    
+    
     // create some bulbs and add to home (unassigned bulbs)
     
     let image = UIImage(named: "Bulb")

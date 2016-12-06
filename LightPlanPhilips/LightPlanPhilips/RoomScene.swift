@@ -79,6 +79,38 @@ class RoomScene: SKScene {
       sprite.name = group.name
       
       self.addChild(sprite)
+      
+      
+      let shape = SKShapeNode()
+      shape.path = UIBezierPath(roundedRect: CGRect(x: -15, y: -15 , width: 30, height: 30), cornerRadius: 15).cgPath
+      shape.position = CGPoint(x: frame.midX, y: frame.midY)
+      shape.fillColor = UIColor.yellow
+      shape.strokeColor = UIColor.black
+      shape.lineWidth = 2
+      
+      
+      sprite.addChild(shape)
+      
+      
+      
+      shape.position = CGPoint(x: 15, y:  -15)
+      
+    
+      
+      let groupNumber: String = String(group.assignedBulbs.count)
+      
+      let label = SKLabelNode(text: groupNumber)
+      label.fontColor = UIColor.black
+      label.fontName = "HelveticaNeue-Bold"
+      label.fontSize = 24
+      label.verticalAlignmentMode = .center
+
+    
+      
+      shape.addChild(label)
+      
+      
+      
     }
     
   }
