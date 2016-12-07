@@ -14,73 +14,72 @@ class RoomSizeAdjustScene: SKScene {
       debug.console(message: "start", file: #file, function: #function, line: #line)
       gridCorners = myHome.rooms[myHome.selectedRoom].gridCorners
       debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
-    }
-    
-    if gridCorners.count != 0 {
-      debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
-      let shape = UIBezierPath()
-      let multiplyEdge2NodePoint = 86
-      let offsetNodePoint = 45
-      let buttonBoundary = 7
-      let offsetEdge2NodePoint = 3
-      shape.move(to: CGPoint(x: ((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                             y: (((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-      debug.console(message: "(x,y) = (\(((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      for point in gridCorners {
-        shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                                  y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-        debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      }
-      shape.close()
-      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
-      shapeTrack.position = CGPoint(x: 0, y: 50)
-      shapeTrack.strokeColor = UIColor.black
-      shapeTrack.lineWidth = 4
-      shapeTrack.fillColor = UIColor.gray
-      self.addChild(shapeTrack)
-      var midX = 0.0
-      var midY = 0.0
-      for index in 0 ..< gridCorners.count {
-        var firstPoint: Room.Point
-        var secondPoint: Room.Point
-        if index == 0 {
-          firstPoint = gridCorners[index]
-          secondPoint = gridCorners[gridCorners.count - 1]
-        } else {
-          firstPoint = gridCorners[index]
-          secondPoint = gridCorners[index - 1]
+      if gridCorners.count != 0 {
+        debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
+        let shape = UIBezierPath()
+        let multiplyEdge2NodePoint = 86
+        let offsetNodePoint = 45
+        let buttonBoundary = 7
+        let offsetEdge2NodePoint = 3
+        shape.move(to: CGPoint(x: ((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
+                               y: (((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
+        debug.console(message: "(x,y) = (\(((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
+        for point in gridCorners {
+          shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
+                                    y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
+          debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
         }
-        let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
-        let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
-        midX = (averageX - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-        midY = (averageY - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-        debug.console(message: "midX = \(midX), midY = \(midY)", file: #file, function: #function, line: #line)
-        
-        processSizeNode(CGPoint(x: midX, y: midY))
+        shape.close()
+        let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
+        shapeTrack.position = CGPoint(x: 0, y: 50)
+        shapeTrack.strokeColor = UIColor.black
+        shapeTrack.lineWidth = 4
+        shapeTrack.fillColor = UIColor.gray
+        self.addChild(shapeTrack)
+        var midX = 0.0
+        var midY = 0.0
+        for index in 0 ..< gridCorners.count {
+          var firstPoint: Room.Point
+          var secondPoint: Room.Point
+          if index == 0 {
+            firstPoint = gridCorners[index]
+            secondPoint = gridCorners[gridCorners.count - 1]
+          } else {
+            firstPoint = gridCorners[index]
+            secondPoint = gridCorners[index - 1]
+          }
+          let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
+          let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
+          midX = (averageX - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
+          midY = (averageY - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
+          debug.console(message: "midX = \(midX), midY = \(midY)", file: #file, function: #function, line: #line)
+          
+          showSizeNode(CGPoint(x: midX, y: midY))
+        }
       }
     }
   }
   
-  private func processSizeNode(_ position: CGPoint) {
-    processSizeNodeCircle( position)
-    processSizeNodeText( position)
+  private func showSizeNode(_ position: CGPoint) {
+    showCircleSizeSKShapeNode( position)
+    showTextSizeSKLabelNode( position, "?")
   }
   
-  private func processSizeNodeText(_ position: CGPoint) {
-    let label = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
-    label.text = "?"
-    label.fontSize = 20
-    label.fontColor = SKColor.white
-    label.position = CGPoint(x: position.x, y: position.y + 40)
-    self.addChild(label)
+  private func showCircleSizeSKShapeNode(_ position: CGPoint) {
+    let circleSize = SKShapeNode()
+    circleSize.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
+    circleSize.position = position
+    circleSize.fillColor = UIColor.black
+    addChild(circleSize)
   }
   
-  private func processSizeNodeCircle(_ position: CGPoint) {
-    let shape = SKShapeNode()
-    shape.path = UIBezierPath(roundedRect: CGRect(x: -25, y: -25 + 50, width: 50, height: 50), cornerRadius: 50).cgPath
-    shape.position = position
-    shape.fillColor = UIColor.black
-    addChild(shape)
+  private func showTextSizeSKLabelNode(_ position: CGPoint, _ text: String) {
+    let textSize = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
+    textSize.text = text
+    textSize.fontSize = 20
+    textSize.fontColor = SKColor.white
+    textSize.position = CGPoint(x: position.x, y: position.y + 40)
+    self.addChild(textSize)
   }
   
   var movableNode : SKNode?
