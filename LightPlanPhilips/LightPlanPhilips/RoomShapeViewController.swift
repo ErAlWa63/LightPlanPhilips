@@ -77,7 +77,7 @@ class RoomShapeViewController: UIViewController {
   
   @IBAction func nextButton(_ sender: Any) {
     if let myHome = myHome {
-      myHome.rooms[myHome.selectedRoom].edge = roomShapeModel.processNext()
+      myHome.rooms[myHome.selectedRoom].gridCorners = roomShapeModel.processNext()
       debug.console(message: "start", file: #file, function: #function, line: #line)
     }
   }

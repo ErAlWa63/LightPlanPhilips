@@ -9,24 +9,24 @@ class RoomSizeAdjustScene: SKScene {
   
   override func didMove(to view: SKView) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
-    var edge : [Room.Point] = []
+    var gridCorners : [Room.Point] = []
     if let myHome = myHome {
       debug.console(message: "start", file: #file, function: #function, line: #line)
-      edge = myHome.rooms[myHome.selectedRoom].edge
-      debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
+      gridCorners = myHome.rooms[myHome.selectedRoom].gridCorners
+      debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
     }
     
-    if edge.count != 0 {
-      debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
+    if gridCorners.count != 0 {
+      debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
       let shape = UIBezierPath()
       let multiplyEdge2NodePoint = 86
       let offsetNodePoint = 45
       let buttonBoundary = 7
       let offsetEdge2NodePoint = 3
-      shape.move(to: CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                             y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-      debug.console(message: "(x,y) = (\(((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      for point in edge {
+      shape.move(to: CGPoint(x: ((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
+                             y: (((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
+      debug.console(message: "(x,y) = (\(((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
+      for point in gridCorners {
         shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
                                   y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
         debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
@@ -40,15 +40,15 @@ class RoomSizeAdjustScene: SKScene {
       self.addChild(shapeTrack)
       var midX = 0.0
       var midY = 0.0
-      for index in 0 ..< edge.count {
+      for index in 0 ..< gridCorners.count {
         var firstPoint: Room.Point
         var secondPoint: Room.Point
         if index == 0 {
-          firstPoint = edge[index]
-          secondPoint = edge[edge.count - 1]
+          firstPoint = gridCorners[index]
+          secondPoint = gridCorners[gridCorners.count - 1]
         } else {
-          firstPoint = edge[index]
-          secondPoint = edge[index - 1]
+          firstPoint = gridCorners[index]
+          secondPoint = gridCorners[index - 1]
         }
         let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
         let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
