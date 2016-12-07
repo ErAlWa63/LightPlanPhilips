@@ -18,13 +18,6 @@ class RoomShapeModel {
     }
   }
   
-  struct Point {
-    var x: Int
-    var y: Int
-  }
-  
-  //  var edge : [Point] = []
-  
   private let addFrame4    = [ true,  true, false,  true,  true, false,  true,  true]
   private let removeFrame4 = [ true,  true,  true,  true,  true, false,  true,  true]
   private let addFrame6    = [ true,  true, false,  true,  true, false,  true,  true,
@@ -116,13 +109,13 @@ class RoomShapeModel {
     case Left
   }
   
-  let index2Point = [ Point(x: 0, y: 0), Point(x: 1, y: 0), Point(x: 2, y: 0), Point(x: 3, y: 0), Point(x: 4, y: 0), Point(x: 5, y: 0), Point(x: 6, y: 0),
-                      Point(x: 0, y: 1), Point(x: 1, y: 1), Point(x: 2, y: 1), Point(x: 3, y: 1), Point(x: 4, y: 1), Point(x: 5, y: 1), Point(x: 6, y: 1),
-                      Point(x: 0, y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2), Point(x: 3, y: 2), Point(x: 4, y: 2), Point(x: 5, y: 2), Point(x: 6, y: 2),
-                      Point(x: 0, y: 3), Point(x: 1, y: 3), Point(x: 2, y: 3), Point(x: 3, y: 3), Point(x: 4, y: 3), Point(x: 5, y: 3), Point(x: 6, y: 3),
-                      Point(x: 0, y: 4), Point(x: 1, y: 4), Point(x: 2, y: 4), Point(x: 3, y: 4), Point(x: 4, y: 4), Point(x: 5, y: 4), Point(x: 6, y: 4),
-                      Point(x: 0, y: 5), Point(x: 1, y: 5), Point(x: 2, y: 5), Point(x: 3, y: 5), Point(x: 4, y: 5), Point(x: 5, y: 5), Point(x: 6, y: 5),
-                      Point(x: 0, y: 6), Point(x: 1, y: 6), Point(x: 2, y: 6), Point(x: 3, y: 6), Point(x: 4, y: 6), Point(x: 5, y: 6), Point(x: 6, y: 6)]
+  let index2Point = [ Room.Point(x: 0, y: 0), Room.Point(x: 1, y: 0), Room.Point(x: 2, y: 0), Room.Point(x: 3, y: 0), Room.Point(x: 4, y: 0), Room.Point(x: 5, y: 0), Room.Point(x: 6, y: 0),
+                      Room.Point(x: 0, y: 1), Room.Point(x: 1, y: 1), Room.Point(x: 2, y: 1), Room.Point(x: 3, y: 1), Room.Point(x: 4, y: 1), Room.Point(x: 5, y: 1), Room.Point(x: 6, y: 1),
+                      Room.Point(x: 0, y: 2), Room.Point(x: 1, y: 2), Room.Point(x: 2, y: 2), Room.Point(x: 3, y: 2), Room.Point(x: 4, y: 2), Room.Point(x: 5, y: 2), Room.Point(x: 6, y: 2),
+                      Room.Point(x: 0, y: 3), Room.Point(x: 1, y: 3), Room.Point(x: 2, y: 3), Room.Point(x: 3, y: 3), Room.Point(x: 4, y: 3), Room.Point(x: 5, y: 3), Room.Point(x: 6, y: 3),
+                      Room.Point(x: 0, y: 4), Room.Point(x: 1, y: 4), Room.Point(x: 2, y: 4), Room.Point(x: 3, y: 4), Room.Point(x: 4, y: 4), Room.Point(x: 5, y: 4), Room.Point(x: 6, y: 4),
+                      Room.Point(x: 0, y: 5), Room.Point(x: 1, y: 5), Room.Point(x: 2, y: 5), Room.Point(x: 3, y: 5), Room.Point(x: 4, y: 5), Room.Point(x: 5, y: 5), Room.Point(x: 6, y: 5),
+                      Room.Point(x: 0, y: 6), Room.Point(x: 1, y: 6), Room.Point(x: 2, y: 6), Room.Point(x: 3, y: 6), Room.Point(x: 4, y: 6), Room.Point(x: 5, y: 6), Room.Point(x: 6, y: 6)]
   
   private func allowedCorner( index: Int, angle: Angle) -> Bool {
     if let myHome = myHome {
@@ -294,7 +287,7 @@ class RoomShapeModel {
     }
   }
   
-  func processNext () -> [Point] {
+  func processNext () -> [Room.Point] {
     if let myHome = myHome {
       if myHome.rooms[myHome.selectedRoom].countCell == 0 {
         return []
@@ -444,57 +437,57 @@ class RoomShapeModel {
         var corner = [index2Point[minimumIndex]]
         var currentPoint = corner[0]
         var currentAngle : Angle = .Normal
-        var nextPoint = Point(x: currentPoint.x + 1, y: currentPoint.y)
+        var nextPoint = Room.Point(x: currentPoint.x + 1, y: currentPoint.y)
         while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
           currentPoint = nextPoint
           switch currentAngle {
           case .Normal:
             if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Left
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+              nextPoint = Room.Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
-              nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+              nextPoint = Room.Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Right
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+              nextPoint = Room.Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             }
           case .Left:
             if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Half
-              nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+              nextPoint = Room.Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+              nextPoint = Room.Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Normal
-              nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+              nextPoint = Room.Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             }
           case .Right:
             if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Normal
-              nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+              nextPoint = Room.Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+              nextPoint = Room.Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Half
-              nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+              nextPoint = Room.Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             }
           case .Half:
             if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Right
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+              nextPoint = Room.Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
-              nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+              nextPoint = Room.Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(Room.Point(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Left
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+              nextPoint = Room.Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             }
           }
         }

@@ -9,7 +9,7 @@ class RoomSizeAdjustScene: SKScene {
   
   override func didMove(to view: SKView) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
-    var edge : [RoomShapeModel.Point] = []
+    var edge : [Room.Point] = []
     if let myHome = myHome {
       debug.console(message: "start", file: #file, function: #function, line: #line)
       edge = myHome.rooms[myHome.selectedRoom].edge
@@ -41,8 +41,8 @@ class RoomSizeAdjustScene: SKScene {
       var midX = 0.0
       var midY = 0.0
       for index in 0 ..< edge.count {
-        var firstPoint: RoomShapeModel.Point
-        var secondPoint: RoomShapeModel.Point
+        var firstPoint: Room.Point
+        var secondPoint: Room.Point
         if index == 0 {
           firstPoint = edge[index]
           secondPoint = edge[edge.count - 1]
