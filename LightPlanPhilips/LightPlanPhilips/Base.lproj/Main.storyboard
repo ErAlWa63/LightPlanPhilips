@@ -1580,7 +1580,7 @@
         <scene sceneID="f6i-t9-wTU">
             <objects>
                 <collectionViewController id="5yu-7i-LiJ" customClass="LightTypeCollectionViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aSB-XA-byw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="aSB-XA-byw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2133,7 +2133,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="53T-nv-rqb"/>
-                                    <action selector="cancelButton:" destination="sqM-BW-dRz" eventType="touchUpInside" id="8iU-ln-rzZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGK-ky-8sv">

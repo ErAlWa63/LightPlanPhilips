@@ -42,8 +42,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       // get a reference to our storyboard cell
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! addBulbCell
       
-      // Use the outlet in our custom class to get a reference to the UILabel in the cell
-      
       cell.bulbName.text = self.bulbsInHome[indexPath.item].lightTypeName
       cell.bulbIcon.image = self.bulbsInHome[indexPath.item].lightTypeIcon
       
@@ -136,12 +134,12 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     
     
     
-    override func groupSelected(groupSelected: Bool) {
-      // not used here
-    }
-    override func selectedBulbs(bulbs: [Bulb]){
-      
-    }
+//    override func groupSelected(groupSelected: Bool) {
+//      // not used here
+//    }
+//    override func selectedBulbs(bulbs: [Bulb]){
+//      
+//    }
     override func getBulbs() -> [Bulb]{
       return self.bulbCollection
     }
