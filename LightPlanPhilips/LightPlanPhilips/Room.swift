@@ -20,7 +20,8 @@ class Room {
   var assignedBulbs: [Bulb] = []
   var groups: [Group] = []
   var edge : [RoomShapeModel.Point] = []
-  var gridCell  = Array(repeating: Bool(), count: 49)
+  var gridCell = Array(repeating: Bool(), count: 49)
+  var gridCellBackup = Array(repeating: Bool(), count: 49)
   var countGridAxisX = [0, 0, 0, 0, 0, 0, 0]
   var countGridAxisY = [0, 0, 0, 0, 0, 0, 0]
   var countCell = 0

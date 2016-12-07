@@ -38,9 +38,6 @@ class RoomSizeAdjustViewController: UIViewController {
         //        scene.roomSceneDelegate = self
         view.presentScene(scene)
         
-        scene.dragDropEnabled = false
-        scene.createGroup = false
-        
         view.ignoresSiblingOrder = true
         view.showsFPS = true
         view.showsNodeCount = true

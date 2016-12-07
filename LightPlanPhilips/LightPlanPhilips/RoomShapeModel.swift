@@ -296,12 +296,142 @@ class RoomShapeModel {
   
   func processNext () -> [Point] {
     if let myHome = myHome {
-      debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisX = \(myHome.rooms[myHome.selectedRoom].countGridAxisX)", file: #file, function: #function, line: #line)
-      debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisY = \(myHome.rooms[myHome.selectedRoom].countGridAxisY)", file: #file, function: #function, line: #line)
-      
       if myHome.rooms[myHome.selectedRoom].countCell == 0 {
         return []
       } else {
+        
+        myHome.rooms[myHome.selectedRoom].gridCellBackup = myHome.rooms[myHome.selectedRoom].gridCell
+        
+        debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisX = \(myHome.rooms[myHome.selectedRoom].countGridAxisX)", file: #file, function: #function, line: #line)
+        debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisY = \(myHome.rooms[myHome.selectedRoom].countGridAxisY)", file: #file, function: #function, line: #line)
+        
+        
+        while myHome.rooms[myHome.selectedRoom].countGridAxisX[0] == 0 {
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[0] = myHome.rooms[myHome.selectedRoom].countGridAxisX[1]
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[1] = myHome.rooms[myHome.selectedRoom].countGridAxisX[2]
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[2] = myHome.rooms[myHome.selectedRoom].countGridAxisX[3]
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[3] = myHome.rooms[myHome.selectedRoom].countGridAxisX[4]
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[4] = myHome.rooms[myHome.selectedRoom].countGridAxisX[5]
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[5] = myHome.rooms[myHome.selectedRoom].countGridAxisX[6]
+          myHome.rooms[myHome.selectedRoom].countGridAxisX[6] = 0
+          debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisX = \(myHome.rooms[myHome.selectedRoom].countGridAxisX)", file: #file, function: #function, line: #line)
+          myHome.rooms[myHome.selectedRoom].gridCell[0] = myHome.rooms[myHome.selectedRoom].gridCell[1]
+          myHome.rooms[myHome.selectedRoom].gridCell[1] = myHome.rooms[myHome.selectedRoom].gridCell[2]
+          myHome.rooms[myHome.selectedRoom].gridCell[2] = myHome.rooms[myHome.selectedRoom].gridCell[3]
+          myHome.rooms[myHome.selectedRoom].gridCell[3] = myHome.rooms[myHome.selectedRoom].gridCell[4]
+          myHome.rooms[myHome.selectedRoom].gridCell[4] = myHome.rooms[myHome.selectedRoom].gridCell[5]
+          myHome.rooms[myHome.selectedRoom].gridCell[5] = myHome.rooms[myHome.selectedRoom].gridCell[6]
+          myHome.rooms[myHome.selectedRoom].gridCell[6] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[7] = myHome.rooms[myHome.selectedRoom].gridCell[8]
+          myHome.rooms[myHome.selectedRoom].gridCell[8] = myHome.rooms[myHome.selectedRoom].gridCell[9]
+          myHome.rooms[myHome.selectedRoom].gridCell[9] = myHome.rooms[myHome.selectedRoom].gridCell[10]
+          myHome.rooms[myHome.selectedRoom].gridCell[10] = myHome.rooms[myHome.selectedRoom].gridCell[11]
+          myHome.rooms[myHome.selectedRoom].gridCell[11] = myHome.rooms[myHome.selectedRoom].gridCell[12]
+          myHome.rooms[myHome.selectedRoom].gridCell[12] = myHome.rooms[myHome.selectedRoom].gridCell[13]
+          myHome.rooms[myHome.selectedRoom].gridCell[13] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[14] = myHome.rooms[myHome.selectedRoom].gridCell[15]
+          myHome.rooms[myHome.selectedRoom].gridCell[15] = myHome.rooms[myHome.selectedRoom].gridCell[16]
+          myHome.rooms[myHome.selectedRoom].gridCell[16] = myHome.rooms[myHome.selectedRoom].gridCell[17]
+          myHome.rooms[myHome.selectedRoom].gridCell[17] = myHome.rooms[myHome.selectedRoom].gridCell[18]
+          myHome.rooms[myHome.selectedRoom].gridCell[18] = myHome.rooms[myHome.selectedRoom].gridCell[19]
+          myHome.rooms[myHome.selectedRoom].gridCell[19] = myHome.rooms[myHome.selectedRoom].gridCell[20]
+          myHome.rooms[myHome.selectedRoom].gridCell[20] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[21] = myHome.rooms[myHome.selectedRoom].gridCell[22]
+          myHome.rooms[myHome.selectedRoom].gridCell[22] = myHome.rooms[myHome.selectedRoom].gridCell[23]
+          myHome.rooms[myHome.selectedRoom].gridCell[23] = myHome.rooms[myHome.selectedRoom].gridCell[24]
+          myHome.rooms[myHome.selectedRoom].gridCell[24] = myHome.rooms[myHome.selectedRoom].gridCell[25]
+          myHome.rooms[myHome.selectedRoom].gridCell[25] = myHome.rooms[myHome.selectedRoom].gridCell[26]
+          myHome.rooms[myHome.selectedRoom].gridCell[26] = myHome.rooms[myHome.selectedRoom].gridCell[27]
+          myHome.rooms[myHome.selectedRoom].gridCell[27] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[28] = myHome.rooms[myHome.selectedRoom].gridCell[29]
+          myHome.rooms[myHome.selectedRoom].gridCell[29] = myHome.rooms[myHome.selectedRoom].gridCell[30]
+          myHome.rooms[myHome.selectedRoom].gridCell[30] = myHome.rooms[myHome.selectedRoom].gridCell[31]
+          myHome.rooms[myHome.selectedRoom].gridCell[31] = myHome.rooms[myHome.selectedRoom].gridCell[32]
+          myHome.rooms[myHome.selectedRoom].gridCell[32] = myHome.rooms[myHome.selectedRoom].gridCell[33]
+          myHome.rooms[myHome.selectedRoom].gridCell[33] = myHome.rooms[myHome.selectedRoom].gridCell[34]
+          myHome.rooms[myHome.selectedRoom].gridCell[34] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[35] = myHome.rooms[myHome.selectedRoom].gridCell[36]
+          myHome.rooms[myHome.selectedRoom].gridCell[36] = myHome.rooms[myHome.selectedRoom].gridCell[37]
+          myHome.rooms[myHome.selectedRoom].gridCell[37] = myHome.rooms[myHome.selectedRoom].gridCell[38]
+          myHome.rooms[myHome.selectedRoom].gridCell[38] = myHome.rooms[myHome.selectedRoom].gridCell[39]
+          myHome.rooms[myHome.selectedRoom].gridCell[39] = myHome.rooms[myHome.selectedRoom].gridCell[40]
+          myHome.rooms[myHome.selectedRoom].gridCell[40] = myHome.rooms[myHome.selectedRoom].gridCell[41]
+          myHome.rooms[myHome.selectedRoom].gridCell[41] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[42] = myHome.rooms[myHome.selectedRoom].gridCell[43]
+          myHome.rooms[myHome.selectedRoom].gridCell[43] = myHome.rooms[myHome.selectedRoom].gridCell[44]
+          myHome.rooms[myHome.selectedRoom].gridCell[44] = myHome.rooms[myHome.selectedRoom].gridCell[45]
+          myHome.rooms[myHome.selectedRoom].gridCell[45] = myHome.rooms[myHome.selectedRoom].gridCell[46]
+          myHome.rooms[myHome.selectedRoom].gridCell[46] = myHome.rooms[myHome.selectedRoom].gridCell[47]
+          myHome.rooms[myHome.selectedRoom].gridCell[47] = myHome.rooms[myHome.selectedRoom].gridCell[48]
+          myHome.rooms[myHome.selectedRoom].gridCell[48] = false
+        }
+        
+        
+        
+        while myHome.rooms[myHome.selectedRoom].countGridAxisY[0] == 0 {
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[0] = myHome.rooms[myHome.selectedRoom].countGridAxisY[1]
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[1] = myHome.rooms[myHome.selectedRoom].countGridAxisY[2]
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[2] = myHome.rooms[myHome.selectedRoom].countGridAxisY[3]
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[3] = myHome.rooms[myHome.selectedRoom].countGridAxisY[4]
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[4] = myHome.rooms[myHome.selectedRoom].countGridAxisY[5]
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[5] = myHome.rooms[myHome.selectedRoom].countGridAxisY[6]
+          myHome.rooms[myHome.selectedRoom].countGridAxisY[6] = 0
+          debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisY = \(myHome.rooms[myHome.selectedRoom].countGridAxisY)", file: #file, function: #function, line: #line)
+          myHome.rooms[myHome.selectedRoom].gridCell[0] = myHome.rooms[myHome.selectedRoom].gridCell[7]
+          myHome.rooms[myHome.selectedRoom].gridCell[7] = myHome.rooms[myHome.selectedRoom].gridCell[14]
+          myHome.rooms[myHome.selectedRoom].gridCell[14] = myHome.rooms[myHome.selectedRoom].gridCell[21]
+          myHome.rooms[myHome.selectedRoom].gridCell[21] = myHome.rooms[myHome.selectedRoom].gridCell[28]
+          myHome.rooms[myHome.selectedRoom].gridCell[28] = myHome.rooms[myHome.selectedRoom].gridCell[35]
+          myHome.rooms[myHome.selectedRoom].gridCell[35] = myHome.rooms[myHome.selectedRoom].gridCell[42]
+          myHome.rooms[myHome.selectedRoom].gridCell[42] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[1] = myHome.rooms[myHome.selectedRoom].gridCell[8]
+          myHome.rooms[myHome.selectedRoom].gridCell[8] = myHome.rooms[myHome.selectedRoom].gridCell[15]
+          myHome.rooms[myHome.selectedRoom].gridCell[15] = myHome.rooms[myHome.selectedRoom].gridCell[22]
+          myHome.rooms[myHome.selectedRoom].gridCell[22] = myHome.rooms[myHome.selectedRoom].gridCell[29]
+          myHome.rooms[myHome.selectedRoom].gridCell[29] = myHome.rooms[myHome.selectedRoom].gridCell[36]
+          myHome.rooms[myHome.selectedRoom].gridCell[36] = myHome.rooms[myHome.selectedRoom].gridCell[43]
+          myHome.rooms[myHome.selectedRoom].gridCell[43] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[2] = myHome.rooms[myHome.selectedRoom].gridCell[9]
+          myHome.rooms[myHome.selectedRoom].gridCell[9] = myHome.rooms[myHome.selectedRoom].gridCell[16]
+          myHome.rooms[myHome.selectedRoom].gridCell[16] = myHome.rooms[myHome.selectedRoom].gridCell[23]
+          myHome.rooms[myHome.selectedRoom].gridCell[23] = myHome.rooms[myHome.selectedRoom].gridCell[30]
+          myHome.rooms[myHome.selectedRoom].gridCell[30] = myHome.rooms[myHome.selectedRoom].gridCell[37]
+          myHome.rooms[myHome.selectedRoom].gridCell[37] = myHome.rooms[myHome.selectedRoom].gridCell[44]
+          myHome.rooms[myHome.selectedRoom].gridCell[44] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[3] = myHome.rooms[myHome.selectedRoom].gridCell[10]
+          myHome.rooms[myHome.selectedRoom].gridCell[10] = myHome.rooms[myHome.selectedRoom].gridCell[17]
+          myHome.rooms[myHome.selectedRoom].gridCell[17] = myHome.rooms[myHome.selectedRoom].gridCell[24]
+          myHome.rooms[myHome.selectedRoom].gridCell[24] = myHome.rooms[myHome.selectedRoom].gridCell[31]
+          myHome.rooms[myHome.selectedRoom].gridCell[31] = myHome.rooms[myHome.selectedRoom].gridCell[38]
+          myHome.rooms[myHome.selectedRoom].gridCell[38] = myHome.rooms[myHome.selectedRoom].gridCell[45]
+          myHome.rooms[myHome.selectedRoom].gridCell[45] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[4] = myHome.rooms[myHome.selectedRoom].gridCell[11]
+          myHome.rooms[myHome.selectedRoom].gridCell[11] = myHome.rooms[myHome.selectedRoom].gridCell[18]
+          myHome.rooms[myHome.selectedRoom].gridCell[18] = myHome.rooms[myHome.selectedRoom].gridCell[25]
+          myHome.rooms[myHome.selectedRoom].gridCell[25] = myHome.rooms[myHome.selectedRoom].gridCell[32]
+          myHome.rooms[myHome.selectedRoom].gridCell[32] = myHome.rooms[myHome.selectedRoom].gridCell[39]
+          myHome.rooms[myHome.selectedRoom].gridCell[39] = myHome.rooms[myHome.selectedRoom].gridCell[46]
+          myHome.rooms[myHome.selectedRoom].gridCell[46] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[5] = myHome.rooms[myHome.selectedRoom].gridCell[12]
+          myHome.rooms[myHome.selectedRoom].gridCell[12] = myHome.rooms[myHome.selectedRoom].gridCell[19]
+          myHome.rooms[myHome.selectedRoom].gridCell[19] = myHome.rooms[myHome.selectedRoom].gridCell[26]
+          myHome.rooms[myHome.selectedRoom].gridCell[26] = myHome.rooms[myHome.selectedRoom].gridCell[33]
+          myHome.rooms[myHome.selectedRoom].gridCell[33] = myHome.rooms[myHome.selectedRoom].gridCell[40]
+          myHome.rooms[myHome.selectedRoom].gridCell[40] = myHome.rooms[myHome.selectedRoom].gridCell[47]
+          myHome.rooms[myHome.selectedRoom].gridCell[47] = false
+          myHome.rooms[myHome.selectedRoom].gridCell[6] = myHome.rooms[myHome.selectedRoom].gridCell[13]
+          myHome.rooms[myHome.selectedRoom].gridCell[13] = myHome.rooms[myHome.selectedRoom].gridCell[20]
+          myHome.rooms[myHome.selectedRoom].gridCell[20] = myHome.rooms[myHome.selectedRoom].gridCell[27]
+          myHome.rooms[myHome.selectedRoom].gridCell[27] = myHome.rooms[myHome.selectedRoom].gridCell[34]
+          myHome.rooms[myHome.selectedRoom].gridCell[34] = myHome.rooms[myHome.selectedRoom].gridCell[41]
+          myHome.rooms[myHome.selectedRoom].gridCell[41] = myHome.rooms[myHome.selectedRoom].gridCell[48]
+          myHome.rooms[myHome.selectedRoom].gridCell[48] = false
+        }
+        
+//        myHome.rooms[myHome.selectedRoom].emptyRowX = 6
+//        myHome.rooms[myHome.selectedRoom].countGridAxisY[6] = 0
+//
+//        while
         
         var minimumIndex = myHome.rooms[myHome.selectedRoom].gridCell.count
         for index in 0 ..< myHome.rooms[myHome.selectedRoom].gridCell.count {
