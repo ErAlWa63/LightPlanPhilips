@@ -10,6 +10,7 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 
 class Room {
@@ -21,19 +22,19 @@ class Room {
   var groups: [Group] = []
   var gridCorners : [Point] = []
   var spritekitCorners : [Point] = []
+  var spritekitCircleSize : [SKShapeNode] = []
+  var spritekitTextSize : [SKLabelNode] = []
+  var spritekitRealCorners : [Point] = []
   var gridCell = Array(repeating: Bool(), count: 49)
   var gridCellBackup = Array(repeating: Bool(), count: 49)
   var countGridAxisX = [0, 0, 0, 0, 0, 0, 0]
   var countGridAxisY = [0, 0, 0, 0, 0, 0, 0]
   var countCell = 0
-//  var currentCellIsCollored = Array(repeating: Bool(), count: 49)
-
 
   struct Point {
     var x: Int
     var y: Int
   }
-
   
   init(id: String, name: String) {
     self.id =  id

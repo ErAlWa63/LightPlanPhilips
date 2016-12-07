@@ -4,61 +4,140 @@ class RoomSizeAdjustScene: SKScene {
   let debug = Debug() // debugger functionality
   
   var myHome : Home?
-  
   let roomShapeModel = RoomShapeModel()
   
   override func didMove(to view: SKView) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
-    var gridCorners : [Room.Point] = []
     if let myHome = myHome {
       debug.console(message: "start", file: #file, function: #function, line: #line)
-      gridCorners = myHome.rooms[myHome.selectedRoom].gridCorners
-      debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
-      if gridCorners.count != 0 {
-        debug.console(message: "gridCorners.count = \(gridCorners.count)", file: #file, function: #function, line: #line)
-        let shape = UIBezierPath()
-        let multiplyEdge2NodePoint = 86
-        let offsetNodePoint = 45
-        let buttonBoundary = 7
-        let offsetEdge2NodePoint = 3
-        shape.move(to: CGPoint(x: ((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                               y: (((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-        debug.console(message: "(x,y) = (\(((gridCorners[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - gridCorners[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-        for point in gridCorners {
-          shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                                    y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-          debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-        }
-        shape.close()
-        let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
-        shapeTrack.position = CGPoint(x: 0, y: 50)
-        shapeTrack.strokeColor = UIColor.black
-        shapeTrack.lineWidth = 4
-        shapeTrack.fillColor = UIColor.gray
-        self.addChild(shapeTrack)
-        var midX = 0.0
-        var midY = 0.0
-        for index in 0 ..< gridCorners.count {
-          var firstPoint: Room.Point
-          var secondPoint: Room.Point
-          if index == 0 {
-            firstPoint = gridCorners[index]
-            secondPoint = gridCorners[gridCorners.count - 1]
-          } else {
-            firstPoint = gridCorners[index]
-            secondPoint = gridCorners[index - 1]
-          }
-          let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
-          let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
-          midX = (averageX - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-          midY = (averageY - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-          debug.console(message: "midX = \(midX), midY = \(midY)", file: #file, function: #function, line: #line)
-          
-          showSizeNode(CGPoint(x: midX, y: midY))
-        }
+      myHome.rooms[myHome.selectedRoom].spritekitCorners = generateSpritekitCorners( myHome.rooms[myHome.selectedRoom].gridCorners.count)
+      myHome.rooms[myHome.selectedRoom].spritekitTextSize = generateSpritekitTextSize( myHome.rooms[myHome.selectedRoom].gridCorners.count)
+      myHome.rooms[myHome.selectedRoom].spritekitCircleSize = generateSpritekitCircleSize( myHome.rooms[myHome.selectedRoom].gridCorners.count)
+      myHome.rooms[myHome.selectedRoom].spritekitRealCorners = generateSpritekitRealCorners( myHome.rooms[myHome.selectedRoom].gridCorners.count)
+      let multiplyEdge2NodePoint: Double = 85.714285
+      let offsetEdge2NodePoint: Double = 3.5
+      var coordinateX = 0
+      var coordinateY = 0
+      var coordinateXNext = 0
+      var coordinateYNext = 0
+      
+      for index in 0 ..< myHome.rooms[myHome.selectedRoom].gridCorners.count {
+        coordinateX = Int((Double(myHome.rooms[myHome.selectedRoom].gridCorners[index].x) - offsetEdge2NodePoint) * multiplyEdge2NodePoint)
+        coordinateY = Int((offsetEdge2NodePoint - Double(myHome.rooms[myHome.selectedRoom].gridCorners[index].y)) * multiplyEdge2NodePoint)
+        myHome.rooms[myHome.selectedRoom].spritekitCorners[index] = Room.Point(x: coordinateX, y: coordinateY)
+        
       }
+      
+      let roomBoundary = UIBezierPath()
+      coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].x
+      coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].y
+      roomBoundary.move(to: CGPoint(x: coordinateX, y: coordinateY))
+      for index in 0 ..< myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1 {
+        coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].x
+        coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].y
+        myHome.rooms[myHome.selectedRoom].spritekitCorners[index] = Room.Point(x: coordinateX, y: coordinateY)
+        roomBoundary.addLine(to: CGPoint(x: coordinateX, y: coordinateY))
+      }
+      roomBoundary.close()
+      let roomShape = SKShapeNode(path: roomBoundary.cgPath, centered: false)
+      roomShape.position = CGPoint(x: 0, y: 50)
+      roomShape.strokeColor = UIColor.black
+      roomShape.lineWidth = 4
+      roomShape.fillColor = UIColor.gray
+      self.addChild(roomShape)
+      
+      var midX = 0
+      var midY = 0
+      for index in 0 ..< myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1 {
+        coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].x
+        coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].y
+        coordinateXNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[index + 1].x
+        coordinateYNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[index + 1].y
+         midX = (coordinateX + coordinateXNext) / 2
+         midY = (coordinateY + coordinateYNext) / 2
+        myHome.rooms[myHome.selectedRoom].spritekitCircleSize[index].position = CGPoint(x: midX, y: midY)
+        self.addChild(myHome.rooms[myHome.selectedRoom].spritekitCircleSize[index])
+        myHome.rooms[myHome.selectedRoom].spritekitTextSize[index].position = CGPoint(x: midX, y: midY + 43)
+        self.addChild(myHome.rooms[myHome.selectedRoom].spritekitTextSize[index])
+      }
+      coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].x
+      coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].y
+      coordinateXNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[0].x
+      coordinateYNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[0].y
+      midX = (coordinateX + coordinateXNext) / 2
+      midY = (coordinateY + coordinateYNext) / 2
+      myHome.rooms[myHome.selectedRoom].spritekitCircleSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY)
+      self.addChild(myHome.rooms[myHome.selectedRoom].spritekitCircleSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1])
+      myHome.rooms[myHome.selectedRoom].spritekitTextSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY + 43)
+      self.addChild(myHome.rooms[myHome.selectedRoom].spritekitTextSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1])
+      
+      
+      //        var midX = 0.0
+      //        var midY = 0.0
+      //        for index in 0 ..< gridCorners.count {
+      //          var firstPoint: Room.Point
+      //          var secondPoint: Room.Point
+      //          if index == 0 {
+      //            firstPoint = gridCorners[index]
+      //            secondPoint = gridCorners[gridCorners.count - 1]
+      //          } else {
+      //            firstPoint = gridCorners[index]
+      //            secondPoint = gridCorners[index - 1]
+      //          }
+      //          let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
+      //          let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
+      //          midX = (averageX - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
+      //          midY = (averageY - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
+      //          debug.console(message: "midX = \(midX), midY = \(midY)", file: #file, function: #function, line: #line)
+      //
+      //          showSizeNode(CGPoint(x: midX, y: midY))
+      //        }
+      //    }
     }
   }
+  
+  private func generateSpritekitCorners( _ size: Int) -> [Room.Point] {
+    var spritekitCorners : [Room.Point] = []
+    for _ in 0 ..< size {
+      spritekitCorners.append(Room.Point( x: 0, y: 0))
+    }
+    return spritekitCorners
+  }
+  
+  private func generateSpritekitTextSize( _ size: Int) -> [SKLabelNode] {
+    var spritekitTextSize : [SKLabelNode] = []
+    for _ in 0 ..< size {
+      let textSize = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
+      textSize.text = "94.05"
+      textSize.fontSize = 16
+      textSize.fontColor = SKColor.white
+      textSize.position = CGPoint(x: 0, y: 0)
+      spritekitTextSize.append(textSize)
+    }
+    return spritekitTextSize
+  }
+  
+  private func generateSpritekitCircleSize( _ size: Int) -> [SKShapeNode] {
+    var spritekitCircleSize : [SKShapeNode] = []
+    for _ in 0 ..< size {
+      let circleSize = SKShapeNode()
+      circleSize.path = UIBezierPath(roundedRect: CGRect(x: -25, y: 25, width: 50, height: 50), cornerRadius: 50).cgPath
+      circleSize.position = CGPoint(x: 0, y: 0)
+      circleSize.fillColor = UIColor.black
+      spritekitCircleSize.append(circleSize)
+    }
+    return spritekitCircleSize
+  }
+  
+  private func generateSpritekitRealCorners( _ size: Int) -> [Room.Point] {
+    var spritekitRealCorners : [Room.Point] = []
+    for _ in 0 ..< size {
+      spritekitRealCorners.append(Room.Point( x: 0, y: 0))
+    }
+    return spritekitRealCorners
+  }
+  
+  
   
   private func showSizeNode(_ position: CGPoint) {
     showCircleSizeSKShapeNode( position)
