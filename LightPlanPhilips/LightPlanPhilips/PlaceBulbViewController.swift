@@ -72,6 +72,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       if let view = self.view as! SKView? {
         // Create spritekit Roomscene
         scene = SKScene(fileNamed: "RoomScene") as! RoomScene
+        scene.myHome = myHome
         scene.scaleMode = .aspectFill
         
         scene.roomSceneDelegate = self
