@@ -9,15 +9,18 @@
 import UIKit
 import SpriteKit
 
-
-// press cancel
 class NameBulbViewController: SceneViewController, UITextFieldDelegate {
-  @IBAction func cancelButton(_ sender: Any) {
-    bulb.lightTypeName = tempLightTypeName
-    bulb.lightTypeIcon = tempLightTypeIcon
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
+  
+  @IBAction func backButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
-  
+  @IBAction func cancelButton(_ sender: Any) {
+    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    bulb.lightTypeName = tempLightTypeName
+    bulb.lightTypeIcon = tempLightTypeIcon
+  }
   
   @IBOutlet weak var bulbName: UITextField!
   
@@ -159,7 +162,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     return false
   }
   
-
+  
   
   
   // dismiss keyboard when return is pressed

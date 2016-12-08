@@ -13,7 +13,6 @@ class PlaceFurnitureViewController: UIViewController {
   }
   @IBAction func nextButton(_ sender: Any) {
   }
-  @IBOutlet weak var nextButton: UIButton!
  
   var scene: PlaceFurnitureScene?
   override func viewDidLoad() {

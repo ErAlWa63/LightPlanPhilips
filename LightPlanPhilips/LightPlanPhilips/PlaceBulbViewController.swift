@@ -58,7 +58,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     
     let bulb = self.bulbsInHome[indexPath.item]
     // check if the defaul placement position in room exists
-    if self.room?.gridCell[24] == false {
+    if self.room?.gridCellOptimized[24] == false {
       bulb.positionX = Float((scene.backupPosition?.x)!)
       bulb.positionY = Float((scene.backupPosition?.y)!)
     }

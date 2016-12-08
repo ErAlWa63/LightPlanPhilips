@@ -138,11 +138,11 @@ class RoomShapeViewController: UIViewController {
       myRoom.countCell = 0
       nextButton.isHidden = true
       for index in 0 ..< gridButtons.count {
-        if myRoom.gridCell[index] {
+        if myRoom.gridCellUser[index] {
           gridButtons[index].color(rgbValue: 0xE7BF7E)
           myRoom.countCell += 1
-          myRoom.countGridAxisX[roomShapeModel.index2GridPoint[index].x] += 1
-          myRoom.countGridAxisY[roomShapeModel.index2GridPoint[index].y] += 1
+          myRoom.countGridAxisXUser[roomShapeModel.index2GridPoint[index].x] += 1
+          myRoom.countGridAxisYUser[roomShapeModel.index2GridPoint[index].y] += 1
           nextButton.isHidden = false
         } else {
           gridButtons[index].color(rgbValue: 0xD8D8D8)

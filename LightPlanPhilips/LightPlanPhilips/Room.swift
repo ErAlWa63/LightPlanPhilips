@@ -24,10 +24,13 @@ class Room {
   var spritekitCircleSize : [SKShapeNode] = []
   var spritekitTextSize : [SKLabelNode] = []
   var spritekitRealCorners : [SpriteKitPoint] = []
-  var gridCell = Array(repeating: Bool(), count: 49)
+  var gridCellUser = Array(repeating: Bool(), count: 49)
+  var gridCellOptimized = Array(repeating: Bool(), count: 49)
   var gridCellBackup = Array(repeating: Bool(), count: 49)
-  var countGridAxisX = [0, 0, 0, 0, 0, 0, 0]
-  var countGridAxisY = [0, 0, 0, 0, 0, 0, 0]
+  var countGridAxisXUser = [0, 0, 0, 0, 0, 0, 0]
+  var countGridAxisYUser = [0, 0, 0, 0, 0, 0, 0]
+  var countGridAxisXOptimized : [Int] = []
+  var countGridAxisYOptimized : [Int] = []
   var countCell = 0
 
   init(id: String, name: String) {
@@ -49,6 +52,6 @@ class Room {
     self.id =  id
     self.name = name
     self.pictogram   = UIImage(named: file)!
-    self.gridCell = grid
+    self.gridCellUser = grid
   }
 }
