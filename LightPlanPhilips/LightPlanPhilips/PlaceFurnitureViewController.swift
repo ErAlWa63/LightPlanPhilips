@@ -9,7 +9,7 @@ class PlaceFurnitureViewController: UIViewController {
     self.dismiss(animated: true, completion: nil)
   }
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
   }
   @IBAction func nextButton(_ sender: Any) {
   }
