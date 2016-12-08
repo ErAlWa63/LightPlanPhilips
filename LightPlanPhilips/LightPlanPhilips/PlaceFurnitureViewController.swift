@@ -1,30 +1,75 @@
 import UIKit
+import SpriteKit
 
 class PlaceFurnitureViewController: UIViewController {
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
+  
   let debug = Debug() // debugger functionality
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  
+  @IBOutlet weak var backButton: UIButton!
+  @IBAction func backButton(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func cancelButton(_ sender: Any) {
+    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func nextButton(_ sender: Any) {
+  }
+  @IBOutlet weak var nextButton: UIButton!
+ 
+  var scene: PlaceFurnitureScene?
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    debug.console(message: "start", file: #file, function: #function, line: #line)
+    if let view = self.view as! SKView? {
+      scene = SKScene(fileNamed: "PlaceFurnitureScene") as? PlaceFurnitureScene
+      if let scene = scene {
+        scene.myHome = myHome
+        scene.scaleMode = .aspectFill
+        view.presentScene(scene)
+        view.ignoresSiblingOrder = true
+        view.showsFPS = true
+        view.showsNodeCount = true
+      }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    passInformationToNextScene(segue: segue)
+  }
+  
+  private func passInformationToNextScene(segue: UIStoryboardSegue) {
+    if segue.identifier == "PlaceBulbSegue" {
+      passInformationToSomewhereScene(segue: segue)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  }
+  
+  private func passInformationToSomewhereScene(segue: UIStoryboardSegue) {
+    if let destination = segue.destination as? PlaceBulbViewController {
+      passDataToScene( destination: destination)
+      passClosureToScene( destination: destination)
     }
-    */
-
+  }
+  
+  private func passDataToScene (destination: PlaceBulbViewController) {
+    if let myHome = myHome {
+      destination.myHome = myHome
+    }
+  }
+  
+  private func passClosureToScene ( destination: PlaceBulbViewController) {
+    destination.closureToPerform = { [weak self] (myHome: Home) in
+      if let strongSelf = self {
+        strongSelf.myHome = myHome
+      }
+    }
+  }
 }
 extension PlaceFurnitureViewController: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {

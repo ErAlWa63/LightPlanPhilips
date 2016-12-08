@@ -11,6 +11,8 @@ import SpriteKit
 
 
 class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
   
   
   
@@ -66,15 +68,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     DataSource.sharedInstance.moveBulbFromHomeToRoom(bulbId: bulb.id, roomId: roomId)
     self.bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
     self.bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
+
     collectionView.deleteItems(at: [indexPath])
     
-    //collectionView.reloadData()
-    
   }
-  
 
-  
-  
   override func viewWillAppear(_ animated: Bool) {
     bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
     groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)

@@ -18,13 +18,6 @@ class RoomShapeModel {
     }
   }
   
-  struct Point {
-    var x: Int
-    var y: Int
-  }
-  
-  //  var edge : [Point] = []
-  
   private let addFrame4    = [ true,  true, false,  true,  true, false,  true,  true]
   private let removeFrame4 = [ true,  true,  true,  true,  true, false,  true,  true]
   private let addFrame6    = [ true,  true, false,  true,  true, false,  true,  true,
@@ -116,64 +109,65 @@ class RoomShapeModel {
     case Left
   }
   
-  let index2Point = [ Point(x: 0, y: 0), Point(x: 1, y: 0), Point(x: 2, y: 0), Point(x: 3, y: 0), Point(x: 4, y: 0), Point(x: 5, y: 0), Point(x: 6, y: 0),
-                      Point(x: 0, y: 1), Point(x: 1, y: 1), Point(x: 2, y: 1), Point(x: 3, y: 1), Point(x: 4, y: 1), Point(x: 5, y: 1), Point(x: 6, y: 1),
-                      Point(x: 0, y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2), Point(x: 3, y: 2), Point(x: 4, y: 2), Point(x: 5, y: 2), Point(x: 6, y: 2),
-                      Point(x: 0, y: 3), Point(x: 1, y: 3), Point(x: 2, y: 3), Point(x: 3, y: 3), Point(x: 4, y: 3), Point(x: 5, y: 3), Point(x: 6, y: 3),
-                      Point(x: 0, y: 4), Point(x: 1, y: 4), Point(x: 2, y: 4), Point(x: 3, y: 4), Point(x: 4, y: 4), Point(x: 5, y: 4), Point(x: 6, y: 4),
-                      Point(x: 0, y: 5), Point(x: 1, y: 5), Point(x: 2, y: 5), Point(x: 3, y: 5), Point(x: 4, y: 5), Point(x: 5, y: 5), Point(x: 6, y: 5),
-                      Point(x: 0, y: 6), Point(x: 1, y: 6), Point(x: 2, y: 6), Point(x: 3, y: 6), Point(x: 4, y: 6), Point(x: 5, y: 6), Point(x: 6, y: 6)]
+  let index2GridPoint = [ GridPoint(x: 0, y: 0), GridPoint(x: 1, y: 0), GridPoint(x: 2, y: 0), GridPoint(x: 3, y: 0), GridPoint(x: 4, y: 0), GridPoint(x: 5, y: 0), GridPoint(x: 6, y: 0),
+                      GridPoint(x: 0, y: 1), GridPoint(x: 1, y: 1), GridPoint(x: 2, y: 1), GridPoint(x: 3, y: 1), GridPoint(x: 4, y: 1), GridPoint(x: 5, y: 1), GridPoint(x: 6, y: 1),
+                      GridPoint(x: 0, y: 2), GridPoint(x: 1, y: 2), GridPoint(x: 2, y: 2), GridPoint(x: 3, y: 2), GridPoint(x: 4, y: 2), GridPoint(x: 5, y: 2), GridPoint(x: 6, y: 2),
+                      GridPoint(x: 0, y: 3), GridPoint(x: 1, y: 3), GridPoint(x: 2, y: 3), GridPoint(x: 3, y: 3), GridPoint(x: 4, y: 3), GridPoint(x: 5, y: 3), GridPoint(x: 6, y: 3),
+                      GridPoint(x: 0, y: 4), GridPoint(x: 1, y: 4), GridPoint(x: 2, y: 4), GridPoint(x: 3, y: 4), GridPoint(x: 4, y: 4), GridPoint(x: 5, y: 4), GridPoint(x: 6, y: 4),
+                      GridPoint(x: 0, y: 5), GridPoint(x: 1, y: 5), GridPoint(x: 2, y: 5), GridPoint(x: 3, y: 5), GridPoint(x: 4, y: 5), GridPoint(x: 5, y: 5), GridPoint(x: 6, y: 5),
+                      GridPoint(x: 0, y: 6), GridPoint(x: 1, y: 6), GridPoint(x: 2, y: 6), GridPoint(x: 3, y: 6), GridPoint(x: 4, y: 6), GridPoint(x: 5, y: 6), GridPoint(x: 6, y: 6)]
   
   private func allowedCorner( index: Int, angle: Angle) -> Bool {
     if let myHome = myHome {
-      let currentPoint = index2Point[index]
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      let currentPoint = index2GridPoint[index]
       switch angle {
       case .Normal:
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
       case .Right:
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
       case .Half:
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
       case .Left:
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
       }
       var sum = 0
       sum += cellE  ? 1 : 0
       sum += cellSE ? 2 : 0
       sum += cellS  ? 4 : 0
-      if myHome.rooms[myHome.selectedRoom].gridCell[index] {
+      if myRoom.gridCell[index] {
         if removeFrame4[sum] {
-          myHome.rooms[myHome.selectedRoom].gridCell[index] = false
-          myHome.rooms[myHome.selectedRoom].countCell -= 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] -= 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] -= 1
+          myRoom.gridCell[index] = false
+          myRoom.countCell -= 1
+          myRoom.countGridAxisX[index2GridPoint[index].x] -= 1
+          myRoom.countGridAxisY[index2GridPoint[index].y] -= 1
         }
       } else {
-        if myHome.rooms[myHome.selectedRoom].countCell == 0 {
-          myHome.rooms[myHome.selectedRoom].gridCell[index] = true
-          myHome.rooms[myHome.selectedRoom].countCell += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
+        if myRoom.countCell == 0 {
+          myRoom.gridCell[index] = true
+          myRoom.countCell += 1
+          myRoom.countGridAxisX[index2GridPoint[index].x] += 1
+          myRoom.countGridAxisY[index2GridPoint[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame4[sum] {
-              myHome.rooms[myHome.selectedRoom].gridCell[index] = true
-              myHome.rooms[myHome.selectedRoom].countCell += 1
-              myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
-              myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
+              myRoom.gridCell[index] = true
+              myRoom.countCell += 1
+              myRoom.countGridAxisX[index2GridPoint[index].x] += 1
+              myRoom.countGridAxisY[index2GridPoint[index].y] += 1
             }
           }
         }
       }
-      return myHome.rooms[myHome.selectedRoom].gridCell[index]
+      return myRoom.gridCell[index]
     } else {
       return false
     }
@@ -181,32 +175,33 @@ class RoomShapeModel {
   
   private func allowedSide( index: Int, angle: Angle) -> Bool {
     if let myHome = myHome {
-      let currentPoint = index2Point[index]
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      let currentPoint = index2GridPoint[index]
       switch angle {
       case .Normal:
-        cellN  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-        cellNE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellN  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellNE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
       case .Right:
-        cellN  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-        cellNE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellN  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellNE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
       case .Half:
-        cellN  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-        cellNE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellN  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellNE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
       case .Left:
-        cellN  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-        cellNE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
-        cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-        cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellN  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellNE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
       }
       var sum = 0
       sum += cellN  ?  1 : 0
@@ -214,31 +209,31 @@ class RoomShapeModel {
       sum += cellE  ?  4 : 0
       sum += cellSE ?  8 : 0
       sum += cellS  ? 16 : 0
-      if myHome.rooms[myHome.selectedRoom].gridCell[index] {
+      if myRoom.gridCell[index] {
         if removeFrame6[sum] {
-          myHome.rooms[myHome.selectedRoom].gridCell[index] = false
-          myHome.rooms[myHome.selectedRoom].countCell -= 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] -= 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] -= 1
+          myRoom.gridCell[index] = false
+          myRoom.countCell -= 1
+          myRoom.countGridAxisX[index2GridPoint[index].x] -= 1
+          myRoom.countGridAxisY[index2GridPoint[index].y] -= 1
         }
       } else {
-        if myHome.rooms[myHome.selectedRoom].countCell == 0 {
-          myHome.rooms[myHome.selectedRoom].gridCell[index] = true
-          myHome.rooms[myHome.selectedRoom].countCell += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
+        if myRoom.countCell == 0 {
+          myRoom.gridCell[index] = true
+          myRoom.countCell += 1
+          myRoom.countGridAxisX[index2GridPoint[index].x] += 1
+          myRoom.countGridAxisY[index2GridPoint[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame6[sum] {
-              myHome.rooms[myHome.selectedRoom].gridCell[index] = true
-              myHome.rooms[myHome.selectedRoom].countCell += 1
-              myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
-              myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
+              myRoom.gridCell[index] = true
+              myRoom.countCell += 1
+              myRoom.countGridAxisX[index2GridPoint[index].x] += 1
+              myRoom.countGridAxisY[index2GridPoint[index].y] += 1
             }
           }
         }
       }
-      return myHome.rooms[myHome.selectedRoom].gridCell[index]
+      return myRoom.gridCell[index]
     } else {
       return false
     }
@@ -246,15 +241,16 @@ class RoomShapeModel {
   
   private func allowedInner( index: Int) -> Bool {
     if let myHome = myHome {
-      let currentPoint = index2Point[index]
-      cellN  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-      cellNE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-      cellE  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-      cellSE = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-      cellS  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-      cellSW = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-      cellW  = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-      cellNW = myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      let currentPoint = index2GridPoint[index]
+      cellN  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+      cellNE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+      cellE  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+      cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+      cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+      cellSW = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+      cellW  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+      cellNW = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
       var sum = 0
       sum += cellN  ?   1 : 0
       sum += cellNE ?   2 : 0
@@ -264,107 +260,232 @@ class RoomShapeModel {
       sum += cellSW ?  32 : 0
       sum += cellW  ?  64 : 0
       sum += cellNW ? 128 : 0
-      if myHome.rooms[myHome.selectedRoom].gridCell[index] {
+      if myRoom.gridCell[index] {
         if removeFrame9[sum] {
-          myHome.rooms[myHome.selectedRoom].gridCell[index] = false
-          myHome.rooms[myHome.selectedRoom].countCell -= 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] -= 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] -= 1
+          myRoom.gridCell[index] = false
+          myRoom.countCell -= 1
+          myRoom.countGridAxisX[index2GridPoint[index].x] -= 1
+          myRoom.countGridAxisY[index2GridPoint[index].y] -= 1
         }
       } else {
-        if myHome.rooms[myHome.selectedRoom].countCell == 0 {
-          myHome.rooms[myHome.selectedRoom].gridCell[index] = true
-          myHome.rooms[myHome.selectedRoom].countCell += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
+        if myRoom.countCell == 0 {
+          myRoom.gridCell[index] = true
+          myRoom.countCell += 1
+          myRoom.countGridAxisX[index2GridPoint[index].x] += 1
+          myRoom.countGridAxisY[index2GridPoint[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame9[sum] {
-              myHome.rooms[myHome.selectedRoom].gridCell[index] = true
-              myHome.rooms[myHome.selectedRoom].countCell += 1
-              myHome.rooms[myHome.selectedRoom].countGridAxisX[index2Point[index].x] += 1
-              myHome.rooms[myHome.selectedRoom].countGridAxisY[index2Point[index].y] += 1
+              myRoom.gridCell[index] = true
+              myRoom.countCell += 1
+              myRoom.countGridAxisX[index2GridPoint[index].x] += 1
+              myRoom.countGridAxisY[index2GridPoint[index].y] += 1
             }
           }
         }
       }
-      return myHome.rooms[myHome.selectedRoom].gridCell[index]
+      return myRoom.gridCell[index]
     } else {
       return false
     }
   }
   
-  func processNext () -> [Point] {
+  func processNext () -> [GridPoint] {
     if let myHome = myHome {
-      debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisX = \(myHome.rooms[myHome.selectedRoom].countGridAxisX)", file: #file, function: #function, line: #line)
-      debug.console(message: "myHome.rooms[myHome.selectedRoom].countGridAxisY = \(myHome.rooms[myHome.selectedRoom].countGridAxisY)", file: #file, function: #function, line: #line)
-      
-      if myHome.rooms[myHome.selectedRoom].countCell == 0 {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      if myRoom.countCell == 0 {
         return []
       } else {
         
-        var minimumIndex = myHome.rooms[myHome.selectedRoom].gridCell.count
-        for index in 0 ..< myHome.rooms[myHome.selectedRoom].gridCell.count {
-          if myHome.rooms[myHome.selectedRoom].gridCell[index] {
+        myRoom.gridCellBackup = myRoom.gridCell
+        
+        debug.console(message: "myRoom.countGridAxisX = \(myRoom.countGridAxisX)", file: #file, function: #function, line: #line)
+        debug.console(message: "myRoom.countGridAxisY = \(myRoom.countGridAxisY)", file: #file, function: #function, line: #line)
+        
+        
+        while myRoom.countGridAxisX[0] == 0 {
+          myRoom.countGridAxisX[0] = myRoom.countGridAxisX[1]
+          myRoom.countGridAxisX[1] = myRoom.countGridAxisX[2]
+          myRoom.countGridAxisX[2] = myRoom.countGridAxisX[3]
+          myRoom.countGridAxisX[3] = myRoom.countGridAxisX[4]
+          myRoom.countGridAxisX[4] = myRoom.countGridAxisX[5]
+          myRoom.countGridAxisX[5] = myRoom.countGridAxisX[6]
+          myRoom.countGridAxisX[6] = 0
+          debug.console(message: "myRoom.countGridAxisX = \(myRoom.countGridAxisX)", file: #file, function: #function, line: #line)
+          myRoom.gridCell[0] = myRoom.gridCell[1]
+          myRoom.gridCell[1] = myRoom.gridCell[2]
+          myRoom.gridCell[2] = myRoom.gridCell[3]
+          myRoom.gridCell[3] = myRoom.gridCell[4]
+          myRoom.gridCell[4] = myRoom.gridCell[5]
+          myRoom.gridCell[5] = myRoom.gridCell[6]
+          myRoom.gridCell[6] = false
+          myRoom.gridCell[7] = myRoom.gridCell[8]
+          myRoom.gridCell[8] = myRoom.gridCell[9]
+          myRoom.gridCell[9] = myRoom.gridCell[10]
+          myRoom.gridCell[10] = myRoom.gridCell[11]
+          myRoom.gridCell[11] = myRoom.gridCell[12]
+          myRoom.gridCell[12] = myRoom.gridCell[13]
+          myRoom.gridCell[13] = false
+          myRoom.gridCell[14] = myRoom.gridCell[15]
+          myRoom.gridCell[15] = myRoom.gridCell[16]
+          myRoom.gridCell[16] = myRoom.gridCell[17]
+          myRoom.gridCell[17] = myRoom.gridCell[18]
+          myRoom.gridCell[18] = myRoom.gridCell[19]
+          myRoom.gridCell[19] = myRoom.gridCell[20]
+          myRoom.gridCell[20] = false
+          myRoom.gridCell[21] = myRoom.gridCell[22]
+          myRoom.gridCell[22] = myRoom.gridCell[23]
+          myRoom.gridCell[23] = myRoom.gridCell[24]
+          myRoom.gridCell[24] = myRoom.gridCell[25]
+          myRoom.gridCell[25] = myRoom.gridCell[26]
+          myRoom.gridCell[26] = myRoom.gridCell[27]
+          myRoom.gridCell[27] = false
+          myRoom.gridCell[28] = myRoom.gridCell[29]
+          myRoom.gridCell[29] = myRoom.gridCell[30]
+          myRoom.gridCell[30] = myRoom.gridCell[31]
+          myRoom.gridCell[31] = myRoom.gridCell[32]
+          myRoom.gridCell[32] = myRoom.gridCell[33]
+          myRoom.gridCell[33] = myRoom.gridCell[34]
+          myRoom.gridCell[34] = false
+          myRoom.gridCell[35] = myRoom.gridCell[36]
+          myRoom.gridCell[36] = myRoom.gridCell[37]
+          myRoom.gridCell[37] = myRoom.gridCell[38]
+          myRoom.gridCell[38] = myRoom.gridCell[39]
+          myRoom.gridCell[39] = myRoom.gridCell[40]
+          myRoom.gridCell[40] = myRoom.gridCell[41]
+          myRoom.gridCell[41] = false
+          myRoom.gridCell[42] = myRoom.gridCell[43]
+          myRoom.gridCell[43] = myRoom.gridCell[44]
+          myRoom.gridCell[44] = myRoom.gridCell[45]
+          myRoom.gridCell[45] = myRoom.gridCell[46]
+          myRoom.gridCell[46] = myRoom.gridCell[47]
+          myRoom.gridCell[47] = myRoom.gridCell[48]
+          myRoom.gridCell[48] = false
+        }
+        
+        
+        
+        while myRoom.countGridAxisY[0] == 0 {
+          myRoom.countGridAxisY[0] = myRoom.countGridAxisY[1]
+          myRoom.countGridAxisY[1] = myRoom.countGridAxisY[2]
+          myRoom.countGridAxisY[2] = myRoom.countGridAxisY[3]
+          myRoom.countGridAxisY[3] = myRoom.countGridAxisY[4]
+          myRoom.countGridAxisY[4] = myRoom.countGridAxisY[5]
+          myRoom.countGridAxisY[5] = myRoom.countGridAxisY[6]
+          myRoom.countGridAxisY[6] = 0
+          debug.console(message: "myRoom.countGridAxisY = \(myRoom.countGridAxisY)", file: #file, function: #function, line: #line)
+          myRoom.gridCell[0] = myRoom.gridCell[7]
+          myRoom.gridCell[7] = myRoom.gridCell[14]
+          myRoom.gridCell[14] = myRoom.gridCell[21]
+          myRoom.gridCell[21] = myRoom.gridCell[28]
+          myRoom.gridCell[28] = myRoom.gridCell[35]
+          myRoom.gridCell[35] = myRoom.gridCell[42]
+          myRoom.gridCell[42] = false
+          myRoom.gridCell[1] = myRoom.gridCell[8]
+          myRoom.gridCell[8] = myRoom.gridCell[15]
+          myRoom.gridCell[15] = myRoom.gridCell[22]
+          myRoom.gridCell[22] = myRoom.gridCell[29]
+          myRoom.gridCell[29] = myRoom.gridCell[36]
+          myRoom.gridCell[36] = myRoom.gridCell[43]
+          myRoom.gridCell[43] = false
+          myRoom.gridCell[2] = myRoom.gridCell[9]
+          myRoom.gridCell[9] = myRoom.gridCell[16]
+          myRoom.gridCell[16] = myRoom.gridCell[23]
+          myRoom.gridCell[23] = myRoom.gridCell[30]
+          myRoom.gridCell[30] = myRoom.gridCell[37]
+          myRoom.gridCell[37] = myRoom.gridCell[44]
+          myRoom.gridCell[44] = false
+          myRoom.gridCell[3] = myRoom.gridCell[10]
+          myRoom.gridCell[10] = myRoom.gridCell[17]
+          myRoom.gridCell[17] = myRoom.gridCell[24]
+          myRoom.gridCell[24] = myRoom.gridCell[31]
+          myRoom.gridCell[31] = myRoom.gridCell[38]
+          myRoom.gridCell[38] = myRoom.gridCell[45]
+          myRoom.gridCell[45] = false
+          myRoom.gridCell[4] = myRoom.gridCell[11]
+          myRoom.gridCell[11] = myRoom.gridCell[18]
+          myRoom.gridCell[18] = myRoom.gridCell[25]
+          myRoom.gridCell[25] = myRoom.gridCell[32]
+          myRoom.gridCell[32] = myRoom.gridCell[39]
+          myRoom.gridCell[39] = myRoom.gridCell[46]
+          myRoom.gridCell[46] = false
+          myRoom.gridCell[5] = myRoom.gridCell[12]
+          myRoom.gridCell[12] = myRoom.gridCell[19]
+          myRoom.gridCell[19] = myRoom.gridCell[26]
+          myRoom.gridCell[26] = myRoom.gridCell[33]
+          myRoom.gridCell[33] = myRoom.gridCell[40]
+          myRoom.gridCell[40] = myRoom.gridCell[47]
+          myRoom.gridCell[47] = false
+          myRoom.gridCell[6] = myRoom.gridCell[13]
+          myRoom.gridCell[13] = myRoom.gridCell[20]
+          myRoom.gridCell[20] = myRoom.gridCell[27]
+          myRoom.gridCell[27] = myRoom.gridCell[34]
+          myRoom.gridCell[34] = myRoom.gridCell[41]
+          myRoom.gridCell[41] = myRoom.gridCell[48]
+          myRoom.gridCell[48] = false
+        }
+        var minimumIndex = myRoom.gridCell.count
+        for index in 0 ..< myRoom.gridCell.count {
+          if myRoom.gridCell[index] {
             if index < minimumIndex {
               minimumIndex = index
             }
           }
         }
-        var corner = [index2Point[minimumIndex]]
+        var corner = [index2GridPoint[minimumIndex]]
         var currentPoint = corner[0]
         var currentAngle : Angle = .Normal
-        var nextPoint = Point(x: currentPoint.x + 1, y: currentPoint.y)
+        var nextPoint = GridPoint(x: currentPoint.x + 1, y: currentPoint.y)
         while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
           currentPoint = nextPoint
           switch currentAngle {
           case .Normal:
-            if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Left
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
-            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
-              nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+              nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+              nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Right
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+              nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             }
           case .Left:
-            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Half
-              nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
-            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+              nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+              nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Normal
-              nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+              nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             }
           case .Right:
-            if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Normal
-              nextPoint = Point(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
-            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+              nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
+            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+              nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Half
-              nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+              nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             }
           case .Half:
-            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Right
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
-            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myHome.rooms[myHome.selectedRoom].gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
-              nextPoint = Point(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
+              nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
+            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+              nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             } else {
-              corner.append(Point(x: currentPoint.x, y: currentPoint.y))
+              corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Left
-              nextPoint = Point(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
+              nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             }
           }
         }
@@ -377,6 +498,4 @@ class RoomShapeModel {
     }
     
   }
-  
-  //  var currentCellIsCollored = Array(repeating: Bool(), count: 49)
 }

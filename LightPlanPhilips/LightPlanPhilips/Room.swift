@@ -1,16 +1,16 @@
-//
-//  Room.swift
-//  LightPlanPhilips
-//
-//  Created by Mark Aptroot on 16-11-16.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-// iOS Programming: The Big Nerd Ranch Guide pag 169 - Moving Rows
-
-
 import Foundation
 import UIKit
+import SpriteKit
 
+struct GridPoint {
+  var x: Int
+  var y: Int
+}
+
+struct SpriteKitPoint {
+  var x: Int
+  var y: Int
+}
 
 class Room {
   var id: String
@@ -19,20 +19,17 @@ class Room {
   var pictogram: UIImage?
   var assignedBulbs: [Bulb] = []
   var groups: [Group] = []
-  var edge : [RoomShapeModel.Point] = []
-  var gridCell  = Array(repeating: Bool(), count: 49)
+  var gridCorners : [GridPoint] = []
+  var spritekitCorners : [SpriteKitPoint] = []
+  var spritekitCircleSize : [SKShapeNode] = []
+  var spritekitTextSize : [SKLabelNode] = []
+  var spritekitRealCorners : [SpriteKitPoint] = []
+  var gridCell = Array(repeating: Bool(), count: 49)
+  var gridCellBackup = Array(repeating: Bool(), count: 49)
   var countGridAxisX = [0, 0, 0, 0, 0, 0, 0]
   var countGridAxisY = [0, 0, 0, 0, 0, 0, 0]
   var countCell = 0
-//  var currentCellIsCollored = Array(repeating: Bool(), count: 49)
 
-
-  struct Point {
-    var x: Int
-    var y: Int
-  }
-
-  
   init(id: String, name: String) {
     self.id =  id
     self.name = name
