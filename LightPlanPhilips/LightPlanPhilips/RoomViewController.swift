@@ -21,9 +21,9 @@ class RoomViewController: SceneViewController {
   var scene: RoomScene!
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
-  var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
+  //var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
   var bulbId: String = ""
-  
+  var room: Room?
   
   let debug = Debug() // debugger functionality
   
@@ -34,40 +34,29 @@ class RoomViewController: SceneViewController {
       
       let nameBulbViewController = (segue.destination) as! NameBulbViewController
       nameBulbViewController.bulbId = bulbId
+      nameBulbViewController.room = self.room
     } else if (segue.identifier == "CreateGroup") {
       let groupBulbsViewController = (segue.destination) as! GroupBulbsViewController
-      groupBulbsViewController.roomId = roomId
+      groupBulbsViewController.room = self.room
     } else if (segue.identifier == "ShowGroup") {
       let showGroupViewController = (segue.destination) as! ShowGroupViewController
       showGroupViewController.groupId = bulbId
+      showGroupViewController.room = self.room
     }
 }
 
 //click group button
 @IBAction func groupClicked(_ sender: Any) {
-  saveBulbs()
   performSegue(withIdentifier: "CreateGroup", sender: nil)
 }
 
 
 
-
-override func viewDidLoad() {
-  super.viewDidLoad()
-  
-  
-  
-  
-}
-
 override func viewWillAppear(_ animated: Bool) {
-  bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
-  groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
+  bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: (room?.id)!)
+  groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: (room?.id)!)
   
-  
-  
-  print(bulbCollection)
-  print(groupCollection)
+
   if let view = self.view as! SKView? {
     // Create spritekit Roomscene
     scene = SKScene(fileNamed: "RoomScene") as! RoomScene
@@ -85,34 +74,8 @@ override func viewWillAppear(_ animated: Bool) {
   }
 }
 
-
-
-
-
 override var shouldAutorotate: Bool {
   return false
-}
-
-
-
-
-
-
-
-func saveBulbs(){
-  scene.enumerateChildNodes(withName: "//*", using:
-    { (node, stop) -> Void in
-      if node is BulbSpriteNode {
-        for bulb in self.bulbCollection {
-          let spriteNode = node as! BulbSpriteNode
-          if bulb.id == spriteNode.id {
-            bulb.positionX = Float(node.position.x)
-            bulb.positionY = Float(node.position.y)
-            break
-          }
-        }
-      }
-  })
 }
 
 // delegate functions
@@ -120,11 +83,6 @@ override   func clickBulb(id: String, segue: String){
   self.bulbId = id
   performSegue(withIdentifier: segue, sender: nil)
 }
-
-
-
-
-
 
 override func groupSelected(groupSelected: Bool) {
   // not used here
@@ -140,6 +98,9 @@ override func getGroups() -> [Group]{
   return self.groupCollection
 }
 
+  override func getRoom() -> Room? {
+    return self.room
+  }
 
 
 }

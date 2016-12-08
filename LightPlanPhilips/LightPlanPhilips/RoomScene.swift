@@ -6,13 +6,6 @@
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
 
-//
-//  GameScene.swift
-//  Game
-//
-//  Created by Mark Aptroot on 07-11-16.
-//  Copyright © 2016 Mark Aptroot. All rights reserved.
-//
 
 import SpriteKit
 
@@ -36,20 +29,68 @@ class RoomScene: SKScene {
   var bulbs = [String: Bulb ]()
   var selectedNode = BulbSpriteNode()
   
+  var room: Room?
+  var backupPosition: CGPoint?
   
   
   
   override func didMove(to view: SKView) {
-    // get bulbs
-    // get groups
+    
     
     if let roomSceneDelegate = roomSceneDelegate {
-      debug.console(message: "start", file: #file, function: #function, line: #line)
       bulbCollection = roomSceneDelegate.getBulbs()
+      groups = roomSceneDelegate.getGroups()
+      room = roomSceneDelegate.getRoom()
     }
-    //    bulbCollection = (roomSceneDelegate?.getBulbs())!
     
-    groups = (roomSceneDelegate?.getGroups())!
+
+    
+    
+    
+    
+    
+    
+    // create room shape
+    var edge : [RoomShapeModel.Point] = []
+    
+    edge = (room?.edge)!
+    
+    
+    
+    if edge.count != 0 {
+      debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
+      let shape = UIBezierPath()
+      let multiplyEdge2NodePoint = 85
+      let offsetNodePoint = 45
+      let buttonBoundary = 7
+      let offsetEdge2NodePoint = 3
+      shape.move(to: CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
+                             y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
+      debug.console(message: "(x,y) = (\(((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
+      for point in edge {
+        shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
+                                  y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
+        debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
+      }
+      shape.close()
+      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
+      shapeTrack.position = CGPoint(x: 0, y: 50)
+      shapeTrack.strokeColor = UIColor.black
+      shapeTrack.lineWidth = 4
+      shapeTrack.fillColor = UIColor.gray
+      
+      shapeTrack.name = "room"
+      self.addChild(shapeTrack)
+      
+      
+      
+      // get topleft position in room
+      var topLeftPosition =  CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint, y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint)
+      backupPosition = CGPoint(x: topLeftPosition.x + 15, y: topLeftPosition.y - 15)
+      
+      
+    }
+    
     
     //place bulbs
     for bulb in bulbCollection {
@@ -62,7 +103,7 @@ class RoomScene: SKScene {
       } else {
         sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
       }
-    
+      
       sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
       sprite.setScale(1.5)
       sprite.name = bulb.name
@@ -77,42 +118,27 @@ class RoomScene: SKScene {
       sprite.position = CGPoint(x: CGFloat(group.positionX!), y: CGFloat(group.positionY!))
       sprite.setScale(1.5)
       sprite.name = group.name
-      
       self.addChild(sprite)
       
-      
+      // ad yellow circel shape
       let shape = SKShapeNode()
       shape.path = UIBezierPath(roundedRect: CGRect(x: -15, y: -15 , width: 30, height: 30), cornerRadius: 15).cgPath
       shape.position = CGPoint(x: frame.midX, y: frame.midY)
       shape.fillColor = UIColor.yellow
       shape.strokeColor = UIColor.black
       shape.lineWidth = 2
-      
-      
       sprite.addChild(shape)
+      shape.position = CGPoint(x: 25, y:  -25)
       
-      
-      
-      shape.position = CGPoint(x: 15, y:  -15)
-      
-    
-      
+      // ad number of bulbs in group
       let groupNumber: String = String(group.assignedBulbs.count)
-      
       let label = SKLabelNode(text: groupNumber)
       label.fontColor = UIColor.black
       label.fontName = "HelveticaNeue-Bold"
       label.fontSize = 24
       label.verticalAlignmentMode = .center
-
-    
-      
       shape.addChild(label)
-      
-      
-      
     }
-    
   }
   
   
@@ -209,13 +235,23 @@ class RoomScene: SKScene {
       let touchedNodes = self.nodes(at: location)
       
       for node in touchedNodes {
-        if node is SKShapeNode {
-          lastLocationInRoom = location
-          movableNode!.position = location
+        if node is SKShapeNode, node.name == "room" {
+          if node.contains(location){
+            
+            lastLocationInRoom = location
+            movableNode!.position = location
+            
+          }
         }
       }
     }
   }
+  
+  
+
+  
+  
+  
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
@@ -227,7 +263,7 @@ class RoomScene: SKScene {
       
       
       for node in touchedNodes {
-        if node is SKShapeNode {
+        if node is SKShapeNode, node.name == "room" {
           endedInRoom = true
           lastLocationInRoom = location
         }
@@ -249,18 +285,18 @@ class RoomScene: SKScene {
     }
   }
   
-
-  func placeBulb(bulb: Bulb){
   
-      let sprite: BulbSpriteNode
-
-      sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
-      sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
-      sprite.setScale(1.5)
-      sprite.name = bulb.name
-      selectedBulbs[bulb.id] = false
-      self.addChild(sprite)
-      bulbCollection.append(bulb)
+  func placeBulb(bulb: Bulb){
+    
+    let sprite: BulbSpriteNode
+    
+    sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
+    sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
+    sprite.setScale(1.5)
+    sprite.name = bulb.name
+    selectedBulbs[bulb.id] = false
+    self.addChild(sprite)
+    bulbCollection.append(bulb)
   }
   
   

@@ -14,6 +14,7 @@ protocol RoomSceneDelegate: class {
   func clickBulb(id: String, segue: String)
   func getBulbs() -> [Bulb]
   func getGroups() -> [Group]
+  func getRoom() -> Room?
   func test()
   func groupSelected(groupSelected: Bool)
   func selectedBulbs(bulbs: [Bulb])
@@ -71,6 +72,10 @@ class SceneViewController: UIViewController , RoomSceneDelegate {
   
   func getBulbs() -> [Bulb]{
    return [] //self.bulbCollection
+  }
+  
+  func getRoom() -> Room? {
+    return nil
   }
   
   

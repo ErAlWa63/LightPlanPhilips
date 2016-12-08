@@ -26,6 +26,7 @@ class ShowGroupViewController: SceneViewController, UITextFieldDelegate {
   var groupNameFilled: Bool = false
   var selectedBulbs: [Bulb] = []
   var scene: RoomScene!
+  var room: Room?
   
   
   @IBOutlet weak var isArea: UIButton!
@@ -98,7 +99,10 @@ class ShowGroupViewController: SceneViewController, UITextFieldDelegate {
   override func getBulbs() -> [Bulb] {
     return bulbCollection
   }
-
+  
+  override func getRoom() -> Room? {
+    return self.room
+  }
   
   
 }

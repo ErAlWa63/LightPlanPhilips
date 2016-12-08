@@ -67,10 +67,16 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   var tempName: String?
   var tempLightTypeName: String?
   var tempLightTypeIcon: UIImage?
+  var room: Room?
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    
+    
     
   }
   
@@ -129,22 +135,31 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+  }
+  
+  func keyboardWillShow(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      self.view.frame.origin.y -= keyboardSize.height
+    }
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      self.view.frame.origin.y += keyboardSize.height
+    }
+  }
+  
+  
+  
+  
   override var shouldAutorotate: Bool {
     return false
   }
   
-  
-  func textFieldDidBeginEditing(_ textField: UITextField) {
-    // started typing, move view up
-    self.view.frame.origin.y -= 100
-    
-  }
-  
-  
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    // stopped typing, move view down
-    self.view.frame.origin.y += 100
-  }
+
   
   
   // dismiss keyboard when return is pressed
@@ -158,5 +173,9 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     var bulbs: [Bulb] = []
     bulbs.append(bulb)
     return bulbs
+  }
+  
+  override func getRoom() -> Room? {
+    return self.room
   }
 }
