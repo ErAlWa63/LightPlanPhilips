@@ -25,10 +25,10 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
   var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
+  var room: Room?
   var bulbId: String = ""
   
   let reuseIdentifier = "cell"
-  
   var bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
   
   let debug = Debug() // debugger functionality
@@ -57,18 +57,29 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     
     
     let bulb = self.bulbsInHome[indexPath.item]
+    // check if the defaul placement position in room exists
+    if self.room?.gridCell[24] == false {
+      bulb.positionX = Float((scene.backupPosition?.x)!)
+      bulb.positionY = Float((scene.backupPosition?.y)!)
+    }
+    
+    
+    
     scene.placeBulb(bulb: bulb)
     DataSource.sharedInstance.moveBulbFromHomeToRoom(bulbId: bulb.id, roomId: roomId)
     self.bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
     self.bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
-    collectionView.reloadData()
+
+    collectionView.deleteItems(at: [indexPath])
     
   }
-  
-  
+
   override func viewWillAppear(_ animated: Bool) {
     bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
     groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
+    room = DataSource.sharedInstance.getRoom(roomId: roomId)!
+    
+    
     
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
@@ -81,7 +92,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       
       scene.dragDropEnabled = true
       scene.createGroup = false
-      
       
       
       view.ignoresSiblingOrder = true
@@ -101,6 +111,8 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowBulbs" {
+      let viewController = (segue.destination) as! RoomViewController
+      viewController.room = self.room
       saveBulbs()
     }
   }
@@ -120,6 +132,17 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
               break
             }
           }
+          for group in self.groupCollection {
+            let spriteNode = node as! BulbSpriteNode
+            if group.id == spriteNode.id {
+              group.positionX = Float(node.position.x)
+              group.positionY = Float(node.position.y)
+              break
+            }
+            
+          }
+          
+          
         }
     })
   }
@@ -133,17 +156,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     performSegue(withIdentifier: segue, sender: nil)
   }
   
-  
-  
-  
-  
-  
-  //    override func groupSelected(groupSelected: Bool) {
-  //      // not used here
-  //    }
-  //    override func selectedBulbs(bulbs: [Bulb]){
-  //
-  //    }
   override func getBulbs() -> [Bulb]{
     return self.bulbCollection
   }
@@ -153,5 +165,8 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   }
   
   
+  override func getRoom() -> Room? {
+    return self.room
+  }
   
 }

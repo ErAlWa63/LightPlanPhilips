@@ -15,7 +15,6 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   var groupId: String = ""
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
-  var roomId: String = ""
   var area: Bool = false
   var groupTypeName: String?
   var groupTypeIcon: UIImage?
@@ -23,6 +22,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   var groupNameFilled: Bool = false
   var selectedBulbs: [Bulb] = []
   var scene: RoomScene!
+  var room: Room?
   
   
   @IBOutlet weak var groupName: UITextField!
@@ -75,7 +75,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     groupId = group.id
     
      //add group to room
-    DataSource.sharedInstance.addGroupToRoom(roomId: roomId, group: group)
+    DataSource.sharedInstance.addGroupToRoom(roomId: (room?.id)!, group: group)
     
     
     // get group position
@@ -92,8 +92,23 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       DataSource.sharedInstance.moveBulbFromRoomToGroup(bulbId: bulb.id, groupId: groupId)
     }
     
-    group.positionX = positionX / numberInGroup
-    group.positionY = positionY / numberInGroup
+    
+    
+    let groupPosition = CGPoint(x: CGFloat(positionX / numberInGroup), y: CGFloat(positionY / numberInGroup))
+    
+    
+    for node in scene.nodes(at: groupPosition){
+      if node.name == "room" {
+        if node.contains(groupPosition) {
+          group.positionX = Float(groupPosition.x)
+          group.positionY = Float(groupPosition.y)
+        } else {
+          group.positionX = group.assignedBulbs[0].positionX
+          group.positionY = group.assignedBulbs[0].positionY
+        }
+      }
+    }
+    
     group.groupTypeName = groupTypeName
     group.groupTypeIcon = groupTypeIcon
   
@@ -128,7 +143,10 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    
+    bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: (room?.id)!)
     
     self.groupName.delegate = self
     
@@ -152,12 +170,37 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+  }
+  
+  
+  func keyboardWillShow(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      self.view.frame.origin.y -= keyboardSize.height
+    }
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      self.view.frame.origin.y += keyboardSize.height
+    }
+  }
+  
+  
+  
 
   // dismiss keyboard when return is pressed
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     self.view.endEditing(true)
     return false
   }
+
+
+  
+  
   
   
   func enableDisableButton() {
@@ -167,21 +210,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       createGroup.isHidden = true
     }
   }
-  
-  func textFieldDidBeginEditing(_ textField: UITextField) {
-    // started typing, move view up
-    self.view.frame.origin.y -= 250
-    
-  }
-    
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    // stopped typing, move view down
-    self.view.frame.origin.y += 250
-  }
-  
-  
-  
-  
+
   // delegate function
   override func groupSelected(groupSelected: Bool) {
     self.groupSelected = groupSelected
@@ -197,5 +226,8 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     return bulbCollection
   }
 
+  override func getRoom() -> Room? {
+    return self.room
+  }
 
 }

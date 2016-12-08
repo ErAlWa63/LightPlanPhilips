@@ -14,7 +14,29 @@ class DataSource: NSObject {
   var myHome: Home = Home()
   
   func createData() {
-    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png"))
+    let room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png", grid: [
+      false, false, false, false, false, false, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false,  true,  true,  true,  true,  true, false,
+      false, false, false, false, false, false, false])
+
+    room.edge.append(RoomShapeModel.Point(x: 1, y: 1))
+    room.edge.append(RoomShapeModel.Point(x: 6, y: 1))
+    room.edge.append(RoomShapeModel.Point(x: 6, y: 6))
+    room.edge.append(RoomShapeModel.Point(x: 3, y: 6))
+    room.edge.append(RoomShapeModel.Point(x: 3, y: 2))
+    room.edge.append(RoomShapeModel.Point(x: 1, y: 2))
+    
+    myHome.rooms.append(room)
+    
+    
+    
+    
+    
+    
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "Kitchen", file: "kitchen.png", grid: [
       false, false, false, false, false, false, false,
       false,  true,  true,  true,  true,  true, false,
@@ -32,9 +54,9 @@ class DataSource: NSObject {
       true,  true,  true,  true,  true,  true,  true,
       false,  true, false,  true, false,  true, false]))
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "Open space", description: "Definable areas", file: "Open space.png"))
-    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 100))
-    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
-    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))
+//    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 100))
+//    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
+//    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))
     
     
     
@@ -74,18 +96,7 @@ class DataSource: NSObject {
   }
   
   
-  // get room
-  func getRoom(roomId: String) -> Room? {
-    //    return myHome.rooms.filter{ $0.id == roomId}
-    var foundRoom: Room?
-    
-    for room in myHome.rooms {
-      if room.id == roomId {
-        foundRoom = room
-      }
-    }
-    return foundRoom
-  }
+
   
   // get group
   func getGroup(groupId: String) -> Group? {
@@ -258,6 +269,19 @@ class DataSource: NSObject {
     
     return rooms
   }
+  
+  // get room
+  func getRoom(roomId: String) -> Room? {
+    var foundRoom: Room?
+    // find all rooms in home
+    for room in myHome.rooms {
+      if room.id == roomId {
+        foundRoom = room
+      }
+    }
+    return foundRoom
+  }
+  
   
   // get groups in room
   func getGroupsInRoom(roomId: String) -> [Group] {
