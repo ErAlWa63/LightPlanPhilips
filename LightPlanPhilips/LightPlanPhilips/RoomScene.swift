@@ -58,6 +58,7 @@ class RoomScene: SKScene {
       roomShape.strokeColor = UIColor.black
       roomShape.lineWidth = 4
       roomShape.fillColor = UIColor.gray
+      roomShape.name = "room"
       self.addChild(roomShape)
     }
     
@@ -71,53 +72,15 @@ class RoomScene: SKScene {
       room = roomSceneDelegate.getRoom()
     }
     
-
     
-    
-    
-    
-    
-    
-    // create room shape
-    var edge : [RoomShapeModel.Point] = []
-    
-    edge = (room?.edge)!
-    
-    
-    
-    if edge.count != 0 {
-      debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
-      let shape = UIBezierPath()
-      let multiplyEdge2NodePoint = 85
-      let offsetNodePoint = 45
-      let buttonBoundary = 7
-      let offsetEdge2NodePoint = 3
-      shape.move(to: CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                             y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-      debug.console(message: "(x,y) = (\(((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      for point in edge {
-        shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                                  y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-        debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      }
-      shape.close()
-      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
-      shapeTrack.position = CGPoint(x: 0, y: 50)
-      shapeTrack.strokeColor = UIColor.black
-      shapeTrack.lineWidth = 4
-      shapeTrack.fillColor = UIColor.gray
       
-      shapeTrack.name = "room"
-      self.addChild(shapeTrack)
-      
-      
-      
-      // get topleft position in room
-      var topLeftPosition =  CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint, y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint)
-      backupPosition = CGPoint(x: topLeftPosition.x + 15, y: topLeftPosition.y - 15)
-      
-      
-    }
+//    let myRoom = myHome.rooms[myHome.selectedRoom]
+//    
+//      // get topleft position in room
+//      backupPosition = CGPoint(x: myRoom.spritekitCorners[0].x + 15, y: myRoom.spritekitCorners[0].y - 15)
+//      
+//      
+//    }
     
     
     //place bulbs

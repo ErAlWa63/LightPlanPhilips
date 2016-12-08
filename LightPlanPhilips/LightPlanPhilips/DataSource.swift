@@ -23,13 +23,6 @@ class DataSource: NSObject {
       false,  true,  true,  true,  true,  true, false,
       false, false, false, false, false, false, false])
 
-    room.edge.append(RoomShapeModel.Point(x: 1, y: 1))
-    room.edge.append(RoomShapeModel.Point(x: 6, y: 1))
-    room.edge.append(RoomShapeModel.Point(x: 6, y: 6))
-    room.edge.append(RoomShapeModel.Point(x: 3, y: 6))
-    room.edge.append(RoomShapeModel.Point(x: 3, y: 2))
-    room.edge.append(RoomShapeModel.Point(x: 1, y: 2))
-    
     myHome.rooms.append(room)
     
     
