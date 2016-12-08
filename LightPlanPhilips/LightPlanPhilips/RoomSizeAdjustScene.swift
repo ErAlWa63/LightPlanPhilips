@@ -9,11 +9,12 @@ class RoomSizeAdjustScene: SKScene {
   override func didMove(to view: SKView) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
     if let myHome = myHome {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
       debug.console(message: "start", file: #file, function: #function, line: #line)
-      myHome.rooms[myHome.selectedRoom].spritekitCorners = generateSpritekitCorners( myHome.rooms[myHome.selectedRoom].gridCorners.count)
-      myHome.rooms[myHome.selectedRoom].spritekitTextSize = generateSpritekitTextSize( myHome.rooms[myHome.selectedRoom].gridCorners.count)
-      myHome.rooms[myHome.selectedRoom].spritekitCircleSize = generateSpritekitCircleSize( myHome.rooms[myHome.selectedRoom].gridCorners.count)
-      myHome.rooms[myHome.selectedRoom].spritekitRealCorners = generateSpritekitRealCorners( myHome.rooms[myHome.selectedRoom].gridCorners.count)
+      myRoom.spritekitCorners = generateSpritekitCorners( myRoom.gridCorners.count)
+      myRoom.spritekitTextSize = generateSpritekitTextSize( myRoom.gridCorners.count)
+      myRoom.spritekitCircleSize = generateSpritekitCircleSize( myRoom.gridCorners.count)
+      myRoom.spritekitRealCorners = generateSpritekitRealCorners( myRoom.gridCorners.count)
       let multiplyEdge2NodePoint: Double = 85.714285
       let offsetEdge2NodePoint: Double = 3.5
       var coordinateX = 0
@@ -21,21 +22,21 @@ class RoomSizeAdjustScene: SKScene {
       var coordinateXNext = 0
       var coordinateYNext = 0
       
-      for index in 0 ..< myHome.rooms[myHome.selectedRoom].gridCorners.count {
-        coordinateX = Int((Double(myHome.rooms[myHome.selectedRoom].gridCorners[index].x) - offsetEdge2NodePoint) * multiplyEdge2NodePoint)
-        coordinateY = Int((offsetEdge2NodePoint - Double(myHome.rooms[myHome.selectedRoom].gridCorners[index].y)) * multiplyEdge2NodePoint)
-        myHome.rooms[myHome.selectedRoom].spritekitCorners[index] = Room.Point(x: coordinateX, y: coordinateY)
+      for index in 0 ..< myRoom.gridCorners.count {
+        coordinateX = Int((Double(myRoom.gridCorners[index].x) - offsetEdge2NodePoint) * multiplyEdge2NodePoint)
+        coordinateY = Int((offsetEdge2NodePoint - Double(myRoom.gridCorners[index].y)) * multiplyEdge2NodePoint)
+        myRoom.spritekitCorners[index] = SpriteKitPoint(x: coordinateX, y: coordinateY)
         
       }
       
       let roomBoundary = UIBezierPath()
-      coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].x
-      coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].y
+      coordinateX = myRoom.spritekitCorners[myRoom.spritekitCorners.count - 1].x
+      coordinateY = myRoom.spritekitCorners[myRoom.spritekitCorners.count - 1].y
       roomBoundary.move(to: CGPoint(x: coordinateX, y: coordinateY))
-      for index in 0 ..< myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1 {
-        coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].x
-        coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].y
-        myHome.rooms[myHome.selectedRoom].spritekitCorners[index] = Room.Point(x: coordinateX, y: coordinateY)
+      for index in 0 ..< myRoom.spritekitCorners.count - 1 {
+        coordinateX = myRoom.spritekitCorners[index].x
+        coordinateY = myRoom.spritekitCorners[index].y
+        myRoom.spritekitCorners[index] = SpriteKitPoint(x: coordinateX, y: coordinateY)
         roomBoundary.addLine(to: CGPoint(x: coordinateX, y: coordinateY))
       }
       roomBoundary.close()
@@ -48,28 +49,28 @@ class RoomSizeAdjustScene: SKScene {
       
       var midX = 0
       var midY = 0
-      for index in 0 ..< myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1 {
-        coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].x
-        coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[index].y
-        coordinateXNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[index + 1].x
-        coordinateYNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[index + 1].y
+      for index in 0 ..< myRoom.spritekitCorners.count - 1 {
+        coordinateX = myRoom.spritekitCorners[index].x
+        coordinateY = myRoom.spritekitCorners[index].y
+        coordinateXNext = myRoom.spritekitCorners[index + 1].x
+        coordinateYNext = myRoom.spritekitCorners[index + 1].y
          midX = (coordinateX + coordinateXNext) / 2
          midY = (coordinateY + coordinateYNext) / 2
-        myHome.rooms[myHome.selectedRoom].spritekitCircleSize[index].position = CGPoint(x: midX, y: midY)
-        self.addChild(myHome.rooms[myHome.selectedRoom].spritekitCircleSize[index])
-        myHome.rooms[myHome.selectedRoom].spritekitTextSize[index].position = CGPoint(x: midX, y: midY + 43)
-        self.addChild(myHome.rooms[myHome.selectedRoom].spritekitTextSize[index])
+        myRoom.spritekitCircleSize[index].position = CGPoint(x: midX, y: midY)
+        self.addChild(myRoom.spritekitCircleSize[index])
+        myRoom.spritekitTextSize[index].position = CGPoint(x: midX, y: midY + 43)
+        self.addChild(myRoom.spritekitTextSize[index])
       }
-      coordinateX = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].x
-      coordinateY = myHome.rooms[myHome.selectedRoom].spritekitCorners[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].y
-      coordinateXNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[0].x
-      coordinateYNext = myHome.rooms[myHome.selectedRoom].spritekitCorners[0].y
+      coordinateX = myRoom.spritekitCorners[myRoom.spritekitCorners.count - 1].x
+      coordinateY = myRoom.spritekitCorners[myRoom.spritekitCorners.count - 1].y
+      coordinateXNext = myRoom.spritekitCorners[0].x
+      coordinateYNext = myRoom.spritekitCorners[0].y
       midX = (coordinateX + coordinateXNext) / 2
       midY = (coordinateY + coordinateYNext) / 2
-      myHome.rooms[myHome.selectedRoom].spritekitCircleSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY)
-      self.addChild(myHome.rooms[myHome.selectedRoom].spritekitCircleSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1])
-      myHome.rooms[myHome.selectedRoom].spritekitTextSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY + 43)
-      self.addChild(myHome.rooms[myHome.selectedRoom].spritekitTextSize[myHome.rooms[myHome.selectedRoom].spritekitCorners.count - 1])
+      myRoom.spritekitCircleSize[myRoom.spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY)
+      self.addChild(myRoom.spritekitCircleSize[myRoom.spritekitCorners.count - 1])
+      myRoom.spritekitTextSize[myRoom.spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY + 43)
+      self.addChild(myRoom.spritekitTextSize[myRoom.spritekitCorners.count - 1])
       
       
       //        var midX = 0.0
@@ -96,10 +97,10 @@ class RoomSizeAdjustScene: SKScene {
     }
   }
   
-  private func generateSpritekitCorners( _ size: Int) -> [Room.Point] {
-    var spritekitCorners : [Room.Point] = []
+  private func generateSpritekitCorners( _ size: Int) -> [SpriteKitPoint] {
+    var spritekitCorners : [SpriteKitPoint] = []
     for _ in 0 ..< size {
-      spritekitCorners.append(Room.Point( x: 0, y: 0))
+      spritekitCorners.append(SpriteKitPoint( x: 0, y: 0))
     }
     return spritekitCorners
   }
@@ -129,10 +130,10 @@ class RoomSizeAdjustScene: SKScene {
     return spritekitCircleSize
   }
   
-  private func generateSpritekitRealCorners( _ size: Int) -> [Room.Point] {
-    var spritekitRealCorners : [Room.Point] = []
+  private func generateSpritekitRealCorners( _ size: Int) -> [SpriteKitPoint] {
+    var spritekitRealCorners : [SpriteKitPoint] = []
     for _ in 0 ..< size {
-      spritekitRealCorners.append(Room.Point( x: 0, y: 0))
+      spritekitRealCorners.append(SpriteKitPoint( x: 0, y: 0))
     }
     return spritekitRealCorners
   }

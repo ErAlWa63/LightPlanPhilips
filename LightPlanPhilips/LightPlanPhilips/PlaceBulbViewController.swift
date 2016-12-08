@@ -11,6 +11,8 @@ import SpriteKit
 
 
 class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
   
   
   

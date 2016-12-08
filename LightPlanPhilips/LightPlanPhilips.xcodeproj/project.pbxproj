@@ -250,6 +250,7 @@
 				030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */,
 				03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */,
 				038531CD1DF1684D00776F9D /* PlaceFurnitureViewController.swift */,
+				9C43CEED1DF55E0E00CEFB62 /* PlaceBulbViewController.swift */,
 				030E81BE1DE6DB6100A2301B /* TestSKViewController.swift */,
 				9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */,
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
@@ -257,7 +258,6 @@
 				9C0BD1DD1DF055F1000BA00C /* ChooseItemTableViewController.swift */,
 				9C1200BC1DF18516005D3D61 /* ShowGroupViewController.swift */,
 				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
-				9C43CEED1DF55E0E00CEFB62 /* PlaceBulbViewController.swift */,
 				9C43CEEF1DF569FF00CEFB62 /* addBulbCell.swift */,
 			);
 			name = Controller;
