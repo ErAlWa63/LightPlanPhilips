@@ -14,7 +14,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
-  
+  @IBOutlet weak var collectionView: UICollectionView!
   
   @IBAction func cancelButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
@@ -23,7 +23,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var scene: RoomScene!
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
-  var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
+  
+  let selectedRoom: Int = DataSource.sharedInstance.myHome.selectedRoom
+  
+  var roomId: String = ""
+  
   var room: Room?
   var bulbId: String = ""
   
@@ -32,6 +36,13 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   
   let debug = Debug() // debugger functionality
   
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    roomId = DataSource.sharedInstance.myHome.rooms[selectedRoom].id
+    
+  }
   
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,6 +61,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     return cell
   }
   
+
   
   // select bulb and place in room
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
@@ -63,8 +75,13 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     }
     
     
+  
+    bulb.positionX = Float(collectionView.frame.origin.x + (collectionView.cellForItem(at: indexPath)?.frame.origin.x)!)
+    bulb.positionY = Float(collectionView.frame.origin.y + (collectionView.cellForItem(at: indexPath)?.frame.origin.y)!)
+    
     
     scene.placeBulb(bulb: bulb)
+
     DataSource.sharedInstance.moveBulbFromHomeToRoom(bulbId: bulb.id, roomId: roomId)
     self.bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
     self.bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
@@ -91,7 +108,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       scene.dragDropEnabled = true
       scene.createGroup = false
       scene.room = room
-      
       
       view.ignoresSiblingOrder = true
       view.showsFPS = true

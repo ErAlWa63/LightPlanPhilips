@@ -12,7 +12,7 @@ import SpriteKit
 
 class RoomScene: SKScene {
   let debug = Debug() // debugger functionality
-  var myHome : Home?
+  
   var delegateRoomSizeAdjust: Bool?
   
   var roomSceneDelegate: RoomSceneDelegate?
@@ -37,88 +37,41 @@ class RoomScene: SKScene {
   
   override func didMove(to view: SKView) {
 
-    if let myHome = myHome {
-      let myRoom = myHome.rooms[myHome.selectedRoom]
-      debug.console(message: "start", file: #file, function: #function, line: #line)
-      var coordinateX = 0
-      var coordinateY = 0
-      let roomBoundary = UIBezierPath()
-      coordinateX = myRoom.spritekitCorners[myRoom.spritekitCorners.count - 1].x
-      coordinateY = myRoom.spritekitCorners[myRoom.spritekitCorners.count - 1].y
-      roomBoundary.move(to: CGPoint(x: coordinateX, y: coordinateY))
-      for index in 0 ..< myRoom.spritekitCorners.count - 1 {
-        coordinateX = myRoom.spritekitCorners[index].x
-        coordinateY = myRoom.spritekitCorners[index].y
-        myRoom.spritekitCorners[index] = SpriteKitPoint(x: coordinateX, y: coordinateY)
-        roomBoundary.addLine(to: CGPoint(x: coordinateX, y: coordinateY))
-      }
-      roomBoundary.close()
-      let roomShape = SKShapeNode(path: roomBoundary.cgPath, centered: false)
-      roomShape.position = CGPoint(x: 0, y: 50)
-      roomShape.strokeColor = UIColor.black
-      roomShape.lineWidth = 4
-      roomShape.fillColor = UIColor.gray
-      self.addChild(roomShape)
-    }
-    
-    // get bulbs
-    // get groups
-
-    
     if let roomSceneDelegate = roomSceneDelegate {
       bulbCollection = roomSceneDelegate.getBulbs()
       groups = roomSceneDelegate.getGroups()
       room = roomSceneDelegate.getRoom()
     }
-    
 
-    
-    
-    
-    
-    
-    
     // create room shape
-    var edge : [RoomShapeModel.Point] = []
-    
-    edge = (room?.edge)!
-    
-    
-    
-    if edge.count != 0 {
-      debug.console(message: "edge.count = \(edge.count)", file: #file, function: #function, line: #line)
-      let shape = UIBezierPath()
-      let multiplyEdge2NodePoint = 85
-      let offsetNodePoint = 45
-      let buttonBoundary = 7
-      let offsetEdge2NodePoint = 3
-      shape.move(to: CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                             y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-      debug.console(message: "(x,y) = (\(((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      for point in edge {
-        shape.addLine(to: CGPoint(x: ((point.x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint,
-                                  y: (((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))
-        debug.console(message: "(x,y) = (\(((point.x - 3) * multiplyEdge2NodePoint) - offsetNodePoint),\((((buttonBoundary - point.y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint))", file: #file, function: #function, line: #line)
-      }
-      shape.close()
-      let shapeTrack = SKShapeNode(path: shape.cgPath, centered: false)
-      shapeTrack.position = CGPoint(x: 0, y: 50)
-      shapeTrack.strokeColor = UIColor.black
-      shapeTrack.lineWidth = 4
-      shapeTrack.fillColor = UIColor.gray
-      
-      shapeTrack.name = "room"
-      self.addChild(shapeTrack)
-      
-      
-      
-      // get topleft position in room
-      var topLeftPosition =  CGPoint(x: ((edge[0].x - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint, y: (((buttonBoundary - edge[0].y) - offsetEdge2NodePoint) * multiplyEdge2NodePoint) - offsetNodePoint)
-      backupPosition = CGPoint(x: topLeftPosition.x + 15, y: topLeftPosition.y - 15)
-      
-      
+    debug.console(message: "start", file: #file, function: #function, line: #line)
+    var coordinateX = 0
+    var coordinateY = 0
+    let roomBoundary = UIBezierPath()
+    coordinateX = (room?.spritekitCorners[(room?.spritekitCorners.count)! - 1].x)!
+    coordinateY = (room?.spritekitCorners[(room?.spritekitCorners.count)! - 1].y)!
+    roomBoundary.move(to: CGPoint(x: coordinateX, y: coordinateY))
+    for index in 0 ..< (room?.spritekitCorners.count)! - 1 {
+      coordinateX = (room?.spritekitCorners[index].x)!
+      coordinateY = (room?.spritekitCorners[index].y)!
+      room?.spritekitCorners[index] = SpriteKitPoint(x: coordinateX, y: coordinateY)
+      roomBoundary.addLine(to: CGPoint(x: coordinateX, y: coordinateY))
     }
+    roomBoundary.close()
+    let roomShape = SKShapeNode(path: roomBoundary.cgPath, centered: false)
+    roomShape.position = CGPoint(x: 0, y: 50)
+    roomShape.strokeColor = UIColor.black
+    roomShape.lineWidth = 4
+    roomShape.fillColor = UIColor.gray
     
+    roomShape.name = "room"
+    self.addChild(roomShape)
+    
+    
+    
+    // create backup position if default bulb placement location is outside room
+    backupPosition = CGPoint(x: (room?.spritekitCorners[0].x)! + 15, y: (room?.spritekitCorners[0].y)! - 15)
+
     
     //place bulbs
     for bulb in bulbCollection {
@@ -324,6 +277,18 @@ class RoomScene: SKScene {
     sprite.name = bulb.name
     selectedBulbs[bulb.id] = false
     self.addChild(sprite)
+    
+    
+    sprite.setScale(5)
+    
+    let endPoint = CGPoint(x: 0, y: 0)
+    
+    let contractAction = SKAction.scale(to: 1.5, duration: 1)
+    let moveAction = SKAction.move(to: endPoint, duration: 1)
+    
+    sprite.run(contractAction)
+    sprite.run(moveAction)
+    
     bulbCollection.append(bulb)
   }
   
