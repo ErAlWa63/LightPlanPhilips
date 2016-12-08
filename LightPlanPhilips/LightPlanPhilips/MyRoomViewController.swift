@@ -16,7 +16,6 @@ class MyRoomViewController: UIViewController {
       myRoomTableView.reloadData()
     }
   }
-  
   @IBAction func editButton(_ sender: Any) {
     let editButton = sender as! UIButton
     if myRoomTableView.isEditing{

@@ -4,8 +4,29 @@ class RoomShapeViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
-  let debug = Debug() // debugger functionality
-
+  @IBAction func backButton(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  @IBAction func cancelButton(_ sender: Any) {
+    self.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+  }
+  @IBAction func cellButton(_ sender: Any) {
+    let cellButton = sender as! UIButton
+    if let myHome = myHome {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      roomShapeModel.processCell( index: Int(cellButton.currentTitle!)!) ? cellButton.color(rgbValue: 0xE7BF7E) : cellButton.color(rgbValue: 0xD8D8D8)
+      nextButton.isHidden = myRoom.countCell > 0 ? false : true
+    }
+  }
+  
+  @IBAction func nextButton(_ sender: Any) {
+    if let myHome = myHome {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      myRoom.gridCorners = roomShapeModel.processNext()
+    }
+  }
+  
+  @IBOutlet weak var nextButton: UIButton!
   
   @IBOutlet weak var gridButton_0_0: UIButton!
   @IBOutlet weak var gridButton_1_0: UIButton!
@@ -59,35 +80,10 @@ class RoomShapeViewController: UIViewController {
   
   var roomShapeModel = RoomShapeModel()
   
-  @IBAction func backButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
-  }
-  
-  @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
-  }
-  
-  @IBAction func cellButton(_ sender: Any) {
-    let cellButton = sender as! UIButton
-    if let myHome = myHome {
-      roomShapeModel.processCell( index: Int(cellButton.currentTitle!)!) ? cellButton.color(rgbValue: 0xE7BF7E) : cellButton.color(rgbValue: 0xD8D8D8)
-      nextButton.isHidden = myHome.rooms[myHome.selectedRoom].countCell > 0 ? false : true
-    }
-  }
-  
-  @IBAction func nextButton(_ sender: Any) {
-    if let myHome = myHome {
-      myHome.rooms[myHome.selectedRoom].gridCorners = roomShapeModel.processNext()
-      debug.console(message: "start", file: #file, function: #function, line: #line)
-    }
-  }
-  
-  
-  @IBOutlet weak var nextButton: UIButton!
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     if let myHome = myHome {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
       roomShapeModel.myHome = myHome
       var gridButtons : [UIButton] = []
       gridButtons.append(gridButton_0_0)
@@ -139,14 +135,14 @@ class RoomShapeViewController: UIViewController {
       gridButtons.append(gridButton_4_6)
       gridButtons.append(gridButton_5_6)
       gridButtons.append(gridButton_6_6)
-      myHome.rooms[myHome.selectedRoom].countCell = 0
+      myRoom.countCell = 0
       nextButton.isHidden = true
       for index in 0 ..< gridButtons.count {
-        if myHome.rooms[myHome.selectedRoom].gridCell[index] {
+        if myRoom.gridCell[index] {
           gridButtons[index].color(rgbValue: 0xE7BF7E)
-          myHome.rooms[myHome.selectedRoom].countCell += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisX[roomShapeModel.index2GridPoint[index].x] += 1
-          myHome.rooms[myHome.selectedRoom].countGridAxisY[roomShapeModel.index2GridPoint[index].y] += 1
+          myRoom.countCell += 1
+          myRoom.countGridAxisX[roomShapeModel.index2GridPoint[index].x] += 1
+          myRoom.countGridAxisY[roomShapeModel.index2GridPoint[index].y] += 1
           nextButton.isHidden = false
         } else {
           gridButtons[index].color(rgbValue: 0xD8D8D8)
@@ -154,7 +150,6 @@ class RoomShapeViewController: UIViewController {
       }
     }
   }
-  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     passInformationToNextScene(segue: segue)
