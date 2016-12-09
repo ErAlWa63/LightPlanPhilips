@@ -1,16 +1,16 @@
 import SpriteKit
 
 class PlaceFurnitureScene: SKScene {
-  let debug = Debug() // debugger functionality
+//  let debug = Debug() // debugger functionality
   var myHome : Home?
   
   var movableNode : SKNode?
   
   override func didMove(to view: SKView) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let myHome = myHome {
       let myRoom = myHome.rooms[myHome.selectedRoom]
-      debug.console(message: "start", file: #file, function: #function, line: #line)
+//      debug.console(message: "start", file: #file, function: #function, line: #line)
       var coordinateX = 0
       var coordinateY = 0
       let roomBoundary = UIBezierPath()

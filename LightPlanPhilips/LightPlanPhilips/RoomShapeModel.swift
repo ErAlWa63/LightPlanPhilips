@@ -1,7 +1,7 @@
 class RoomShapeModel {
   var myHome : Home?
   
-  let debug = Debug() // debugger functionality
+//  let debug = Debug() // debugger functionality
   
   func processCell( index: Int) -> Bool {
     switch index {
@@ -300,8 +300,8 @@ class RoomShapeModel {
         myRoom.gridCellBackup = myRoom.gridCellUser
         myRoom.gridCellOptimized = myRoom.gridCellUser
         
-        debug.console(message: "myRoom.countGridAxisXUser = \(myRoom.countGridAxisXUser)", file: #file, function: #function, line: #line)
-        debug.console(message: "myRoom.countGridAxisYUser = \(myRoom.countGridAxisYUser)", file: #file, function: #function, line: #line)
+//        debug.console(message: "myRoom.countGridAxisXUser = \(myRoom.countGridAxisXUser)", file: #file, function: #function, line: #line)
+//        debug.console(message: "myRoom.countGridAxisYUser = \(myRoom.countGridAxisYUser)", file: #file, function: #function, line: #line)
         
         myRoom.countGridAxisXOptimized = myRoom.countGridAxisXUser
         myRoom.countGridAxisYOptimized = myRoom.countGridAxisYUser
@@ -315,7 +315,7 @@ class RoomShapeModel {
           myRoom.countGridAxisXOptimized[4] = myRoom.countGridAxisXOptimized[5]
           myRoom.countGridAxisXOptimized[5] = myRoom.countGridAxisXOptimized[6]
           myRoom.countGridAxisXOptimized[6] = 0
-          debug.console(message: "myRoom.countGridAxisXOptimized = \(myRoom.countGridAxisXOptimized)", file: #file, function: #function, line: #line)
+//          debug.console(message: "myRoom.countGridAxisXOptimized = \(myRoom.countGridAxisXOptimized)", file: #file, function: #function, line: #line)
           myRoom.gridCellOptimized[0] = myRoom.gridCellOptimized[1]
           myRoom.gridCellOptimized[1] = myRoom.gridCellOptimized[2]
           myRoom.gridCellOptimized[2] = myRoom.gridCellOptimized[3]
@@ -375,7 +375,7 @@ class RoomShapeModel {
           myRoom.countGridAxisYOptimized[4] = myRoom.countGridAxisYOptimized[5]
           myRoom.countGridAxisYOptimized[5] = myRoom.countGridAxisYOptimized[6]
           myRoom.countGridAxisYOptimized[6] = 0
-          debug.console(message: "myRoom.countGridAxisYOptimized = \(myRoom.countGridAxisYOptimized)", file: #file, function: #function, line: #line)
+//          debug.console(message: "myRoom.countGridAxisYOptimized = \(myRoom.countGridAxisYOptimized)", file: #file, function: #function, line: #line)
           myRoom.gridCellOptimized[0] = myRoom.gridCellOptimized[7]
           myRoom.gridCellOptimized[7] = myRoom.gridCellOptimized[14]
           myRoom.gridCellOptimized[14] = myRoom.gridCellOptimized[21]
@@ -491,7 +491,7 @@ class RoomShapeModel {
             }
           }
         }
-        debug.console(message: "corner = \(corner)", file: #file, function: #function, line: #line)
+//        debug.console(message: "corner = \(corner)", file: #file, function: #function, line: #line)
         
         return corner
       }

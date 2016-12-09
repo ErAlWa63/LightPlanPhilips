@@ -6,10 +6,10 @@ class PlaceFurnitureViewController: UIViewController {
   var closureToPerform: ((Home) -> Void)?
   
   @IBAction func backButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
   }
   @IBAction func nextButton(_ sender: Any) {
   }

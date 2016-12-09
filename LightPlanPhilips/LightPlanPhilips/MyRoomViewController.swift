@@ -5,10 +5,10 @@ class MyRoomViewController: UIViewController {
   var closureToPerform: ((Home) -> Void)?
   
   @IBAction func backButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
   }
   @IBAction func addButton(_ sender: Any) {
     if let myHome = myHome {
