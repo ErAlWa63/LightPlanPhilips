@@ -92,8 +92,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startButton:" destination="Oe7-1F-9sN" eventType="touchUpInside" id="5oj-Eo-3Dg"/>
-                                    <segue destination="11A-vC-hsn" kind="show" identifier="MyRoomSegue" id="rZN-4V-kDt"/>
+                                    <action selector="startButton:" destination="Oe7-1F-9sN" eventType="touchUpInside" id="noX-Pk-Huv"/>
+                                    <segue destination="11A-vC-hsn" kind="show" identifier="MyRoomSegue" id="ohF-4g-p58"/>
                                 </connections>
                             </button>
                         </subviews>
