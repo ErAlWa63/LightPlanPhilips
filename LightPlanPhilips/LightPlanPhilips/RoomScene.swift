@@ -266,27 +266,46 @@ class RoomScene: SKScene {
   }
   
   
-  func placeBulb(bulb: Bulb){
+  func placeBulb(bulb: Bulb, cell: UICollectionViewCell){
     
     let sprite: BulbSpriteNode
     
     sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
-    sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
-    sprite.setScale(1.5)
+    //sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
+
+    
+    let cellLocation = cell.convert(cell.center, to: self.view)
+    let position = sprite.convert(cellLocation, to: self)
+    
+     sprite.setScale(5)
+    sprite.alpha = 0
+    
+    let spriteX = position.x - (((self.scene?.frame.width)! / 2) - sprite.frame.width / 2  )
+    let spriteY = position.y - (((self.scene?.frame.height)! / 2) + sprite.frame.height / 2 )
+      
+    sprite.position = CGPoint(x: spriteX, y: spriteY)
+    
+    
+ 
+    
+    
+
     sprite.name = bulb.name
     selectedBulbs[bulb.id] = false
     self.addChild(sprite)
     
     
-    sprite.setScale(5)
+   
     
     let endPoint = CGPoint(x: 0, y: 0)
     
     let contractAction = SKAction.scale(to: 1.5, duration: 1)
+    let alphaAction = SKAction.fadeAlpha(to: 1, duration: 2)
     let moveAction = SKAction.move(to: endPoint, duration: 1)
     
     sprite.run(contractAction)
     sprite.run(moveAction)
+    sprite.run(alphaAction)
     
     bulbCollection.append(bulb)
   }
