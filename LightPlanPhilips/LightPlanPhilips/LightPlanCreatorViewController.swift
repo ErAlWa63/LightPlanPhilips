@@ -42,6 +42,8 @@ class LightPlanCreatorViewController: UIViewController {
     if myHome == nil {
       DataSource.sharedInstance.createData()
       myHome = DataSource.sharedInstance.myHome
+      self.navigationController?.navigationBar.isHidden = true
+      
     }
   }
 }

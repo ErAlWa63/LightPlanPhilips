@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Oe7-1F-9sN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obS-G3-HiZ">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SCQ-QG-G63">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="478"/>
+                                <rect key="frame" x="-4" y="44" width="328" height="434"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-i9-KPp" userLabel="Light Plan">
                                         <rect key="frame" x="50" y="150" width="228" height="50"/>
@@ -53,10 +53,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ayw-oJ-iae">
-                                        <rect key="frame" x="298" y="20" width="30" height="188"/>
+                                        <rect key="frame" x="298" y="20" width="30" height="144"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKh-2A-ZRp" userLabel="Test 3 Button (temporary)" customClass="TestButton" customModule="LightPlanPhilips" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="188"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="144"/>
                                                 <state key="normal" title="T"/>
                                                 <connections>
                                                     <segue destination="jt6-n6-G48" kind="show" identifier="LightsSegue" id="cBv-hO-gsC"/>
@@ -108,10 +108,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="SCQ-QG-G63" secondAttribute="trailing" constant="-20" id="jyv-df-HNt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kFK-lJ-tKs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LK-8B-BSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4671" y="-580"/>
+            <point key="canvasLocation" x="-3675" y="-580.9859154929577"/>
         </scene>
         <!--My Room View Controller-->
         <scene sceneID="xfR-Df-00J">
@@ -291,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyY-UJ-1LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3703.125" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="-2705.625" y="-582.04225352112678"/>
         </scene>
         <!--Select Room Type View Controller-->
         <scene sceneID="heE-od-SYM">
@@ -457,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0b-Uw-kM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2799.375" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="-1801.875" y="-582.04225352112678"/>
         </scene>
         <!--Room Shape View Controller-->
         <scene sceneID="6lH-Ik-IPV">
@@ -1333,7 +1334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyU-6C-XhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1847" y="-582"/>
+            <point key="canvasLocation" x="-851.25" y="-582.04225352112678"/>
         </scene>
         <!--Room Size Adjust View Controller-->
         <scene sceneID="koa-DK-6yX">
@@ -1405,8 +1406,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButton:" destination="Ibe-6i-sGZ" eventType="touchUpInside" id="Bou-U1-Hs7"/>
-                                    <segue destination="h9I-6C-tGp" kind="showDetail" identifier="PlaceFurnitureSegue" id="PkL-p1-DOd"/>
+                                    <action selector="nextButton:" destination="Ibe-6i-sGZ" eventType="touchUpInside" id="L7N-ne-e5U"/>
+                                    <segue destination="h9I-6C-tGp" kind="show" identifier="PlaceFurnitureSegue" id="8bz-tm-kcp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1427,12 +1428,12 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Vu3-QB-KRN" id="afk-ma-fsB"/>
-                        <outlet property="nextButton" destination="g2l-Tt-ORF" id="BKW-Lg-jM0"/>
+                        <outlet property="nextButton" destination="g2l-Tt-ORF" id="gJN-Bg-Xb6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T0-i4-8X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-806" y="-581"/>
+            <point key="canvasLocation" x="191.25" y="-582.04225352112678"/>
         </scene>
         <!--Place Furniture View Controller-->
         <scene sceneID="avD-FT-tts">
@@ -1457,8 +1458,7 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="SLv-kh-iG2"/>
-                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="qRh-2w-rDW"/>
+                                    <action selector="backButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="LQG-NX-3df"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-yu-gVU" userLabel="Cancel">
@@ -1472,8 +1472,7 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="OGj-If-iSk"/>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="b9I-fV-Kmf"/>
+                                    <action selector="cancelButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="tdX-xy-uzV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place furniture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-Sq-gJa">
@@ -1548,8 +1547,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="JtY-01-uK2"/>
-                                    <segue destination="jt6-n6-G48" kind="showDetail" identifier="PlaceBulbSegue" id="B67-6k-hI5"/>
+                                    <action selector="nextButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="mz1-8O-eUN"/>
+                                    <segue destination="jt6-n6-G48" kind="show" identifier="PlaceBulbSegue" action="showDetailViewController:sender:" id="B67-6k-hI5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1572,7 +1571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZz-PI-wN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262.5" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="1260" y="-582.04225352112678"/>
         </scene>
         <!--Place Bulb View Controller-->
         <scene sceneID="o00-G7-Kui">
@@ -1597,7 +1596,6 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="q1b-nd-OCr"/>
                                     <action selector="backButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="rmY-VT-5l1"/>
                                 </connections>
                             </button>
@@ -1715,13 +1713,10 @@
                             <constraint firstItem="TZ1-4F-Bez" firstAttribute="top" secondItem="QSr-Xc-E4p" secondAttribute="bottom" constant="40" id="hPr-Q0-vNH"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="xVD-Iq-omE" id="OCP-2M-i8d"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoK-A3-wxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="-581"/>
+            <point key="canvasLocation" x="2490" y="-582.04225352112678"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="LvG-Yc-tY6">
@@ -1829,7 +1824,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-605"/>
+            <point key="canvasLocation" x="3543.75" y="-605.28169014084506"/>
         </scene>
         <!--Name Bulb View Controller-->
         <scene sceneID="f1w-28-ZUB">
@@ -1972,7 +1967,7 @@
         <scene sceneID="f6i-t9-wTU">
             <objects>
                 <collectionViewController id="5yu-7i-LiJ" customClass="LightTypeCollectionViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aSB-XA-byw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="aSB-XA-byw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2118,7 +2113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3718" y="-879"/>
+            <point key="canvasLocation" x="4713.75" y="-879.92957746478874"/>
         </scene>
         <!--Choose Item Table View Controller-->
         <scene sceneID="6Hd-Dc-ZuQ">
@@ -2165,7 +2160,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awI-Vi-NNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QCw-sf-Gp6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5190" y="-880"/>
+            <point key="canvasLocation" x="6187.5" y="-880.9859154929577"/>
         </scene>
         <!--Show Group View Controller-->
         <scene sceneID="T85-ID-c18">
@@ -2271,13 +2266,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJM-dv-vIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3716" y="-57"/>
+            <point key="canvasLocation" x="4711.875" y="-57.04225352112676"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vve-bQ-erU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obS-G3-HiZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="09d-jg-xRN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oe7-1F-9sN" kind="relationship" relationship="rootViewController" id="tDz-nt-KUY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPb-16-IoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4672.5" y="-580.9859154929577"/>
         </scene>
     </scenes>
     <resources>
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cBv-hO-gsC"/>
+        <segue reference="B67-6k-hI5"/>
     </inferredMetricsTieBreakers>
 </document>
