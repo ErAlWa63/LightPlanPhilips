@@ -231,6 +231,7 @@
 				030CD8111DF054DE00232D8D /* SelectRoomTypeCollectionCell.swift */,
 				032162C51DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift */,
 				030CD8131DF0580B00232D8D /* CollectionViewCell.swift */,
+				9C43CEEF1DF569FF00CEFB62 /* addBulbCell.swift */,
 				03BB03121DD0C75B00AD5069 /* AppDelegate.swift */,
 				9C0BD1DF1DF05B4E000BA00C /* ChooseItemCell.swift */,
 				9C0BD1E11DF0600C000BA00C /* ChooseItem.swift */,
@@ -245,17 +246,15 @@
 				030B19E81DEC28B6000A9607 /* MyRoomViewController.swift */,
 				039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */,
 				03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */,
-				030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */,
 				03013F181DE83953002BBA6B /* RoomSizeAdjustViewController.swift */,
 				038531CD1DF1684D00776F9D /* PlaceFurnitureViewController.swift */,
 				9C43CEED1DF55E0E00CEFB62 /* PlaceBulbViewController.swift */,
+				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
 				9C3F10331DED6F90003AB480 /* NameBulbViewController.swift */,
 				0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */,
 				9C7D676A1DDC782300C0CEAF /* GroupBulbsViewController.swift */,
 				9C0BD1DD1DF055F1000BA00C /* ChooseItemTableViewController.swift */,
 				9C1200BC1DF18516005D3D61 /* ShowGroupViewController.swift */,
-				9C4884A81DD3829100DE07EA /* RoomViewController.swift */,
-				9C43CEEF1DF569FF00CEFB62 /* addBulbCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
+				030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */,
 				03013F161DE838BB002BBA6B /* RoomSizeAdjustScene.sks */,
 				03013F141DE8389B002BBA6B /* RoomSizeAdjustScene.swift */,
 				0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */,

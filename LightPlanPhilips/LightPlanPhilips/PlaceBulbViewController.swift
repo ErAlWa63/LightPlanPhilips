@@ -14,10 +14,13 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
-  @IBOutlet weak var collectionView: UICollectionView!
+
+  @IBAction func backButton(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
   
   @IBAction func cancelButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
   }
   
   var scene: RoomScene!
@@ -69,7 +72,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     
     let bulb = self.bulbsInHome[indexPath.item]
     // check if the defaul placement position in room exists
-    if self.room?.gridCell[24] == false {
+    if self.room?.gridCellOptimized[24] == false {
       bulb.positionX = Float((scene.backupPosition?.x)!)
       bulb.positionY = Float((scene.backupPosition?.y)!)
     }
@@ -110,6 +113,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
+      scene.myHome = myHome
       scene.scaleMode = .aspectFill
       
       scene.roomSceneDelegate = self
@@ -117,7 +121,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       
       scene.dragDropEnabled = true
       scene.createGroup = false
-      scene.room = room
       
       view.ignoresSiblingOrder = true
       view.showsFPS = true
@@ -181,7 +184,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     performSegue(withIdentifier: segue, sender: nil)
   }
   
-
   override func getBulbs() -> [Bulb]{
     return self.bulbCollection
   }

@@ -123,51 +123,51 @@ class RoomShapeModel {
       let currentPoint = index2GridPoint[index]
       switch angle {
       case .Normal:
-        cellE  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
       case .Right:
-        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
       case .Half:
-        cellE  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
       case .Left:
-        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
       }
       var sum = 0
       sum += cellE  ? 1 : 0
       sum += cellSE ? 2 : 0
       sum += cellS  ? 4 : 0
-      if myRoom.gridCell[index] {
+      if myRoom.gridCellUser[index] {
         if removeFrame4[sum] {
-          myRoom.gridCell[index] = false
+          myRoom.gridCellUser[index] = false
           myRoom.countCell -= 1
-          myRoom.countGridAxisX[index2GridPoint[index].x] -= 1
-          myRoom.countGridAxisY[index2GridPoint[index].y] -= 1
+          myRoom.countGridAxisXUser[index2GridPoint[index].x] -= 1
+          myRoom.countGridAxisYUser[index2GridPoint[index].y] -= 1
         }
       } else {
         if myRoom.countCell == 0 {
-          myRoom.gridCell[index] = true
+          myRoom.gridCellUser[index] = true
           myRoom.countCell += 1
-          myRoom.countGridAxisX[index2GridPoint[index].x] += 1
-          myRoom.countGridAxisY[index2GridPoint[index].y] += 1
+          myRoom.countGridAxisXUser[index2GridPoint[index].x] += 1
+          myRoom.countGridAxisYUser[index2GridPoint[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame4[sum] {
-              myRoom.gridCell[index] = true
+              myRoom.gridCellUser[index] = true
               myRoom.countCell += 1
-              myRoom.countGridAxisX[index2GridPoint[index].x] += 1
-              myRoom.countGridAxisY[index2GridPoint[index].y] += 1
+              myRoom.countGridAxisXUser[index2GridPoint[index].x] += 1
+              myRoom.countGridAxisYUser[index2GridPoint[index].y] += 1
             }
           }
         }
       }
-      return myRoom.gridCell[index]
+      return myRoom.gridCellUser[index]
     } else {
       return false
     }
@@ -179,29 +179,29 @@ class RoomShapeModel {
       let currentPoint = index2GridPoint[index]
       switch angle {
       case .Normal:
-        cellN  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-        cellNE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-        cellE  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellN  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellNE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
       case .Right:
-        cellN  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-        cellNE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellN  = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellNE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
       case .Half:
-        cellN  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-        cellNE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-        cellE  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellN  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+        cellNE = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
       case .Left:
-        cellN  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-        cellNE = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
-        cellE  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-        cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-        cellS  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+        cellN  = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+        cellNE = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+        cellE  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+        cellSE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+        cellS  = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
       }
       var sum = 0
       sum += cellN  ?  1 : 0
@@ -209,31 +209,31 @@ class RoomShapeModel {
       sum += cellE  ?  4 : 0
       sum += cellSE ?  8 : 0
       sum += cellS  ? 16 : 0
-      if myRoom.gridCell[index] {
+      if myRoom.gridCellUser[index] {
         if removeFrame6[sum] {
-          myRoom.gridCell[index] = false
+          myRoom.gridCellUser[index] = false
           myRoom.countCell -= 1
-          myRoom.countGridAxisX[index2GridPoint[index].x] -= 1
-          myRoom.countGridAxisY[index2GridPoint[index].y] -= 1
+          myRoom.countGridAxisXUser[index2GridPoint[index].x] -= 1
+          myRoom.countGridAxisYUser[index2GridPoint[index].y] -= 1
         }
       } else {
         if myRoom.countCell == 0 {
-          myRoom.gridCell[index] = true
+          myRoom.gridCellUser[index] = true
           myRoom.countCell += 1
-          myRoom.countGridAxisX[index2GridPoint[index].x] += 1
-          myRoom.countGridAxisY[index2GridPoint[index].y] += 1
+          myRoom.countGridAxisXUser[index2GridPoint[index].x] += 1
+          myRoom.countGridAxisYUser[index2GridPoint[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame6[sum] {
-              myRoom.gridCell[index] = true
+              myRoom.gridCellUser[index] = true
               myRoom.countCell += 1
-              myRoom.countGridAxisX[index2GridPoint[index].x] += 1
-              myRoom.countGridAxisY[index2GridPoint[index].y] += 1
+              myRoom.countGridAxisXUser[index2GridPoint[index].x] += 1
+              myRoom.countGridAxisYUser[index2GridPoint[index].y] += 1
             }
           }
         }
       }
-      return myRoom.gridCell[index]
+      return myRoom.gridCellUser[index]
     } else {
       return false
     }
@@ -243,14 +243,14 @@ class RoomShapeModel {
     if let myHome = myHome {
       let myRoom = myHome.rooms[myHome.selectedRoom]
       let currentPoint = index2GridPoint[index]
-      cellN  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
-      cellNE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
-      cellE  = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
-      cellSE = myRoom.gridCell[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
-      cellS  = myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
-      cellSW = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
-      cellW  = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
-      cellNW = myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
+      cellN  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)]
+      cellNE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y - 1) * 7)]
+      cellE  = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 0) * 7)]
+      cellSE = myRoom.gridCellUser[ (currentPoint.x + 1) + ((currentPoint.y + 1) * 7)]
+      cellS  = myRoom.gridCellUser[ (currentPoint.x + 0) + ((currentPoint.y + 1) * 7)]
+      cellSW = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 1) * 7)]
+      cellW  = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)]
+      cellNW = myRoom.gridCellUser[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)]
       var sum = 0
       sum += cellN  ?   1 : 0
       sum += cellNE ?   2 : 0
@@ -260,31 +260,31 @@ class RoomShapeModel {
       sum += cellSW ?  32 : 0
       sum += cellW  ?  64 : 0
       sum += cellNW ? 128 : 0
-      if myRoom.gridCell[index] {
+      if myRoom.gridCellUser[index] {
         if removeFrame9[sum] {
-          myRoom.gridCell[index] = false
+          myRoom.gridCellUser[index] = false
           myRoom.countCell -= 1
-          myRoom.countGridAxisX[index2GridPoint[index].x] -= 1
-          myRoom.countGridAxisY[index2GridPoint[index].y] -= 1
+          myRoom.countGridAxisXUser[index2GridPoint[index].x] -= 1
+          myRoom.countGridAxisYUser[index2GridPoint[index].y] -= 1
         }
       } else {
         if myRoom.countCell == 0 {
-          myRoom.gridCell[index] = true
+          myRoom.gridCellUser[index] = true
           myRoom.countCell += 1
-          myRoom.countGridAxisX[index2GridPoint[index].x] += 1
-          myRoom.countGridAxisY[index2GridPoint[index].y] += 1
+          myRoom.countGridAxisXUser[index2GridPoint[index].x] += 1
+          myRoom.countGridAxisYUser[index2GridPoint[index].y] += 1
         } else {
           if sum != 0 {
             if addFrame9[sum] {
-              myRoom.gridCell[index] = true
+              myRoom.gridCellUser[index] = true
               myRoom.countCell += 1
-              myRoom.countGridAxisX[index2GridPoint[index].x] += 1
-              myRoom.countGridAxisY[index2GridPoint[index].y] += 1
+              myRoom.countGridAxisXUser[index2GridPoint[index].x] += 1
+              myRoom.countGridAxisYUser[index2GridPoint[index].y] += 1
             }
           }
         }
       }
-      return myRoom.gridCell[index]
+      return myRoom.gridCellUser[index]
     } else {
       return false
     }
@@ -297,136 +297,138 @@ class RoomShapeModel {
         return []
       } else {
         
-        myRoom.gridCellBackup = myRoom.gridCell
+        myRoom.gridCellBackup = myRoom.gridCellUser
+        myRoom.gridCellOptimized = myRoom.gridCellUser
         
-        debug.console(message: "myRoom.countGridAxisX = \(myRoom.countGridAxisX)", file: #file, function: #function, line: #line)
-        debug.console(message: "myRoom.countGridAxisY = \(myRoom.countGridAxisY)", file: #file, function: #function, line: #line)
+        debug.console(message: "myRoom.countGridAxisXUser = \(myRoom.countGridAxisXUser)", file: #file, function: #function, line: #line)
+        debug.console(message: "myRoom.countGridAxisYUser = \(myRoom.countGridAxisYUser)", file: #file, function: #function, line: #line)
         
+        myRoom.countGridAxisXOptimized = myRoom.countGridAxisXUser
+        myRoom.countGridAxisYOptimized = myRoom.countGridAxisYUser
+
         
-        while myRoom.countGridAxisX[0] == 0 {
-          myRoom.countGridAxisX[0] = myRoom.countGridAxisX[1]
-          myRoom.countGridAxisX[1] = myRoom.countGridAxisX[2]
-          myRoom.countGridAxisX[2] = myRoom.countGridAxisX[3]
-          myRoom.countGridAxisX[3] = myRoom.countGridAxisX[4]
-          myRoom.countGridAxisX[4] = myRoom.countGridAxisX[5]
-          myRoom.countGridAxisX[5] = myRoom.countGridAxisX[6]
-          myRoom.countGridAxisX[6] = 0
-          debug.console(message: "myRoom.countGridAxisX = \(myRoom.countGridAxisX)", file: #file, function: #function, line: #line)
-          myRoom.gridCell[0] = myRoom.gridCell[1]
-          myRoom.gridCell[1] = myRoom.gridCell[2]
-          myRoom.gridCell[2] = myRoom.gridCell[3]
-          myRoom.gridCell[3] = myRoom.gridCell[4]
-          myRoom.gridCell[4] = myRoom.gridCell[5]
-          myRoom.gridCell[5] = myRoom.gridCell[6]
-          myRoom.gridCell[6] = false
-          myRoom.gridCell[7] = myRoom.gridCell[8]
-          myRoom.gridCell[8] = myRoom.gridCell[9]
-          myRoom.gridCell[9] = myRoom.gridCell[10]
-          myRoom.gridCell[10] = myRoom.gridCell[11]
-          myRoom.gridCell[11] = myRoom.gridCell[12]
-          myRoom.gridCell[12] = myRoom.gridCell[13]
-          myRoom.gridCell[13] = false
-          myRoom.gridCell[14] = myRoom.gridCell[15]
-          myRoom.gridCell[15] = myRoom.gridCell[16]
-          myRoom.gridCell[16] = myRoom.gridCell[17]
-          myRoom.gridCell[17] = myRoom.gridCell[18]
-          myRoom.gridCell[18] = myRoom.gridCell[19]
-          myRoom.gridCell[19] = myRoom.gridCell[20]
-          myRoom.gridCell[20] = false
-          myRoom.gridCell[21] = myRoom.gridCell[22]
-          myRoom.gridCell[22] = myRoom.gridCell[23]
-          myRoom.gridCell[23] = myRoom.gridCell[24]
-          myRoom.gridCell[24] = myRoom.gridCell[25]
-          myRoom.gridCell[25] = myRoom.gridCell[26]
-          myRoom.gridCell[26] = myRoom.gridCell[27]
-          myRoom.gridCell[27] = false
-          myRoom.gridCell[28] = myRoom.gridCell[29]
-          myRoom.gridCell[29] = myRoom.gridCell[30]
-          myRoom.gridCell[30] = myRoom.gridCell[31]
-          myRoom.gridCell[31] = myRoom.gridCell[32]
-          myRoom.gridCell[32] = myRoom.gridCell[33]
-          myRoom.gridCell[33] = myRoom.gridCell[34]
-          myRoom.gridCell[34] = false
-          myRoom.gridCell[35] = myRoom.gridCell[36]
-          myRoom.gridCell[36] = myRoom.gridCell[37]
-          myRoom.gridCell[37] = myRoom.gridCell[38]
-          myRoom.gridCell[38] = myRoom.gridCell[39]
-          myRoom.gridCell[39] = myRoom.gridCell[40]
-          myRoom.gridCell[40] = myRoom.gridCell[41]
-          myRoom.gridCell[41] = false
-          myRoom.gridCell[42] = myRoom.gridCell[43]
-          myRoom.gridCell[43] = myRoom.gridCell[44]
-          myRoom.gridCell[44] = myRoom.gridCell[45]
-          myRoom.gridCell[45] = myRoom.gridCell[46]
-          myRoom.gridCell[46] = myRoom.gridCell[47]
-          myRoom.gridCell[47] = myRoom.gridCell[48]
-          myRoom.gridCell[48] = false
+        while myRoom.countGridAxisXOptimized[0] == 0 {
+          myRoom.countGridAxisXOptimized[0] = myRoom.countGridAxisXOptimized[1]
+          myRoom.countGridAxisXOptimized[1] = myRoom.countGridAxisXOptimized[2]
+          myRoom.countGridAxisXOptimized[2] = myRoom.countGridAxisXOptimized[3]
+          myRoom.countGridAxisXOptimized[3] = myRoom.countGridAxisXOptimized[4]
+          myRoom.countGridAxisXOptimized[4] = myRoom.countGridAxisXOptimized[5]
+          myRoom.countGridAxisXOptimized[5] = myRoom.countGridAxisXOptimized[6]
+          myRoom.countGridAxisXOptimized[6] = 0
+          debug.console(message: "myRoom.countGridAxisXOptimized = \(myRoom.countGridAxisXOptimized)", file: #file, function: #function, line: #line)
+          myRoom.gridCellOptimized[0] = myRoom.gridCellOptimized[1]
+          myRoom.gridCellOptimized[1] = myRoom.gridCellOptimized[2]
+          myRoom.gridCellOptimized[2] = myRoom.gridCellOptimized[3]
+          myRoom.gridCellOptimized[3] = myRoom.gridCellOptimized[4]
+          myRoom.gridCellOptimized[4] = myRoom.gridCellOptimized[5]
+          myRoom.gridCellOptimized[5] = myRoom.gridCellOptimized[6]
+          myRoom.gridCellOptimized[6] = false
+          myRoom.gridCellOptimized[7] = myRoom.gridCellOptimized[8]
+          myRoom.gridCellOptimized[8] = myRoom.gridCellOptimized[9]
+          myRoom.gridCellOptimized[9] = myRoom.gridCellOptimized[10]
+          myRoom.gridCellOptimized[10] = myRoom.gridCellOptimized[11]
+          myRoom.gridCellOptimized[11] = myRoom.gridCellOptimized[12]
+          myRoom.gridCellOptimized[12] = myRoom.gridCellOptimized[13]
+          myRoom.gridCellOptimized[13] = false
+          myRoom.gridCellOptimized[14] = myRoom.gridCellOptimized[15]
+          myRoom.gridCellOptimized[15] = myRoom.gridCellOptimized[16]
+          myRoom.gridCellOptimized[16] = myRoom.gridCellOptimized[17]
+          myRoom.gridCellOptimized[17] = myRoom.gridCellOptimized[18]
+          myRoom.gridCellOptimized[18] = myRoom.gridCellOptimized[19]
+          myRoom.gridCellOptimized[19] = myRoom.gridCellOptimized[20]
+          myRoom.gridCellOptimized[20] = false
+          myRoom.gridCellOptimized[21] = myRoom.gridCellOptimized[22]
+          myRoom.gridCellOptimized[22] = myRoom.gridCellOptimized[23]
+          myRoom.gridCellOptimized[23] = myRoom.gridCellOptimized[24]
+          myRoom.gridCellOptimized[24] = myRoom.gridCellOptimized[25]
+          myRoom.gridCellOptimized[25] = myRoom.gridCellOptimized[26]
+          myRoom.gridCellOptimized[26] = myRoom.gridCellOptimized[27]
+          myRoom.gridCellOptimized[27] = false
+          myRoom.gridCellOptimized[28] = myRoom.gridCellOptimized[29]
+          myRoom.gridCellOptimized[29] = myRoom.gridCellOptimized[30]
+          myRoom.gridCellOptimized[30] = myRoom.gridCellOptimized[31]
+          myRoom.gridCellOptimized[31] = myRoom.gridCellOptimized[32]
+          myRoom.gridCellOptimized[32] = myRoom.gridCellOptimized[33]
+          myRoom.gridCellOptimized[33] = myRoom.gridCellOptimized[34]
+          myRoom.gridCellOptimized[34] = false
+          myRoom.gridCellOptimized[35] = myRoom.gridCellOptimized[36]
+          myRoom.gridCellOptimized[36] = myRoom.gridCellOptimized[37]
+          myRoom.gridCellOptimized[37] = myRoom.gridCellOptimized[38]
+          myRoom.gridCellOptimized[38] = myRoom.gridCellOptimized[39]
+          myRoom.gridCellOptimized[39] = myRoom.gridCellOptimized[40]
+          myRoom.gridCellOptimized[40] = myRoom.gridCellOptimized[41]
+          myRoom.gridCellOptimized[41] = false
+          myRoom.gridCellOptimized[42] = myRoom.gridCellOptimized[43]
+          myRoom.gridCellOptimized[43] = myRoom.gridCellOptimized[44]
+          myRoom.gridCellOptimized[44] = myRoom.gridCellOptimized[45]
+          myRoom.gridCellOptimized[45] = myRoom.gridCellOptimized[46]
+          myRoom.gridCellOptimized[46] = myRoom.gridCellOptimized[47]
+          myRoom.gridCellOptimized[47] = myRoom.gridCellOptimized[48]
+          myRoom.gridCellOptimized[48] = false
         }
         
-        
-        
-        while myRoom.countGridAxisY[0] == 0 {
-          myRoom.countGridAxisY[0] = myRoom.countGridAxisY[1]
-          myRoom.countGridAxisY[1] = myRoom.countGridAxisY[2]
-          myRoom.countGridAxisY[2] = myRoom.countGridAxisY[3]
-          myRoom.countGridAxisY[3] = myRoom.countGridAxisY[4]
-          myRoom.countGridAxisY[4] = myRoom.countGridAxisY[5]
-          myRoom.countGridAxisY[5] = myRoom.countGridAxisY[6]
-          myRoom.countGridAxisY[6] = 0
-          debug.console(message: "myRoom.countGridAxisY = \(myRoom.countGridAxisY)", file: #file, function: #function, line: #line)
-          myRoom.gridCell[0] = myRoom.gridCell[7]
-          myRoom.gridCell[7] = myRoom.gridCell[14]
-          myRoom.gridCell[14] = myRoom.gridCell[21]
-          myRoom.gridCell[21] = myRoom.gridCell[28]
-          myRoom.gridCell[28] = myRoom.gridCell[35]
-          myRoom.gridCell[35] = myRoom.gridCell[42]
-          myRoom.gridCell[42] = false
-          myRoom.gridCell[1] = myRoom.gridCell[8]
-          myRoom.gridCell[8] = myRoom.gridCell[15]
-          myRoom.gridCell[15] = myRoom.gridCell[22]
-          myRoom.gridCell[22] = myRoom.gridCell[29]
-          myRoom.gridCell[29] = myRoom.gridCell[36]
-          myRoom.gridCell[36] = myRoom.gridCell[43]
-          myRoom.gridCell[43] = false
-          myRoom.gridCell[2] = myRoom.gridCell[9]
-          myRoom.gridCell[9] = myRoom.gridCell[16]
-          myRoom.gridCell[16] = myRoom.gridCell[23]
-          myRoom.gridCell[23] = myRoom.gridCell[30]
-          myRoom.gridCell[30] = myRoom.gridCell[37]
-          myRoom.gridCell[37] = myRoom.gridCell[44]
-          myRoom.gridCell[44] = false
-          myRoom.gridCell[3] = myRoom.gridCell[10]
-          myRoom.gridCell[10] = myRoom.gridCell[17]
-          myRoom.gridCell[17] = myRoom.gridCell[24]
-          myRoom.gridCell[24] = myRoom.gridCell[31]
-          myRoom.gridCell[31] = myRoom.gridCell[38]
-          myRoom.gridCell[38] = myRoom.gridCell[45]
-          myRoom.gridCell[45] = false
-          myRoom.gridCell[4] = myRoom.gridCell[11]
-          myRoom.gridCell[11] = myRoom.gridCell[18]
-          myRoom.gridCell[18] = myRoom.gridCell[25]
-          myRoom.gridCell[25] = myRoom.gridCell[32]
-          myRoom.gridCell[32] = myRoom.gridCell[39]
-          myRoom.gridCell[39] = myRoom.gridCell[46]
-          myRoom.gridCell[46] = false
-          myRoom.gridCell[5] = myRoom.gridCell[12]
-          myRoom.gridCell[12] = myRoom.gridCell[19]
-          myRoom.gridCell[19] = myRoom.gridCell[26]
-          myRoom.gridCell[26] = myRoom.gridCell[33]
-          myRoom.gridCell[33] = myRoom.gridCell[40]
-          myRoom.gridCell[40] = myRoom.gridCell[47]
-          myRoom.gridCell[47] = false
-          myRoom.gridCell[6] = myRoom.gridCell[13]
-          myRoom.gridCell[13] = myRoom.gridCell[20]
-          myRoom.gridCell[20] = myRoom.gridCell[27]
-          myRoom.gridCell[27] = myRoom.gridCell[34]
-          myRoom.gridCell[34] = myRoom.gridCell[41]
-          myRoom.gridCell[41] = myRoom.gridCell[48]
-          myRoom.gridCell[48] = false
+        while myRoom.countGridAxisYOptimized[0] == 0 {
+          myRoom.countGridAxisYOptimized[0] = myRoom.countGridAxisYOptimized[1]
+          myRoom.countGridAxisYOptimized[1] = myRoom.countGridAxisYOptimized[2]
+          myRoom.countGridAxisYOptimized[2] = myRoom.countGridAxisYOptimized[3]
+          myRoom.countGridAxisYOptimized[3] = myRoom.countGridAxisYOptimized[4]
+          myRoom.countGridAxisYOptimized[4] = myRoom.countGridAxisYOptimized[5]
+          myRoom.countGridAxisYOptimized[5] = myRoom.countGridAxisYOptimized[6]
+          myRoom.countGridAxisYOptimized[6] = 0
+          debug.console(message: "myRoom.countGridAxisYOptimized = \(myRoom.countGridAxisYOptimized)", file: #file, function: #function, line: #line)
+          myRoom.gridCellOptimized[0] = myRoom.gridCellOptimized[7]
+          myRoom.gridCellOptimized[7] = myRoom.gridCellOptimized[14]
+          myRoom.gridCellOptimized[14] = myRoom.gridCellOptimized[21]
+          myRoom.gridCellOptimized[21] = myRoom.gridCellOptimized[28]
+          myRoom.gridCellOptimized[28] = myRoom.gridCellOptimized[35]
+          myRoom.gridCellOptimized[35] = myRoom.gridCellOptimized[42]
+          myRoom.gridCellOptimized[42] = false
+          myRoom.gridCellOptimized[1] = myRoom.gridCellOptimized[8]
+          myRoom.gridCellOptimized[8] = myRoom.gridCellOptimized[15]
+          myRoom.gridCellOptimized[15] = myRoom.gridCellOptimized[22]
+          myRoom.gridCellOptimized[22] = myRoom.gridCellOptimized[29]
+          myRoom.gridCellOptimized[29] = myRoom.gridCellOptimized[36]
+          myRoom.gridCellOptimized[36] = myRoom.gridCellOptimized[43]
+          myRoom.gridCellOptimized[43] = false
+          myRoom.gridCellOptimized[2] = myRoom.gridCellOptimized[9]
+          myRoom.gridCellOptimized[9] = myRoom.gridCellOptimized[16]
+          myRoom.gridCellOptimized[16] = myRoom.gridCellOptimized[23]
+          myRoom.gridCellOptimized[23] = myRoom.gridCellOptimized[30]
+          myRoom.gridCellOptimized[30] = myRoom.gridCellOptimized[37]
+          myRoom.gridCellOptimized[37] = myRoom.gridCellOptimized[44]
+          myRoom.gridCellOptimized[44] = false
+          myRoom.gridCellOptimized[3] = myRoom.gridCellOptimized[10]
+          myRoom.gridCellOptimized[10] = myRoom.gridCellOptimized[17]
+          myRoom.gridCellOptimized[17] = myRoom.gridCellOptimized[24]
+          myRoom.gridCellOptimized[24] = myRoom.gridCellOptimized[31]
+          myRoom.gridCellOptimized[31] = myRoom.gridCellOptimized[38]
+          myRoom.gridCellOptimized[38] = myRoom.gridCellOptimized[45]
+          myRoom.gridCellOptimized[45] = false
+          myRoom.gridCellOptimized[4] = myRoom.gridCellOptimized[11]
+          myRoom.gridCellOptimized[11] = myRoom.gridCellOptimized[18]
+          myRoom.gridCellOptimized[18] = myRoom.gridCellOptimized[25]
+          myRoom.gridCellOptimized[25] = myRoom.gridCellOptimized[32]
+          myRoom.gridCellOptimized[32] = myRoom.gridCellOptimized[39]
+          myRoom.gridCellOptimized[39] = myRoom.gridCellOptimized[46]
+          myRoom.gridCellOptimized[46] = false
+          myRoom.gridCellOptimized[5] = myRoom.gridCellOptimized[12]
+          myRoom.gridCellOptimized[12] = myRoom.gridCellOptimized[19]
+          myRoom.gridCellOptimized[19] = myRoom.gridCellOptimized[26]
+          myRoom.gridCellOptimized[26] = myRoom.gridCellOptimized[33]
+          myRoom.gridCellOptimized[33] = myRoom.gridCellOptimized[40]
+          myRoom.gridCellOptimized[40] = myRoom.gridCellOptimized[47]
+          myRoom.gridCellOptimized[47] = false
+          myRoom.gridCellOptimized[6] = myRoom.gridCellOptimized[13]
+          myRoom.gridCellOptimized[13] = myRoom.gridCellOptimized[20]
+          myRoom.gridCellOptimized[20] = myRoom.gridCellOptimized[27]
+          myRoom.gridCellOptimized[27] = myRoom.gridCellOptimized[34]
+          myRoom.gridCellOptimized[34] = myRoom.gridCellOptimized[41]
+          myRoom.gridCellOptimized[41] = myRoom.gridCellOptimized[48]
+          myRoom.gridCellOptimized[48] = false
         }
-        var minimumIndex = myRoom.gridCell.count
-        for index in 0 ..< myRoom.gridCell.count {
-          if myRoom.gridCell[index] {
+        var minimumIndex = myRoom.gridCellOptimized.count
+        for index in 0 ..< myRoom.gridCellOptimized.count {
+          if myRoom.gridCellOptimized[index] {
             if index < minimumIndex {
               minimumIndex = index
             }
@@ -440,11 +442,11 @@ class RoomShapeModel {
           currentPoint = nextPoint
           switch currentAngle {
           case .Normal:
-            if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+            if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Left
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
-            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
@@ -452,11 +454,11 @@ class RoomShapeModel {
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             }
           case .Left:
-            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Half
               nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
-            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
+            } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
@@ -464,11 +466,11 @@ class RoomShapeModel {
               nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             }
           case .Right:
-            if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
+            if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Normal
               nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
-            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
@@ -476,11 +478,11 @@ class RoomShapeModel {
               nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             }
           case .Half:
-            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
+            if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
               currentAngle = .Right
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
-            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCell[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
+            } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))

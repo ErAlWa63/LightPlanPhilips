@@ -6,16 +6,18 @@
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
 
-
-
 import UIKit
 import SpriteKit
 
-
-
 class RoomViewController: SceneViewController {
-  @IBAction func cancelButton(_ sender: Any) {
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
+  
+  @IBAction func backButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
+  }
+  @IBAction func cancelButton(_ sender: Any) {
+    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
   }
   
   var scene: RoomScene!

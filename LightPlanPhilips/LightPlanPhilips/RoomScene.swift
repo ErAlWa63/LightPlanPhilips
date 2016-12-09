@@ -37,11 +37,13 @@ class RoomScene: SKScene {
   
   override func didMove(to view: SKView) {
 
+
     if let roomSceneDelegate = roomSceneDelegate {
       bulbCollection = roomSceneDelegate.getBulbs()
       groups = roomSceneDelegate.getGroups()
       room = roomSceneDelegate.getRoom()
     }
+
 
     // create room shape
     debug.console(message: "start", file: #file, function: #function, line: #line)
@@ -71,6 +73,7 @@ class RoomScene: SKScene {
     
     // create backup position if default bulb placement location is outside room
     backupPosition = CGPoint(x: (room?.spritekitCorners[0].x)! + 15, y: (room?.spritekitCorners[0].y)! - 15)
+
 
     
     //place bulbs

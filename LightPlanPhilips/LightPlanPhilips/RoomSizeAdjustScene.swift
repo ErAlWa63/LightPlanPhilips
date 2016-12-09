@@ -15,16 +15,41 @@ class RoomSizeAdjustScene: SKScene {
       myRoom.spritekitTextSize = generateSpritekitTextSize( myRoom.gridCorners.count)
       myRoom.spritekitCircleSize = generateSpritekitCircleSize( myRoom.gridCorners.count)
       myRoom.spritekitRealCorners = generateSpritekitRealCorners( myRoom.gridCorners.count)
+      var usedColumnsX = 0
+      for column in myRoom.countGridAxisXOptimized {
+        if column > 0 {
+          usedColumnsX += 1
+        }
+      }
+      debug.console(message: "usedColumnsX = \(usedColumnsX)", file: #file, function: #function, line: #line)
+      var usedRowsY = 0
+      for row in myRoom.countGridAxisYOptimized {
+        if row > 0 {
+          usedRowsY += 1
+        }
+      }
+      debug.console(message: "usedRowsY = \(usedRowsY)", file: #file, function: #function, line: #line)
+      var scale : Double = 0
+      if usedColumnsX < usedRowsY {
+        scale = 7.0 / Double(usedRowsY)
+      } else {
+        scale = 7.0 / Double(usedColumnsX)
+      }
+      debug.console(message: "scale = \(scale)", file: #file, function: #function, line: #line)
       let multiplyEdge2NodePoint: Double = 85.714285
       let offsetEdge2NodePoint: Double = 3.5
       var coordinateX = 0
       var coordinateY = 0
+//      var coordinateXscaled = 0
+//      var coordinateYscaled = 0
       var coordinateXNext = 0
       var coordinateYNext = 0
       
       for index in 0 ..< myRoom.gridCorners.count {
-        coordinateX = Int((Double(myRoom.gridCorners[index].x) - offsetEdge2NodePoint) * multiplyEdge2NodePoint)
-        coordinateY = Int((offsetEdge2NodePoint - Double(myRoom.gridCorners[index].y)) * multiplyEdge2NodePoint)
+        coordinateX = Int(((Double(myRoom.gridCorners[index].x) * scale) - offsetEdge2NodePoint) * multiplyEdge2NodePoint)
+        coordinateY = Int((offsetEdge2NodePoint - (Double(myRoom.gridCorners[index].y) * scale)) * multiplyEdge2NodePoint)
+//        coordinateXscaled = Int(((Double(coordinateX) + 300.0) * scale) - 300.0)
+//        coordinateYscaled = Int(((Double(coordinateY) + 300.0) * scale) - 300.0)
         myRoom.spritekitCorners[index] = SpriteKitPoint(x: coordinateX, y: coordinateY)
         
       }
@@ -71,29 +96,6 @@ class RoomSizeAdjustScene: SKScene {
       self.addChild(myRoom.spritekitCircleSize[myRoom.spritekitCorners.count - 1])
       myRoom.spritekitTextSize[myRoom.spritekitCorners.count - 1].position = CGPoint(x: midX, y: midY + 43)
       self.addChild(myRoom.spritekitTextSize[myRoom.spritekitCorners.count - 1])
-      
-      
-      //        var midX = 0.0
-      //        var midY = 0.0
-      //        for index in 0 ..< gridCorners.count {
-      //          var firstPoint: Room.Point
-      //          var secondPoint: Room.Point
-      //          if index == 0 {
-      //            firstPoint = gridCorners[index]
-      //            secondPoint = gridCorners[gridCorners.count - 1]
-      //          } else {
-      //            firstPoint = gridCorners[index]
-      //            secondPoint = gridCorners[index - 1]
-      //          }
-      //          let averageX = Double(firstPoint.x + secondPoint.x) / 2.0
-      //          let averageY = Double((buttonBoundary - firstPoint.y) + (buttonBoundary - secondPoint.y)) / 2.0
-      //          midX = (averageX - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-      //          midY = (averageY - Double(offsetEdge2NodePoint)) * Double(multiplyEdge2NodePoint) - Double(offsetNodePoint)
-      //          debug.console(message: "midX = \(midX), midY = \(midY)", file: #file, function: #function, line: #line)
-      //
-      //          showSizeNode(CGPoint(x: midX, y: midY))
-      //        }
-      //    }
     }
   }
   
@@ -109,7 +111,7 @@ class RoomSizeAdjustScene: SKScene {
     var spritekitTextSize : [SKLabelNode] = []
     for _ in 0 ..< size {
       let textSize = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
-      textSize.text = "94.05"
+      textSize.text = "?"
       textSize.fontSize = 16
       textSize.fontColor = SKColor.white
       textSize.position = CGPoint(x: 0, y: 0)

@@ -14,34 +14,17 @@ class DataSource: NSObject {
   var myHome: Home = Home()
   
   func createData() {
-    let room = Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png", grid: [
+    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png", grid: [
       false, false, false, false, false, false, false,
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
-      false, false, false, false, false, false, false])
-
-  
-    
-//    room.edge.append(RoomShapeModel.Point(x: 1, y: 1))
-//    room.edge.append(RoomShapeModel.Point(x: 6, y: 1))
-//    room.edge.append(RoomShapeModel.Point(x: 6, y: 6))
-//    room.edge.append(RoomShapeModel.Point(x: 3, y: 6))
-//    room.edge.append(RoomShapeModel.Point(x: 3, y: 2))
-//    room.edge.append(RoomShapeModel.Point(x: 1, y: 2))
-    
-    myHome.rooms.append(room)
-    
-    
-    
-    
-    
-    
+      false, false, false, false, false, false, false]))
     myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "Kitchen", file: "kitchen.png", grid: [
-      false, false, false, false, false, false, false,
-      false,  true,  true,  true,  true,  true, false,
+       true,  true, false, false, false, false, false,
+       true,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
       false,  true,  true,  true,  true,  true, false,
