@@ -80,17 +80,16 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     print("h: \(self.view.frame.height)")
     print("w: \(self.view.frame.width)")
     
-    
-    
-    
     print("x: \(self.scene.anchorPoint.x)")
     print("y: \(self.scene.anchorPoint.y)")
     print("h: \(self.scene.frame.height)")
     print("w: \(self.scene.frame.width)")
     
-  
-    bulb.positionX = Float(collectionView.frame.origin.x + (collectionView.cellForItem(at: indexPath)?.frame.origin.x)!)
-    bulb.positionY = Float(collectionView.frame.origin.y + (collectionView.cellForItem(at: indexPath)?.frame.origin.y)!)
+    let spritekitPositionX = -((Float(bulb.positionX) / Float(self.view.frame.height) * Float(self.scene.frame.height)) / 2)
+    let spritekitPositionY = -((Float(bulb.positionY) / Float(self.view.frame.width) * Float(self.scene.frame.width)) / 2)
+    
+     bulb.positionX = spritekitPositionX
+     bulb.positionY = spritekitPositionY
     
     
     scene.placeBulb(bulb: bulb)
@@ -113,7 +112,9 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
+
 //      scene.myHome = myHome
+
       scene.scaleMode = .aspectFill
       
       scene.roomSceneDelegate = self
