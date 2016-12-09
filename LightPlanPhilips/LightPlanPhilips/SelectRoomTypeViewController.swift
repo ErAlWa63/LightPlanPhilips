@@ -65,7 +65,7 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
   }
   
   internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! SelectRoomTypeCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! SelectRoomTypeCollectionCell
     if let myHome = myHome {
       cell.nameCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18.0)
       cell.nameCell.text = myHome.rooms[indexPath.item].name
