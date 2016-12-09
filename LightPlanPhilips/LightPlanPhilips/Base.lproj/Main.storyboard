@@ -1715,9 +1715,6 @@
                             <constraint firstItem="TZ1-4F-Bez" firstAttribute="top" secondItem="QSr-Xc-E4p" secondAttribute="bottom" constant="40" id="hPr-Q0-vNH"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="xVD-Iq-omE" id="OCP-2M-i8d"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoK-A3-wxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1747,7 +1744,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="2WP-eV-wER"/>
-                                    <action selector="backButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="gN3-At-LsV"/>
                                     <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="qn2-FA-wdM"/>
                                 </connections>
                             </button>
@@ -1764,7 +1760,6 @@
                                 <connections>
                                     <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="fi3-zG-Jb6"/>
                                     <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="ngQ-ue-Nbp"/>
-                                    <action selector="cancelButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="yCG-BX-Icc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uga-Wy-LTh">
@@ -1854,7 +1849,6 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="2wZ-B5-sZT"/>
                                     <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="bKx-Ml-I2H"/>
                                     <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="dPK-n1-qHZ"/>
                                     <action selector="backButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="fi6-Tf-zk3"/>
@@ -1872,7 +1866,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="Avg-Ra-flf"/>
-                                    <action selector="cancelButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="dHR-uS-vIO"/>
                                     <action selector="cancelButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="wlN-D3-E3C"/>
                                     <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="xGR-xv-gMJ"/>
                                 </connections>

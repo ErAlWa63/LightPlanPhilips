@@ -124,11 +124,7 @@ class RoomScene: SKScene {
       shape.addChild(label)
     }
   }
-  
-  
-  
-  
-  
+
   
   var movableNode : SKNode?
   var lastLocationInRoom: CGPoint?
