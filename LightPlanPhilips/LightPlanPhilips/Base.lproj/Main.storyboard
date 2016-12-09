@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-lM-32H" userLabel="&lt; ">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="X9M-5B-BiR"/>
                                     <constraint firstAttribute="width" constant="20" id="ftp-D2-Dag"/>
@@ -141,7 +141,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fn0-hr-coe" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="LQD-0V-YiR"/>
                                     <constraint firstAttribute="width" constant="50" id="SJw-qk-dnD"/>
@@ -155,7 +155,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmr-AJ-lM5" userLabel="Edit">
-                                <rect key="frame" x="41" y="80" width="30" height="30"/>
+                                <rect key="frame" x="41" y="124" width="30" height="30"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,7 +165,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hU-jv-zCY">
-                                <rect key="frame" x="259" y="80" width="20" height="20"/>
+                                <rect key="frame" x="259" y="124" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="8AK-Xl-dMg"/>
                                     <constraint firstAttribute="width" constant="20" id="gX9-wR-JaP"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="My rooms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAC-tl-0eC">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="G8b-sT-kxY"/>
                                     <constraint firstAttribute="height" constant="30" id="IDX-YR-NH7"/>
@@ -203,7 +203,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="QiW-Ai-qaU">
-                                <rect key="frame" x="41" y="100" width="238" height="200"/>
+                                <rect key="frame" x="41" y="144" width="238" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="qML-Re-bo4"/>
@@ -307,7 +307,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy1-3j-yrG" userLabel="&lt; ">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="5S6-xv-ga2"/>
                                     <constraint firstAttribute="height" constant="20" id="Mot-Gv-QEe"/>
@@ -321,7 +321,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-L1-pQC" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="sI9-Tf-D1h"/>
                                     <constraint firstAttribute="height" constant="20" id="tDt-SS-Fo0"/>
@@ -335,7 +335,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Select room type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtL-JN-6Th" userLabel="Select room type">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="16D-pM-hfh"/>
                                     <constraint firstAttribute="width" constant="250" id="CZt-zy-a3y"/>
@@ -345,7 +345,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Select a room type for the room you want to create. Choose 'Open Space' if you would like to create a room with zones." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F64-7A-9yH">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="LQL-NS-RBS"/>
                                 </constraints>
@@ -368,7 +368,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-nh-l2j">
-                                <rect key="frame" x="56" y="160" width="208" height="300"/>
+                                <rect key="frame" x="56" y="204" width="208" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="mnN-KP-PVt"/>
@@ -473,7 +473,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJG-wS-fEk" userLabel="&lt; ">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="75I-6s-YZR"/>
                                     <constraint firstAttribute="height" constant="20" id="LsA-BW-RnK"/>
@@ -487,7 +487,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKT-8h-dPg" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Gzn-Gf-pIg"/>
                                     <constraint firstAttribute="width" constant="50" id="V6b-ZS-9j2"/>
@@ -501,7 +501,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room shape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsL-Dl-lVQ">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0MC-Hz-2Un"/>
                                     <constraint firstAttribute="width" constant="250" id="6YJ-Lc-FQf"/>
@@ -511,7 +511,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust this rectangular shape by selecting and/or deselecting squares to create the shape of your space." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkj-LS-FPh">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="5uX-Rq-PQv"/>
                                 </constraints>
@@ -520,7 +520,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="25Y-AD-tci">
-                                <rect key="frame" x="40" y="140" width="240" height="240"/>
+                                <rect key="frame" x="40" y="184" width="240" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-yH-YKq">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
@@ -1349,7 +1349,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vu3-QB-KRN" userLabel="&lt; ">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="YUF-lx-hw0"/>
                                     <constraint firstAttribute="height" constant="20" id="fHa-8N-u0N"/>
@@ -1363,7 +1363,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzZ-B6-xcx" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="20F-Dj-Ugx"/>
                                     <constraint firstAttribute="width" constant="50" id="YUB-LY-1tN"/>
@@ -1377,7 +1377,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room size adjust" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXQ-hn-pPH">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="MI4-GP-kXp"/>
                                     <constraint firstAttribute="height" constant="30" id="aEl-OR-Qha"/>
@@ -1387,7 +1387,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust the room shape more precise. Tap the question marks and fill in the various measurements." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKd-Cu-L09">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="KjY-2b-swG"/>
                                 </constraints>
@@ -1448,7 +1448,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1O-0b-BjX" userLabel="&lt; ">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="6jR-Wy-J50"/>
                                     <constraint firstAttribute="height" constant="20" id="mGr-QU-2T9"/>
@@ -1462,7 +1462,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-yu-gVU" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3Vt-uu-76j"/>
                                     <constraint firstAttribute="height" constant="20" id="CjB-9q-Cj8"/>
@@ -1476,7 +1476,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place furniture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-Sq-gJa">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="29u-L7-9Jy"/>
                                     <constraint firstAttribute="height" constant="30" id="RvO-gK-nzi"/>
@@ -1486,7 +1486,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place some basic furniture as reference. Rotate them if needed." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLP-AB-hUx">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ocr-zJ-tKr"/>
                                 </constraints>
@@ -1548,7 +1548,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="mz1-8O-eUN"/>
-                                    <segue destination="jt6-n6-G48" kind="show" identifier="PlaceBulbSegue" action="showDetailViewController:sender:" id="B67-6k-hI5"/>
+                                    <segue destination="jt6-n6-G48" kind="show" identifier="PlaceBulbSegue" id="RUC-g3-ksJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1586,7 +1586,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKu-10-8H4">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="UQ5-I8-teC"/>
                                     <constraint firstAttribute="height" constant="20" id="fw3-EA-IDR"/>
@@ -1600,7 +1600,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fA-Uz-T8C" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Au4-Pc-Wld"/>
                                     <constraint firstAttribute="width" constant="50" id="IlJ-0e-F1U"/>
@@ -1611,11 +1611,10 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="Akl-TG-CvM"/>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="wxb-fM-b9I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGK-ky-8sv">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="YUf-Ox-h3L"/>
                                     <constraint firstAttribute="height" constant="30" id="z4p-dK-FhN"/>
@@ -1625,7 +1624,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ1-4F-Bez">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="tJp-XV-flL"/>
                                 </constraints>
@@ -1731,7 +1730,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bn-Gr-XWh">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="VJG-9q-OWH"/>
                                     <constraint firstAttribute="width" constant="20" id="Zvg-zR-W0d"/>
@@ -1742,11 +1741,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="2WP-eV-wER"/>
-                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="qn2-FA-wdM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAP-ru-ghG" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="DrZ-jD-ex0"/>
                                     <constraint firstAttribute="width" constant="50" id="qgo-nW-dSY"/>
@@ -1756,12 +1754,11 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="fi3-zG-Jb6"/>
                                     <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="ngQ-ue-Nbp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uga-Wy-LTh">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="JpC-mv-jnD"/>
                                     <constraint firstAttribute="height" constant="30" id="Tvs-sJ-Lqw"/>
@@ -1771,7 +1768,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJN-JI-rtz">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="y6m-my-JAA"/>
                                 </constraints>
@@ -1837,7 +1834,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-Rt-89s">
-                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="aEa-nS-sIQ"/>
                                     <constraint firstAttribute="height" constant="20" id="dhm-lA-CVG"/>
@@ -1847,13 +1844,11 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="bKx-Ml-I2H"/>
-                                    <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="dPK-n1-qHZ"/>
                                     <action selector="backButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="fi6-Tf-zk3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evK-9W-t4V" userLabel="Cancel">
-                                <rect key="frame" x="254" y="20" width="50" height="20"/>
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Gb5-iZ-a2e"/>
                                     <constraint firstAttribute="width" constant="50" id="rDf-Hn-zeG"/>
@@ -1863,13 +1858,11 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="Avg-Ra-flf"/>
                                     <action selector="cancelButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="wlN-D3-E3C"/>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="xGR-xv-gMJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-qu-XRf">
-                                <rect key="frame" x="46" y="60" width="228" height="80"/>
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="jLg-Up-IUH"/>
                                 </constraints>
@@ -1878,7 +1871,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs6-Ec-UJK">
-                                <rect key="frame" x="16" y="40" width="250" height="30"/>
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="KIy-WA-dz2"/>
                                     <constraint firstAttribute="height" constant="30" id="mg0-DJ-cub"/>
@@ -1963,7 +1956,7 @@
         <scene sceneID="f6i-t9-wTU">
             <objects>
                 <collectionViewController id="5yu-7i-LiJ" customClass="LightTypeCollectionViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="aSB-XA-byw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aSB-XA-byw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2007,13 +2000,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-I3-cYj">
-                                <rect key="frame" x="31" y="61" width="259" height="69"/>
+                                <rect key="frame" x="31" y="105" width="259" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-aO-NEU">
-                                <rect key="frame" x="16" y="28" width="115" height="33"/>
+                                <rect key="frame" x="16" y="72" width="115" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="VA2-mA-KES"/>
                                     <constraint firstAttribute="width" constant="115" id="aYd-bG-JjX"/>
@@ -2171,13 +2164,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-rw-ZtD">
-                                <rect key="frame" x="31" y="61" width="259" height="69"/>
+                                <rect key="frame" x="31" y="105" width="259" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AM-x2-qiI">
-                                <rect key="frame" x="16" y="28" width="115" height="33"/>
+                                <rect key="frame" x="16" y="72" width="115" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="i6X-tD-EZk"/>
                                     <constraint firstAttribute="height" constant="33" id="rHT-gI-8Kr"/>
@@ -2287,6 +2280,6 @@
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B67-6k-hI5"/>
+        <segue reference="RUC-g3-ksJ"/>
     </inferredMetricsTieBreakers>
 </document>
