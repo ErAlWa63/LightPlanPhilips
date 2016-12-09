@@ -14,9 +14,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
+
   @IBAction func backButton(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
+  
   @IBAction func cancelButton(_ sender: Any) {
     self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
   }
@@ -24,7 +26,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var scene: RoomScene!
   var bulbCollection: [Bulb] = []
   var groupCollection: [Group] = []
-  var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
+  
+  let selectedRoom: Int = DataSource.sharedInstance.myHome.selectedRoom
+  
+  var roomId: String = ""
+  
   var room: Room?
   var bulbId: String = ""
   
@@ -33,6 +39,13 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   
   let debug = Debug() // debugger functionality
   
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    roomId = DataSource.sharedInstance.myHome.rooms[selectedRoom].id
+    
+  }
   
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,6 +64,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     return cell
   }
   
+
   
   // select bulb and place in room
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
@@ -63,9 +77,24 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       bulb.positionY = Float((scene.backupPosition?.y)!)
     }
     
+    print("h: \(self.view.frame.height)")
+    print("w: \(self.view.frame.width)")
+    
+    
+    
+    
+    print("x: \(self.scene.anchorPoint.x)")
+    print("y: \(self.scene.anchorPoint.y)")
+    print("h: \(self.scene.frame.height)")
+    print("w: \(self.scene.frame.width)")
+    
+  
+    bulb.positionX = Float(collectionView.frame.origin.x + (collectionView.cellForItem(at: indexPath)?.frame.origin.x)!)
+    bulb.positionY = Float(collectionView.frame.origin.y + (collectionView.cellForItem(at: indexPath)?.frame.origin.y)!)
     
     
     scene.placeBulb(bulb: bulb)
+
     DataSource.sharedInstance.moveBulbFromHomeToRoom(bulbId: bulb.id, roomId: roomId)
     self.bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
     self.bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
@@ -92,7 +121,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       
       scene.dragDropEnabled = true
       scene.createGroup = false
-      
       
       view.ignoresSiblingOrder = true
       view.showsFPS = true
