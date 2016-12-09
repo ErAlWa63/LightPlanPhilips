@@ -74,6 +74,16 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       bulb.positionY = Float((scene.backupPosition?.y)!)
     }
     
+    print("h: \(self.view.frame.height)")
+    print("w: \(self.view.frame.width)")
+    
+    
+    
+    
+    print("x: \(self.scene.anchorPoint.x)")
+    print("y: \(self.scene.anchorPoint.y)")
+    print("h: \(self.scene.frame.height)")
+    print("w: \(self.scene.frame.width)")
     
   
     bulb.positionX = Float(collectionView.frame.origin.x + (collectionView.cellForItem(at: indexPath)?.frame.origin.x)!)
