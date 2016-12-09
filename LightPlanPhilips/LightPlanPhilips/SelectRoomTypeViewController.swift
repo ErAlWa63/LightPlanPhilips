@@ -10,7 +10,7 @@ class SelectRoomTypeViewController: UIViewController {
   @IBAction func cancelButton(_ sender: Any) {
     self.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
   }
-  @IBOutlet  weak var nextButton: UIButton!
+  @IBOutlet weak var nextButton: UIButton!
   @IBOutlet weak var collectionview: UICollectionView!
   
   override func viewDidLoad() {

@@ -4,13 +4,6 @@ class LightPlanCreatorViewController: UIViewController {
   private var myHome : Home?
   
   @IBAction func startButton(_ sender: Any) {
-    let myRoomViewController = MyRoomViewController()
-    let transition = CATransition()
-    transition.duration = 0.5
-    transition.type = kCATransitionPush
-    transition.subtype = kCATransitionFromRight
-    view.window!.layer.add(transition, forKey: kCATransition)
-    present(myRoomViewController, animated: false, completion: nil)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,6 +42,8 @@ class LightPlanCreatorViewController: UIViewController {
     if myHome == nil {
       DataSource.sharedInstance.createData()
       myHome = DataSource.sharedInstance.myHome
+      self.navigationController?.navigationBar.isHidden = true
+      
     }
   }
 }
