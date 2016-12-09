@@ -92,6 +92,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="startButton:" destination="Oe7-1F-9sN" eventType="touchUpInside" id="5oj-Eo-3Dg"/>
                                     <segue destination="11A-vC-hsn" kind="show" identifier="MyRoomSegue" id="rZN-4V-kDt"/>
                                 </connections>
                             </button>
@@ -2277,6 +2278,6 @@
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B67-6k-hI5"/>
+        <segue reference="cBv-hO-gsC"/>
     </inferredMetricsTieBreakers>
 </document>
