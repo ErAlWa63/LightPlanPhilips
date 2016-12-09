@@ -513,7 +513,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="25Y-AD-tci">
-                                <rect key="frame" x="40" y="200" width="240" height="240"/>
+                                <rect key="frame" x="40" y="140" width="240" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-yH-YKq">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
@@ -1264,7 +1264,7 @@
                             <constraint firstItem="LJG-wS-fEk" firstAttribute="leading" secondItem="wlQ-NP-TiS" secondAttribute="leadingMargin" id="dRH-bC-qze"/>
                             <constraint firstItem="25Y-AD-tci" firstAttribute="centerX" secondItem="wlQ-NP-TiS" secondAttribute="centerX" id="fLC-EZ-iKf"/>
                             <constraint firstItem="Vkj-LS-FPh" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="40" id="htu-zk-EXY"/>
-                            <constraint firstItem="25Y-AD-tci" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="180" id="nh8-qn-R2s"/>
+                            <constraint firstItem="25Y-AD-tci" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="120" id="nh8-qn-R2s"/>
                             <constraint firstItem="Irh-TF-bun" firstAttribute="leading" secondItem="wlQ-NP-TiS" secondAttribute="leadingMargin" constant="50" id="q9Z-jg-qqp"/>
                             <constraint firstItem="eKT-8h-dPg" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" id="rmA-hd-p02"/>
                             <constraint firstItem="lsL-Dl-lVQ" firstAttribute="top" secondItem="e9g-bo-XjV" secondAttribute="bottom" constant="20" id="uxn-eh-Wx6"/>
