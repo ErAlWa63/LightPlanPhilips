@@ -65,13 +65,7 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
   }
   
   internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! SelectRoomTypeCollectionCell
-    if let myHome = myHome {
-      cell.nameCell.text = myHome.rooms[indexPath.item].name
-      cell.descriptionCell.text = myHome.rooms[indexPath.item].description
-      cell.pictogramCell.image = myHome.rooms[indexPath.item].pictogram
-    }
-    return cell
+    return collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
   }
 }
 
@@ -79,6 +73,7 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
     return true
   }
+  
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     nextButton.isHidden = false
     let selectedCell = collectionView.cellForItem(at: indexPath)!
@@ -92,5 +87,14 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
     let selectedCell = collectionView.cellForItem(at: indexPath)!
     selectedCell.layer.borderColor  = UIColor.clear.cgColor
     selectedCell.tintColor          = UIColor.clear
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    if let myHome = myHome {
+      let cell = cell as! SelectRoomTypeCollectionCell
+      cell.nameCell.text = myHome.rooms[indexPath.item].name
+      cell.descriptionCell.text = myHome.rooms[indexPath.item].description
+      cell.pictogramCell.image = myHome.rooms[indexPath.item].pictogram
+    }
   }
 }

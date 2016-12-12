@@ -88,10 +88,7 @@ extension PlaceFurnitureViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeFurnitureCell", for: indexPath) as! PlaceFurnitureCollectionCell
-    cell.nameCell.text = listFurniture[indexPath.row].name
-    cell.pictogramCell.image = listFurniture[indexPath.row].pictogram
-    return cell
+    return collectionView.dequeueReusableCell(withReuseIdentifier: "placeFurnitureCell", for: indexPath)
   }
 }
 
@@ -113,5 +110,11 @@ extension PlaceFurnitureViewController: UICollectionViewDelegate {
     let selectedCell = collectionView.cellForItem(at: indexPath)!
     selectedCell.layer.borderColor  = UIColor.clear.cgColor
     selectedCell.tintColor          = UIColor.clear
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    let cell = cell as! PlaceFurnitureCollectionCell
+    cell.nameCell.text = listFurniture[indexPath.row].name
+    cell.pictogramCell.image = listFurniture[indexPath.row].pictogram
   }
 }

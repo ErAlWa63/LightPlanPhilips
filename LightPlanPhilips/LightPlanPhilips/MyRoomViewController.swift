@@ -75,6 +75,20 @@ class MyRoomViewController: UIViewController {
   }
 }
 
+extension MyRoomViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return tableView.dequeueReusableCell(withIdentifier: "myRoomCell", for: indexPath)
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if let myHome = myHome {
+      return myHome.rooms.count
+    } else {
+      return 0
+    }
+  }
+}
+
 extension MyRoomViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
     return true
@@ -121,26 +135,13 @@ extension MyRoomViewController: UITableViewDelegate {
       myHome.rooms = moveRoomAtIndex(rooms: myHome.rooms, fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
   }
-}
-
-extension MyRoomViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "myRoomCell", for: indexPath) as! MyRoomTableViewCell
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if let myHome = myHome {
-      cell.nameCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18.0)
+      let cell = cell as! MyRoomTableViewCell
       cell.nameCell.text = myHome.rooms[indexPath.item].name
-      cell.descriptionCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 10.0)
       cell.descriptionCell.text = myHome.rooms[indexPath.item].description
       cell.pictogramCell.image = myHome.rooms[indexPath.item].pictogram
-    }
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let myHome = myHome {
-      return myHome.rooms.count
-    } else {
-      return 0
     }
   }
 }
