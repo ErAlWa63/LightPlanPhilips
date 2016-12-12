@@ -140,6 +140,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ChooseItem" {
+      view.endEditing(true)
       let viewController = (segue.destination) as! ChooseItemTableViewController
       viewController.area = area
 

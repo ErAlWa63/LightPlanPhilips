@@ -204,7 +204,7 @@ class RoomScene: SKScene {
                   
                   
                   roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "NameBulb")
-                  
+                  break
                   
                   
                 } else {

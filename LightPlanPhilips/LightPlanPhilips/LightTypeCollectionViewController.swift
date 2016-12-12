@@ -66,7 +66,11 @@ final class LightTypeCollectionViewController: UICollectionViewController {
     let pictogram = DataLightPlan.sharedInstance.listLightType[indexPath.item].pictogram
     bulb?.lightTypeName = lightTypeName
     bulb?.lightTypeIcon = pictogram
-    dismiss(animated: true, completion: nil)
+    
+    
+    _ = navigationController?.popViewController(animated: true)
+    
+
   }
   
   override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {

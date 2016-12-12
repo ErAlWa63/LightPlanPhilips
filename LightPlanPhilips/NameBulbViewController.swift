@@ -34,7 +34,9 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     
     bulb.name = bulbName.text!
     
-    dismiss(animated: true, completion: nil)
+    
+    _ = navigationController?.popViewController(animated: true)
+    
   }
   
   
@@ -52,6 +54,8 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if(segue.identifier == "chooseType") {
+      
+      view.endEditing(true)
       tempName = bulbName.text
       let lightTypeCollectionViewController = (segue.destination) as! LightTypeCollectionViewController
       lightTypeCollectionViewController.bulb = bulb
@@ -78,9 +82,6 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
-    
-    
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
