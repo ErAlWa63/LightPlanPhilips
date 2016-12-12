@@ -14,6 +14,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
+@IBOutlet weak var bulbCollectionView: UICollectionView!
 
   @IBAction func backButton(_ sender: Any) {
     _ = navigationController?.popViewController(animated: true)
@@ -85,15 +86,26 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     print("h: \(self.scene.frame.height)")
     print("w: \(self.scene.frame.width)")
     
-    let spritekitPositionX = -((Float(bulb.positionX) / Float(self.view.frame.height) * Float(self.scene.frame.height)) / 2)
-    let spritekitPositionY = -((Float(bulb.positionY) / Float(self.view.frame.width) * Float(self.scene.frame.width)) / 2)
+  
+    let cell = bulbCollectionView.cellForItem(at: indexPath)
+    let cellLocation = cell?.convert((cell?.center)!, to: self.view)
     
-     bulb.positionX = spritekitPositionX
-     bulb.positionY = spritekitPositionY
-    
-    
-    scene.placeBulb(bulb: bulb)
+    //let skLocation = cell?.convert((cell?.center)!, to: self.scene.view)
 
+//    print("cellX: \(cellLocation?.x)")
+//    print("cellY: \(cellLocation?.y)")
+//  
+//    
+//    let spritekitPositionX = (Float((cellLocation?.x)!) / Float(self.view.frame.width) * Float(self.scene.frame.width)) - Float(self.scene.frame.width / 2)
+//
+//    let spritekitPositionY = (Float((cellLocation?.y)!) / Float(self.view.frame.height) * Float(self.scene.frame.height)) - Float(self.scene.frame.height / 2)
+//
+//    bulb.positionX = spritekitPositionX
+//    bulb.positionY = spritekitPositionY
+    
+    scene.placeBulb(bulb: bulb, cell: cell!)
+
+    
     DataSource.sharedInstance.moveBulbFromHomeToRoom(bulbId: bulb.id, roomId: roomId)
     self.bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
     self.bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)

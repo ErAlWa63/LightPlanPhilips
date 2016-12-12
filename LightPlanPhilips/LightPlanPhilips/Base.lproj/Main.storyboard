@@ -1712,6 +1712,9 @@
                             <constraint firstItem="TZ1-4F-Bez" firstAttribute="top" secondItem="QSr-Xc-E4p" secondAttribute="bottom" constant="40" id="hPr-Q0-vNH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bulbCollectionView" destination="xVD-Iq-omE" id="2hY-jR-QBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoK-A3-wxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
