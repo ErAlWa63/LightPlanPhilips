@@ -45,6 +45,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     super.viewDidLoad()
     
     roomId = DataSource.sharedInstance.myHome.rooms[selectedRoom].id
+  
     
   }
   
@@ -73,35 +74,19 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     
     let bulb = self.bulbsInHome[indexPath.item]
     // check if the defaul placement position in room exists
-    if self.room?.gridCellOptimized[24] == false {
+    
+    
+    
+  
+    if scene.backupPosition != nil {
       bulb.positionX = Float((scene.backupPosition?.x)!)
       bulb.positionY = Float((scene.backupPosition?.y)!)
     }
+
     
-    print("h: \(self.view.frame.height)")
-    print("w: \(self.view.frame.width)")
-    
-    print("x: \(self.scene.anchorPoint.x)")
-    print("y: \(self.scene.anchorPoint.y)")
-    print("h: \(self.scene.frame.height)")
-    print("w: \(self.scene.frame.width)")
     
   
     let cell = bulbCollectionView.cellForItem(at: indexPath)
-    let cellLocation = cell?.convert((cell?.center)!, to: self.view)
-    
-    //let skLocation = cell?.convert((cell?.center)!, to: self.scene.view)
-
-//    print("cellX: \(cellLocation?.x)")
-//    print("cellY: \(cellLocation?.y)")
-//  
-//    
-//    let spritekitPositionX = (Float((cellLocation?.x)!) / Float(self.view.frame.width) * Float(self.scene.frame.width)) - Float(self.scene.frame.width / 2)
-//
-//    let spritekitPositionY = (Float((cellLocation?.y)!) / Float(self.view.frame.height) * Float(self.scene.frame.height)) - Float(self.scene.frame.height / 2)
-//
-//    bulb.positionX = spritekitPositionX
-//    bulb.positionY = spritekitPositionY
     
     scene.placeBulb(bulb: bulb, cell: cell!)
 
@@ -125,10 +110,10 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
 
-//      scene.myHome = myHome
+
 
       scene.scaleMode = .aspectFill
-      
+  
       scene.roomSceneDelegate = self
       view.presentScene(scene)
       

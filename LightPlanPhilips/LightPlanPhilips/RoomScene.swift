@@ -36,15 +36,15 @@ class RoomScene: SKScene {
   
   
   override func didMove(to view: SKView) {
-
-
+    
+    
     if let roomSceneDelegate = roomSceneDelegate {
       bulbCollection = roomSceneDelegate.getBulbs()
       groups = roomSceneDelegate.getGroups()
       room = roomSceneDelegate.getRoom()
     }
-
-
+    
+    
     // create room shape
     debug.console(message: "start", file: #file, function: #function, line: #line)
     var coordinateX = 0
@@ -70,11 +70,22 @@ class RoomScene: SKScene {
     self.addChild(roomShape)
     
     
+    var inRoom: Bool = false
+    let startLocation = CGPoint(x: 0, y: 0)
+    for node in self.nodes(at:startLocation) {
+      if node.name == "room" {
+        if node.contains(startLocation) {
+                  inRoom = true
+        }
+      }
+    }
     
-    // create backup position if default bulb placement location is outside room
-    backupPosition = CGPoint(x: (room?.spritekitCorners[0].x)! + 15, y: (room?.spritekitCorners[0].y)! - 15)
-
-
+    if inRoom == false {
+      // create backup position if default bulb placement location is outside room
+      backupPosition = CGPoint(x: (room?.spritekitCorners[0].x)! + 15, y: (room?.spritekitCorners[0].y)! - 15)
+    }
+    
+    
     
     //place bulbs
     for bulb in bulbCollection {
@@ -124,7 +135,7 @@ class RoomScene: SKScene {
       shape.addChild(label)
     }
   }
-
+  
   
   var movableNode : SKNode?
   var lastLocationInRoom: CGPoint?
@@ -228,7 +239,7 @@ class RoomScene: SKScene {
   }
   
   
-
+  
   
   
   
@@ -271,33 +282,30 @@ class RoomScene: SKScene {
     let sprite: BulbSpriteNode
     
     sprite = BulbSpriteNode(lightTypeIcon: bulb.lightTypeIcon!, type: NodeType.bulb, id: bulb.id)
-    //sprite.position = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
-
+    
     
     let cellLocation = cell.convert(cell.center, to: self.view)
     let position = sprite.convert(cellLocation, to: self)
     
-     sprite.setScale(5)
+    sprite.setScale(5)
     sprite.alpha = 0
     
     let spriteX = position.x - (((self.scene?.frame.width)! / 2) - sprite.frame.width / 2  )
     let spriteY = position.y - (((self.scene?.frame.height)! / 2) + sprite.frame.height / 2 )
-      
+    
     sprite.position = CGPoint(x: spriteX, y: spriteY)
     
     
- 
     
     
-
+    
+    
     sprite.name = bulb.name
     selectedBulbs[bulb.id] = false
     self.addChild(sprite)
-    
-    
-   
-    
-    let endPoint = CGPoint(x: 0, y: 0)
+
+    let endPoint = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
+
     
     let contractAction = SKAction.scale(to: 1.5, duration: 1)
     let alphaAction = SKAction.fadeAlpha(to: 1, duration: 2)
