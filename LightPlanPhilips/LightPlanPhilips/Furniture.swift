@@ -1,6 +1,6 @@
 import UIKit
 
-class LightType: NSObject {
+class Furniture: NSObject {
     var name      : String
     var pictogram : UIImage
     

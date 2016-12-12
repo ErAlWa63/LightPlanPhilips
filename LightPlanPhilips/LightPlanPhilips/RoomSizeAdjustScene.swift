@@ -1,16 +1,16 @@
 import SpriteKit
 
 class RoomSizeAdjustScene: SKScene {
-//  let debug = Debug() // debugger functionality
+  //  let debug = Debug() // debugger functionality
   
   var myHome : Home?
   let roomShapeModel = RoomShapeModel()
   
   override func didMove(to view: SKView) {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let myHome = myHome {
       let myRoom = myHome.rooms[myHome.selectedRoom]
-//      debug.console(message: "start", file: #file, function: #function, line: #line)
+      //      debug.console(message: "start", file: #file, function: #function, line: #line)
       myRoom.spritekitCorners = generateSpritekitCorners( myRoom.gridCorners.count)
       myRoom.spritekitTextSize = generateSpritekitTextSize( myRoom.gridCorners.count)
       myRoom.spritekitCircleSize = generateSpritekitCircleSize( myRoom.gridCorners.count)
@@ -21,21 +21,21 @@ class RoomSizeAdjustScene: SKScene {
           usedColumnsX += 1
         }
       }
-//      debug.console(message: "usedColumnsX = \(usedColumnsX)", file: #file, function: #function, line: #line)
+      //      debug.console(message: "usedColumnsX = \(usedColumnsX)", file: #file, function: #function, line: #line)
       var usedRowsY = 0
       for row in myRoom.countGridAxisYOptimized {
         if row > 0 {
           usedRowsY += 1
         }
       }
-//      debug.console(message: "usedRowsY = \(usedRowsY)", file: #file, function: #function, line: #line)
+      //      debug.console(message: "usedRowsY = \(usedRowsY)", file: #file, function: #function, line: #line)
       var scale : Double = 0
       if usedColumnsX < usedRowsY {
         scale = 7.0 / Double(usedRowsY)
       } else {
         scale = 7.0 / Double(usedColumnsX)
       }
-//      debug.console(message: "scale = \(scale)", file: #file, function: #function, line: #line)
+      //      debug.console(message: "scale = \(scale)", file: #file, function: #function, line: #line)
       let multiplyEdge2NodePoint: Double = 85.714285
       let offsetEdge2NodePoint: Double = 3.5
       var coordinateX = 0
@@ -75,8 +75,8 @@ class RoomSizeAdjustScene: SKScene {
         coordinateY = myRoom.spritekitCorners[index].y
         coordinateXNext = myRoom.spritekitCorners[index + 1].x
         coordinateYNext = myRoom.spritekitCorners[index + 1].y
-         midX = (coordinateX + coordinateXNext) / 2
-         midY = (coordinateY + coordinateYNext) / 2
+        midX = (coordinateX + coordinateXNext) / 2
+        midY = (coordinateY + coordinateYNext) / 2
         myRoom.spritekitCircleSize[index].position = CGPoint(x: midX, y: midY)
         self.addChild(myRoom.spritekitCircleSize[index])
         myRoom.spritekitTextSize[index].position = CGPoint(x: midX, y: midY + 43)
@@ -165,10 +165,10 @@ class RoomSizeAdjustScene: SKScene {
   var sizeTextField : UITextField?
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
     if sizeTextField == nil {
       if let view = view {
-        sizeTextField = UITextField (frame: CGRect(x: 100, y: 400, width: 150, height: 25))
+        sizeTextField = UITextField (frame: CGRect(x: 80, y: 430, width: 150, height: 25))
         if let sizeTextField = sizeTextField {
           self.backgroundColor = UIColor.white
           sizeTextField.layer.borderWidth = 1
@@ -192,24 +192,21 @@ class RoomSizeAdjustScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
+    //    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
 }
 
 extension RoomSizeAdjustScene : UITextFieldDelegate {
   func textFieldDidEndEditing(_ textField: UITextField) {
-    if let view = view {
-      animateTextField(up: false, height: view.frame.size.height - 400)
-      textField.isHidden = true
-    }
+    textField.isHidden = true
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -241,21 +238,8 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
     return true
   }
   
-  private func animateTextField(up: Bool, height: CGFloat) {
-    if let view = view {
-      UIView.beginAnimations("animateTextField", context: nil)
-      UIView.setAnimationBeginsFromCurrentState(true)
-      UIView.setAnimationDuration(0.5)
-      view.frame = view.frame.offsetBy(dx: 0, dy: (up ? height - 250 : 250 - height))
-      UIView.commitAnimations()
-    }
-  }
-  
   internal func textFieldDidBeginEditing(_ textField: UITextField) {
-    if let view = view {
-      animateTextField(up: true, height: view.frame.size.height - 400)
-      textField.text = ""
-    }
+    textField.text = ""
   }
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
