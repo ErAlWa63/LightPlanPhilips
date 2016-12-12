@@ -50,7 +50,6 @@
 		03353CFC1DFAEE3100B634B6 /* SelectRoomTypeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03353CFB1DFAEE3100B634B6 /* SelectRoomTypeCollectionCell.swift */; };
 		0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB0E1DD4ABAB002165CD /* Debug.swift */; };
 		0374EB321DD5E8F3002165CD /* LightTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */; };
-		0374EB361DD67330002165CD /* TestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0374EB351DD67330002165CD /* TestButton.swift */; };
 		038531CE1DF1684D00776F9D /* PlaceFurnitureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038531CD1DF1684D00776F9D /* PlaceFurnitureViewController.swift */; };
 		039137441DE4448000A6FB1E /* Extension UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137431DE4448000A6FB1E /* Extension UIButton.swift */; };
 		039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */; };
@@ -141,7 +140,6 @@
 		03353CFB1DFAEE3100B634B6 /* SelectRoomTypeCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeCollectionCell.swift; sourceTree = "<group>"; };
 		0374EB0E1DD4ABAB002165CD /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		0374EB311DD5E8F2002165CD /* LightTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTypeCollectionViewController.swift; sourceTree = "<group>"; };
-		0374EB351DD67330002165CD /* TestButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestButton.swift; sourceTree = "<group>"; };
 		038531CD1DF1684D00776F9D /* PlaceFurnitureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceFurnitureViewController.swift; sourceTree = "<group>"; };
 		039137431DE4448000A6FB1E /* Extension UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension UIButton.swift"; sourceTree = "<group>"; };
 		039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPlanCreatorViewController.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 				0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */,
 				0312B1381DF55D5300044DB7 /* PlaceFurnitureScene.swift */,
 				039137431DE4448000A6FB1E /* Extension UIButton.swift */,
-				0374EB351DD67330002165CD /* TestButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -520,7 +517,6 @@
 				039137441DE4448000A6FB1E /* Extension UIButton.swift in Sources */,
 				03013F191DE83953002BBA6B /* RoomSizeAdjustViewController.swift in Sources */,
 				9C43CEF01DF569FF00CEFB62 /* addBulbCell.swift in Sources */,
-				0374EB361DD67330002165CD /* TestButton.swift in Sources */,
 				030878791DD48B88003812A7 /* NameLight.swift in Sources */,
 				9C981AFF1DD4897C00D3DDAF /* DataSource.swift in Sources */,
 				9C4884A11DD37EEF00DE07EA /* Bulb.swift in Sources */,
