@@ -112,7 +112,11 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     group.groupTypeName = groupTypeName
     group.groupTypeIcon = groupTypeIcon
   
-    dismiss(animated: true, completion: nil)
+    //dismiss(animated: true, completion: nil)
+    
+    
+    _ = navigationController?.popViewController(animated: true)
+
   }
   
   
