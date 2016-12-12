@@ -14,10 +14,10 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   var closureToPerform: ((Home) -> Void)?
   
   @IBAction func backButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
     bulb.lightTypeName = tempLightTypeName
     bulb.lightTypeIcon = tempLightTypeIcon
   }

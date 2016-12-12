@@ -40,12 +40,12 @@ class ShowGroupViewController: SceneViewController, UITextFieldDelegate {
     
     DataSource.sharedInstance.removeGroup(groupId: groupId)
     
-    dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
 
   
   @IBAction func cancelButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   
 

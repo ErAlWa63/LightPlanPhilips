@@ -29,7 +29,7 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   
   @IBAction func cancelButton(_ sender: Any) {
     
-    dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
   }
   @IBOutlet weak var chooseButton: UIButton!
   

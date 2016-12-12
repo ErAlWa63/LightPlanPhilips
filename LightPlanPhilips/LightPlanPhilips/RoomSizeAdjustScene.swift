@@ -1,16 +1,16 @@
 import SpriteKit
 
 class RoomSizeAdjustScene: SKScene {
-  let debug = Debug() // debugger functionality
+//  let debug = Debug() // debugger functionality
   
   var myHome : Home?
   let roomShapeModel = RoomShapeModel()
   
   override func didMove(to view: SKView) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let myHome = myHome {
       let myRoom = myHome.rooms[myHome.selectedRoom]
-      debug.console(message: "start", file: #file, function: #function, line: #line)
+//      debug.console(message: "start", file: #file, function: #function, line: #line)
       myRoom.spritekitCorners = generateSpritekitCorners( myRoom.gridCorners.count)
       myRoom.spritekitTextSize = generateSpritekitTextSize( myRoom.gridCorners.count)
       myRoom.spritekitCircleSize = generateSpritekitCircleSize( myRoom.gridCorners.count)
@@ -21,35 +21,31 @@ class RoomSizeAdjustScene: SKScene {
           usedColumnsX += 1
         }
       }
-      debug.console(message: "usedColumnsX = \(usedColumnsX)", file: #file, function: #function, line: #line)
+//      debug.console(message: "usedColumnsX = \(usedColumnsX)", file: #file, function: #function, line: #line)
       var usedRowsY = 0
       for row in myRoom.countGridAxisYOptimized {
         if row > 0 {
           usedRowsY += 1
         }
       }
-      debug.console(message: "usedRowsY = \(usedRowsY)", file: #file, function: #function, line: #line)
+//      debug.console(message: "usedRowsY = \(usedRowsY)", file: #file, function: #function, line: #line)
       var scale : Double = 0
       if usedColumnsX < usedRowsY {
         scale = 7.0 / Double(usedRowsY)
       } else {
         scale = 7.0 / Double(usedColumnsX)
       }
-      debug.console(message: "scale = \(scale)", file: #file, function: #function, line: #line)
+//      debug.console(message: "scale = \(scale)", file: #file, function: #function, line: #line)
       let multiplyEdge2NodePoint: Double = 85.714285
       let offsetEdge2NodePoint: Double = 3.5
       var coordinateX = 0
       var coordinateY = 0
-//      var coordinateXscaled = 0
-//      var coordinateYscaled = 0
       var coordinateXNext = 0
       var coordinateYNext = 0
       
       for index in 0 ..< myRoom.gridCorners.count {
         coordinateX = Int(((Double(myRoom.gridCorners[index].x) * scale) - offsetEdge2NodePoint) * multiplyEdge2NodePoint)
         coordinateY = Int((offsetEdge2NodePoint - (Double(myRoom.gridCorners[index].y) * scale)) * multiplyEdge2NodePoint)
-//        coordinateXscaled = Int(((Double(coordinateX) + 300.0) * scale) - 300.0)
-//        coordinateYscaled = Int(((Double(coordinateY) + 300.0) * scale) - 300.0)
         myRoom.spritekitCorners[index] = SpriteKitPoint(x: coordinateX, y: coordinateY)
         
       }
@@ -169,7 +165,7 @@ class RoomSizeAdjustScene: SKScene {
   var sizeTextField : UITextField?
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
     if sizeTextField == nil {
       if let view = view {
         sizeTextField = UITextField (frame: CGRect(x: 100, y: 400, width: 150, height: 25))
@@ -196,15 +192,15 @@ class RoomSizeAdjustScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
+//    debug.console(message: "start", file: #file, function: #function, line: #line)
   }
 }
 

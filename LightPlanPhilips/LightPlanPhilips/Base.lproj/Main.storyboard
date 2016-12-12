@@ -380,7 +380,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="Wdz-ir-cuL" customClass="SelectRoomTypeCollectionViewCell" customModule="LightPlanPhilips" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="Wdz-ir-cuL" customClass="SelectRoomTypeCollectionCell" customModule="LightPlanPhilips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="208" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1494,48 +1494,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fNv-fs-7aY">
-                                <rect key="frame" x="40" y="417" width="240" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tUx-2C-X2P">
-                                    <size key="itemSize" width="67" height="70"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="placeFurnitureCell" id="oQo-dv-CQ6">
-                                        <rect key="frame" x="0.0" y="0.0" width="67" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="67" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-nf-GVy">
-                                                    <rect key="frame" x="12" y="49" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nZt-sg-2mx">
-                                                    <rect key="frame" x="8" y="8" width="20" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="U5z-lc-Y3Q"/>
-                                                        <constraint firstAttribute="height" constant="20" id="V4A-R0-lg2"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="nZt-sg-2mx" firstAttribute="top" secondItem="oQo-dv-CQ6" secondAttribute="topMargin" id="8VJ-ge-JgA"/>
-                                            <constraint firstItem="JEI-nf-GVy" firstAttribute="leading" secondItem="oQo-dv-CQ6" secondAttribute="leadingMargin" constant="4" id="H9n-wm-hZb"/>
-                                            <constraint firstItem="JEI-nf-GVy" firstAttribute="top" secondItem="oQo-dv-CQ6" secondAttribute="topMargin" constant="41" id="YJR-t7-sSN"/>
-                                            <constraint firstItem="nZt-sg-2mx" firstAttribute="leading" secondItem="oQo-dv-CQ6" secondAttribute="leadingMargin" id="d7q-ea-1Ej"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vd0-TF-7B0">
                                 <rect key="frame" x="66" y="498" width="188" height="50"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1548,9 +1506,63 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="mz1-8O-eUN"/>
-                                    <segue destination="jt6-n6-G48" kind="show" identifier="PlaceBulbSegue" action="showDetailViewController:sender:" id="B67-6k-hI5"/>
+                                    <segue destination="jt6-n6-G48" kind="show" identifier="PlaceBulbSegue" id="RUC-g3-ksJ"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vHE-Rd-zAv">
+                                <rect key="frame" x="26" y="416" width="240" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bqc-MB-1wd">
+                                    <size key="itemSize" width="72" height="62"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="placeFurnitureCell" id="yHF-Gh-kXG" customClass="PlaceFurnitureCollectionCell" customModule="LightPlanPhilips" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Zu-k5-xWq">
+                                                    <rect key="frame" x="8" y="13" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="FpM-UN-GRU"/>
+                                                        <constraint firstAttribute="height" constant="20" id="R0N-Me-WRD"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
+                                                    <rect key="frame" x="13" y="28" width="46" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Xpu-5L-k9u"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="4Zu-k5-xWq" firstAttribute="leading" secondItem="yHF-Gh-kXG" secondAttribute="leadingMargin" id="bFN-f4-CUz"/>
+                                            <constraint firstItem="4Zu-k5-xWq" firstAttribute="top" secondItem="yHF-Gh-kXG" secondAttribute="topMargin" constant="5" id="e3J-v8-PeV"/>
+                                            <constraint firstItem="VCa-vv-h7L" firstAttribute="leading" secondItem="yHF-Gh-kXG" secondAttribute="leadingMargin" constant="5" id="jEC-wV-2tq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="VCa-vv-h7L" secondAttribute="trailing" constant="5" id="luW-5b-1ul"/>
+                                            <constraint firstItem="VCa-vv-h7L" firstAttribute="top" secondItem="yHF-Gh-kXG" secondAttribute="topMargin" constant="20" id="m0f-Xm-PeW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameCell" destination="VCa-vv-h7L" id="67t-m1-8ao"/>
+                                            <outlet property="pictogramCell" destination="4Zu-k5-xWq" id="vU3-sV-mdJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="h9I-6C-tGp" id="8QS-67-lN8"/>
+                                    <outlet property="delegate" destination="h9I-6C-tGp" id="DOu-54-THU"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1568,6 +1580,9 @@
                             <constraint firstItem="L1O-0b-BjX" firstAttribute="top" secondItem="4GG-kj-4UU" secondAttribute="bottom" id="m4I-SC-vEU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="vHE-Rd-zAv" id="LHZ-iJ-aCT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZz-PI-wN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1611,7 +1626,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="jt6-n6-G48" eventType="touchUpInside" id="Akl-TG-CvM"/>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="wxb-fM-b9I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGK-ky-8sv">
@@ -1745,7 +1759,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="2WP-eV-wER"/>
-                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="qn2-FA-wdM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAP-ru-ghG" userLabel="Cancel">
@@ -1759,7 +1772,6 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="fi3-zG-Jb6"/>
                                     <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="ngQ-ue-Nbp"/>
                                 </connections>
                             </button>
@@ -1850,8 +1862,6 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="bKx-Ml-I2H"/>
-                                    <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="dPK-n1-qHZ"/>
                                     <action selector="backButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="fi6-Tf-zk3"/>
                                 </connections>
                             </button>
@@ -1866,9 +1876,7 @@
                                     <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="Avg-Ra-flf"/>
                                     <action selector="cancelButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="wlN-D3-E3C"/>
-                                    <action selector="cancelButton:" destination="vLo-nQ-Chj" eventType="touchUpInside" id="xGR-xv-gMJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-qu-XRf">
@@ -2290,6 +2298,6 @@
         <image name="GroupButton" width="712" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B67-6k-hI5"/>
+        <segue reference="RUC-g3-ksJ"/>
     </inferredMetricsTieBreakers>
 </document>

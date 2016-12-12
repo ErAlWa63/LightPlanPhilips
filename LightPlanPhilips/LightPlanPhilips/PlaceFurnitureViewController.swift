@@ -4,19 +4,24 @@ import SpriteKit
 class PlaceFurnitureViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
+  let debug = Debug() // debugger functionality
+  
   
   @IBAction func backButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
   }
   @IBAction func nextButton(_ sender: Any) {
   }
- 
+  
+  @IBOutlet weak var collectionView: UICollectionView!
+  
   var scene: PlaceFurnitureScene?
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.collectionView.reloadData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -63,26 +68,35 @@ class PlaceFurnitureViewController: UIViewController {
       }
     }
   }
+  var listFurniture = [
+    LightType(name: "br30 slim",               file: "br30_slim.png"),
+    LightType(name: "ceiling",                 file: "ceiling.png"),
+    LightType(name: "floor",                   file: "floor.png"),
+    LightType(name: "go",                      file: "go.png"),
+    LightType(name: "gu10 perfectfit",         file: "gu10_perfectfit.png"),
+    LightType(name: "lichtstrip",              file: "lightstrip.png"),
+    LightType(name: "pendant",                 file: "pendant.png"),
+    LightType(name: "rec spot",                file: "rec_spot.png"),
+    LightType(name: "spot",                    file: "spot.png"),
+    LightType(name: "table",                   file: "table.png"),
+    LightType(name: "white and color e27 b22", file: "white_and_color_e27_b22.png")]
 }
+
 extension PlaceFurnitureViewController: UICollectionViewDataSource {
+  
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    //    debug.console(message: "start", file: #file, function: #function, line: #line)
     return 1
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //    debug.console(message: "start", file: #file, function: #function, line: #line)
-    return 10
+    return listFurniture.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //    debug.console(message: "start", file: #file, function: #function, line: #line)
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeFurnitureCell", for: indexPath)
-    let lbl = UILabel(frame: cell.contentView.frame)
-    lbl.textColor = UIColor.green
-    lbl.textAlignment = .center
-    lbl.text = "Cell: \(indexPath.row + 1)"
-    cell.addSubview(lbl)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeFurnitureCell", for: indexPath) as! PlaceFurnitureCollectionCell
+    cell.nameCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18.0)
+    cell.nameCell.text = listFurniture[indexPath.row].name
+    cell.pictogramCell.image = listFurniture[indexPath.row].pictogram
     return cell
   }
 }

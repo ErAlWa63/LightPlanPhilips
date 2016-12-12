@@ -17,11 +17,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
 @IBOutlet weak var bulbCollectionView: UICollectionView!
 
   @IBAction func backButton(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
   }
   
   var scene: RoomScene!

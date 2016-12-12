@@ -5,10 +5,10 @@ class RoomShapeViewController: UIViewController {
   var closureToPerform: ((Home) -> Void)?
   
   @IBAction func backButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func cancelButton(_ sender: Any) {
-    self.presentingViewController!.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: nil)
+    _ = navigationController?.popToRootViewController(animated: true)
   }
   @IBAction func cellButton(_ sender: Any) {
     let cellButton = sender as! UIButton
@@ -79,7 +79,16 @@ class RoomShapeViewController: UIViewController {
   @IBOutlet weak var gridButton_6_6: UIButton!
   
   var roomShapeModel = RoomShapeModel()
-  
+  /*
+   idee:
+   loop x, loop y
+     genereer UIButton in code
+     zet tag of label
+     stel frame in, voor coordinaat
+     add to viewcontroller.view
+     plaats in gridButtons array x * width + y
+   
+ */
   override func viewDidLoad() {
     super.viewDidLoad()
     if let myHome = myHome {
