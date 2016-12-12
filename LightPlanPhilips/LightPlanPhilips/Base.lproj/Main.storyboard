@@ -1498,7 +1498,7 @@
                                 <rect key="frame" x="26" y="416" width="240" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bqc-MB-1wd">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bqc-MB-1wd">
                                     <size key="itemSize" width="72" height="62"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1506,36 +1506,36 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="placeFurnitureCell" id="yHF-Gh-kXG" customClass="PlaceFurnitureCollectionCell" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
+                                        <rect key="frame" x="0.0" y="-1.5" width="72" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Zu-k5-xWq">
-                                                    <rect key="frame" x="8" y="13" width="20" height="20"/>
+                                                    <rect key="frame" x="28" y="8" width="15" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="FpM-UN-GRU"/>
-                                                        <constraint firstAttribute="height" constant="20" id="R0N-Me-WRD"/>
+                                                        <constraint firstAttribute="width" constant="15" id="FpM-UN-GRU"/>
+                                                        <constraint firstAttribute="height" constant="15" id="R0N-Me-WRD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
-                                                    <rect key="frame" x="13" y="28" width="46" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
+                                                    <rect key="frame" x="6" y="33" width="60" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Xpu-5L-k9u"/>
+                                                        <constraint firstAttribute="height" constant="15" id="Xpu-5L-k9u"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="4Zu-k5-xWq" firstAttribute="leading" secondItem="yHF-Gh-kXG" secondAttribute="leadingMargin" id="bFN-f4-CUz"/>
-                                            <constraint firstItem="4Zu-k5-xWq" firstAttribute="top" secondItem="yHF-Gh-kXG" secondAttribute="topMargin" constant="5" id="e3J-v8-PeV"/>
-                                            <constraint firstItem="VCa-vv-h7L" firstAttribute="leading" secondItem="yHF-Gh-kXG" secondAttribute="leadingMargin" constant="5" id="jEC-wV-2tq"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="VCa-vv-h7L" secondAttribute="trailing" constant="5" id="luW-5b-1ul"/>
-                                            <constraint firstItem="VCa-vv-h7L" firstAttribute="top" secondItem="yHF-Gh-kXG" secondAttribute="topMargin" constant="20" id="m0f-Xm-PeW"/>
+                                            <constraint firstItem="4Zu-k5-xWq" firstAttribute="leading" secondItem="yHF-Gh-kXG" secondAttribute="leadingMargin" constant="20" id="bFN-f4-CUz"/>
+                                            <constraint firstItem="4Zu-k5-xWq" firstAttribute="top" secondItem="yHF-Gh-kXG" secondAttribute="topMargin" id="e3J-v8-PeV"/>
+                                            <constraint firstItem="VCa-vv-h7L" firstAttribute="leading" secondItem="yHF-Gh-kXG" secondAttribute="leadingMargin" constant="-2" id="jEC-wV-2tq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="VCa-vv-h7L" secondAttribute="trailing" constant="-2" id="luW-5b-1ul"/>
+                                            <constraint firstItem="VCa-vv-h7L" firstAttribute="top" secondItem="yHF-Gh-kXG" secondAttribute="topMargin" constant="25" id="m0f-Xm-PeW"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="nameCell" destination="VCa-vv-h7L" id="67t-m1-8ao"/>

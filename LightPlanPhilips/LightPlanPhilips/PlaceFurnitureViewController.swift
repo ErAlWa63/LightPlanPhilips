@@ -69,21 +69,14 @@ class PlaceFurnitureViewController: UIViewController {
     }
   }
   var listFurniture = [
-    LightType(name: "br30 slim",               file: "br30_slim.png"),
-    LightType(name: "ceiling",                 file: "ceiling.png"),
-    LightType(name: "floor",                   file: "floor.png"),
-    LightType(name: "go",                      file: "go.png"),
-    LightType(name: "gu10 perfectfit",         file: "gu10_perfectfit.png"),
-    LightType(name: "lichtstrip",              file: "lightstrip.png"),
-    LightType(name: "pendant",                 file: "pendant.png"),
-    LightType(name: "rec spot",                file: "rec_spot.png"),
-    LightType(name: "spot",                    file: "spot.png"),
-    LightType(name: "table",                   file: "table.png"),
-    LightType(name: "white and color e27 b22", file: "white_and_color_e27_b22.png")]
+    Furniture(name: "flatscreen", file: "flatscreen_furniture.png"),
+    Furniture(name: "seat",       file: "seat_furniture.png"),
+    Furniture(name: "sofa",       file: "sofa_furniture.png"),
+    Furniture(name: "sofa b",     file: "sofa_b_furniture.png"),
+    Furniture(name: "table",      file: "table_furniture.png")]
 }
 
 extension PlaceFurnitureViewController: UICollectionViewDataSource {
-  
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
@@ -94,7 +87,6 @@ extension PlaceFurnitureViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeFurnitureCell", for: indexPath) as! PlaceFurnitureCollectionCell
-    cell.nameCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18.0)
     cell.nameCell.text = listFurniture[indexPath.row].name
     cell.pictogramCell.image = listFurniture[indexPath.row].pictogram
     return cell
