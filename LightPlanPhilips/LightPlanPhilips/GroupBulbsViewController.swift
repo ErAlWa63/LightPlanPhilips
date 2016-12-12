@@ -25,12 +25,14 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
   var room: Room?
   
   
-  @IBOutlet weak var groupName: UITextField!
-  
+  @IBAction func backButton(_ sender: Any) {
+    _ = navigationController?.popViewController(animated: true)
+  }
   @IBAction func cancelButton(_ sender: Any) {
-    
     _ = navigationController?.popToRootViewController(animated: true)
   }
+  @IBOutlet weak var groupName: UITextField!
+  
   @IBOutlet weak var chooseButton: UIButton!
   
   @IBOutlet weak var isArea: UIButton!

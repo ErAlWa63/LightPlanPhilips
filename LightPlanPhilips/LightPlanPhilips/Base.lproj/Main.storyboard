@@ -1498,18 +1498,18 @@
                                 <rect key="frame" x="26" y="416" width="240" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bqc-MB-1wd">
-                                    <size key="itemSize" width="72" height="62"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="bqc-MB-1wd">
+                                    <size key="itemSize" width="72" height="57"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="1" minY="1" maxX="1" maxY="1"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="placeFurnitureCell" id="yHF-Gh-kXG" customClass="PlaceFurnitureCollectionCell" customModule="LightPlanPhilips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-1.5" width="72" height="62"/>
+                                        <rect key="frame" x="1" y="1" width="72" height="57"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="72" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="72" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Zu-k5-xWq">
@@ -1519,8 +1519,8 @@
                                                         <constraint firstAttribute="height" constant="15" id="R0N-Me-WRD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
-                                                    <rect key="frame" x="6" y="33" width="60" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
+                                                    <rect key="frame" x="8" y="33" width="60" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="Xpu-5L-k9u"/>
                                                     </constraints>
@@ -2003,32 +2003,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-I3-cYj">
-                                <rect key="frame" x="31" y="105" width="259" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-aO-NEU">
-                                <rect key="frame" x="16" y="72" width="115" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DZ-4U-SNu" userLabel="&lt; ">
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="VA2-mA-KES"/>
-                                    <constraint firstAttribute="width" constant="115" id="aYd-bG-JjX"/>
+                                    <constraint firstAttribute="height" constant="20" id="O7A-Yi-HmA"/>
+                                    <constraint firstAttribute="width" constant="20" id="wLh-GU-rYH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rt-LN-DJg">
-                                <rect key="frame" x="258" y="20" width="46" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="dT6-mP-tyk"/>
+                                    <action selector="backButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="1tl-P9-jJp"/>
+                                    <action selector="backButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="bdu-d8-Ncq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gT-NI-fRN" userLabel="Cancel">
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="hxx-PP-WBB"/>
+                                    <constraint firstAttribute="width" constant="50" id="rMO-la-lgQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="Dvz-M1-uI3"/>
+                                    <action selector="cancelButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="rRj-Vx-KWL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-aO-NEU">
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VA2-mA-KES"/>
+                                    <constraint firstAttribute="width" constant="250" id="aYd-bG-JjX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-I3-cYj">
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="4SX-LP-nSp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Group name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvo-Zp-C9E">
                                 <rect key="frame" x="31" y="419" width="259" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2087,12 +2110,15 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ifL-eF-fxB" secondAttribute="trailing" constant="50" id="5OH-TZ-kTN"/>
                             <constraint firstItem="Ohb-aO-NEU" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" id="71i-5R-lxY"/>
-                            <constraint firstItem="Ohb-aO-NEU" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" constant="8" symbolic="YES" id="E7t-D3-kCd"/>
-                            <constraint firstItem="uWC-I3-cYj" firstAttribute="centerX" secondItem="oRa-gv-j6g" secondAttribute="centerX" id="UDw-QQ-dTC"/>
+                            <constraint firstItem="6DZ-4U-SNu" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" id="DNb-cg-8FX"/>
+                            <constraint firstItem="Ohb-aO-NEU" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" constant="20" id="E7t-D3-kCd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9gT-NI-fRN" secondAttribute="trailing" id="KRy-cl-YtS"/>
+                            <constraint firstItem="uWC-I3-cYj" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" constant="40" id="Lnw-NA-dvG"/>
+                            <constraint firstItem="9gT-NI-fRN" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" id="Sdm-S9-QbO"/>
                             <constraint firstItem="ifL-eF-fxB" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="50" id="W7W-Xo-6Q9"/>
-                            <constraint firstItem="uWC-I3-cYj" firstAttribute="top" secondItem="Ohb-aO-NEU" secondAttribute="bottom" id="a7i-D2-cV8"/>
-                            <constraint firstItem="CZg-kG-K6T" firstAttribute="top" secondItem="uWC-I3-cYj" secondAttribute="bottom" constant="438" id="clm-iW-j0a"/>
-                            <constraint firstItem="uWC-I3-cYj" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="15" id="p5U-hN-N4J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uWC-I3-cYj" secondAttribute="trailing" constant="30" id="Wvq-xl-Eom"/>
+                            <constraint firstItem="6DZ-4U-SNu" firstAttribute="top" secondItem="QEB-YR-dDh" secondAttribute="bottom" id="eml-HJ-DeY"/>
+                            <constraint firstItem="uWC-I3-cYj" firstAttribute="leading" secondItem="oRa-gv-j6g" secondAttribute="leadingMargin" constant="30" id="p5U-hN-N4J"/>
                             <constraint firstAttribute="bottom" secondItem="ifL-eF-fxB" secondAttribute="bottom" constant="20" id="vIJ-hb-Pyl"/>
                         </constraints>
                     </view>
