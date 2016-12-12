@@ -12,7 +12,7 @@ class MyRoomViewController: UIViewController {
   }
   @IBAction func addButton(_ sender: Any) {
     if let myHome = myHome {
-      myHome.rooms.append(Room(id: UUID().uuidString, name: "Fantasy Room", file: "living.png"))
+      myHome.rooms.insert(Room(id: UUID().uuidString, name: "Fantasy Room", file: "living.png"), at: 0)
       myRoomTableView.reloadData()
     }
   }

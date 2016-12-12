@@ -67,9 +67,7 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
   internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! SelectRoomTypeCollectionCell
     if let myHome = myHome {
-      cell.nameCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18.0)
       cell.nameCell.text = myHome.rooms[indexPath.item].name
-      cell.descriptionCell.font = UIFont(name: "AppleSDGothicNeo-Light", size: 10.0)
       cell.descriptionCell.text = myHome.rooms[indexPath.item].description
       cell.pictogramCell.image = myHome.rooms[indexPath.item].pictogram
     }
@@ -79,19 +77,15 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
 
 extension SelectRoomTypeViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-    
     return true
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if let myHome = myHome {
-      myHome.selectedRoom = indexPath.row
-      nextButton.isHidden = false
-      let selectedCell = collectionView.cellForItem(at: indexPath)!
-      selectedCell.layer.borderColor  = UIColor.lightGray.cgColor
-      selectedCell.layer.borderWidth  = 0.5
-      selectedCell.layer.cornerRadius = 5
-      selectedCell.tintColor          = UIColor.black
-    }
+    nextButton.isHidden = false
+    let selectedCell = collectionView.cellForItem(at: indexPath)!
+    selectedCell.layer.borderColor  = UIColor.lightGray.cgColor
+    selectedCell.layer.borderWidth  = 0.5
+    selectedCell.layer.cornerRadius = 5
+    selectedCell.tintColor          = UIColor.black
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

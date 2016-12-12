@@ -16,12 +16,14 @@ class PlaceFurnitureViewController: UIViewController {
   @IBAction func nextButton(_ sender: Any) {
   }
   
+  @IBOutlet weak var nextButton: UIButton!
   @IBOutlet weak var collectionView: UICollectionView!
   
   var scene: PlaceFurnitureScene?
   override func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView.reloadData()
+    nextButton.isHidden = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -94,4 +96,22 @@ extension PlaceFurnitureViewController: UICollectionViewDataSource {
 }
 
 extension PlaceFurnitureViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    nextButton.isHidden = false
+    let selectedCell = collectionView.cellForItem(at: indexPath)!
+    selectedCell.layer.borderColor  = UIColor.lightGray.cgColor
+    selectedCell.layer.borderWidth  = 0.5
+    selectedCell.layer.cornerRadius = 5
+    selectedCell.tintColor          = UIColor.black
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    let selectedCell = collectionView.cellForItem(at: indexPath)!
+    selectedCell.layer.borderColor  = UIColor.clear.cgColor
+    selectedCell.tintColor          = UIColor.clear
+  }
 }
