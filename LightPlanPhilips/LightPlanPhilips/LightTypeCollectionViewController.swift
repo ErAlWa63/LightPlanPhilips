@@ -66,10 +66,11 @@ final class LightTypeCollectionViewController: UICollectionViewController {
     let pictogram = DataLightPlan.sharedInstance.listLightType[indexPath.item].pictogram
     bulb?.lightTypeName = lightTypeName
     bulb?.lightTypeIcon = pictogram
-    
+
     
     _ = navigationController?.popViewController(animated: true)
     
+
 
   }
   
