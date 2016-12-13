@@ -1,6 +1,8 @@
 import UIKit
 
 class LightPlanCreatorViewController: UIViewController {
-  @IBAction func startButton(_ sender: Any) {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.navigationController?.navigationBar.isHidden = true
   }
 }
