@@ -56,7 +56,7 @@ class SelectRoomTypeViewController: UIViewController {
     RoomType(name: "kitchen",    file: "kitchen.png", description: ""),
     RoomType(name: "living",     file: "living.png", description: ""),
     RoomType(name: "toilet",     file: "toilet.png", description: ""),
-    RoomType(name: "open space", file: "open space.png", description: "Definable areas")]
+    RoomType(name: "open space", file: "Open space.png", description: "Definable areas")]
   
 }
 
@@ -99,5 +99,13 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
       cell.nameCell.text = listRoomType[indexPath.item].name
       cell.descriptionCell.text = listRoomType[indexPath.item].description
       cell.pictogramCell.image = listRoomType[indexPath.item].pictogram
+  }
+}
+extension UIButton {
+  override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    let relativeFrame = self.bounds
+    let hitTestEdgeInsets = UIEdgeInsetsMake(-5, -5, -5, -5)
+    let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, hitTestEdgeInsets)
+    return hitFrame.contains(point)
   }
 }
