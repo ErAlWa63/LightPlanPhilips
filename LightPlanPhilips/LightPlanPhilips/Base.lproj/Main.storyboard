@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="obS-G3-HiZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VCv-l7-cnh">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,8 +77,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startButton:" destination="Oe7-1F-9sN" eventType="touchUpInside" id="noX-Pk-Huv"/>
-                                    <segue destination="11A-vC-hsn" kind="show" identifier="MyRoomSegue" id="ohF-4g-p58"/>
+                                    <segue destination="mUO-SX-Brw" kind="show" identifier="MyRoomSegue" id="ohF-4g-p58"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LK-8B-BSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3675" y="-580.9859154929577"/>
+            <point key="canvasLocation" x="-2820" y="-582.04225352112678"/>
         </scene>
         <!--My Room View Controller-->
         <scene sceneID="xfR-Df-00J">
@@ -270,6 +269,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="QiW-Ai-qaU" secondAttribute="trailing" constant="25" id="zjL-61-QbP"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="E45-1V-6gn"/>
                     <connections>
                         <outlet property="myRoomTableView" destination="QiW-Ai-qaU" id="N0b-eq-wsA"/>
                         <outlet property="nextButton" destination="1nr-Yl-klU" id="0LD-JR-MPC"/>
@@ -277,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyY-UJ-1LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2705.625" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="-710.625" y="-582.04225352112678"/>
         </scene>
         <!--Select Room Type View Controller-->
         <scene sceneID="heE-od-SYM">
@@ -443,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0b-Uw-kM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1801.875" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="193.125" y="-582.04225352112678"/>
         </scene>
         <!--Room Shape View Controller-->
         <scene sceneID="6lH-Ik-IPV">
@@ -1319,7 +1319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyU-6C-XhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-851.25" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="1143.75" y="-582.04225352112678"/>
         </scene>
         <!--Room Size Adjust View Controller-->
         <scene sceneID="koa-DK-6yX">
@@ -1418,7 +1418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T0-i4-8X1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191.25" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="2186.25" y="-582.04225352112678"/>
         </scene>
         <!--Place Furniture View Controller-->
         <scene sceneID="avD-FT-tts">
@@ -1519,8 +1519,8 @@
                                                         <constraint firstAttribute="height" constant="15" id="R0N-Me-WRD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
-                                                    <rect key="frame" x="8" y="33" width="60" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-vv-h7L">
+                                                    <rect key="frame" x="6" y="33" width="60" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="Xpu-5L-k9u"/>
                                                     </constraints>
@@ -1572,7 +1572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZz-PI-wN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="3255" y="-582.04225352112678"/>
         </scene>
         <!--Place Bulb View Controller-->
         <scene sceneID="o00-G7-Kui">
@@ -1719,7 +1719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoK-A3-wxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2490" y="-582.04225352112678"/>
+            <point key="canvasLocation" x="4485" y="-582.04225352112678"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="LvG-Yc-tY6">
@@ -1823,7 +1823,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKg-UE-F4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3543.75" y="-605.28169014084506"/>
+            <point key="canvasLocation" x="5544.375" y="-582.04225352112678"/>
         </scene>
         <!--Name Bulb View Controller-->
         <scene sceneID="f1w-28-ZUB">
@@ -1865,15 +1865,6 @@
                                     <action selector="cancelButton:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="wlN-D3-E3C"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-qu-XRf">
-                                <rect key="frame" x="46" y="104" width="228" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="jLg-Up-IUH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs6-Ec-UJK">
                                 <rect key="frame" x="16" y="84" width="250" height="30"/>
                                 <constraints>
@@ -1884,8 +1875,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-J5-G4D">
-                                <rect key="frame" x="86" y="419" width="204" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-qu-XRf">
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="jLg-Up-IUH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-J5-G4D">
+                                <rect key="frame" x="31" y="419" width="259" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -1967,7 +1967,7 @@
         <scene sceneID="f6i-t9-wTU">
             <objects>
                 <collectionViewController id="5yu-7i-LiJ" customClass="LightTypeCollectionViewController" customModule="LightPlanPhilips" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aSB-XA-byw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="aSB-XA-byw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1996,7 +1996,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFq-eW-lLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5115" y="-1788"/>
+            <point key="canvasLocation" x="8183" y="-1813"/>
         </scene>
         <!--Group Bulbs View Controller-->
         <scene sceneID="ee8-GI-Lts">
@@ -2063,7 +2063,7 @@
                                 <rect key="frame" x="31" y="419" width="259" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="groupNameChanged:" destination="kCi-ea-CYN" eventType="editingChanged" id="WCj-L0-XPC"/>
@@ -2097,6 +2097,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qD7-Z1-VXt">
                                 <rect key="frame" x="145" y="457" width="145" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="choose type &gt;">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2108,7 +2109,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Is area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-mq-FR6">
                                 <rect key="frame" x="60" y="462" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2139,7 +2140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4h-Lq-wH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4713.75" y="-879.92957746478874"/>
+            <point key="canvasLocation" x="6708.75" y="-879.92957746478874"/>
         </scene>
         <!--Choose Item Table View Controller-->
         <scene sceneID="6Hd-Dc-ZuQ">
@@ -2160,7 +2161,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hs-Nb-71S">
                                             <rect key="frame" x="102" y="5" width="187" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -2186,7 +2187,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awI-Vi-NNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QCw-sf-Gp6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6187.5" y="-880.9859154929577"/>
+            <point key="canvasLocation" x="8182.5" y="-880.9859154929577"/>
         </scene>
         <!--Show Group View Controller-->
         <scene sceneID="T85-ID-c18">
@@ -2200,37 +2201,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-rw-ZtD">
-                                <rect key="frame" x="31" y="105" width="259" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AM-x2-qiI">
-                                <rect key="frame" x="16" y="72" width="115" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzH-Ja-Suq" userLabel="&lt; ">
+                                <rect key="frame" x="16" y="64" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="115" id="i6X-tD-EZk"/>
-                                    <constraint firstAttribute="height" constant="33" id="rHT-gI-8Kr"/>
+                                    <constraint firstAttribute="height" constant="20" id="WCu-tI-2eT"/>
+                                    <constraint firstAttribute="width" constant="20" id="kmn-Je-AI9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6P-Zs-TCf">
-                                <rect key="frame" x="258" y="20" width="46" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButton:" destination="SGW-4q-BQc" eventType="touchUpInside" id="Uc6-L7-0P7"/>
+                                    <action selector="backButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="VeQ-4j-3pj"/>
+                                    <action selector="backButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="dSC-3G-Jy0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrE-Z2-J0u" userLabel="Cancel">
+                                <rect key="frame" x="254" y="64" width="50" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="24n-5f-VdM"/>
+                                    <constraint firstAttribute="height" constant="20" id="Wek-fz-82e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="h9I-6C-tGp" eventType="touchUpInside" id="Cb1-dv-EJ5"/>
+                                    <action selector="cancelButton:" destination="kCi-ea-CYN" eventType="touchUpInside" id="qCb-ID-IV3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AM-x2-qiI">
+                                <rect key="frame" x="16" y="84" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="i6X-tD-EZk"/>
+                                    <constraint firstAttribute="height" constant="30" id="rHT-gI-8Kr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Drag your lights onto the right position in the room. You can create luminairs by dropping lights on top of each other." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-rw-ZtD">
+                                <rect key="frame" x="46" y="104" width="228" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="q2u-se-OPe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Group name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5C6-f7-teg">
                                 <rect key="frame" x="31" y="419" width="259" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akN-5V-vAa">
@@ -2257,6 +2281,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdw-KL-07x">
                                 <rect key="frame" x="145" y="457" width="145" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="choose type &gt;">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2265,22 +2290,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Is area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9K-2F-FAm">
                                 <rect key="frame" x="60" y="462" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dOU-CQ-a3T" firstAttribute="top" secondItem="Zzq-rw-ZtD" secondAttribute="bottom" constant="438" id="2Ol-yE-RQ1"/>
-                            <constraint firstItem="3AM-x2-qiI" firstAttribute="top" secondItem="BGX-cs-36b" secondAttribute="bottom" constant="8" symbolic="YES" id="Ag1-Jw-oqy"/>
+                            <constraint firstItem="VzH-Ja-Suq" firstAttribute="top" secondItem="BGX-cs-36b" secondAttribute="bottom" id="7TX-KV-iXJ"/>
+                            <constraint firstItem="3AM-x2-qiI" firstAttribute="top" secondItem="BGX-cs-36b" secondAttribute="bottom" constant="20" id="Ag1-Jw-oqy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FrE-Z2-J0u" secondAttribute="trailing" id="BKe-kw-S9x"/>
                             <constraint firstItem="3AM-x2-qiI" firstAttribute="leading" secondItem="cNX-Sz-PEj" secondAttribute="leadingMargin" id="Bft-jL-nBm"/>
                             <constraint firstAttribute="bottom" secondItem="ien-Au-rLX" secondAttribute="bottom" constant="20" id="Fhs-p9-crM"/>
-                            <constraint firstItem="Zzq-rw-ZtD" firstAttribute="leading" secondItem="cNX-Sz-PEj" secondAttribute="leadingMargin" constant="15" id="Lft-Bx-x9c"/>
-                            <constraint firstItem="Zzq-rw-ZtD" firstAttribute="top" secondItem="3AM-x2-qiI" secondAttribute="bottom" id="X03-4b-h3F"/>
-                            <constraint firstItem="Zzq-rw-ZtD" firstAttribute="centerX" secondItem="cNX-Sz-PEj" secondAttribute="centerX" id="bxt-ml-n01"/>
+                            <constraint firstItem="Zzq-rw-ZtD" firstAttribute="leading" secondItem="cNX-Sz-PEj" secondAttribute="leadingMargin" constant="30" id="Lft-Bx-x9c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ien-Au-rLX" secondAttribute="trailing" constant="50" id="fzI-yo-4td"/>
+                            <constraint firstItem="Zzq-rw-ZtD" firstAttribute="top" secondItem="BGX-cs-36b" secondAttribute="bottom" constant="40" id="gTI-EJ-eOX"/>
                             <constraint firstItem="ien-Au-rLX" firstAttribute="leading" secondItem="cNX-Sz-PEj" secondAttribute="leadingMargin" constant="50" id="hLr-co-Ker"/>
+                            <constraint firstItem="VzH-Ja-Suq" firstAttribute="leading" secondItem="cNX-Sz-PEj" secondAttribute="leadingMargin" id="nz2-X2-jlB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zzq-rw-ZtD" secondAttribute="trailing" constant="30" id="ol5-Ce-ao8"/>
+                            <constraint firstItem="FrE-Z2-J0u" firstAttribute="top" secondItem="BGX-cs-36b" secondAttribute="bottom" id="y0Z-ud-xDc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zCm-iy-dAT"/>
@@ -2292,25 +2320,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJM-dv-vIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4711.875" y="-57.04225352112676"/>
+            <point key="canvasLocation" x="6706.875" y="-57.04225352112676"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="vve-bQ-erU">
+        <scene sceneID="wgG-yq-I30">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obS-G3-HiZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mUO-SX-Brw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="09d-jg-xRN">
+                    <navigationItem key="navigationItem" id="Tps-bD-zpF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Gv-bJ-wF7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Oe7-1F-9sN" kind="relationship" relationship="rootViewController" id="tDz-nt-KUY"/>
+                        <segue destination="11A-vC-hsn" kind="relationship" relationship="rootViewController" id="1Kk-ol-lht"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NPb-16-IoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7W-YN-mY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4672.5" y="-580.9859154929577"/>
+            <point key="canvasLocation" x="-1708.125" y="-582.04225352112678"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OoQ-o0-u4O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VCv-l7-cnh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZCK-n6-gD1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oe7-1F-9sN" kind="relationship" relationship="rootViewController" id="1qF-kC-gdC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEN-Rx-3gA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3817.5" y="-582.04225352112678"/>
         </scene>
     </scenes>
     <resources>
