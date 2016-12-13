@@ -49,6 +49,15 @@ class SelectRoomTypeViewController: UIViewController {
       }
     }
   }
+  var listRoomType = [
+    RoomType(name: "bathroom",   file: "bathroom.png", description: ""),
+    RoomType(name: "bedroom",    file: "bedroom.png", description: ""),
+    RoomType(name: "dining",     file: "dining.png", description: ""),
+    RoomType(name: "kitchen",    file: "kitchen.png", description: ""),
+    RoomType(name: "living",     file: "living.png", description: ""),
+    RoomType(name: "toilet",     file: "toilet.png", description: ""),
+    RoomType(name: "open space", file: "Open space.png", description: "Definable areas")]
+  
 }
 
 extension SelectRoomTypeViewController: UICollectionViewDataSource {
@@ -57,11 +66,7 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
   }
   
   internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    if let myHome = myHome {
-      return myHome.rooms.count
-    } else {
-      return 0
-    }
+    return listRoomType.count
   }
   
   internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -90,11 +95,17 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
   }
   
   func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    if let myHome = myHome {
       let cell = cell as! SelectRoomTypeCollectionCell
-      cell.nameCell.text = myHome.rooms[indexPath.item].name
-      cell.descriptionCell.text = myHome.rooms[indexPath.item].description
-      cell.pictogramCell.image = myHome.rooms[indexPath.item].pictogram
-    }
+      cell.nameCell.text = listRoomType[indexPath.item].name
+      cell.descriptionCell.text = listRoomType[indexPath.item].description
+      cell.pictogramCell.image = listRoomType[indexPath.item].pictogram
+  }
+}
+extension UIButton {
+  override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    let relativeFrame = self.bounds
+    let hitTestEdgeInsets = UIEdgeInsetsMake(-5, -5, -5, -5)
+    let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, hitTestEdgeInsets)
+    return hitFrame.contains(point)
   }
 }

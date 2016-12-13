@@ -4,16 +4,34 @@ class MyRoomViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
+  @IBOutlet weak var nextButton: UIButton!
+  @IBAction func nextButton(_ sender: Any) {
+  }
   @IBAction func backButton(_ sender: Any) {
     _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func cancelButton(_ sender: Any) {
     _ = navigationController?.popToRootViewController(animated: true)
   }
+  
   @IBAction func addButton(_ sender: Any) {
     if let myHome = myHome {
-      myHome.rooms.insert(Room(id: UUID().uuidString, name: "Fantasy Room", file: "living.png"), at: 0)
-      myRoomTableView.reloadData()
+      var nameRoom : String = ""
+      let alertGiveRoom = UIAlertController(title: "Create new room", message: "Enter name", preferredStyle: .alert)
+      alertGiveRoom.addTextField { (textField) in
+        textField.text = ""
+      }
+      alertGiveRoom.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alertGiveRoom] (_) in
+        if let alertGiveRoom = alertGiveRoom {
+          if let textFields = alertGiveRoom.textFields {
+            nameRoom = textFields[0].text!
+            myHome.rooms.insert(Room(id: UUID().uuidString, name: nameRoom), at: 0)
+            self.performSegue(withIdentifier: "SelectRoomTypeSegue", sender: nil)
+          }
+        }
+        alertGiveRoom?.dismiss(animated: true, completion: nil)
+      }))
+      self.present(alertGiveRoom, animated: true, completion: nil)
     }
   }
   @IBAction func editButton(_ sender: Any) {
@@ -27,13 +45,13 @@ class MyRoomViewController: UIViewController {
       nextButton.isHidden = true
     }
   }
+  @IBOutlet weak var addButton: UIButton!
   
   private func activateEditingEnvironment( editingButton: UIButton, title: String, editing: Bool, animated: Bool) {
     myRoomTableView.setEditing(editing, animated: animated);
     editingButton.setTitle(title, for: .normal)
   }
   
-  @IBOutlet weak var nextButton: UIButton!
   @IBOutlet weak var myRoomTableView: UITableView!
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,7 +59,7 @@ class MyRoomViewController: UIViewController {
   }
   
   private func passInformationToNextScene(segue: UIStoryboardSegue) {
-    if segue.identifier == "SelectRoomtypeSegue" {
+    if segue.identifier == "SelectRoomTypeSegue" {
       passInformationToSomewhereScene(segue: segue)
     }
   }
@@ -75,6 +93,12 @@ class MyRoomViewController: UIViewController {
     myRoomTableView.dataSource = self
     myRoomTableView.reloadData()
     self.navigationController?.navigationBar.isHidden = true
+    addButton.layer.cornerRadius = 0.5 * addButton.bounds.size.width
+    addButton.layer.borderWidth = 1.0
+    addButton.layer.borderColor = UIColor.black.cgColor
+    if myHome?.rooms.count == 0 {
+      nextButton.isHidden = true
+    }
   }
 }
 
