@@ -209,6 +209,7 @@ class RoomScene: SKScene {
                   
                 } else {
                   roomSceneDelegate?.clickBulb(id: bulbNode.id, segue: "ShowGroup")
+                  break
                 }
               }
             }
@@ -290,6 +291,10 @@ class RoomScene: SKScene {
     sprite.setScale(5)
     sprite.alpha = 0
     
+    
+
+    
+    
     let spriteX = position.x - (((self.scene?.frame.width)! / 2) - sprite.frame.width / 2  )
     let spriteY = position.y - (((self.scene?.frame.height)! / 2) + sprite.frame.height / 2 )
     
@@ -303,13 +308,18 @@ class RoomScene: SKScene {
     sprite.name = bulb.name
     selectedBulbs[bulb.id] = false
     self.addChild(sprite)
+    
+    // ad a litle bit of random to the bulb position
+    let randomX = Int(arc4random_uniform(UInt32(50))) - 25
+    let randomY = Int(arc4random_uniform(UInt32(50))) - 25
 
-    let endPoint = CGPoint(x: CGFloat(bulb.positionX), y: CGFloat(bulb.positionY))
+
+    let endPoint = CGPoint(x: CGFloat(bulb.positionX) + CGFloat(randomX), y: CGFloat(bulb.positionY) + CGFloat(randomY))
 
     
-    let contractAction = SKAction.scale(to: 1.5, duration: 1)
+    let contractAction = SKAction.scale(to: 1.5, duration: 0.75)
     let alphaAction = SKAction.fadeAlpha(to: 1, duration: 2)
-    let moveAction = SKAction.move(to: endPoint, duration: 1)
+    let moveAction = SKAction.move(to: endPoint, duration: 0.5)
     
     sprite.run(contractAction)
     sprite.run(moveAction)

@@ -48,16 +48,20 @@ class DataSource: NSObject {
     
     // create some bulbs and add to home (unassigned bulbs)
     
-    let image = UIImage(named: "Bulb")
-    myHome.unassignedBulbs.append(Bulb(name: "bulb1", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb2", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb3", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb4", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb5", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb6", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb7", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb8", image: image!))
-    myHome.unassignedBulbs.append(Bulb(name: "bulb9", image: image!))
+    //let image = UIImage(named: "Bulb")
+
+      
+    myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
+      
+      
+    myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
+    myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
+    myHome.unassignedBulbs.append(Bulb(name: "GO", image: UIImage(named: "GO")!))
+    myHome.unassignedBulbs.append(Bulb(name: "Lightstrip", image: UIImage(named: "Lightstrip")!))
+    myHome.unassignedBulbs.append(Bulb(name: "GU10", image: UIImage(named: "GU10")!))
+    myHome.unassignedBulbs.append(Bulb(name: "GU10", image: UIImage(named: "GU10")!))
+    myHome.unassignedBulbs.append(Bulb(name: "BR30", image: UIImage(named: "BR30")!))
+    myHome.unassignedBulbs.append(Bulb(name: "BR30", image: UIImage(named: "BR30")!))
     
     
   }
@@ -65,18 +69,25 @@ class DataSource: NSObject {
   func getGroupAreas() -> [ChooseItem]{
     var items:[ChooseItem] = []
     
-    items.append(ChooseItem(name: "Living area", image: UIImage(named: "Floorstand")!))
-    items.append(ChooseItem(name: "Dining area", image: UIImage(named: "Dining")!))
-    items.append(ChooseItem(name: "Kitchen area", image: UIImage(named: "Pendant")!))
+    
+    items.append(ChooseItem(name: "Bathroom", image: UIImage(named: "Bathroom")!))
+    items.append(ChooseItem(name: "Bedroom", image: UIImage(named: "Bedroom")!))
+    items.append(ChooseItem(name: "Dining", image: UIImage(named: "Dining")!))
+    items.append(ChooseItem(name: "Kicthen", image: UIImage(named: "Kitchen")!))
+    items.append(ChooseItem(name: "Living", image: UIImage(named: "Living")!))
+    items.append(ChooseItem(name: "Toilet", image: UIImage(named: "Toilet")!))
     return items
   }
   
   func getGroupTypes() -> [ChooseItem]{
     var items:[ChooseItem] = []
     
-    items.append(ChooseItem(name: "Floorstand", image: UIImage(named: "Floorstand")!))
-    items.append(ChooseItem(name: "Tablelamp", image: UIImage(named: "Dining")!))
+    items.append(ChooseItem(name: "Ceiling", image: UIImage(named: "Ceiling")!))
+    items.append(ChooseItem(name: "Floor", image: UIImage(named: "Floor")!))
     items.append(ChooseItem(name: "Pendant", image: UIImage(named: "Pendant")!))
+    items.append(ChooseItem(name: "Rec spot", image: UIImage(named: "Rec spot")!))
+    items.append(ChooseItem(name: "Spot", image: UIImage(named: "Spot")!))
+    items.append(ChooseItem(name: "Table", image: UIImage(named: "Table")!))
     return items
   }
   
