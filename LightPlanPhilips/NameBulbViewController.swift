@@ -10,17 +10,9 @@ import UIKit
 import SpriteKit
 
 class NameBulbViewController: SceneViewController, UITextFieldDelegate {
-  var myHome : Home?
-  var closureToPerform: ((Home) -> Void)?
+
   
-  @IBAction func backButton(_ sender: Any) {
-    _ = navigationController?.popViewController(animated: true)
-  }
-  @IBAction func cancelButton(_ sender: Any) {
-    _ = navigationController?.popToRootViewController(animated: true)
-    bulb.lightTypeName = tempLightTypeName
-    bulb.lightTypeIcon = tempLightTypeIcon
-  }
+
   
   @IBOutlet weak var bulbName: UITextField!
   
@@ -30,7 +22,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   
   @IBAction func saveBulb(_ sender: Any) {
-    print(bulbName.text!)
+    
     
     bulb.name = bulbName.text!
     
@@ -42,15 +34,27 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   @IBAction func nameChanged(_ sender: Any) {
     if bulbName.text != "" {
-      if bulb.lightTypeName != nil {
         saveBulb.isHidden = false
-      } else {
-        saveBulb.isHidden = true
-      }
     } else {
       saveBulb.isHidden = true
     }
   }
+  
+  @IBAction func backButton(_ sender: Any) {
+    
+    bulb.lightTypeName = tempLightTypeName
+    bulb.lightTypeIcon = tempLightTypeIcon
+    
+    _ = navigationController?.popViewController(animated: true)
+  }
+  
+  
+  
+  @IBAction func cancelButton(_ sender: Any) {
+    
+    _ = navigationController?.popToRootViewController(animated: true)
+  }
+  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if(segue.identifier == "chooseType") {
@@ -63,11 +67,8 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   }
   
   
-  
-  @IBAction func chooseType(_ sender: Any) {
-  }
-  
-  
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
   var scene: RoomScene!
   var bulb: Bulb!
   var bulbId: String = ""
@@ -82,10 +83,10 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    
     
     
     bulb = DataSource.sharedInstance.getBulb(bulbId: bulbId)!
@@ -97,9 +98,12 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
       tempLightTypeIcon = bulb.lightTypeIcon
     }
     
-    // enable save button if name is filled and lighttype selected
-    if self.bulbName.text != nil, bulb.lightTypeName != nil {
-      saveBulb.isHidden = false
+    
+    
+    if bulbName.text == "" {
+      self.saveBulb.isHidden = true
+    } else {
+      self.saveBulb.isHidden = false
     }
     
     // fill name when returning from lighttype collection view

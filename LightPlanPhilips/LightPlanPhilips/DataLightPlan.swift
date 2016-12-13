@@ -33,7 +33,7 @@ struct BulbX {
   
 }
 
-// ====================================================================
+
 
 struct Lamp {
   var name      : String
@@ -60,33 +60,15 @@ class DataLightPlan: NSObject {
   let debug = Debug() // debugger functionality
   
   var myHome = Home()
-
-  
-
-//  func getHome () -> Home {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
-//    myHome.room.append(Room(name: "Living room", description: "",                file: "br30_slim.png"))
-//    myHome.room.append(Room(name: "Kitchen",     description: "",                file: "br30_slim.png"))
-//    myHome.room.append(Room(name: "Bedroom",     description: "",                file: "br30_slim.png"))
-//    myHome.room.append(Room(name: "Open space",  description: "Definable areas", file: "br30_slim.png"))
-//    debug.console(message: "myHome = \(myHome)", file: #file, function: #function, line: #line)
-//    return myHome
-//  }
-
-
   
   var listLightType = [
-    LightType(name: "br30 slim",               file: "br30_slim.png"),
-    LightType(name: "ceiling",                 file: "ceiling.png"),
-    LightType(name: "floor",                   file: "floor.png"),
-    LightType(name: "go",                      file: "go.png"),
-    LightType(name: "gu10 perfectfit",         file: "gu10_perfectfit.png"),
-    LightType(name: "lichtstrip",              file: "lightstrip.png"),
-    LightType(name: "pendant",                 file: "pendant.png"),
-    LightType(name: "rec spot",                file: "rec_spot.png"),
-    LightType(name: "spot",                    file: "spot.png"),
-    LightType(name: "table",                   file: "table.png"),
-    LightType(name: "white and color e27 b22", file: "white_and_color_e27_b22.png")]
+    LightType(name: "Ceiling",                 file: "ceiling.png"),
+    LightType(name: "Floor",                   file: "floor.png"),
+    LightType(name: "Pendant",                 file: "pendant.png"),
+    LightType(name: "Rec spot",                file: "rec_spot.png"),
+    LightType(name: "Spot",                    file: "spot.png"),
+    LightType(name: "Table",                   file: "table.png")]
+  
   
   var listLamp = [
     Lamp(name: "Bulb 1", file: "br30_slim.png"),
@@ -94,7 +76,5 @@ class DataLightPlan: NSObject {
   
   func loadLightPlan() {
   }
-  
-  // =======================================================================================================================
   
 }
