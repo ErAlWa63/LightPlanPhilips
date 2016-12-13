@@ -69,9 +69,12 @@ class MyRoomViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    DataSource.sharedInstance.createData()
+    myHome = DataSource.sharedInstance.myHome
     myRoomTableView.delegate = self
     myRoomTableView.dataSource = self
     myRoomTableView.reloadData()
+    self.navigationController?.navigationBar.isHidden = true
   }
 }
 
