@@ -13,6 +13,11 @@ class RoomViewController: SceneViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
+    @IBAction func doneButton(_ sender: Any) {
+    self.myHome = DataSource.sharedInstance.myHome
+    _ = navigationController?.popToRootViewController(animated: true)
+
+    }
 
 
   @IBAction func backButton(_ sender: Any) {

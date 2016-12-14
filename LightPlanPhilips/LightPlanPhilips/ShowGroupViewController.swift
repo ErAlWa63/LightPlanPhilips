@@ -44,10 +44,11 @@ class ShowGroupViewController: SceneViewController, UITextFieldDelegate {
   }
 
   
-  @IBAction func cancelButton(_ sender: Any) {
-    _ = navigationController?.popViewController(animated: true)
+
+
+  @IBAction func backButton(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
   }
-  
 
 
 

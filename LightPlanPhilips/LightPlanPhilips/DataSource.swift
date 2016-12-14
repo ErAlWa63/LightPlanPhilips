@@ -52,8 +52,6 @@ class DataSource: NSObject {
 
       
     myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
-      
-      
     myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
     myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
     myHome.unassignedBulbs.append(Bulb(name: "GO", image: UIImage(named: "GO")!))
