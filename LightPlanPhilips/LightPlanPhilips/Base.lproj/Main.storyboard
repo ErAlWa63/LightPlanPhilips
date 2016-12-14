@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Oe7-1F-9sN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Oe7-1F-9sN">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -112,34 +112,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-lM-32H" userLabel="&lt; ">
-                                <rect key="frame" x="16" y="64" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="X9M-5B-BiR"/>
-                                    <constraint firstAttribute="width" constant="20" id="ftp-D2-Dag"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <state key="normal" title="&lt;">
-                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButton:" destination="11A-vC-hsn" eventType="touchUpInside" id="6ID-cp-cdn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fn0-hr-coe" userLabel="Cancel">
-                                <rect key="frame" x="254" y="64" width="50" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="LQD-0V-YiR"/>
-                                    <constraint firstAttribute="width" constant="50" id="SJw-qk-dnD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButton:" destination="11A-vC-hsn" eventType="touchUpInside" id="oU3-pK-rId"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmr-AJ-lM5" userLabel="Edit">
                                 <rect key="frame" x="41" y="124" width="30" height="30"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
@@ -201,7 +173,7 @@
                                         <rect key="frame" x="0.0" y="1" width="238" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bwd-ue-fIj" id="rq9-Ee-mFR">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="238" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5GD-xH-foo">
@@ -256,20 +228,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="4hU-jv-zCY" secondAttribute="trailing" constant="25" id="0FT-aO-cyc"/>
-                            <constraint firstItem="3eD-lM-32H" firstAttribute="leading" secondItem="ee8-5N-YBv" secondAttribute="leadingMargin" id="1pM-el-a0l"/>
                             <constraint firstItem="1nr-Yl-klU" firstAttribute="leading" secondItem="ee8-5N-YBv" secondAttribute="leadingMargin" constant="50" id="6Td-8P-v9L"/>
                             <constraint firstItem="QiW-Ai-qaU" firstAttribute="top" secondItem="hT2-Xt-9tG" secondAttribute="bottom" constant="80" id="GMj-O4-YYA"/>
                             <constraint firstItem="QiW-Ai-qaU" firstAttribute="leading" secondItem="ee8-5N-YBv" secondAttribute="leadingMargin" constant="25" id="J9C-ix-QXB"/>
-                            <constraint firstItem="fn0-hr-coe" firstAttribute="top" secondItem="hT2-Xt-9tG" secondAttribute="bottom" id="KCL-cJ-7md"/>
                             <constraint firstItem="S0Y-xl-Esn" firstAttribute="top" secondItem="1nr-Yl-klU" secondAttribute="bottom" constant="20" id="PUU-9H-lon"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1nr-Yl-klU" secondAttribute="trailing" constant="50" id="Y3e-AT-6U7"/>
                             <constraint firstItem="zAC-tl-0eC" firstAttribute="top" secondItem="hT2-Xt-9tG" secondAttribute="bottom" constant="20" id="eo3-pe-qUf"/>
                             <constraint firstItem="S0Y-xl-Esn" firstAttribute="top" secondItem="4hU-jv-zCY" secondAttribute="bottom" constant="120" id="fWe-Xk-jie"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fn0-hr-coe" secondAttribute="trailing" id="grM-eN-zSb"/>
                             <constraint firstItem="bmr-AJ-lM5" firstAttribute="top" secondItem="hT2-Xt-9tG" secondAttribute="bottom" constant="60" id="plT-Dy-FtK"/>
                             <constraint firstItem="bmr-AJ-lM5" firstAttribute="leading" secondItem="ee8-5N-YBv" secondAttribute="leadingMargin" constant="25" id="tsW-Ui-oy8"/>
                             <constraint firstItem="zAC-tl-0eC" firstAttribute="leading" secondItem="ee8-5N-YBv" secondAttribute="leadingMargin" id="u6D-6y-7oQ"/>
-                            <constraint firstItem="3eD-lM-32H" firstAttribute="top" secondItem="hT2-Xt-9tG" secondAttribute="bottom" id="vmc-WI-neu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QiW-Ai-qaU" secondAttribute="trailing" constant="25" id="zjL-61-QbP"/>
                         </constraints>
                     </view>
@@ -2154,7 +2122,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbc-eF-wx6" id="g3z-ro-V8n">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hs-Nb-71S">

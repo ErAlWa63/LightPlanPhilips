@@ -79,16 +79,7 @@ class RoomShapeViewController: UIViewController {
   @IBOutlet weak var gridButton_6_6: UIButton!
   
   var roomShapeModel = RoomShapeModel()
-  /*
-   idee:
-   loop x, loop y
-     genereer UIButton in code
-     zet tag of label
-     stel frame in, voor coordinaat
-     add to viewcontroller.view
-     plaats in gridButtons array x * width + y
-   
- */
+
   override func viewDidLoad() {
     super.viewDidLoad()
     if let myHome = myHome {

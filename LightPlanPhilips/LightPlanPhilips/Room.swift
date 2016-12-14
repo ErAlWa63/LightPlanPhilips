@@ -26,7 +26,6 @@ class Room {
   var spritekitRealCorners : [SpriteKitPoint] = []
   var gridCellUser = Array(repeating: Bool(), count: 49)
   var gridCellOptimized = Array(repeating: Bool(), count: 49)
-  var gridCellBackup = Array(repeating: Bool(), count: 49)
   var countGridAxisXUser = [0, 0, 0, 0, 0, 0, 0]
   var countGridAxisYUser = [0, 0, 0, 0, 0, 0, 0]
   var countGridAxisXOptimized : [Int] = []
