@@ -256,8 +256,10 @@ class RoomScene: SKScene {
       
       for node in touchedNodes {
         if node is SKShapeNode, node.name == "room" {
-          endedInRoom = true
-          lastLocationInRoom = location
+            if node.contains(location){
+              endedInRoom = true
+              lastLocationInRoom = location
+          }
         }
       }
       

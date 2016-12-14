@@ -1704,20 +1704,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bn-Gr-XWh">
-                                <rect key="frame" x="16" y="64" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="VJG-9q-OWH"/>
-                                    <constraint firstAttribute="width" constant="20" id="Zvg-zR-W0d"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <state key="normal" title="&lt;">
-                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="2WP-eV-wER"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAP-ru-ghG" userLabel="Cancel">
                                 <rect key="frame" x="254" y="64" width="50" height="20"/>
                                 <constraints>
@@ -1770,9 +1756,23 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bn-Gr-XWh">
+                                <rect key="frame" x="16" y="40" width="71" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="VJG-9q-OWH"/>
+                                    <constraint firstAttribute="width" constant="71" id="Zvg-zR-W0d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" red="0.031364817170000003" green="0.031376998869999999" blue="0.031364053490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="g8Q-k0-1es" eventType="touchUpInside" id="2WP-eV-wER"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="0bn-Gr-XWh" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" id="1kd-wS-X7F"/>
+                            <constraint firstItem="0bn-Gr-XWh" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" constant="-24" id="1kd-wS-X7F"/>
                             <constraint firstItem="CJN-JI-rtz" firstAttribute="leading" secondItem="CYk-dD-8RN" secondAttribute="leadingMargin" constant="30" id="FHB-Pb-fGm"/>
                             <constraint firstItem="CJN-JI-rtz" firstAttribute="top" secondItem="6rg-Rb-Fjy" secondAttribute="bottom" constant="40" id="JS9-GP-JqT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eKM-Sc-ynr" secondAttribute="trailing" constant="50" id="Llo-3B-EAp"/>
@@ -1809,9 +1809,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-Rt-89s">
-                                <rect key="frame" x="16" y="64" width="20" height="20"/>
+                                <rect key="frame" x="16" y="64" width="50" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="aEa-nS-sIQ"/>
+                                    <constraint firstAttribute="width" constant="50" id="aEa-nS-sIQ"/>
                                     <constraint firstAttribute="height" constant="20" id="dhm-lA-CVG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
@@ -1855,8 +1855,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-J5-G4D">
-                                <rect key="frame" x="31" y="419" width="259" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-J5-G4D">
+                                <rect key="frame" x="79" y="419" width="211" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -1895,7 +1895,6 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="chooseType:" destination="ZwL-hk-b0u" eventType="touchUpInside" id="rdb-3o-b8x"/>
                                     <segue destination="5yu-7i-LiJ" kind="show" identifier="chooseType" id="vdM-Ss-NyG"/>
                                 </connections>
                             </button>
@@ -1932,7 +1931,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeA-CJ-tew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3712.5" y="-1788.3802816901409"/>
+            <point key="canvasLocation" x="6706.875" y="-1656.338028169014"/>
         </scene>
         <!--Light Type Collection View Controller-->
         <scene sceneID="f6i-t9-wTU">
