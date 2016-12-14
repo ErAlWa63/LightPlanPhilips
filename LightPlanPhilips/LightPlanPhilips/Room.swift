@@ -20,6 +20,7 @@ class Room {
   var assignedBulbs: [Bulb] = []
   var groups: [Group] = []
   var gridCorners : [GridPoint] = []
+  var gridDirections : [Int] = []
   var spritekitCorners : [SpriteKitPoint] = []
   var spritekitCircleSize : [SKShapeNode] = []
   var spritekitTextSize : [SKLabelNode] = []

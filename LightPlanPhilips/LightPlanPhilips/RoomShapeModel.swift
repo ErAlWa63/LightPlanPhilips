@@ -100,8 +100,8 @@ class RoomShapeModel {
   private var cellW  = false
   private var cellNW = false
   
-  private enum Angle {
-    case Normal
+  private enum Angle : Int {
+    case Normal = 0
     case Right
     case Half
     case Left
