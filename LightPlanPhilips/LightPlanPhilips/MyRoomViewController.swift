@@ -7,13 +7,6 @@ class MyRoomViewController: UIViewController {
   @IBOutlet weak var nextButton: UIButton!
   @IBAction func nextButton(_ sender: Any) {
   }
-  @IBAction func backButton(_ sender: Any) {
-    _ = navigationController?.popViewController(animated: true)
-  }
-  @IBAction func cancelButton(_ sender: Any) {
-    _ = navigationController?.popToRootViewController(animated: true)
-  }
-  
   @IBAction func addButton(_ sender: Any) {
     if let myHome = myHome {
       var nameRoom : String = ""
@@ -85,6 +78,17 @@ class MyRoomViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    myRoomTableView.reloadData()
+    self.navigationController?.navigationBar.isHidden = true
+    myHome = DataSource.sharedInstance.myHome
+    if myHome?.rooms.count == 0 {
+      nextButton.isHidden = true
+    } else {
+      nextButton.isHidden = false
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     DataSource.sharedInstance.createData()
@@ -98,6 +102,8 @@ class MyRoomViewController: UIViewController {
     addButton.layer.borderColor = UIColor.black.cgColor
     if myHome?.rooms.count == 0 {
       nextButton.isHidden = true
+    } else {
+      nextButton.isHidden = false
     }
   }
 }

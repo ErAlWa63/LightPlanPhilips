@@ -86,6 +86,10 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
     selectedCell.layer.borderWidth  = 0.5
     selectedCell.layer.cornerRadius = 5
     selectedCell.tintColor          = UIColor.black
+    if let myHome = myHome {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      myRoom.pictogram = listRoomType[indexPath.row].pictogram
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
