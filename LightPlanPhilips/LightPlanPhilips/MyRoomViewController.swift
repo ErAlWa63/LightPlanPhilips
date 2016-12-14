@@ -136,6 +136,23 @@ extension MyRoomViewController: UITableViewDelegate {
     }
   }
   
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    if let selectedCell = tableView.cellForRow(at: indexPath) {
+      selectedCell.layer.borderColor  = UIColor.clear.cgColor
+      selectedCell.tintColor          = UIColor.clear
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let selectedCell = tableView.cellForRow(at: indexPath) {
+      selectedCell.layer.borderColor  = UIColor.lightGray.cgColor
+      selectedCell.layer.borderWidth  = 0.5
+      selectedCell.layer.cornerRadius = 5
+      selectedCell.tintColor          = UIColor.black
+      myHome?.selectedRoom = indexPath.row
+    }
+  }
+  
   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
     if let myHome = myHome {
       if (self.isEditing == false && indexPath.row == 0) {

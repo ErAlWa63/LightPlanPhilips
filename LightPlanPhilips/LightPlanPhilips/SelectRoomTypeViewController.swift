@@ -65,18 +65,20 @@ extension SelectRoomTypeViewController: UICollectionViewDataSource {
     return 1
   }
   
-  internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return listRoomType.count
-  }
-  
   internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     return collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
+  }
+
+  internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return listRoomType.count
   }
 }
 
 extension SelectRoomTypeViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-    return true
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    let selectedCell = collectionView.cellForItem(at: indexPath)!
+    selectedCell.layer.borderColor  = UIColor.clear.cgColor
+    selectedCell.tintColor          = UIColor.clear
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -92,10 +94,8 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
     }
   }
   
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    let selectedCell = collectionView.cellForItem(at: indexPath)!
-    selectedCell.layer.borderColor  = UIColor.clear.cgColor
-    selectedCell.tintColor          = UIColor.clear
+  func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+    return true
   }
   
   func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -108,7 +108,7 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
 extension UIButton {
   override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
     let relativeFrame = self.bounds
-    let hitTestEdgeInsets = UIEdgeInsetsMake(-5, -5, -5, -5)
+    let hitTestEdgeInsets = UIEdgeInsetsMake(-8, -8, -8, -8)
     let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, hitTestEdgeInsets)
     return hitFrame.contains(point)
   }
