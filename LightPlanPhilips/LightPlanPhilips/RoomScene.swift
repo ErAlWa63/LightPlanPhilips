@@ -241,10 +241,6 @@ class RoomScene: SKScene {
   
   
   
-  
-  
-  
-  
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {

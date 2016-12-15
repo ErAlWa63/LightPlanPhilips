@@ -12,10 +12,21 @@ import SpriteKit
 
 class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   var myHome : Home?
+  var scene: RoomScene!
+  var bulbCollection: [Bulb] = []
+  var groupCollection: [Group] = []
+  let selectedRoom: Int = DataSource.sharedInstance.myHome.selectedRoom
+  var roomId: String = ""
+  var room: Room?
+  var bulbId: String = ""
+  let reuseIdentifier = "cell"
+  var bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
+  let debug = Debug() // debugger functionality
+  
   var closureToPerform: ((Home) -> Void)?
   
-@IBOutlet weak var bulbCollectionView: UICollectionView!
-
+  @IBOutlet weak var bulbCollectionView: UICollectionView!
+  
   @IBAction func backButton(_ sender: Any) {
     _ = navigationController?.popViewController(animated: true)
   }
@@ -24,28 +35,13 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     _ = navigationController?.popToRootViewController(animated: true)
   }
   
-  var scene: RoomScene!
-  var bulbCollection: [Bulb] = []
-  var groupCollection: [Group] = []
-  
-  let selectedRoom: Int = DataSource.sharedInstance.myHome.selectedRoom
-  
-  var roomId: String = ""
-  
-  var room: Room?
-  var bulbId: String = ""
-  
-  let reuseIdentifier = "cell"
-  var bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
-  
-  let debug = Debug() // debugger functionality
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     roomId = DataSource.sharedInstance.myHome.rooms[selectedRoom].id
-  
+    
     
   }
   
@@ -66,7 +62,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     return cell
   }
   
-
+  
   
   // select bulb and place in room
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
@@ -75,30 +71,27 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     let bulb = self.bulbsInHome[indexPath.item]
     // check if the defaul placement position in room exists
     
-    
-    
-  
     if scene.backupPosition != nil {
       bulb.positionX = Float((scene.backupPosition?.x)!)
       bulb.positionY = Float((scene.backupPosition?.y)!)
     }
-
     
     
-  
+    
+    
     let cell = bulbCollectionView.cellForItem(at: indexPath)
     
     scene.placeBulb(bulb: bulb, cell: cell!)
-
+    
     
     DataSource.sharedInstance.moveBulbFromHomeToRoom(bulbId: bulb.id, roomId: roomId)
     self.bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
     self.bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
-
+    
     collectionView.deleteItems(at: [indexPath])
     
   }
-
+  
   override func viewWillAppear(_ animated: Bool) {
     bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: roomId)
     groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: roomId)
@@ -109,11 +102,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     if let view = self.view as! SKView? {
       // Create spritekit Roomscene
       scene = SKScene(fileNamed: "RoomScene") as! RoomScene
-
-
-
+      
+      
+      
       scene.scaleMode = .aspectFill
-  
+      
       scene.roomSceneDelegate = self
       view.presentScene(scene)
       
@@ -121,14 +114,11 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
       scene.createGroup = false
       
       view.ignoresSiblingOrder = true
-      view.showsFPS = true
-      view.showsNodeCount = true
+      view.showsFPS = false
+      view.showsNodeCount = false
     }
   }
-  
-  
-  
-  
+
   
   override var shouldAutorotate: Bool {
     return false
@@ -143,9 +133,7 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
     }
   }
   
-  
-  
-  
+
   func saveBulbs(){
     scene.enumerateChildNodes(withName: "//*", using:
       { (node, stop) -> Void in

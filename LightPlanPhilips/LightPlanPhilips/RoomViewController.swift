@@ -10,16 +10,25 @@ import UIKit
 import SpriteKit
 
 class RoomViewController: SceneViewController {
+  
+  var scene: RoomScene!
+  var bulbCollection: [Bulb] = []
+  var groupCollection: [Group] = []
+  var bulbId: String = ""
+  var room: Room?
+  let debug = Debug() // debugger functionality
+  
+  
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   
-    @IBAction func doneButton(_ sender: Any) {
+  @IBAction func doneButton(_ sender: Any) {
     self.myHome = DataSource.sharedInstance.myHome
     _ = navigationController?.popToRootViewController(animated: true)
-
-    }
-
-
+    
+  }
+  
+  
   @IBAction func backButton(_ sender: Any) {
     _ = navigationController?.popViewController(animated: true)
   }
@@ -27,14 +36,7 @@ class RoomViewController: SceneViewController {
     _ = navigationController?.popToRootViewController(animated: true)
   }
   
-  var scene: RoomScene!
-  var bulbCollection: [Bulb] = []
-  var groupCollection: [Group] = []
-  //var roomId: String = "b5e23af6-f955-4802-9c89-990e71a48f2a"
-  var bulbId: String = ""
-  var room: Room?
-  
-  let debug = Debug() // debugger functionality
+
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
@@ -52,64 +54,64 @@ class RoomViewController: SceneViewController {
       showGroupViewController.groupId = bulbId
       showGroupViewController.room = self.room
     }
-}
-
-//click group button
-@IBAction func groupClicked(_ sender: Any) {
-  performSegue(withIdentifier: "CreateGroup", sender: nil)
-}
-
-
-
-override func viewWillAppear(_ animated: Bool) {
-  bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: (room?.id)!)
-  groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: (room?.id)!)
-  
-
-  if let view = self.view as! SKView? {
-    // Create spritekit Roomscene
-    scene = SKScene(fileNamed: "RoomScene") as! RoomScene
-    scene.scaleMode = .aspectFill
-    
-    scene.roomSceneDelegate = self
-    view.presentScene(scene)
-    
-    scene.dragDropEnabled = false
-    scene.createGroup = false
-    
-    view.ignoresSiblingOrder = true
-    view.showsFPS = true
-    view.showsNodeCount = true
   }
-}
-
-override var shouldAutorotate: Bool {
-  return false
-}
-
-// delegate functions
-override   func clickBulb(id: String, segue: String){
-  self.bulbId = id
-  performSegue(withIdentifier: segue, sender: nil)
-}
-
-override func groupSelected(groupSelected: Bool) {
-  // not used here
-}
-override func selectedBulbs(bulbs: [Bulb]){
   
-}
-override func getBulbs() -> [Bulb]{
-  return self.bulbCollection
-}
-
-override func getGroups() -> [Group]{
-  return self.groupCollection
-}
-
+  //click group button
+  @IBAction func groupClicked(_ sender: Any) {
+    performSegue(withIdentifier: "CreateGroup", sender: nil)
+  }
+  
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    bulbCollection = DataSource.sharedInstance.getBulbsInRoom(roomId: (room?.id)!)
+    groupCollection = DataSource.sharedInstance.getGroupsInRoom(roomId: (room?.id)!)
+    
+    
+    if let view = self.view as! SKView? {
+      // Create spritekit Roomscene
+      scene = SKScene(fileNamed: "RoomScene") as! RoomScene
+      scene.scaleMode = .aspectFill
+      
+      scene.roomSceneDelegate = self
+      view.presentScene(scene)
+      
+      scene.dragDropEnabled = false
+      scene.createGroup = false
+      
+      view.ignoresSiblingOrder = true
+      view.showsFPS = false
+      view.showsNodeCount = false
+    }
+  }
+  
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
+  // delegate functions
+  override   func clickBulb(id: String, segue: String){
+    self.bulbId = id
+    performSegue(withIdentifier: segue, sender: nil)
+  }
+  
+  override func groupSelected(groupSelected: Bool) {
+    // not used here
+  }
+  override func selectedBulbs(bulbs: [Bulb]){
+    
+  }
+  override func getBulbs() -> [Bulb]{
+    return self.bulbCollection
+  }
+  
+  override func getGroups() -> [Group]{
+    return self.groupCollection
+  }
+  
   override func getRoom() -> Room? {
     return self.room
   }
-
-
+  
+  
 }

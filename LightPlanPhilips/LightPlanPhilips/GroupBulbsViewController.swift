@@ -113,18 +113,11 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     
     group.groupTypeName = groupTypeName
     group.groupTypeIcon = groupTypeIcon
-  
-    //dismiss(animated: true, completion: nil)
-    
-    
+
     _ = navigationController?.popViewController(animated: true)
 
   }
-  
-  
-  
-  
-  
+
   
   @IBAction func unwindToGroup(segue: UIStoryboardSegue) {
     if let svc = segue.source as? ChooseItemTableViewController {
@@ -171,9 +164,8 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
       scene.createGroup = true
       
       view.ignoresSiblingOrder = true
-      
-      view.showsFPS = true
-      view.showsNodeCount = true
+      view.showsFPS = false
+      view.showsNodeCount = false
     }
   }
   
@@ -196,19 +188,12 @@ class GroupBulbsViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
-  
-  
 
   // dismiss keyboard when return is pressed
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     self.view.endEditing(true)
     return false
   }
-
-
-  
-  
-  
   
   func enableDisableButton() {
     if self.groupSelected && self.groupNameFilled && groupTypeName != nil {

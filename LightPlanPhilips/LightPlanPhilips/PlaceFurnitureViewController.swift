@@ -5,7 +5,7 @@ class PlaceFurnitureViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
   let debug = Debug() // debugger functionality
-  
+  var scene: PlaceFurnitureScene?
   
   @IBAction func backButton(_ sender: Any) {
     _ = navigationController?.popViewController(animated: true)
@@ -17,9 +17,9 @@ class PlaceFurnitureViewController: UIViewController {
   }
   
   @IBOutlet weak var nextButton: UIButton!
-  @IBOutlet weak var collectionView: UICollectionView!
   
-  var scene: PlaceFurnitureScene?
+  @IBOutlet weak var collectionView: UICollectionView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView.reloadData()

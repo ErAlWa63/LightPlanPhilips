@@ -15,7 +15,6 @@ protocol RoomSceneDelegate: class {
   func getBulbs() -> [Bulb]
   func getGroups() -> [Group]
   func getRoom() -> Room?
-  func test()
   func groupSelected(groupSelected: Bool)
   func selectedBulbs(bulbs: [Bulb])
 }
@@ -23,26 +22,6 @@ protocol RoomSceneDelegate: class {
 
 class SceneViewController: UIViewController , RoomSceneDelegate {
   // maak hier alle functies in die je wilt, en voeg variabelen toe
-//  private struct customProperties{
-//    static var bulbCollection:[Bulb] = []
-//    static var groupCollection:[Group] = []
-//  }
-//  var bulbCollection:[Bulb] {
-//    get {
-//      return customProperties.bulbCollection
-//      
-//    } set {
-//        customProperties.bulbCollection = newValue
-//    }
-//  }
-//  
-//  var groupCollection: [Group] {
-//    get {
-//      return customProperties.groupCollection
-//    } set {
-//      customProperties.groupCollection = newValue
-//    }
-//  }
   
   func groupSelected(groupSelected: Bool) {
     assert(false, "Implement this in subclass")
@@ -62,13 +41,6 @@ class SceneViewController: UIViewController , RoomSceneDelegate {
     performSegue(withIdentifier: "", sender: nil)
   }
   
- 
-  
-  
-  func test() {
-    print("test")
-  }
-  
   
   func getBulbs() -> [Bulb]{
    return [] //self.bulbCollection
@@ -77,9 +49,6 @@ class SceneViewController: UIViewController , RoomSceneDelegate {
   func getRoom() -> Room? {
     return nil
   }
-  
-  
-  
   
   func getGroups() -> [Group]{
     return [] //self.groupCollection

@@ -11,46 +11,12 @@ import UIKit
 class DataSource: NSObject {
   static let sharedInstance = DataSource()
   private override init() {}
+  
   var myHome: Home = Home()
   
   func createData() {
-//    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2a", name: "Living Room", file: "living.png", grid: [
-//      false, false, false, false, false, false, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false, false, false, false, false, false, false]))
-//    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2b", name: "Kitchen", file: "kitchen.png", grid: [
-//       true,  true, false, false, false, false, false,
-//       true,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false,  true,  true,  true,  true,  true, false,
-//      false, false, false, false, false, false, false]))
-//    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2c", name: "Bedroom", file: "bedroom.png", grid: [
-//      false,  true, false,  true, false,  true, false,
-//      true,  true,  true,  true,  true,  true,  true,
-//      false,  true, false,  true, false,  true, false,
-//      false, false, false, false, false,  true,  true,
-//      false,  true, false,  true, false,  true, false,
-//      true,  true,  true,  true,  true,  true,  true,
-//      false,  true, false,  true, false,  true, false]))
-//    myHome.rooms.append(Room(id: "b5e23af6-f955-4802-9c89-990e71a48f2d", name: "Open space", description: "Definable areas", file: "Open space.png"))
-//    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 0, coordinateY: 100))
-//    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: 100, coordinateY: 100))
-//    myHome.rooms[0].assignedBulbs.append(Bulb(coordinateX: -100, coordinateY: -100))
-    
-    
-    
-    
-    // create some bulbs and add to home (unassigned bulbs)
-    
-    //let image = UIImage(named: "Bulb")
 
-      
+    // create some bulbs and add to home (unassigned bulbs)
     myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
     myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))
     myHome.unassignedBulbs.append(Bulb(name: "E27", image: UIImage(named: "E27")!))

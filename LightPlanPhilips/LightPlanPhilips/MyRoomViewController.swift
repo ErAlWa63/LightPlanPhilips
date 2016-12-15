@@ -2,6 +2,8 @@ import UIKit
 
 class MyRoomViewController: UIViewController {
   var myHome : Home?
+  var myRoom: Room?
+  
   var closureToPerform: ((Home) -> Void)?
   
   @IBOutlet weak var nextButton: UIButton!
@@ -53,6 +55,9 @@ class MyRoomViewController: UIViewController {
   
   private func passInformationToNextScene(segue: UIStoryboardSegue) {
     if segue.identifier == "SelectRoomTypeSegue" {
+      passInformationToSomewhereScene(segue: segue)
+    }
+    if segue.identifier == "showRoom" {
       passInformationToSomewhereScene(segue: segue)
     }
   }

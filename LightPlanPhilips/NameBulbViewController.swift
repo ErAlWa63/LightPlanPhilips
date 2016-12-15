@@ -11,7 +11,15 @@ import SpriteKit
 
 class NameBulbViewController: SceneViewController, UITextFieldDelegate {
 
-  
+  var myHome : Home?
+  var closureToPerform: ((Home) -> Void)?
+  var scene: RoomScene!
+  var bulb: Bulb!
+  var bulbId: String = ""
+  var tempName: String?
+  var tempLightTypeName: String?
+  var tempLightTypeIcon: UIImage?
+  var room: Room?
 
   
   @IBOutlet weak var bulbName: UITextField!
@@ -22,11 +30,8 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
   
   
   @IBAction func saveBulb(_ sender: Any) {
-    
-    
     bulb.name = bulbName.text!
-    
-    
+
     _ = navigationController?.popViewController(animated: true)
     
   }
@@ -66,17 +71,7 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
     }
   }
   
-  
-  var myHome : Home?
-  var closureToPerform: ((Home) -> Void)?
-  var scene: RoomScene!
-  var bulb: Bulb!
-  var bulbId: String = ""
-  var tempName: String?
-  var tempLightTypeName: String?
-  var tempLightTypeIcon: UIImage?
-  var room: Room?
-  
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -138,8 +133,8 @@ class NameBulbViewController: SceneViewController, UITextFieldDelegate {
       scene.noAction = true
       
       view.ignoresSiblingOrder = true
-      view.showsFPS = true
-      view.showsNodeCount = true
+      view.showsFPS = false
+      view.showsNodeCount = false
     }
   }
   
