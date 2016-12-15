@@ -1,3 +1,12 @@
+enum Angle : Int {
+  case Normal = 0
+  case Right
+  case Half
+  case Left
+}
+
+
+
 class RoomShapeModel {
   var myHome : Home?
   
@@ -100,20 +109,13 @@ class RoomShapeModel {
   private var cellW  = false
   private var cellNW = false
   
-  private enum Angle : Int {
-    case Normal = 0
-    case Right
-    case Half
-    case Left
-  }
-  
   let index2GridPoint = [ GridPoint(x: 0, y: 0), GridPoint(x: 1, y: 0), GridPoint(x: 2, y: 0), GridPoint(x: 3, y: 0), GridPoint(x: 4, y: 0), GridPoint(x: 5, y: 0), GridPoint(x: 6, y: 0),
-                      GridPoint(x: 0, y: 1), GridPoint(x: 1, y: 1), GridPoint(x: 2, y: 1), GridPoint(x: 3, y: 1), GridPoint(x: 4, y: 1), GridPoint(x: 5, y: 1), GridPoint(x: 6, y: 1),
-                      GridPoint(x: 0, y: 2), GridPoint(x: 1, y: 2), GridPoint(x: 2, y: 2), GridPoint(x: 3, y: 2), GridPoint(x: 4, y: 2), GridPoint(x: 5, y: 2), GridPoint(x: 6, y: 2),
-                      GridPoint(x: 0, y: 3), GridPoint(x: 1, y: 3), GridPoint(x: 2, y: 3), GridPoint(x: 3, y: 3), GridPoint(x: 4, y: 3), GridPoint(x: 5, y: 3), GridPoint(x: 6, y: 3),
-                      GridPoint(x: 0, y: 4), GridPoint(x: 1, y: 4), GridPoint(x: 2, y: 4), GridPoint(x: 3, y: 4), GridPoint(x: 4, y: 4), GridPoint(x: 5, y: 4), GridPoint(x: 6, y: 4),
-                      GridPoint(x: 0, y: 5), GridPoint(x: 1, y: 5), GridPoint(x: 2, y: 5), GridPoint(x: 3, y: 5), GridPoint(x: 4, y: 5), GridPoint(x: 5, y: 5), GridPoint(x: 6, y: 5),
-                      GridPoint(x: 0, y: 6), GridPoint(x: 1, y: 6), GridPoint(x: 2, y: 6), GridPoint(x: 3, y: 6), GridPoint(x: 4, y: 6), GridPoint(x: 5, y: 6), GridPoint(x: 6, y: 6)]
+                          GridPoint(x: 0, y: 1), GridPoint(x: 1, y: 1), GridPoint(x: 2, y: 1), GridPoint(x: 3, y: 1), GridPoint(x: 4, y: 1), GridPoint(x: 5, y: 1), GridPoint(x: 6, y: 1),
+                          GridPoint(x: 0, y: 2), GridPoint(x: 1, y: 2), GridPoint(x: 2, y: 2), GridPoint(x: 3, y: 2), GridPoint(x: 4, y: 2), GridPoint(x: 5, y: 2), GridPoint(x: 6, y: 2),
+                          GridPoint(x: 0, y: 3), GridPoint(x: 1, y: 3), GridPoint(x: 2, y: 3), GridPoint(x: 3, y: 3), GridPoint(x: 4, y: 3), GridPoint(x: 5, y: 3), GridPoint(x: 6, y: 3),
+                          GridPoint(x: 0, y: 4), GridPoint(x: 1, y: 4), GridPoint(x: 2, y: 4), GridPoint(x: 3, y: 4), GridPoint(x: 4, y: 4), GridPoint(x: 5, y: 4), GridPoint(x: 6, y: 4),
+                          GridPoint(x: 0, y: 5), GridPoint(x: 1, y: 5), GridPoint(x: 2, y: 5), GridPoint(x: 3, y: 5), GridPoint(x: 4, y: 5), GridPoint(x: 5, y: 5), GridPoint(x: 6, y: 5),
+                          GridPoint(x: 0, y: 6), GridPoint(x: 1, y: 6), GridPoint(x: 2, y: 6), GridPoint(x: 3, y: 6), GridPoint(x: 4, y: 6), GridPoint(x: 5, y: 6), GridPoint(x: 6, y: 6)]
   
   private func allowedCorner( index: Int, angle: Angle) -> Bool {
     if let myHome = myHome {
