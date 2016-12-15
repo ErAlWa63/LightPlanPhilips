@@ -1,16 +1,5 @@
-import Foundation
 import UIKit
 import SpriteKit
-
-struct GridPoint {
-  var x: Int
-  var y: Int
-}
-
-struct SpriteKitPoint {
-  var x: Int
-  var y: Int
-}
 
 class Room {
   var id: String
@@ -20,9 +9,15 @@ class Room {
   var assignedBulbs: [Bulb] = []
   var groups: [Group] = []
   var gridCorners : [GridPoint] = []
+  var gridDirections : [Int] = []
   var spritekitCorners : [SpriteKitPoint] = []
   var spritekitCircleSize : [SKShapeNode] = []
   var spritekitTextSize : [SKLabelNode] = []
+  var spritekitSizeDirection : [Angle] = []
+  var spritekitSizeInput : [Bool] = []
+  var spritekitSizeInputHorizontalCount : Int = 0
+  var spritekitSizeInputVerticalCount : Int = 0
+  var spritekitSizeValue : [Double] = []
   var spritekitRealCorners : [SpriteKitPoint] = []
   var gridCellUser = Array(repeating: Bool(), count: 49)
   var gridCellOptimized = Array(repeating: Bool(), count: 49)

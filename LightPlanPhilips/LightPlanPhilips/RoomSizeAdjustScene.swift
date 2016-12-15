@@ -3,6 +3,7 @@ import SpriteKit
 class RoomSizeAdjustScene: SKScene {
   var myHome : Home?
   let roomShapeModel = RoomShapeModel()
+  var indexLabel = 0
   
   override func didMove(to view: SKView) {
     if let myHome = myHome {
@@ -94,12 +95,13 @@ class RoomSizeAdjustScene: SKScene {
   
   private func generateSpritekitTextSize( _ size: Int) -> [SKLabelNode] {
     var spritekitTextSize : [SKLabelNode] = []
-    for _ in 0 ..< size {
+    for index in 0 ..< size {
       let textSize = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
       textSize.text = "?"
       textSize.fontSize = 16
       textSize.fontColor = SKColor.white
       textSize.position = CGPoint(x: 0, y: 0)
+      textSize.name = "\(index)"
       spritekitTextSize.append(textSize)
     }
     return spritekitTextSize
@@ -124,7 +126,7 @@ class RoomSizeAdjustScene: SKScene {
     }
     return spritekitRealCorners
   }
-
+  
   private func showSizeNode(_ position: CGPoint) {
     showCircleSizeSKShapeNode( position)
     showTextSizeSKLabelNode( position, "?")
@@ -152,26 +154,47 @@ class RoomSizeAdjustScene: SKScene {
   var sizeTextField : UITextField?
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if sizeTextField == nil {
-      if let view = view {
-        sizeTextField = UITextField (frame: CGRect(x: 80, y: 430, width: 150, height: 25))
-        if let sizeTextField = sizeTextField {
-          self.backgroundColor = UIColor.white
-          sizeTextField.layer.borderWidth = 1
-          sizeTextField.layer.borderColor  = UIColor.lightGray.cgColor
-          sizeTextField.layer.borderWidth  = 0.5
-          sizeTextField.layer.cornerRadius = 5
-          sizeTextField.tintColor          = UIColor.black
-          sizeTextField.textColor = UIColor.black
-          sizeTextField.placeholder = "Size"
-          sizeTextField.backgroundColor = UIColor.white
-          sizeTextField.autocorrectionType = UITextAutocorrectionType.yes
-          sizeTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
-          sizeTextField.clearButtonMode = UITextFieldViewMode.whileEditing
-          sizeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
-          sizeTextField.delegate = self
-          sizeTextField.isHidden = false
-          view.addSubview(sizeTextField)
+    if let touch = touches.first {
+      let location = touch.location(in: self)
+      let touchedNodes = self.nodes(at: location)
+      
+      for node in touchedNodes {
+        if node is SKLabelNode {
+          if let myHome = myHome {
+            let myRoom = myHome.rooms[myHome.selectedRoom]
+            indexLabel = Int(node.name!)!
+            if myRoom.spritekitSizeInput[indexLabel] == false {
+              myRoom.spritekitSizeInput[indexLabel] = true
+              if sizeTextField == nil {
+                if let view = view {
+                  sizeTextField = UITextField (frame: CGRect(x: 80, y: 430, width: 150, height: 25))
+                  if let sizeTextField = sizeTextField {
+                    self.backgroundColor = UIColor.white
+                    sizeTextField.layer.borderWidth      = 1
+                    sizeTextField.layer.borderColor      = UIColor.lightGray.cgColor
+                    sizeTextField.layer.borderWidth      = 0.5
+                    sizeTextField.layer.cornerRadius     = 5
+                    sizeTextField.tintColor              = UIColor.black
+                    sizeTextField.textColor              = UIColor.black
+                    sizeTextField.placeholder            = "Size"
+                    sizeTextField.backgroundColor        = UIColor.white
+                    sizeTextField.autocorrectionType     = UITextAutocorrectionType.yes
+                    sizeTextField.keyboardType           = UIKeyboardType.numbersAndPunctuation
+                    sizeTextField.clearButtonMode        = UITextFieldViewMode.whileEditing
+                    sizeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+                    sizeTextField.delegate = self
+                    sizeTextField.isHidden = false
+                    view.addSubview(sizeTextField)
+                  }
+                }
+              } else {
+                if let sizeTextField = sizeTextField {
+                  sizeTextField.text = ""
+                  sizeTextField.isHidden = false
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -184,12 +207,64 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    let regex = try! NSRegularExpression(pattern: "^[-+]?[0-9]*\\.?[0-9]+$", options: [])
+    let regex = try! NSRegularExpression(pattern: "^(?:|0|[1-9]\\d*)(?:\\.\\d*)?$", options: [])
     if let text = textField.text {
       let matches = regex.matches(in: text, options:[], range: NSMakeRange(0, text.characters.count))
       guard matches.count == 0
         else {
           textField.resignFirstResponder()
+          if let myHome = myHome {
+            let myRoom = myHome.rooms[myHome.selectedRoom]
+            myRoom.spritekitTextSize[indexLabel].text = text
+            myRoom.spritekitSizeValue[indexLabel] = Double( text)!
+            if indexLabel % 2 == 0 {
+              myRoom.spritekitSizeInputHorizontalCount += 1
+              if (myRoom.spritekitSizeInputHorizontalCount + 1) * 2 == myRoom.spritekitTextSize.count {
+                var step = 0
+                var missingStep = 0
+                var result = 0.0
+                while step < myRoom.spritekitSizeValue.count {
+                  if myRoom.spritekitSizeInput[step] == true {
+                    result += myRoom.spritekitSizeDirection[step] == .Normal ? myRoom.spritekitSizeValue[step] : (-1 * myRoom.spritekitSizeValue[step])
+                  } else {
+                    missingStep = step
+                  }
+                  step += 2
+                }
+                if myRoom.spritekitSizeDirection[missingStep] == .Normal {
+                  result = -1 * result
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                } else {
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                }
+              }
+            } else {
+              myRoom.spritekitSizeInputVerticalCount += 1
+              if (myRoom.spritekitSizeInputVerticalCount + 1) * 2 == myRoom.spritekitTextSize.count {
+                var step = 1
+                var missingStep = 0
+                var result = 0.0
+                while step < myRoom.spritekitSizeValue.count {
+                  if myRoom.spritekitSizeInput[step] == true {
+                    result += myRoom.spritekitSizeDirection[step] == .Right ? myRoom.spritekitSizeValue[step] : (-1 * myRoom.spritekitSizeValue[step])
+                  } else {
+                    missingStep = step
+                  }
+                  step += 2
+                }
+                if myRoom.spritekitSizeDirection[missingStep] == .Right {
+                  result = -1 * result
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                } else {
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                }
+              }
+            }
+          }
           return isTextField2DoublePossible(textField)
       }
     }
@@ -198,7 +273,7 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
   
   private func isTextField2DoublePossible (_ textField: UITextField) -> Bool {
     let doubleValue = Double(textField.text!)
-    if doubleValue != nil {
+    if doubleValue != nil && doubleValue! > 0.0 {
       return stopTextFieldEditing()
     } else {
       return false
@@ -213,7 +288,6 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
   }
   
   internal func textFieldDidBeginEditing(_ textField: UITextField) {
-    textField.text = ""
   }
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

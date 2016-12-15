@@ -6,8 +6,6 @@
 //  Copyright © 2016 The App Academy. All rights reserved.
 //
 
-import Foundation
-
 class Home {
   var unassignedBulbs: [Bulb] = []
   var rooms: [Room] = []

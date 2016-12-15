@@ -26,14 +26,10 @@ class DataSource: NSObject {
     myHome.unassignedBulbs.append(Bulb(name: "GU10", image: UIImage(named: "GU10")!))
     myHome.unassignedBulbs.append(Bulb(name: "BR30", image: UIImage(named: "BR30")!))
     myHome.unassignedBulbs.append(Bulb(name: "BR30", image: UIImage(named: "BR30")!))
-    
-    
   }
   
   func getGroupAreas() -> [ChooseItem]{
     var items:[ChooseItem] = []
-    
-    
     items.append(ChooseItem(name: "Bathroom", image: UIImage(named: "Bathroom")!))
     items.append(ChooseItem(name: "Bedroom", image: UIImage(named: "Bedroom")!))
     items.append(ChooseItem(name: "Dining", image: UIImage(named: "Dining")!))
@@ -45,7 +41,6 @@ class DataSource: NSObject {
   
   func getGroupTypes() -> [ChooseItem]{
     var items:[ChooseItem] = []
-    
     items.append(ChooseItem(name: "Ceiling", image: UIImage(named: "Ceiling")!))
     items.append(ChooseItem(name: "Floor", image: UIImage(named: "Floor")!))
     items.append(ChooseItem(name: "Pendant", image: UIImage(named: "Pendant")!))
@@ -55,13 +50,8 @@ class DataSource: NSObject {
     return items
   }
   
-  
-
-  
-  // get group
   func getGroup(groupId: String) -> Group? {
     var foundgroup: Group?
-    
     for room in myHome.rooms {
       for group in room.groups {
         if group.id == groupId {
@@ -98,8 +88,6 @@ class DataSource: NSObject {
     return nil
   }
   
-  
-  
   // add bulb to room and reove from home
   func moveBulbFromHomeToRoom(bulbId: String, roomId: String) {
     var bulbCounter = 0
@@ -117,9 +105,6 @@ class DataSource: NSObject {
       bulbCounter += 1
     }
   }
-  
-  
-  
   
   // move bulb from room and move to house
   func moveBulbFromRoomToHome(bulbId: String, roomId: String) {
@@ -186,7 +171,6 @@ class DataSource: NSObject {
     }
   }
   
-  
   // create group and add to room
   func addGroupToRoom(roomId: String, group: Group) {
     // find room in home
@@ -242,11 +226,9 @@ class DataSource: NSObject {
     return foundRoom
   }
   
-  
   // get groups in room
   func getGroupsInRoom(roomId: String) -> [Group] {
     var groups: [Group] = []
-    
     // find room in house
     for room in myHome.rooms {
       if room.id == roomId {
@@ -257,7 +239,6 @@ class DataSource: NSObject {
     }
     return groups
   }
-  
   
   // get bulbs in room
   func getBulbsInRoom(roomId: String) -> [Bulb] {
@@ -287,10 +268,8 @@ class DataSource: NSObject {
     return bulbs
   }
   
-  
   // get unassigned bulbs in home
   func getBulbsInHome() -> [Bulb] {
     return myHome.unassignedBulbs
   }
 }
-
