@@ -54,6 +54,9 @@
 		039137441DE4448000A6FB1E /* Extension UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137431DE4448000A6FB1E /* Extension UIButton.swift */; };
 		039137461DE476B200A6FB1E /* LightPlanCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */; };
 		0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */; };
+		03A902211E02A62B006F1047 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A902201E02A62B006F1047 /* Angle.swift */; };
+		03A902231E02A682006F1047 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A902221E02A682006F1047 /* GridPoint.swift */; };
+		03A902251E02A6B0006F1047 /* SpriteKitPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A902241E02A6B0006F1047 /* SpriteKitPoint.swift */; };
 		03AB669D1DDCC6640073221E /* RoomShapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */; };
 		03B2B1871DDA160100CCFF70 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17C1DDA160100CCFF70 /* spot.png */; };
 		03B2B1881DDA160100CCFF70 /* rec_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B2B17D1DDA160100CCFF70 /* rec_spot.png */; };
@@ -145,6 +148,9 @@
 		039137431DE4448000A6FB1E /* Extension UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension UIButton.swift"; sourceTree = "<group>"; };
 		039137451DE476B200A6FB1E /* LightPlanCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightPlanCreatorViewController.swift; sourceTree = "<group>"; };
 		039137491DE4887600A6FB1E /* SelectRoomTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRoomTypeViewController.swift; sourceTree = "<group>"; };
+		03A902201E02A62B006F1047 /* Angle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
+		03A902221E02A682006F1047 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
+		03A902241E02A6B0006F1047 /* SpriteKitPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteKitPoint.swift; sourceTree = "<group>"; };
 		03AB669C1DDCC6640073221E /* RoomShapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShapeViewController.swift; sourceTree = "<group>"; };
 		03B2B17C1DDA160100CCFF70 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spot.png; sourceTree = "<group>"; };
 		03B2B17D1DDA160100CCFF70 /* rec_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rec_spot.png; sourceTree = "<group>"; };
@@ -241,9 +247,12 @@
 		031CEBD11DD3801800E40BCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				03A902201E02A62B006F1047 /* Angle.swift */,
 				9C981AFE1DD4897C00D3DDAF /* DataSource.swift */,
 				9C0BFC961DE5DB63000D6382 /* Home.swift */,
 				9C7D67681DDC4F4F00C0CEAF /* Room.swift */,
+				03A902241E02A6B0006F1047 /* SpriteKitPoint.swift */,
+				03A902221E02A682006F1047 /* GridPoint.swift */,
 				9C7D67661DDC4C8500C0CEAF /* Group.swift */,
 				9C4884A01DD37EEF00DE07EA /* Bulb.swift */,
 				0308784D1DD3ADB7003812A7 /* LightType.swift */,
@@ -510,6 +519,7 @@
 			files = (
 				0308784E1DD3ADB7003812A7 /* LightType.swift in Sources */,
 				0312B1391DF55D5300044DB7 /* PlaceFurnitureScene.swift in Sources */,
+				03A902231E02A682006F1047 /* GridPoint.swift in Sources */,
 				0374EB0F1DD4ABAB002165CD /* Debug.swift in Sources */,
 				03013F151DE8389B002BBA6B /* RoomSizeAdjustScene.swift in Sources */,
 				9C3DE6111DDB4A0600BDD092 /* SceneViewController.swift in Sources */,
@@ -542,6 +552,8 @@
 				9C0BD1DE1DF055F1000BA00C /* ChooseItemTableViewController.swift in Sources */,
 				03BB03131DD0C75B00AD5069 /* AppDelegate.swift in Sources */,
 				0391374A1DE4887600A6FB1E /* SelectRoomTypeViewController.swift in Sources */,
+				03A902211E02A62B006F1047 /* Angle.swift in Sources */,
+				03A902251E02A6B0006F1047 /* SpriteKitPoint.swift in Sources */,
 				9C1200BD1DF18516005D3D61 /* ShowGroupViewController.swift in Sources */,
 				9C0BFC971DE5DB63000D6382 /* Home.swift in Sources */,
 				9C0BFC941DE34F3B000D6382 /* bulbSpriteNode.swift in Sources */,

@@ -160,42 +160,39 @@ class RoomSizeAdjustScene: SKScene {
       
       for node in touchedNodes {
         if node is SKLabelNode {
-          print(">> node = \(node), name = \(node.name)")
-          indexLabel = Int(node.name!)!
-          if sizeTextField == nil {
-            if let view = view {
-              sizeTextField = UITextField (frame: CGRect(x: 80, y: 430, width: 150, height: 25))
-              if let sizeTextField = sizeTextField {
-                self.backgroundColor = UIColor.white
-                sizeTextField.layer.borderWidth = 1
-                sizeTextField.layer.borderColor  = UIColor.lightGray.cgColor
-                sizeTextField.layer.borderWidth  = 0.5
-                sizeTextField.layer.cornerRadius = 5
-                sizeTextField.tintColor          = UIColor.black
-                sizeTextField.textColor = UIColor.black
-                sizeTextField.placeholder = "Size"
-                sizeTextField.backgroundColor = UIColor.white
-                sizeTextField.autocorrectionType = UITextAutocorrectionType.yes
-                sizeTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
-                sizeTextField.clearButtonMode = UITextFieldViewMode.whileEditing
-                sizeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
-                sizeTextField.delegate = self
-                sizeTextField.isHidden = false
-                view.addSubview(sizeTextField)
-              }
-            }
-          } else {
-            if let sizeTextField = sizeTextField {
-              if let myHome = myHome {
-                let myRoom = myHome.rooms[myHome.selectedRoom]
-                if myRoom.spritekitTextSize[indexLabel].text != "?" {
-                  sizeTextField.text = myRoom.spritekitTextSize[indexLabel].text
-                  myRoom.spritekitTextSize[indexLabel].text = "?"
-                } else {
+          if let myHome = myHome {
+            let myRoom = myHome.rooms[myHome.selectedRoom]
+            indexLabel = Int(node.name!)!
+            if myRoom.spritekitSizeInput[indexLabel] == false {
+              myRoom.spritekitSizeInput[indexLabel] = true
+              if sizeTextField == nil {
+                if let view = view {
+                  sizeTextField = UITextField (frame: CGRect(x: 80, y: 430, width: 150, height: 25))
+                  if let sizeTextField = sizeTextField {
+                    self.backgroundColor = UIColor.white
+                    sizeTextField.layer.borderWidth      = 1
+                    sizeTextField.layer.borderColor      = UIColor.lightGray.cgColor
+                    sizeTextField.layer.borderWidth      = 0.5
+                    sizeTextField.layer.cornerRadius     = 5
+                    sizeTextField.tintColor              = UIColor.black
+                    sizeTextField.textColor              = UIColor.black
+                    sizeTextField.placeholder            = "Size"
+                    sizeTextField.backgroundColor        = UIColor.white
+                    sizeTextField.autocorrectionType     = UITextAutocorrectionType.yes
+                    sizeTextField.keyboardType           = UIKeyboardType.numbersAndPunctuation
+                    sizeTextField.clearButtonMode        = UITextFieldViewMode.whileEditing
+                    sizeTextField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+                    sizeTextField.delegate = self
+                    sizeTextField.isHidden = false
+                    view.addSubview(sizeTextField)
+                  }
+                }
+              } else {
+                if let sizeTextField = sizeTextField {
                   sizeTextField.text = ""
+                  sizeTextField.isHidden = false
                 }
               }
-              sizeTextField.isHidden = false
             }
           }
         }
@@ -219,6 +216,12 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
           if let myHome = myHome {
             let myRoom = myHome.rooms[myHome.selectedRoom]
             myRoom.spritekitTextSize[indexLabel].text = text
+            myRoom.spritekitSizeValue = [Double( text)!]
+            if indexLabel % 2 == 0 {
+              myRoom.spritekitSizeInputHorizontalCount += 1
+            } else {
+              myRoom.spritekitSizeInputVerticalCount += 1
+            }
           }
           return isTextField2DoublePossible(textField)
       }

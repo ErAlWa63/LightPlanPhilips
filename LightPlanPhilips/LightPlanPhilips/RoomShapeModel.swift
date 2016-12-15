@@ -1,9 +1,3 @@
-enum Angle : Int {
-  case Normal = 0
-  case Right
-  case Half
-  case Left
-}
 
 
 
@@ -424,11 +418,13 @@ class RoomShapeModel {
           }
         }
         var corner = [index2GridPoint[minimumIndex]]
+        myRoom.spritekitSizeDirection = []
         var currentPoint = corner[0]
         var currentAngle : Angle = .Normal
         var nextPoint = GridPoint(x: currentPoint.x + 1, y: currentPoint.y)
         while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
           currentPoint = nextPoint
+          myRoom.spritekitSizeDirection.append(currentAngle)
           switch currentAngle {
           case .Normal:
             if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
@@ -480,6 +476,7 @@ class RoomShapeModel {
             }
           }
         }
+        myRoom.spritekitSizeDirection.append(.Left)
         return corner
       }
     } else {

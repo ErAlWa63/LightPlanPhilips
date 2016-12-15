@@ -20,6 +20,15 @@ class RoomSizeAdjustViewController: UIViewController {
   var scene: RoomSizeAdjustScene?
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let myHome = myHome {
+      let myRoom = myHome.rooms[myHome.selectedRoom]
+      myRoom.spritekitSizeInput = []
+      myRoom.spritekitSizeValue = []
+      for _ in myRoom.gridCorners {
+        myRoom.spritekitSizeInput.append(false)
+        myRoom.spritekitSizeValue.append(0.0)
+      }
+    }
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
   }
