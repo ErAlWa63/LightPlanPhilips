@@ -216,11 +216,53 @@ extension RoomSizeAdjustScene : UITextFieldDelegate {
           if let myHome = myHome {
             let myRoom = myHome.rooms[myHome.selectedRoom]
             myRoom.spritekitTextSize[indexLabel].text = text
-            myRoom.spritekitSizeValue = [Double( text)!]
+            myRoom.spritekitSizeValue[indexLabel] = Double( text)!
             if indexLabel % 2 == 0 {
               myRoom.spritekitSizeInputHorizontalCount += 1
+              if (myRoom.spritekitSizeInputHorizontalCount + 1) * 2 == myRoom.spritekitTextSize.count {
+                var step = 0
+                var missingStep = 0
+                var result = 0.0
+                while step < myRoom.spritekitSizeValue.count {
+                  if myRoom.spritekitSizeInput[step] == true {
+                    result += myRoom.spritekitSizeDirection[step] == .Normal ? myRoom.spritekitSizeValue[step] : (-1 * myRoom.spritekitSizeValue[step])
+                  } else {
+                    missingStep = step
+                  }
+                  step += 2
+                }
+                if myRoom.spritekitSizeDirection[missingStep] == .Normal {
+                  result = -1 * result
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                } else {
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                }
+              }
             } else {
               myRoom.spritekitSizeInputVerticalCount += 1
+              if (myRoom.spritekitSizeInputVerticalCount + 1) * 2 == myRoom.spritekitTextSize.count {
+                var step = 1
+                var missingStep = 0
+                var result = 0.0
+                while step < myRoom.spritekitSizeValue.count {
+                  if myRoom.spritekitSizeInput[step] == true {
+                    result += myRoom.spritekitSizeDirection[step] == .Right ? myRoom.spritekitSizeValue[step] : (-1 * myRoom.spritekitSizeValue[step])
+                  } else {
+                    missingStep = step
+                  }
+                  step += 2
+                }
+                if myRoom.spritekitSizeDirection[missingStep] == .Right {
+                  result = -1 * result
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                } else {
+                  myRoom.spritekitTextSize[missingStep].text = String(result)
+                  myRoom.spritekitSizeValue[missingStep] = result
+                }
+              }
             }
           }
           return isTextField2DoublePossible(textField)

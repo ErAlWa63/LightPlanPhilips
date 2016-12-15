@@ -424,53 +424,60 @@ class RoomShapeModel {
         var nextPoint = GridPoint(x: currentPoint.x + 1, y: currentPoint.y)
         while !(corner[0].x == nextPoint.x && corner[0].y == nextPoint.y) {
           currentPoint = nextPoint
-          myRoom.spritekitSizeDirection.append(currentAngle)
           switch currentAngle {
           case .Normal:
             if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Left
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Right
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             }
           case .Left:
             if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Half
               nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             } else if (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y - 1) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Normal
               nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             }
           case .Right:
             if  (currentPoint.x + 0) >= 0 && (currentPoint.x + 0) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x + 0) + ((currentPoint.y + 0) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Normal
               nextPoint = GridPoint(x: (currentPoint.x + 1), y: (currentPoint.y + 0))
             } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Half
               nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             }
           case .Half:
             if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y + 0) >= 0 && (currentPoint.y + 0) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y + 0) * 7)] {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Right
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y + 1))
             } else if (currentPoint.x - 1) >= 0 && (currentPoint.x - 1) <= 6 && (currentPoint.y - 1) >= 0 && (currentPoint.y - 1) <= 6 && myRoom.gridCellOptimized[ (currentPoint.x - 1) + ((currentPoint.y - 1) * 7)] {
               nextPoint = GridPoint(x: (currentPoint.x - 1), y: (currentPoint.y + 0))
             } else {
               corner.append(GridPoint(x: currentPoint.x, y: currentPoint.y))
+              myRoom.spritekitSizeDirection.append(currentAngle)
               currentAngle = .Left
               nextPoint = GridPoint(x: (currentPoint.x + 0), y: (currentPoint.y - 1))
             }
