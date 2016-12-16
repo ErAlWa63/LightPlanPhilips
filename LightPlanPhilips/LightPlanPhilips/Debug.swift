@@ -1,13 +1,3 @@
-//
-//  Debug.swift
-//
-//  Created by Erik Waterham on 02/11/2016.
-//  Copyright © 2016 TL. All rights reserved.
-//
-// http://stackoverflow.com/questions/24495039/print-class-name-of-current-file-in-swift
-// http://stackoverflow.com/questions/39674636/swift-3-fast-file-path-separation
-//
-
 import UIKit
 
 class Debug {
@@ -24,3 +14,8 @@ class Debug {
     print("Philips (\(now)) \(URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent) \(function) \(line): \(message)")
   }
 }
+
+//   let debug = Debug() // debugger functionality
+//   debug.console(message: "start", file: #file, function: #function, line: #line)
+
+

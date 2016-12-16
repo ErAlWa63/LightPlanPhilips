@@ -105,11 +105,3 @@ extension SelectRoomTypeViewController: UICollectionViewDelegate {
       cell.pictogramCell.image = listRoomType[indexPath.item].pictogram
   }
 }
-extension UIButton {
-  override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-    let relativeFrame = self.bounds
-    let hitTestEdgeInsets = UIEdgeInsetsMake(-8, -8, -8, -8)
-    let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, hitTestEdgeInsets)
-    return hitFrame.contains(point)
-  }
-}

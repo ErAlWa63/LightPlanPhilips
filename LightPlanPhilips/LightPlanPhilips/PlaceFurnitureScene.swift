@@ -1,16 +1,11 @@
 import SpriteKit
 
 class PlaceFurnitureScene: SKScene {
-//  let debug = Debug() // debugger functionality
   var myHome : Home?
   
-  var movableNode : SKNode?
-  
   override func didMove(to view: SKView) {
-//    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let myHome = myHome {
       let myRoom = myHome.rooms[myHome.selectedRoom]
-//      debug.console(message: "start", file: #file, function: #function, line: #line)
       var coordinateX = 0
       var coordinateY = 0
       let roomBoundary = UIBezierPath()
@@ -32,17 +27,4 @@ class PlaceFurnitureScene: SKScene {
       self.addChild(roomShape)
     }
   }
-  
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-  }
-  
-  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-  }
-  
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-  }
-  
-  override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-  }
-  
 }

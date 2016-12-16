@@ -267,6 +267,7 @@
 				030878781DD48B88003812A7 /* NameLight.swift */,
 				032162C51DF56BFA0071EE57 /* PlaceFurnitureCollectionCell.swift */,
 				9C7D67681DDC4F4F00C0CEAF /* Room.swift */,
+				030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */,
 				03FA2D2C1E003C5C00701A41 /* RoomType.swift */,
 				03353CFB1DFAEE3100B634B6 /* SelectRoomTypeCollectionCell.swift */,
 				03A902241E02A6B0006F1047 /* SpriteKitPoint.swift */,
@@ -298,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				03BB03161DD0C75B00AD5069 /* Main.storyboard */,
-				030CD8151DF07EFD00232D8D /* RoomShapeModel.swift */,
 				03013F161DE838BB002BBA6B /* RoomSizeAdjustScene.sks */,
 				03013F141DE8389B002BBA6B /* RoomSizeAdjustScene.swift */,
 				0312B1361DF55D2E00044DB7 /* PlaceFurnitureScene.sks */,
@@ -619,7 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -debug-time-function-bodies";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -warn-long-function-bodies=100";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

@@ -1,39 +1,9 @@
-//
-//  DataLightPlan.swift
-//  LightPlanPhilips
-//
-//  Created by Erik Waterham on 09/11/2016.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-
 import UIKit
-
-
-//struct Home {
-//  var room : [Room] = []
-//}
-
-//struct Room {
-//  var name        : String
-//  var description : String
-//  var pictogram   : UIImage
-//  
-//  init(name: String, description: String, file: String) {
-//    self.name        = name
-//    self.description = description
-//    self.pictogram   = UIImage(named: file)!
-//  }
-//}
-
 
 struct BulbX {
   var name        : String  // e.g. Bulb 1
   var pictogram   : UIImage
-  //  var room        : Int
-  
 }
-
-
 
 struct Lamp {
   var name      : String
@@ -57,7 +27,6 @@ struct Lamp {
 class DataLightPlan: NSObject {
   static let  sharedInstance = DataLightPlan()
   private override init () {}
-  let debug = Debug() // debugger functionality
   
   var myHome = Home()
   

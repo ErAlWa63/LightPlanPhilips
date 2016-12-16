@@ -21,7 +21,6 @@ class PlaceBulbViewController: SceneViewController, UICollectionViewDelegate, UI
   var bulbId: String = ""
   let reuseIdentifier = "cell"
   var bulbsInHome = DataSource.sharedInstance.getBulbsInHome()
-  let debug = Debug() // debugger functionality
   
   var closureToPerform: ((Home) -> Void)?
   

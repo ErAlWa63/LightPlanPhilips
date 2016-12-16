@@ -16,8 +16,6 @@ class RoomViewController: SceneViewController {
   var groupCollection: [Group] = []
   var bulbId: String = ""
   var room: Room?
-  let debug = Debug() // debugger functionality
-  
   
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?

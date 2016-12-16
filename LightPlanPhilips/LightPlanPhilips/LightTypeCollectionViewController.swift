@@ -1,14 +1,3 @@
-//
-//  LightTypeCollectionViewController.swift
-//  LightPlanPhilips
-//
-//  Created by Erik Waterham on 11/11/2016.
-//  Copyright © 2016 The App Academy. All rights reserved.
-//
-// https://www.raywenderlich.com/136159/uicollectionview-tutorial-getting-started
-//
-// https://www.appcoda.com/ios-collection-view-tutorial/
-
 import UIKit
 
 final class LightTypeCollectionViewController: UICollectionViewController {

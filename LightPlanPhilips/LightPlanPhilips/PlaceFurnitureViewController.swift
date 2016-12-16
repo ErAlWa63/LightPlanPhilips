@@ -4,7 +4,6 @@ import SpriteKit
 class PlaceFurnitureViewController: UIViewController {
   var myHome : Home?
   var closureToPerform: ((Home) -> Void)?
-  let debug = Debug() // debugger functionality
   var scene: PlaceFurnitureScene?
   
   @IBAction func backButton(_ sender: Any) {

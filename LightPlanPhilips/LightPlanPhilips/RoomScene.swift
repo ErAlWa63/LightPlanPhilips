@@ -11,8 +11,6 @@ import SpriteKit
 
 
 class RoomScene: SKScene {
-  let debug = Debug() // debugger functionality
-  
   var delegateRoomSizeAdjust: Bool?
   
   var roomSceneDelegate: RoomSceneDelegate?
@@ -46,7 +44,6 @@ class RoomScene: SKScene {
     
     
     // create room shape
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     var coordinateX = 0
     var coordinateY = 0
     let roomBoundary = UIBezierPath()
@@ -142,8 +139,6 @@ class RoomScene: SKScene {
   
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    
     if let touch = touches.first {
       let location = touch.location(in: self)
       let touchedNodes = self.nodes(at: location)
@@ -220,7 +215,6 @@ class RoomScene: SKScene {
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {
       let location = touch.location(in: self)
       
@@ -242,7 +236,6 @@ class RoomScene: SKScene {
   
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     if let touch = touches.first, movableNode != nil {
       
       let location = touch.location(in: self)
@@ -269,7 +262,6 @@ class RoomScene: SKScene {
   }
   
   override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     if touches.first != nil {
       movableNode = nil
     }
@@ -329,7 +321,6 @@ class RoomScene: SKScene {
   
   
   func checkIfGroup() -> Bool{
-    debug.console(message: "start", file: #file, function: #function, line: #line)
     var counter: Int = 0
     
     for bulb in selectedBulbs {
@@ -348,8 +339,6 @@ class RoomScene: SKScene {
   
   
   func createNewGroup() {
-    debug.console(message: "start", file: #file, function: #function, line: #line)
-    
     let group = [Bulb]()
     
     self.groupCollection.append(group)

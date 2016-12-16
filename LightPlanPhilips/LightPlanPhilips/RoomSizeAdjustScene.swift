@@ -95,13 +95,12 @@ class RoomSizeAdjustScene: SKScene {
   
   private func generateSpritekitTextSize( _ size: Int) -> [SKLabelNode] {
     var spritekitTextSize : [SKLabelNode] = []
-    for index in 0 ..< size {
+    for _ in 0 ..< size {
       let textSize = SKLabelNode(fontNamed: "AppleSDGothicNeo-Bold")
       textSize.text = "?"
-      textSize.fontSize = 16
+      textSize.fontSize = 17
       textSize.fontColor = SKColor.white
       textSize.position = CGPoint(x: 0, y: 0)
-      textSize.name = "\(index)"
       spritekitTextSize.append(textSize)
     }
     return spritekitTextSize
@@ -109,11 +108,12 @@ class RoomSizeAdjustScene: SKScene {
   
   private func generateSpritekitCircleSize( _ size: Int) -> [SKShapeNode] {
     var spritekitCircleSize : [SKShapeNode] = []
-    for _ in 0 ..< size {
+    for index in 0 ..< size {
       let circleSize = SKShapeNode()
       circleSize.path = UIBezierPath(roundedRect: CGRect(x: -25, y: 25, width: 50, height: 50), cornerRadius: 50).cgPath
       circleSize.position = CGPoint(x: 0, y: 0)
       circleSize.fillColor = UIColor.black
+      circleSize.name = "\(index)"
       spritekitCircleSize.append(circleSize)
     }
     return spritekitCircleSize
@@ -159,7 +159,7 @@ class RoomSizeAdjustScene: SKScene {
       let touchedNodes = self.nodes(at: location)
       
       for node in touchedNodes {
-        if node is SKLabelNode {
+          if node is SKShapeNode  && node.name != nil  && node.name != "(Function)"  && node.name != "(null)" {
           if let myHome = myHome {
             let myRoom = myHome.rooms[myHome.selectedRoom]
             indexLabel = Int(node.name!)!
